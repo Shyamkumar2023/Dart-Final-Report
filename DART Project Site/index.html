@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.A.R.T. | FYP Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #e2e8f0; font-family: 'Inter', sans-serif; }
+        .sidebar { background-color: #1e293b; border-right: 1px solid #334155; }
+        .nav-item { transition: all 0.3s; }
+        .nav-item:hover { background-color: #334155; color: #38bdf8; }
+        .active-ring { border-left: 4px solid #38bdf8; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        model-viewer { width: 100%; height: 500px; background-color: #1e293b; border-radius: 12px; }
+    </style>
+</head>
+<body class="flex min-h-screen">
+
+    <nav class="sidebar w-72 fixed h-full overflow-y-auto p-6 z-10">
+        <div class="mb-10">
+            <h1 class="text-2xl font-bold text-sky-400 tracking-widest">D.A.R.T.</h1>
+            <p class="text-xs text-slate-400 mt-1 uppercase tracking-tighter">Autonomous Ballistic Research</p>
+        </div>
+
+        <ul class="space-y-4">
+            <li><a href="#intro" class="nav-item block p-2 rounded">1) Introduction</a></li>
+            <li><a href="#problem" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
+            
+            <li>
+                <details open>
+                    <summary class="nav-item block p-2 rounded font-semibold text-sky-400 flex justify-between">
+                        3) D.A.R.T. Robot <span>▾</span>
+                    </summary>
+                    <ul class="pl-4 mt-2 space-y-2 border-l border-slate-700 ml-2">
+                        <li>
+                            <details>
+                                <summary class="p-1 hover:text-sky-300 flex justify-between">Projectile <span>▾</span></summary>
+                                <ul class="pl-4 text-sm text-slate-400 space-y-1">
+                                    <li><a href="#projectile-mech" class="hover:text-sky-300">- Mechanical Design</a></li>
+                                    <li><a href="#projectile-elec" class="hover:text-sky-300">- Internal Electronics</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="#feeder" class="p-1 block hover:text-sky-300">Feeder</a></li>
+                        <li><a href="#launcher" class="p-1 block hover:text-sky-300">Launcher</a></li>
+                        <li><a href="#pitch" class="p-1 block hover:text-sky-300">Pitch</a></li>
+                        <li><a href="#yaw" class="p-1 block hover:text-sky-300">Yaw</a></li>
+                    </ul>
+                </details>
+            </li>
+
+            <li><a href="#moving-forward" class="nav-item block p-2 rounded">4) Moving Forward</a></li>
+            <li><a href="#conclusion" class="nav-item block p-2 rounded">5) Conclusion</a></li>
+            <li><a href="#references" class="nav-item block p-2 rounded">6) References</a></li>
+        </ul>
+    </nav>
+
+    <main class="ml-72 p-12 w-full max-w-6xl mx-auto">
+        
+        <section id="intro" class="mb-20" data-aos="fade-up">
+            <h2 class="text-4xl font-extrabold mb-6">Autonomous Precision Engineering</h2>
+            <div class="bg-slate-800 p-4 rounded-xl shadow-2xl mb-8">
+                <model-viewer 
+                    src="assets/dart_launcher.glb" 
+                    alt="3D Interactive D.A.R.T. Prototype" 
+                    auto-rotate camera-controls shadow-intensity="1">
+                    <div class="p-4 text-xs text-slate-500">Interactive 3D Prototype: Scroll to zoom, Drag to rotate.</div>
+                </model-viewer>
+            </div>
+            <p class="text-lg leading-relaxed text-slate-300">
+                [Your Introduction Here] - D.A.R.T. is a custom-engineered autonomous system designed to hit 140mm targets from 26m away...
+            </p>
+        </section>
+
+        <hr class="border-slate-800 mb-20">
+
+        <section id="projectile-mech" class="mb-20" data-aos="fade-right">
+            <h3 class="text-2xl font-bold text-sky-400 mb-4">Projectile: Mechanical Design</h3>
+            <div class="grid grid-cols-2 gap-8">
+                <div class="text-slate-300">
+                    Utilizing a zonal multi-material airframe and interlocking carbon-fiber wings, the projectile is designed for high-velocity durability...
+                </div>
+                <div class="rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                    <img src="assets/projectile_render.png" alt="Projectile Render" class="w-full">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>
