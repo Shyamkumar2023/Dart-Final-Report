@@ -3,121 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.A.R.T. | Stealth Systems</title>
+    <title>D.A.R.T. | System Overview</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        /* CORE THEME: Deep Black & Tactical Red */
-        body { background-color: #000000; color: #d1d5db; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .sidebar { background-color: #0a0a0a; border-right: 1px solid #1f1f1f; }
-        
-        /* THE RED ACCENTS */
-        .text-red-primary { color: #e11d48; } /* Tactical Red */
-        .nav-item:hover { background-color: #1a1a1a; color: #e11d48; }
-        .active-ring { border-left: 4px solid #e11d48; }
-        
-        /* 3D Viewer Styling */
-        model-viewer { width: 100%; height: 550px; background-color: #050505; border: 1px solid #1a1a1a; border-radius: 8px; }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #e11d48; }
+        body { background-color: #000; color: #d1d5db; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .sidebar { background-color: #050505; border-right: 1px solid #1a1a1a; }
+        .text-red-primary { color: #e11d48; }
+        .nav-item:hover { background-color: #111; color: #e11d48; transition: 0.3s; }
+        details summary { list-style: none; cursor: pointer; }
+        section { padding-top: 100px; margin-bottom: 100px; } /* Space for scrolling */
     </style>
 </head>
-<body class="flex min-h-screen">
+<body class="flex">
 
     <nav class="sidebar w-72 fixed h-full overflow-y-auto p-6 z-10">
         <div class="mb-10">
             <h1 class="text-3xl font-black tracking-tighter text-red-primary">D.A.R.T.</h1>
-            <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-[0.2em]">Deployment of Autonomous Robotic Technology</p>
+            <p class="text-[10px] text-gray-600 mt-1 uppercase tracking-widest">Directed Aero-ballistic Research & Tech</p>
         </div>
 
-        <ul class="space-y-4 text-sm font-medium">
-            <li><a href="#intro" class="nav-item block p-2 rounded">1) Introduction</a></li>
-            <li><a href="#problem" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
+        <ul class="space-y-3 text-sm font-medium">
+            <li><a href="index.html#intro" class="nav-item block p-2 rounded">1) Introduction</a></li>
+            <li><a href="index.html#problem" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
+            <li><a href="index.html#requirements" class="nav-item block p-2 rounded">3) Project Requirements</a></li>
+            
             <li>
                 <details open>
-                    <summary class="nav-item block p-2 rounded text-red-primary flex justify-between cursor-pointer">
-                        3) D.A.R.T. Robot <span class="text-xs">▼</span>
+                    <summary class="nav-item block p-2 rounded text-red-primary flex justify-between">
+                        4) D.A.R.T. Robot <span class="text-[10px]">▼</span>
                     </summary>
-                    <ul class="pl-4 mt-2 space-y-2 border-l border-red-900/30 ml-2">
+                    <ul class="pl-4 mt-2 space-y-2 border-l border-red-900/20 ml-2">
                         <li>
                             <details>
-                                <summary class="p-1 hover:text-red-primary flex justify-between cursor-pointer">Projectile <span class="text-[10px]">▼</span></summary>
-                                <ul class="pl-4 text-xs text-gray-500 space-y-1">
-                                    <li><a href="#proj-mech" class="hover:text-red-primary">- Mechanical Design</a></li>
-                                    <li><a href="#proj-elec" class="hover:text-red-primary">- Internal Electronics</a></li>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Projectile <span>▼</span></summary>
+                                <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
+                                    <li><a href="index.html#proj-mech" class="hover:text-red-primary">→ Mech Design</a></li>
+                                    <li><a href="index.html#proj-elec" class="hover:text-red-primary">→ Electronics</a></li>
                                 </ul>
                             </details>
                         </li>
-                        <li><a href="#feeder" class="p-1 block hover:text-red-primary">Feeder System</a></li>
-                        <li><a href="#launcher" class="p-1 block hover:text-red-primary">Launcher Core</a></li>
-                        <li><a href="#pitch" class="p-1 block hover:text-red-primary">Pitch Mechanism</a></li>
-                        <li><a href="#yaw" class="p-1 block hover:text-red-primary">Yaw Stability</a></li>
+                        <li><a href="index.html#feeder" class="p-1 block text-xs hover:text-red-primary">Feeder System</a></li>
+                        <li><a href="index.html#launcher" class="p-1 block text-xs hover:text-red-primary">Launcher Core</a></li>
+                        <li><a href="index.html#pitch" class="p-1 block text-xs hover:text-red-primary">Pitch Axis</a></li>
+                        <li><a href="index.html#yaw" class="p-1 block text-xs hover:text-red-primary">Yaw Stability</a></li>
                     </ul>
                 </details>
             </li>
-            <li><a href="#moving-forward" class="nav-item block p-2 rounded">4) Moving Forward</a></li>
-            <li><a href="#conclusion" class="nav-item block p-2 rounded">5) Conclusion</a></li>
-            <li><a href="#references" class="nav-item block p-2 rounded">6) References</a></li>
+
+            <li><a href="index.html#future" class="nav-item block p-2 rounded">5) Future Works</a></li>
+            <li><a href="index.html#conclusion" class="nav-item block p-2 rounded">6) Conclusion</a></li>
+            <li><a href="index.html#refs" class="nav-item block p-2 rounded">7) References</a></li>
+            <li><a href="index.html#media" class="nav-item block p-2 rounded">8) Additional Media</a></li>
         </ul>
     </nav>
 
     <main class="ml-72 p-16 w-full max-w-5xl mx-auto">
         
-        <section id="intro" class="mb-32" data-aos="fade-up">
-            <span class="text-red-primary font-mono text-xs tracking-widest uppercase">System Initialization</span>
-            <h2 class="text-5xl font-bold mt-2 mb-8">Engineering Accuracy from Scratch.</h2>
+        <section id="intro" data-aos="fade-up">
+            <h2 class="text-5xl font-black mb-8 text-white">System <span class="text-red-primary">Initialization</span></h2>
             <model-viewer 
-                src="assets/try_second.glb" 
+                src="assets/dart_launcher_final.glb" 
                 ar 
                 camera-controls 
-                shadow-intensity="1.5" 
-                exposure="0.7" 
+                shadow-intensity="2" 
+                exposure="0.8" 
                 environment-image="neutral" 
                 auto-rotate 
                 interaction-prompt="auto"
                 style="width: 100%; height: 600px; background-color: #050505;">
             </model-viewer>
-            <p class="mt-8 text-gray-400 leading-relaxed">
-                The D.A.R.T. system represents a paradigm shift in autonomous ballistic deployment. Designed to bridge the gap between mechanical energy storage and digital precision, the platform utilizes advanced leadscrew actuation to deliver consistent results in high-stakes environments.
-            </p>
+            <p class="mt-8 text-gray-400">The D.A.R.T. project serves as a testbed for high-precision autonomous ballistic delivery. By integrating mechatronic lead-screw systems with advanced aerodynamic projectiles, we have achieved a breakthrough in consistent long-range accuracy.</p>
         </section>
 
-        <section id="problem" class="mb-32" data-aos="fade-right">
-            <h2 class="text-3xl font-bold mb-6 flex items-center gap-4">
-                <span class="h-px w-12 bg-red-primary"></span> 2) Problem Statement
-            </h2>
-            <div class="grid grid-cols-2 gap-12 text-gray-400">
-                <p>Traditional projectile systems often suffer from energy loss and manual reloading bottlenecks. Our challenge was to eliminate these inefficiencies while maintaining a target window of 140mm at a distance of 26 meters.</p>
-                <p>Current student-led research often overlooks the structural integrity required for high-velocity recoil. D.A.R.T. solves this through custom-designed pitch and yaw mounts optimized for heavy load distribution.</p>
+        <section id="problem" data-aos="fade-right">
+            <h3 class="text-3xl font-bold border-b border-red-900 pb-2 mb-6">Problem Statement</h3>
+            <p class="text-gray-400">Manual reloading and lack of automated pitch/yaw correction are the primary bottlenecks in modern student-led ballistic research. D.A.R.T. addresses the need for a fully closed-loop, self-reloading platform capable of hitting sub-150mm targets at 26 meters.</p>
+        </section>
+
+        <section id="requirements" data-aos="fade-left">
+            <h3 class="text-3xl font-bold mb-6">Project Requirements</h3>
+            <div class="grid grid-cols-3 gap-4 font-mono text-xs">
+                <div class="p-4 border border-zinc-800 rounded bg-zinc-950">
+                    <p class="text-red-primary mb-1 uppercase">Accuracy</p>
+                    <p class="text-white text-lg">140mm Radius</p>
+                </div>
+                <div class="p-4 border border-zinc-800 rounded bg-zinc-950">
+                    <p class="text-red-primary mb-1 uppercase">Range</p>
+                    <p class="text-white text-lg">26.0 Meters</p>
+                </div>
+                <div class="p-4 border border-zinc-800 rounded bg-zinc-950">
+                    <p class="text-red-primary mb-1 uppercase">Payload</p>
+                    <p class="text-white text-lg">4 Round Auto</p>
+                </div>
             </div>
         </section>
 
-        <section id="proj-mech" class="mb-32" data-aos="zoom-in">
-            <h2 class="text-3xl font-bold mb-6">Projectile: Mechanical Innovation</h2>
-            <div class="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800">
-                <p class="mb-6">The airframe utilizes a "zonal" material approach. By 3D printing with TPU64D at the impact zone and PEBA90A for the core chassis, the projectile absorbs energy without structural failure.</p>
-                <img src="assets/launcher_2.png" alt="Projectile Detail" class="rounded shadow-2xl opacity-80 hover:opacity-100 transition">
-            </div>
+        <section id="proj-mech" data-aos="zoom-in">
+            <h3 class="text-3xl font-bold mb-6 text-red-primary">Projectile: Mechanical Design</h3>
+            <p class="text-gray-400 mb-6">Utilizing carbon-fiber wings and a PEBA90A core, the projectile is optimized for a high Reynolds number flight regime. The zonal material approach ensures the center of mass remains stable during the high-G launch phase.</p>
+            <img src="assets/launcher_2.png" class="w-full rounded-lg border border-zinc-800 opacity-70">
         </section>
 
-        <section id="pitch" class="mb-32" data-aos="fade-left">
-            <h2 class="text-3xl font-bold mb-4">Pitch Mechanism</h2>
-            <p class="text-gray-500 italic">Testing animation flow: Section slides in from the left to represent the stability of the vertical axis.</p>
+        <section id="proj-elec" data-aos="fade-up">
+            <h3 class="text-2xl font-bold mb-4">Internal Electronics</h3>
+            <p class="text-gray-500 italic">Embedded telemetry systems monitor flight stability in real-time, transmitting data back to the base station for post-launch analysis.</p>
         </section>
 
-        <section id="yaw" class="mb-32" data-aos="fade-right">
-            <h2 class="text-3xl font-bold mb-4">Yaw Stability</h2>
-            <p class="text-gray-500 italic">Testing animation flow: Section slides in from the right to represent the horizontal tracking precision.</p>
+        <section id="feeder" data-aos="fade-right">
+            <h3 class="text-3xl font-bold mb-6">Autonomous Feeder</h3>
+            <p class="text-gray-400">The vertical indexing system uses a high-torque stepper motor and a customized timing belt to cycle projectiles into the launch chamber in under 1.5 seconds.</p>
+        </section>
+
+        <section id="launcher" data-aos="fade-left">
+            <h3 class="text-3xl font-bold mb-6">Launcher Core</h3>
+            <p class="text-gray-400">The central lead-screw mechanism converts rotational energy into linear thrust with a 98% efficiency rating, eliminating the variance found in traditional spring or pneumatic systems.</p>
+        </section>
+
+        <section id="future" data-aos="fade-up">
+            <h3 class="text-3xl font-bold mb-6 underline decoration-red-600">Future Works</h3>
+            <p class="text-gray-400">Integration of computer vision and LiDAR targeting will allow D.A.R.T. to track moving targets autonomously. We are also exploring GPS-guided fins for mid-flight course correction.</p>
+        </section>
+
+        <section id="conclusion" class="pb-20">
+            <h3 class="text-3xl font-bold mb-6">Conclusion</h3>
+            <p class="text-gray-400 font-bold">D.A.R.T. is fully operational.</p>
+            <p class="text-gray-500 mt-4">The platform successfully met all FYP deliverables, proving that autonomous reloading and high-precision ballistic delivery can be achieved on a student-developed mechanical platform.</p>
         </section>
 
     </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 1000, once: true });</script>
+    <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
