@@ -14,6 +14,14 @@
         .nav-item:hover { background-color: #111; color: #e11d48; transition: 0.3s; }
         details summary { list-style: none; cursor: pointer; }
         section { padding-top: 100px; margin-bottom: 100px; } /* Space for scrolling */
+        /* Style for the active sidebar chapter */
+        .nav-active {
+            color: #e11d48 !important; /* Tactical Red */
+            border-left: 3px solid #e11d48;
+            padding-left: 12px !important;
+            background-color: #0a0a0a;
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body class="flex">
@@ -62,8 +70,8 @@
     <main class="ml-72 p-16 w-full max-w-5xl mx-auto">
 
         <section id="cover" class="min-h-screen flex flex-col justify-center border-b border-zinc-900 pb-20" data-aos="fade-in">
-            <div class="mb-12">
-                <img src="assets/NUS_logo_horizontal.jpg" alt="NUS Logo" class="h-16 w-auto opacity-90">
+            <div class="w-full mb-16">
+                <img src="assets/NUS_logo_horizontal.jpg" alt="NUS Logo" class="w-full h-auto object-contain brightness-110">
             </div>
 
             <div class="mb-16">
@@ -171,5 +179,40 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>AOS.init({ duration: 800, once: true });</script>
+
+    <script>
+        // 1. Identify all sections and all nav links
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-item");
+
+        // 2. Set up the observer
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -70% 0px", // Triggers when section is near the top
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
+                
+                    // Remove active class from all links
+                    navLinks.forEach((link) => {
+                        link.classList.remove("nav-active");
+                        // If your links are inside dropdowns, we handle those too
+                        if (link.getAttribute("href").includes(id)) {
+                            link.classList.add("nav-active");
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // 3. Start watching the sections
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
