@@ -287,6 +287,70 @@
             </div>
         </section>
 
+        <section id="team" class="mb-32 pt-20" data-aos="fade-up">
+            <h2 class="text-5xl font-bold mb-16 text-white uppercase tracking-tighter">
+                Meet the <span class="text-red-primary">Team</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        
+                <div class="group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500">
+                        <img src="assets/shyam.jpg" alt="S Shyamkumar" class="w-full aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">S Shyamkumar</h3>
+                    <p class="text-red-primary font-mono text-xs uppercase tracking-widest mb-4">y4 Mechanical Engineering</p>
+                    <ul class="text-gray-400 text-sm space-y-1 border-l border-zinc-800 pl-4">
+                        <li>• Projectile Design</li>
+                        <li>• Feeder Design</li>
+                        <li>• Launcher Design</li>
+                    </ul>
+                </div>
+
+                <div class="group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500">
+                        <img src="assets/jw.jpg" alt="Ong Jian Wen" class="w-full aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">Ong Jian Wen</h3>
+                    <p class="text-red-primary font-mono text-xs uppercase tracking-widest mb-4">y4 Mechanical Engineering</p>
+                    <ul class="text-gray-400 text-sm space-y-1 border-l border-zinc-800 pl-4">
+                        <li>• Pitch Subsystem</li>
+                        <li>• Yaw Subsystem</li>
+                        <li>• Base structure</li>
+                    </ul>
+                </div>
+
+                <div class="group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500">
+                        <img src="assets/vj.jpg" alt="Veejay" class="w-full aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">Veejay</h3>
+                    <p class="text-red-primary font-mono text-xs uppercase tracking-widest mb-4">y4 Electrical Engineering</p>
+                    <ul class="text-gray-400 text-sm space-y-1 border-l border-zinc-800 pl-4">
+                        <li>• Projectile electronics</li>
+                        <li>• Target Tracking</li>
+                    </ul>
+                </div>
+
+                <div class="group">
+                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500">
+                        <img src="assets/barry.jpg" alt="Barry Ang" class="w-full aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-1">Barry Ang</h3>
+                    <p class="text-red-primary font-mono text-xs uppercase tracking-widest mb-4">y4 Electrical Engineering</p>
+                    <ul class="text-gray-400 text-sm space-y-1 border-l border-zinc-800 pl-4">
+                        <li>• All Subsystem Electronics</li>
+                        <li>• Yaw LCD screen</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
         <section id="robot descrpt" class="mb-32 pt-20" data-aos="fade-up">
             <h2 class="text-5xl font-bold mb-8 text-white uppercase tracking-tighter">
                 <span class="text-red-primary">Full Robot Description</span>
@@ -309,7 +373,7 @@
                     style="width: 100%; height: 650px; background-color: #050505; border-radius: 12px; border: 1px solid #1a1a1a;">
 
                     <button class="hotspot" slot="hotspot-1" data-position="0.2m 0.5m 0.2m" data-normal="0m 1m 0m" onclick="window.location.href='projectile.html'">
-                        <div class="annotation">Projectiles</div>
+                        <div class="annotation">Projectile</div>
                     </button>
 
                     <button class="hotspot" slot="hotspot-2" data-position="-0.2m 0.3m 0.1m" data-normal="0m 1m 0m" onclick="window.location.href='feeder.html'">
@@ -317,7 +381,15 @@
                     </button>
 
                     <button class="hotspot" slot="hotspot-3" data-position="0.1m 0.4m -0.2m" data-normal="0m 1m 0m" onclick="window.location.href='launcher.html'">
-                        <div class="annotation">Launcher Core</div>
+                        <div class="annotation">Launcher System</div>
+                    </button>
+
+                    <button class="hotspot" slot="hotspot-3" data-position="0.1m 0.4m -0.2m" data-normal="0m 1m 0m" onclick="window.location.href='launcher.html'">
+                        <div class="annotation">Pitch System</div>
+                    </button>
+
+                    <button class="hotspot" slot="hotspot-3" data-position="0.1m 0.4m -0.2m" data-normal="0m 1m 0m" onclick="window.location.href='launcher.html'">
+                        <div class="annotation">Yaw System</div>
                     </button>
                 </model-viewer>
                 <div class="absolute bottom-4 right-4 text-[10px] text-gray-600 font-mono uppercase bg-black/80 px-3 py-1 rounded border border-zinc-800">
