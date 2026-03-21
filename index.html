@@ -9,6 +9,46 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         body { background-color: #000; color: #d1d5db; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        /* The Dot */
+        .hotspot {
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: none;
+            background-color: #e11d48; /* Your Tactical Red */
+            box-shadow: 0 0 10px rgba(225, 29, 72, 0.8);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .hotspot:hover {
+            transform: scale(1.5);
+            background-color: #fff;
+        }
+
+        /* The Label */
+        .annotation {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            position: absolute;
+            transform: translate(20px, -50%);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid #e11d48;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+            opacity: 0; /* Hidden until hover */
+            transition: opacity 0.3s;
+        }
+
+        .hotspot:hover .annotation {
+            opacity: 1;
+        }
+
         .sidebar { background-color: #050505; border-right: 1px solid #1a1a1a; }
         .text-red-primary { color: #e11d48; }
         .nav-item:hover { background-color: #111; color: #e11d48; transition: 0.3s; }
@@ -246,6 +286,46 @@
                 </div>
             </div>
         </section>
+
+        <section id="robot descrpt" class="mb-32 pt-20" data-aos="fade-up">
+            <h2 class="text-5xl font-bold mb-8 text-white uppercase tracking-tighter">
+                <span class="text-red-primary">Full Robot Description</span>
+            </h2>
+    
+            <h3 class="text-xl font-mono text-gray-500 mb-6 uppercase tracking-[0.2em]">
+                Subsystems
+            </h3>
+
+            <div class="relative group mb-12">
+                <model-viewer 
+                    src="assets/try_second.glb" 
+                    ar 
+                    camera-controls 
+                    shadow-intensity="2"  
+                    auto-rotate>
+                    <button class="hotspot" slot="hotspot-1" data-position="0.2m 0.5m 0.2m" data-normal="0m 1m 0m" onclick="window.location.href='projectile.html'">
+                        <div class="annotation">Projectiles</div>
+                    </button>
+
+                    <button class="hotspot" slot="hotspot-2" data-position="-0.2m 0.3m 0.1m" data-normal="0m 1m 0m" onclick="window.location.href='feeder.html'">
+                        <div class="annotation">Feeder System</div>
+                    </button>
+
+                    <button class="hotspot" slot="hotspot-3" data-position="0.1m 0.4m -0.2m" data-normal="0m 1m 0m" onclick="window.location.href='launcher.html'">
+                        <div class="annotation">Launcher Core</div>
+                    </button>
+                </model-viewer>
+                <div class="absolute bottom-4 right-4 text-[10px] text-gray-600 font-mono uppercase bg-black/80 px-3 py-1 rounded border border-zinc-800">
+                    D.A.R.T. Assembly V5 
+                </div>
+            </div>
+            <p class="text-gray-400 text-xl leading-relaxed max-w-4xl border-l-2 border-red-900 pl-8">
+            The D.A.R.T. system represents a paradigm shift in autonomous projectile launching. 
+            Designed to bridge the gap between mechanical energy storage and digital precision, 
+            the platform utilizes advanced mechatronic actuation to deliver consistent results for the RMUC competition.
+            </p>
+        </section>
+
 
         <section id="proj-mech" data-aos="zoom-in">
             <h3 class="text-3xl font-bold mb-6 text-red-primary">Projectile: Mechanical Design</h3>
