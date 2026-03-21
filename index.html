@@ -150,20 +150,94 @@
             <p class="text-gray-400">Manual reloading and lack of automated pitch/yaw correction are the primary bottlenecks in modern student-led ballistic research. D.A.R.T. addresses the need for a fully closed-loop, self-reloading platform capable of hitting sub-150mm targets at 26 meters.</p>
         </section>
 
-        <section id="requirements" data-aos="fade-left">
-            <h3 class="text-3xl font-bold mb-6">Project Requirements</h3>
-            <div class="grid grid-cols-3 gap-4 font-mono text-xs">
-                <div class="p-4 border border-zinc-800 rounded bg-zinc-950">
-                    <p class="text-red-primary mb-1 uppercase">Accuracy</p>
-                    <p class="text-white text-lg">140mm Radius</p>
+        <section id="requirements" class="mb-32 pt-20" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-12 text-white uppercase tracking-tighter">
+                3) <span class="text-red-primary">Project Requirements</span>
+            </h2>
+
+            <div class="mb-16">
+                <h3 class="text-xl font-mono text-gray-500 mb-8 uppercase tracking-[0.2em] border-l-4 border-red-900 pl-4">
+                    Robot Specifications
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50 hover:border-red-900/50 transition-colors">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Footprint</p>
+                        <p class="text-white text-lg font-bold mb-4">1m x 0.6m x 1m</p>
+                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Mass Limit</p>
+                        <p class="text-white text-lg font-bold mb-4">< 25.0 kg</p>
+                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Payload Capacity</p>
+                        <p class="text-white text-lg font-bold mb-4">4 Projectiles</p>
+                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Power Source</p>
+                        <p class="text-white text-lg font-bold mb-4">< 30.0 VDC</p>
+                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Pitch Range</p>
+                        <p class="text-white text-lg font-bold mb-4">25° — 45°</p>
+                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">System Integration</p>
+                        <p class="text-white text-lg font-bold mb-4">Full Electronic Housing</p>
+                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
                 </div>
-                <div class="p-4 border border-zinc-800 rounded bg-zinc-950">
-                    <p class="text-red-primary mb-1 uppercase">Range</p>
-                    <p class="text-white text-lg">26.0 Meters</p>
-                </div>
-                <div class="p-4 border border-zinc-800 rounded bg-zinc-950">
-                    <p class="text-red-primary mb-1 uppercase">Payload</p>
-                    <p class="text-white text-lg">4 Round Auto</p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-mono text-gray-500 mb-8 uppercase tracking-[0.2em] border-l-4 border-red-900 pl-4">
+                    Projectile Requirements
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Dimensions</p>
+                        <p class="text-white text-sm font-bold mb-3">0.25m x 0.25m x 0.15m</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Power</p>
+                        <p class="text-white text-sm font-bold mb-3">< 8.4 VDC</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Mass</p>
+                        <p class="text-white text-sm font-bold mb-3">< 350 g</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Electronics</p>
+                        <p class="text-white text-sm font-bold mb-3">Internal Housing</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Autonomy</p>
+                        <p class="text-white text-sm font-bold mb-3">Target Tracking</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Test I</p>
+                        <p class="text-white text-sm font-bold mb-3">Static Target</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+                    </div>
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Test II</p>
+                        <p class="text-white text-sm font-bold mb-3">Random Static</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-bold">Pending</span>
+                    </div>
+                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                        <p class="text-red-primary font-mono text-[10px] uppercase tracking-widest mb-2">Test III</p>
+                        <p class="text-white text-sm font-bold mb-3">Moving Target</p>
+                        <span class="text-[9px] font-black uppercase px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-bold">Pending</span>
+                    </div>
                 </div>
             </div>
         </section>
