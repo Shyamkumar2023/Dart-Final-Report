@@ -206,6 +206,26 @@
             </p>
         </section>
 
+        <div id="problem-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+                } catch (err) {
+                    console.error("Failed to load section:", file);
+                }
+            }
+
+            // Load your chapters
+            loadSection('problem.html', 'problem-placeholder');
+            // Once you make more files, you just add them here:
+            // loadSection('requirements.html', 'requirements-placeholder');
+        </script>
+
         <section id="requirements" class="mb-32 pt-20" data-aos="fade-up">
             <h2 class="text-4xl font-bold mb-12 text-white uppercase tracking-tighter">
                 <span class="text-red-primary">Project Requirements</span>

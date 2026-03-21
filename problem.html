@@ -1,94 +1,33 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Problem Statement | D.A.R.T.</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        body { background-color: #000; color: #d1d5db; font-family: 'Inter', sans-serif; }
-        .sidebar { background-color: #050505; border-right: 1px solid #1a1a1a; }
-        .text-red-primary { color: #e11d48; }
-        .nav-item:hover { background-color: #111; color: #e11d48; transition: 0.3s; }
-        /* Active Page Highlight */
-        .nav-active { color: #e11d48 !important; border-left: 3px solid #e11d48; padding-left: 12px !important; background-color: #0a0a0a; }
-        details summary { list-style: none; cursor: pointer; }
-    </style>
-</head>
-<body class="flex">
 
-    <nav class="sidebar w-72 fixed h-full overflow-y-auto p-6 z-10">
-        <div class="mb-10">
-            <h1 class="text-3xl font-black tracking-tighter text-red-primary uppercase">D.A.R.T.</h1>
-            <p class="text-[10px] text-gray-600 mt-1 uppercase tracking-widest font-bold">Ballistic Solutions</p>
+<section id="problem" class="pt-10" data-aos="fade-right">
+    <h2 class="text-6xl font-black mb-12 text-white uppercase tracking-tighter">
+        2) <span class="text-red-primary">Problem Statement</span>
+    </h2>
+
+    <div class="max-w-4 shadow-xl mb-12 border-l-4 border-red-900 pl-8">
+        <p class="text-2xl text-gray-300 leading-relaxed font-light italic">
+            "7 Years. 26 Meters. 1% Margin for Error."
+        </p>
+    </div>
+
+    <div class="space-y-8 text-xl text-gray-400 leading-relaxed max-w-5xl">
+        <p>
+            For the last seven years, <span class="text-white font-bold">NUS Calibur Robotics</span> has attempted to engineer a projectile launcher from scratch. The objective is deceptively simple but mechanically grueling: launch custom-designed projectiles to strike a moving target at a distance of 26 meters with absolute accuracy.
+        </p>
+
+        <p>
+            Manual reloading and a lack of automated pitch/yaw correction have historically been the primary bottlenecks in student-led ballistic research. Current industry designs often rely on flywheels, springs, or compressed air—methods that introduce significant variance and mechanical fatigue over time.
+        </p>
+
+        <div class="bg-zinc-950 border border-zinc-800 p-8 rounded-2xl my-12">
+            <h4 class="text-red-primary font-mono uppercase tracking-widest mb-4 text-sm font-bold">The Challenge</h4>
+            <p class="text-white text-2xl font-bold">
+                D.A.R.T. addresses the critical need for a fully closed-loop, self-reloading platform capable of hitting sub-150mm targets while adhering to the rigorous competition rules set by DJI Robomasters.
+            </p>
         </div>
 
-        <ul class="space-y-3 text-sm font-medium">
-            <li><a href="index.html" class="nav-item block p-2 rounded">1) Introduction</a></li>
-            <li><a href="problem.html" class="nav-item nav-active block p-2 rounded">2) Problem Statement</a></li>
-            <li><a href="requirements.html" class="nav-item block p-2 rounded">3) Project Requirements</a></li>
-            
-            <li>
-                <details open>
-                    <summary class="nav-item block p-2 rounded text-red-primary flex justify-between">
-                        4) D.A.R.T. Robot <span class="text-[10px]">▼</span>
-                    </summary>
-                    <ul class="pl-4 mt-2 space-y-2 border-l border-red-900/20 ml-2">
-                        <li><a href="projectile.html" class="nav-item p-1 block text-xs">Projectile</a></li>
-                        <li><a href="feeder.html" class="nav-item p-1 block text-xs">Feeder System</a></li>
-                        <li><a href="launcher.html" class="nav-item p-1 block text-xs">Launcher Core</a></li>
-                        <li><a href="pitch.html" class="nav-item p-1 block text-xs">Pitch Axis</a></li>
-                        <li><a href="yaw.html" class="nav-item p-1 block text-xs">Yaw Stability</a></li>
-                    </ul>
-                </details>
-            </li>
-
-            <li><a href="future.html" class="nav-item block p-2 rounded">5) Future Works</a></li>
-            <li><a href="conclusion.html" class="nav-item block p-2 rounded">6) Conclusion</a></li>
-            <li><a href="references.html" class="nav-item block p-2 rounded">7) References</a></li>
-            <li><a href="media.html" class="nav-item block p-2 rounded">8) Additional Media</a></li>
-        </ul>
-    </nav>
-
-    <main class="ml-72 p-16 w-full px-20">
-        
-        <section id="problem" class="pt-10" data-aos="fade-right">
-            <h2 class="text-6xl font-black mb-12 text-white uppercase tracking-tighter">
-                2) <span class="text-red-primary">Problem Statement</span>
-            </h2>
-
-            <div class="max-w-4 shadow-xl mb-12 border-l-4 border-red-900 pl-8">
-                <p class="text-2xl text-gray-300 leading-relaxed font-light italic">
-                    "7 Years. 26 Meters. 1% Margin for Error."
-                </p>
-            </div>
-
-            <div class="space-y-8 text-xl text-gray-400 leading-relaxed max-w-5xl">
-                <p>
-                    For the last seven years, <span class="text-white font-bold">NUS Calibur Robotics</span> has attempted to engineer a projectile launcher from scratch. The objective is deceptively simple but mechanically grueling: launch custom-designed projectiles to strike a moving target at a distance of 26 meters with absolute accuracy.
-                </p>
-
-                <p>
-                    Manual reloading and a lack of automated pitch/yaw correction have historically been the primary bottlenecks in student-led ballistic research. Current industry designs often rely on flywheels, springs, or compressed air—methods that introduce significant variance and mechanical fatigue over time.
-                </p>
-
-                <div class="bg-zinc-950 border border-zinc-800 p-8 rounded-2xl my-12">
-                    <h4 class="text-red-primary font-mono uppercase tracking-widest mb-4 text-sm font-bold">The Challenge</h4>
-                    <p class="text-white text-2xl font-bold">
-                        D.A.R.T. addresses the critical need for a fully closed-loop, self-reloading platform capable of hitting sub-150mm targets while adhering to the rigorous competition rules set by DJI Robomasters.
-                    </p>
-                </div>
-
-                <p>
-                    Overcoming external disturbances, EMF interference, and the complex aerodynamics of zonal-material projectiles required a novice mechatronic approach. This report outlines how we transitioned from theoretical stability to a functional, mission-ready prototype.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, once: true });</script>
-</body>
-</html>
+        <p>
+            Overcoming external disturbances, EMF interference, and the complex aerodynamics of zonal-material projectiles required a novice mechatronic approach. This report outlines how we transitioned from theoretical stability to a functional, mission-ready prototype.
+        </p>
+    </div>
+</section>
