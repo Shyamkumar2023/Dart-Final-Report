@@ -95,7 +95,7 @@
 
         <ul class="space-y-3 text-sm font-medium">
             <li><a href="index.html#intro" class="nav-item block p-2 rounded">1) Introduction</a></li>
-            <li><a href="problem.html" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
+            <li><a href="#problem-placeholder" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
             <li><a href="index.html#requirements" class="nav-item block p-2 rounded">3) Project Requirements</a></li>
             
             <li>
@@ -213,17 +213,23 @@
             async function loadSection(file, elementId) {
                 try {
                     const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
                 } catch (err) {
-                    console.error("Failed to load section:", file);
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
 
-            // Load your chapters
+            // Load the Problem section
             loadSection('problem.html', 'problem-placeholder');
-            // Once you make more files, you just add them here:
-            // loadSection('requirements.html', 'requirements-placeholder');
         </script>
 
         <section id="requirements" class="mb-32 pt-20" data-aos="fade-up">
