@@ -113,10 +113,43 @@
                                 </ul>
                             </details>
                         </li>
-                        <li><a href="index.html#feeder" class="p-1 block text-xs hover:text-red-primary">Feeder System</a></li>
-                        <li><a href="index.html#launcher" class="p-1 block text-xs hover:text-red-primary">Launcher Core</a></li>
-                        <li><a href="index.html#pitch" class="p-1 block text-xs hover:text-red-primary">Pitch Axis</a></li>
-                        <li><a href="index.html#yaw" class="p-1 block text-xs hover:text-red-primary">Yaw Stability</a></li>
+                        <li>
+                            <details>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Feeder <span>▼</span></summary>
+                                <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
+                                    <li><a href="#feedermech-placeholder" class="hover:text-red-primary">→ Feeder Design</a></li>
+                                    <li><a href="#feederelect-placeholder" class="hover:text-red-primary">→Feeder Electronics</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Launcher <span>▼</span></summary>
+                                <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
+                                    <li><a href="#launchermech-placeholder" class="hover:text-red-primary">→ Launcher Design</a></li>
+                                    <li><a href="#launcherelect-placeholder" class="hover:text-red-primary">→Launcher Electronics</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Pitch <span>▼</span></summary>
+                                <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
+                                    <li><a href="#pitchmech-placeholder" class="hover:text-red-primary">→ Pitch Design</a></li>
+                                    <li><a href="#pitchelect-placeholder" class="hover:text-red-primary">→Pitch Electronics</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li>
+                            <details>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Yaw <span>▼</span></summary>
+                                <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
+                                    <li><a href="#yawmech-placeholder" class="hover:text-red-primary">→ Yaw Design</a></li>
+                                    <li><a href="#ywelect-placeholder" class="hover:text-red-primary">→Yaw Electronics</a></li>
+                                </ul>
+                            </details>
+                        </li>
+                        <li><a href="#base-placeholder" class="p-1 block text-xs hover:text-red-primary">Base</a></li>
                     </ul>
                 </details>
             </li>
@@ -422,17 +455,245 @@
             loadSection('projectilintelect.html', 'projectintelect-placeholder');
         </script>
 
+        <div id="feedermech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('feeder.html', 'feeder-placeholder');
+        </script>
+
+        <div id="feederelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('feederelect.html', 'feederelect-placeholder');
+        </script>
+
+        <div id="launchermech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('launcher.html', 'launchermech-placeholder');
+        </script>
+
+        <div id="launcherelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('launcherelect.html', 'launcherelect-placeholder');
+        </script>
+
+        <div id="pitchmech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('pitch.html', 'pitchmech-placeholder');
+        </script>
+
+        <div id="pitchelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('pitchelect.html', 'pitchelect-placeholder');
+        </script>
+
+        <div id="yawmech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('yaw.html', 'yawmech-placeholder');
+        </script>
+
+        <div id="yawelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('yawelect.html', 'yawelect-placeholder');
+        </script>
+
+        <div id="base-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('base.html', 'base-placeholder');
+        </script>
 
 
-        <section id="feeder" data-aos="fade-right">
-            <h3 class="text-3xl font-bold mb-6">Autonomous Feeder</h3>
-            <p class="text-gray-400">The vertical indexing system uses a high-torque stepper motor and a customized timing belt to cycle projectiles into the launch chamber in under 1.5 seconds.</p>
-        </section>
 
-        <section id="launcher" data-aos="fade-left">
-            <h3 class="text-3xl font-bold mb-6">Launcher Core</h3>
-            <p class="text-gray-400">The central lead-screw mechanism converts rotational energy into linear thrust with a 98% efficiency rating, eliminating the variance found in traditional spring or pneumatic systems.</p>
-        </section>
+        
+
+        
 
         <section id="future" data-aos="fade-up">
             <h3 class="text-3xl font-bold mb-6 underline decoration-red-600">Future Works</h3>
