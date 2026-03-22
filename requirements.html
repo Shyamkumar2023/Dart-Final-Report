@@ -1,86 +1,96 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.A.R.T. | FYP Report</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        body { background-color: #000; color: #d1d5db; font-family: 'Inter', sans-serif; }
-        .sidebar { background-color: #0a0a0a; border-right: 1px solid #1f1f1f; }
-        .text-red-primary { color: #e11d48; }
-        .nav-item:hover { background-color: #1a1a1a; color: #e11d48; transition: 0.3s; }
-        details summary { list-style: none; cursor: pointer; }
-        details summary::-webkit-details-marker { display: none; }
-    </style>
-</head>
-<body class="flex">
+<section id="requirements" class="mb-32 pt-20" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-12 text-white uppercase tracking-tighter">
+        <span class="text-red-primary">Project Requirements</span>
+    </h2>
 
-    <nav class="sidebar w-72 fixed h-full overflow-y-auto p-6 z-10">
-        <div class="mb-10">
-            <h1 class="text-3xl font-black tracking-tighter text-red-primary">D.A.R.T.</h1>
-            <p class="text-[10px] text-gray-500 mt-1 uppercase tracking-widest">Autonomous Systems Lab</p>
+    <div class="mb-16">
+        <h3 class="text-xl font-mono text-gray-500 mb-8 uppercase tracking-[0.2em] border-l-4 border-red-900 pl-4">
+            Robot Specifications
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50 hover:border-red-900/50 transition-colors">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Dimensions</p>
+                <p class="text-white text-lg font-bold mb-4">1m x 0.6m x 1m</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50 hover:border-red-900/50 transition-colors">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Automation</p>
+                <p class="text-white text-lg font-bold mb-4">Reload 3 projectiles</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Mass Limit</p>
+                <p class="text-white text-lg font-bold mb-4">< 25.0 kg</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Payload Capacity</p>
+                <p class="text-white text-lg font-bold mb-4">4 Projectiles</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Power Source</p>
+                <p class="text-white text-lg font-bold mb-4">< 30.0 VDC</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+                <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Pitch Range</p>
+                <p class="text-white text-lg font-bold mb-4">25° — 45°</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">System Integration</p>
+                <p class="text-white text-lg font-bold mb-4">Full Electronic Housing</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
         </div>
+    </div>
 
-        <ul class="space-y-4 text-sm font-medium">
-            <li><a href="index.html" class="nav-item block p-2 rounded">1) Introduction</a></li>
-            <li><a href="problem.html" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
-            <li><a href="requirements.html" class="nav-item block p-2 rounded">3) Project Requirements</a></li>
-            
-            <li>
-                <details open>
-                    <summary class="nav-item block p-2 rounded text-red-primary flex justify-between">
-                        4) D.A.R.T. Robot <span>▼</span>
-                    </summary>
-                    <ul class="pl-4 mt-2 space-y-3 border-l border-red-900/30 ml-2">
-                        <li>
-                            <details>
-                                <summary class="hover:text-red-primary flex justify-between">Projectile <span>▼</span></summary>
-                                <ul class="pl-4 mt-1 text-xs text-gray-500 space-y-1">
-                                    <li><a href="projectile.html#mech" class="hover:text-red-primary">→ Mechanical Design</a></li>
-                                    <li><a href="projectile.html#elec" class="hover:text-red-primary">→ Internal Electronics</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                            <details>
-                                <summary class="hover:text-red-primary flex justify-between">Feeder <span>▼</span></summary>
-                                <ul class="pl-4 mt-1 text-xs text-gray-500 space-y-1">
-                                    <li><a href="feeder.html#mech" class="hover:text-red-primary">→ Mechanical Design</a></li>
-                                    <li><a href="feeder.html#elec" class="hover:text-red-primary">→ Electrical Design</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li>
-                            <details>
-                                <summary class="hover:text-red-primary flex justify-between">Launcher <span>▼</span></summary>
-                                <ul class="pl-4 mt-1 text-xs text-gray-500 space-y-1">
-                                    <li><a href="launcher.html#mech" class="hover:text-red-primary">→ Mechanical Design</a></li>
-                                    <li><a href="launcher.html#elec" class="hover:text-red-primary">→ Electrical Design</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a href="pitch-yaw.html" class="hover:text-red-primary block p-1">Pitch & Yaw Systems</a></li>
-                    </ul>
-                </details>
-            </li>
-
-            <li><a href="future-works.html" class="nav-item block p-2 rounded">5) Future Works</a></li>
-            <li><a href="conclusion.html" class="nav-item block p-2 rounded">6) Conclusion</a></li>
-            <li><a href="references.html" class="nav-item block p-2 rounded">7) References</a></li>
-            <li><a href="media.html" class="nav-item block p-2 rounded">8) Additional Media</a></li>
-        </ul>
-    </nav>
-
-    <main class="ml-72 p-16 w-full max-w-5xl mx-auto">
-        <section id="content" data-aos="fade-up">
-            <h2 class="text-4xl font-bold text-white mb-6 underline decoration-red-600">Chapter Title</h2>
-            <p class="text-gray-400">Add your text and images here...</p>
-        </section>
-    </main>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ duration: 800, once: true });</script>
-</body>
-</html>
+    <div>
+        <h3 class="text-xl font-mono text-gray-500 mb-8 uppercase tracking-[0.2em] border-l-4 border-red-900 pl-4">
+            Projectile Requirements
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Dimensions</p>
+                <p class="text-white text-sm font-bold mb-3">0.25m x 0.25m x 0.15m</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Power</p>
+                <p class="text-white text-sm font-bold mb-3">< 8.4 VDC</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Mass</p>
+                <p class="text-white text-sm font-bold mb-3">< 350 g</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Electronics</p>
+                <p class="text-white text-sm font-bold mb-3">Internal Housing</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Autonomy</p>
+                <p class="text-white text-sm font-bold mb-3">Target Tracking</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Test I</p>
+                <p class="text-white text-sm font-bold mb-3">Fixed Target 26m </p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
+            </div>
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Test II</p>
+                <p class="text-white text-sm font-bold mb-3">Random Fixed Target</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-bold">Pending</span>
+            </div>
+            <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
+                <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Test III</p>
+                <p class="text-white text-sm font-bold mb-3">Random Moving Target</p>
+                <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-bold">Pending</span>
+            </div>
+        </div>
+    </div>
+</section>

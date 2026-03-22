@@ -96,7 +96,7 @@
         <ul class="space-y-3 text-sm font-medium">
             <li><a href="index.html#intro" class="nav-item block p-2 rounded">1) Introduction</a></li>
             <li><a href="#problem-placeholder" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
-            <li><a href="index.html#requirements" class="nav-item block p-2 rounded">3) Project Requirements</a></li>
+            <li><a href="#requirements-placeholder" class="nav-item block p-2 rounded">3) Project Requirements</a></li>
             
             <li>
                 <details open>
@@ -232,102 +232,33 @@
             loadSection('problem.html', 'problem-placeholder');
         </script>
 
-        <section id="requirements" class="mb-32 pt-20" data-aos="fade-up">
-            <h2 class="text-4xl font-bold mb-12 text-white uppercase tracking-tighter">
-                <span class="text-red-primary">Project Requirements</span>
-            </h2>
+        <div id="requirements-placeholder"></div>
 
-            <div class="mb-16">
-                <h3 class="text-xl font-mono text-gray-500 mb-8 uppercase tracking-[0.2em] border-l-4 border-red-900 pl-4">
-                    Robot Specifications
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50 hover:border-red-900/50 transition-colors">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Dimensions</p>
-                        <p class="text-white text-lg font-bold mb-4">1m x 0.6m x 1m</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50 hover:border-red-900/50 transition-colors">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Automation</p>
-                        <p class="text-white text-lg font-bold mb-4">Reload 3 projectiles</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Mass Limit</p>
-                        <p class="text-white text-lg font-bold mb-4">< 25.0 kg</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Payload Capacity</p>
-                        <p class="text-white text-lg font-bold mb-4">4 Projectiles</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Power Source</p>
-                        <p class="text-white text-lg font-bold mb-4">< 30.0 VDC</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Pitch Range</p>
-                        <p class="text-white text-lg font-bold mb-4">25° — 45°</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-6 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">System Integration</p>
-                        <p class="text-white text-lg font-bold mb-4">Full Electronic Housing</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                </div>
-            </div>
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
 
-            <div>
-                <h3 class="text-xl font-mono text-gray-500 mb-8 uppercase tracking-[0.2em] border-l-4 border-red-900 pl-4">
-                    Projectile Requirements
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Dimensions</p>
-                        <p class="text-white text-sm font-bold mb-3">0.25m x 0.25m x 0.15m</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Power</p>
-                        <p class="text-white text-sm font-bold mb-3">< 8.4 VDC</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Mass</p>
-                        <p class="text-white text-sm font-bold mb-3">< 350 g</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Electronics</p>
-                        <p class="text-white text-sm font-bold mb-3">Internal Housing</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Autonomy</p>
-                        <p class="text-white text-sm font-bold mb-3">Target Tracking</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Test I</p>
-                        <p class="text-white text-sm font-bold mb-3">Fixed Target 26m </p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-green-500/10 text-green-500">Fulfilled</span>
-                    </div>
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Test II</p>
-                        <p class="text-white text-sm font-bold mb-3">Random Fixed Target</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-bold">Pending</span>
-                    </div>
-                    <div class="p-5 border border-zinc-800 rounded-xl bg-zinc-950/50">
-                        <p class="text-red-primary font-mono text-sm uppercase tracking-[0.2em] mb-4 font-bold">Test III</p>
-                        <p class="text-white text-sm font-bold mb-3">Random Moving Target</p>
-                        <span class="text-[10px] font-black uppercase px-2 py-1 rounded bg-yellow-500/10 text-yellow-500 font-bold">Pending</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+            // Load the Problem section
+            loadSection('requirements.html', 'requirements-placeholder');
+        </script>
+
+        
 
         <section id="team" class="mb-32 pt-20" data-aos="fade-up">
             <h2 class="text-5xl font-bold mb-16 text-white uppercase tracking-tighter">
