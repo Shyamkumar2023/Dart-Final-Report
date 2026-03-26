@@ -6,8 +6,7 @@
                 Projectile Design
             </h3>
             <p class="text-gray-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8">
-                Utilizing carbon-fiber wings and a PEBA90A core, the projectile is optimized for a high Reynolds number flight regime. 
-                The zonal material approach ensures the center of mass remains stable during the high-G launch phase.
+                The D.A.R.T. projectile is engineered to bridge the gap between high-G mechanical survival and digital flight precision. By fusing the structural rigidity of carbon fiber with a high-impact PEBA90A zonal core, the system is built to withstand the violence of launch while maintaining the aerodynamic agility required for mid-air trajectory correction at a range of 26 meters.
             </p>
         </div>
 
@@ -25,5 +24,30 @@
             <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 ME</p>
         </div>
 
+    </div>
+</section>
+
+<section id="impact-analysis" class="mb-20 p-8 border border-zinc-900 rounded-2xl bg-zinc-950/20" data-aos="fade-up">
+    <h3 class="text-2xl font-bold text-red-primary mb-6 uppercase tracking-tighter">Impact Motion Analysis</h3>
+    
+    <div class="relative w-full overflow-hidden rounded-xl border border-zinc-800 bg-black">
+        <video id="impactVideo" class="w-full h-auto pointer-events-none" preload="auto">
+            <source src="assets/impact_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="absolute top-4 right-4 bg-black/80 border border-red-900/50 px-3 py-1 rounded font-mono text-[10px] text-gray-400">
+            TS: <span id="timestamp" class="text-white">0.00s</span> | FR: <span id="frameNum" class="text-white">0</span>
+        </div>
+    </div>
+
+    <div class="mt-8 px-4">
+        <input type="range" id="scrubber" min="0" max="100" value="0" step="0.1" 
+               class="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-red-600">
+        <div class="flex justify-between mt-2 text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+            <span>Launch [t=0]</span>
+            <span>Drag to Analyze Impact Phase</span>
+            <span>Target Contact [t=6.0]</span>
+        </div>
     </div>
 </section>

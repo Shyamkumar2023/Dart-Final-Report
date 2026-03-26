@@ -412,6 +412,8 @@
         <div id="projectilemech-placeholder"></div>
 
         <script>
+            // Call this after your Stitcher loads the section
+            // loadSection('projectile.html', 'projectile-placeholder').then(initScrubber);
             // The Stitcher: Pulls sub-files into the main page
             async function loadSection(file, elementId) {
                 try {
@@ -431,8 +433,39 @@
                 }
             }
 
+            // Function to initialize the video scrubber
+            function initScrubber() {
+                const video = document.getElementById('impactVideo');
+                const slider = document.getElementById('scrubber');
+                const tsDisplay = document.getElementById('timestamp');
+                const frameDisplay = document.getElementById('frameNum');
+
+                if (!video || !slider) return;
+
+                // 1. Update video time based on slider movement
+                slider.addEventListener('input', () => {
+                    // Map slider (0-100) to video duration
+                    const time = (slider.value / 100) * video.duration;
+                    video.currentTime = time;
+        
+                    // Update readouts
+                    tsDisplay.innerText = time.toFixed(2) + 's';
+                    frameDisplay.innerText = Math.floor(time * 30); // Assumes 30fps
+                });
+
+                // 2. Ensure slider range is ready when video metadata loads
+                video.addEventListener('loadedmetadata', () => {
+                    slider.value = 0;
+                    video.currentTime = 0;
+                });
+            }
+
+
             // Load the requirements section
-            loadSection('projectile.html', 'projectilemech-placeholder');
+            // Load the section and THEN initialize the scrubber once the HTML is actually there
+            loadSection('projectile.html', 'projectilemech-placeholder').then(() => {
+                initScrubber();
+            });
         </script>
 
         <div id="projectintelect-placeholder"></div>
