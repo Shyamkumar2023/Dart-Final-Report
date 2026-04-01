@@ -233,4 +233,130 @@
             </p>
         </div>
     </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-32 px-6">
+        <div class="p-8 bg-zinc-950 border border-zinc-900 rounded-2xl relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
+            <h5 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">01. Zero-Force Separation</h5>
+            <p class="text-zinc-400 text-sm leading-relaxed">The projectile detaches from the carrier <b>before</b> deceleration begins, ensuring no parasitic drag affects the exit vector.</p>
+        </div>
+        <div class="p-8 bg-zinc-950 border border-zinc-900 rounded-2xl relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
+            <h5 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">02. Structural Preservation</h5>
+            <p class="text-zinc-400 text-sm leading-relaxed">Kinetic energy is dissipated over a $130\text{mm}$ distance via secondary bands, preventing frame fatigue and fracture.</p>
+        </div>
+        <div class="p-8 bg-zinc-950 border border-zinc-900 rounded-2xl relative overflow-hidden group">
+            <div class="absolute top-0 left-0 w-1 h-full bg-red-600"></div>
+            <h5 class="text-white font-bold mb-4 uppercase text-xs tracking-widest">03. Momentum Maximization</h5>
+            <p class="text-zinc-400 text-sm leading-relaxed">100% of the "Follow-Through" energy is preserved in the projectile, resulting in the successful 25m range.</p>
+        </div>
+    </div>
+
+    <div class="space-y-16 pb-32">
+        <div class="max-w-4xl px-6">
+            <h2 class="text-4xl font-bold text-white mb-6 uppercase tracking-tight">Theoretical Pivot: <span class="text-red-600">Energy Density</span></h2>
+            <p class="text-zinc-400 text-lg leading-relaxed">
+                Initial testing utilized standard TPE Decathlon resistance bands. While providing a convenient baseline, our empirical data revealed a paradoxical performance issue: <b>As resistance increased, range decreased.</b>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+            <img src="assets/decathexpl.png" alt="Decathlon Band Variations" class="rounded-2xl border border-zinc-800 shadow-2xl">
+            <video src="assets/decathslowmo.mp4" autoplay loop muted playsinline class="rounded-2xl border border-zinc-800 shadow-2xl"></video>
+        </div>
+
+        <div class="px-6 overflow-x-auto">
+            <table class="w-full text-left bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden">
+                <thead class="bg-zinc-900">
+                    <tr>
+                        <th class="p-6 text-red-600 font-mono text-xs uppercase">Propulsion Source</th>
+                        <th class="p-6 text-red-600 font-mono text-xs uppercase">Max Resistance</th>
+                        <th class="p-6 text-red-600 font-mono text-xs uppercase">Draw Length</th>
+                        <th class="p-6 text-red-600 font-mono text-xs uppercase">Observed Range</th>
+                    </tr>
+                </thead>
+                <tbody class="text-zinc-400">
+                    <tr class="border-b border-zinc-900">
+                        <td class="p-6 text-white font-bold">Orange (Decathlon)</td>
+                        <td class="p-6">35kg</td>
+                        <td class="p-6">0.7m</td>
+                        <td class="p-6 text-green-500">20.0m</td>
+                    </tr>
+                    <tr class="border-b border-zinc-900">
+                        <td class="p-6 text-white font-bold">Red (Decathlon)</td>
+                        <td class="p-6">45kg</td>
+                        <td class="p-6">0.5m</td>
+                        <td class="p-6">15.0m</td>
+                    </tr>
+                    <tr class="bg-red-950/10">
+                        <td class="p-6 text-white font-bold">Black (Decathlon)</td>
+                        <td class="p-6">60kg</td>
+                        <td class="p-6">0.5m</td>
+                        <td class="p-6 text-red-500 font-bold">10.0m</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="bg-zinc-950 border-y border-zinc-900 py-24 px-6 mb-32">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h3 class="text-3xl font-bold text-white uppercase tracking-tight">The Work-Energy <span class="text-red-600">Shift</span></h3>
+                <p class="text-zinc-400 leading-relaxed">
+                    We identified that the elastic modulus of TPE is optimized for slow isometric contraction, not ballistic release. Propulsion is not governed by instantaneous force at $t=0$, but by <b>Work Done ($W$)</b> over the entire rail:
+                </p>
+                <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800 text-2xl text-center text-white font-mono">
+                    $$W = \int_{0}^{x} F(x) \, dx$$
+                </div>
+                <p class="text-zinc-500 text-sm italic">
+                    Exercise bands exhibited rapid force-drop-off; the tension plummeted to near-zero as soon as retraction began, resulting in a short, inefficient propulsion stroke.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-4">
+                    <img src="assets/dectbnd.png" class="rounded-xl border border-zinc-800" alt="TPE Bands">
+                    <p class="text-center text-[10px] text-zinc-600 uppercase font-bold tracking-widest">TPE Resistance</p>
+                </div>
+                <div class="space-y-4">
+                    <img src="assets/spear.png" class="rounded-xl border border-red-900" alt="Spearfishing Latex">
+                    <p class="text-center text-[10px] text-red-600 uppercase font-bold tracking-widest">Spearfishing Latex</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-6 mb-32">
+        <div class="text-center mb-16">
+            <p class="text-zinc-500 font-mono text-xs uppercase tracking-[0.4em] italic mb-4">Instrumented Characterization Rig Analysis</p>
+            <p class="text-zinc-400 text-sm max-w-3xl mx-auto leading-relaxed">
+                By utilizing the DM8009 motor’s internal encoder, we mapped Motor Torque ($\tau$) against Draw Length ($x$). Since the motor drives a gear of radius $r$, the instantaneous linear force ($F$) was derived via $F = \frac{\tau}{r}$, providing the empirical foundation for our Work-Energy simulations.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div class="bg-zinc-950 border border-zinc-900 rounded-3xl p-8 space-y-8">
+                <h5 class="text-white font-bold uppercase text-sm tracking-widest text-center">Fig A: Elastic Force Discharge Profile</h5>
+                <img src="assets/forcevstime.png" class="w-full h-auto rounded-lg" alt="Force vs Time Graph">
+                <div class="space-y-4 text-sm text-zinc-400 leading-relaxed">
+                    <p><b class="text-red-600 uppercase text-xs">The Decathlon Curve:</b> A high initial peak that drops almost vertically. This represents a "snap" rather than a "push," where material hysteresis "eats" the energy during rapid retraction.</p>
+                    <p><b class="text-green-600 uppercase text-xs">The Spearfishing Curve:</b> A sustained <b>"Plateau"</b> of force. The latex maintains a high percentage of initial tension, maximizing the Impulse ($J = \int F \, dt$).</p>
+                </div>
+            </div>
+
+            <div class="bg-zinc-950 border border-zinc-900 rounded-3xl p-8 space-y-8">
+                <h5 class="text-white font-bold uppercase text-sm tracking-widest text-center">Fig B: Projectile Velocity Evolution</h5>
+                <img src="assets/velocvstime.png" class="w-full h-auto rounded-lg" alt="Velocity vs Time Graph">
+                <div class="space-y-4 text-sm text-zinc-400 leading-relaxed">
+                    <p><b class="text-red-600 uppercase text-xs">The Black Band:</b> High initial acceleration ($a$), but velocity ($v$) plateaus immediately at the start of the rail. </p>
+                    <p><b class="text-green-600 uppercase text-xs">The D.A.R.T. System:</b> Shows a continuous positive slope. The projectile continues to gain speed until exit, satisfying the 25m ballistic requirement.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="text-center">
+            <p class="text-zinc-500 font-light italic text-xl">"Propulsion efficiency is a function of the energy-discharge rate, not peak static load."</p>
+        </div>
+    </div>
+
 </section>
