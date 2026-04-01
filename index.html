@@ -412,6 +412,221 @@
         </section>
 
 
+        <div id="yawmech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('yaw.html', 'yawmech-placeholder');
+        </script>
+
+        <div id="yawelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('yawelect.html', 'yawelect-placeholder');
+        </script>
+
+
+        <div id="pitchmech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('pitch.html', 'pitchmech-placeholder');
+        </script>
+
+        <div id="pitchelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('pitchelect.html', 'pitchelect-placeholder');
+        </script>
+
+
+
+        <div id="launchermech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('launcher.html', 'launchermech-placeholder');
+        </script>
+
+        <div id="launcherelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('launcherelect.html', 'launcherelect-placeholder');
+        </script>
+
+
+
+        <div id="feedermech-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('feeder.html', 'feedermech-placeholder');
+        </script>
+
+        <div id="feederelect-placeholder"></div>
+
+        <script>
+            // The Stitcher: Pulls sub-files into the main page
+            async function loadSection(file, elementId) {
+                try {
+                    const response = await fetch(file);
+                    if (!response.ok) throw new Error('File not found');
+                    const text = await response.text();
+                    document.getElementById(elementId).innerHTML = text;
+            
+                    // Re-trigger AOS animations for the newly added content
+                    if (window.AOS) {
+                        AOS.refresh();
+                    }
+                } catch (err) {
+                    console.error("Stitcher Error:", err);
+                    document.getElementById(elementId).innerHTML = 
+                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
+                }
+            }
+
+            // Load the requirements section
+            loadSection('feederelect.html', 'feederelect-placeholder');
+        </script>
+
+
+
         <div id="projectilemech-placeholder"></div>
 
         <script>
@@ -497,213 +712,6 @@
             loadSection('projectilintelect.html', 'projectintelect-placeholder');
         </script>
 
-        <div id="feedermech-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('feeder.html', 'feedermech-placeholder');
-        </script>
-
-        <div id="feederelect-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('feederelect.html', 'feederelect-placeholder');
-        </script>
-
-        <div id="launchermech-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('launcher.html', 'launchermech-placeholder');
-        </script>
-
-        <div id="launcherelect-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('launcherelect.html', 'launcherelect-placeholder');
-        </script>
-
-        <div id="pitchmech-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('pitch.html', 'pitchmech-placeholder');
-        </script>
-
-        <div id="pitchelect-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('pitchelect.html', 'pitchelect-placeholder');
-        </script>
-
-        <div id="yawmech-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('yaw.html', 'yawmech-placeholder');
-        </script>
-
-        <div id="yawelect-placeholder"></div>
-
-        <script>
-            // The Stitcher: Pulls sub-files into the main page
-            async function loadSection(file, elementId) {
-                try {
-                    const response = await fetch(file);
-                    if (!response.ok) throw new Error('File not found');
-                    const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
-            
-                    // Re-trigger AOS animations for the newly added content
-                    if (window.AOS) {
-                        AOS.refresh();
-                    }
-                } catch (err) {
-                    console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
-                }
-            }
-
-            // Load the requirements section
-            loadSection('yawelect.html', 'yawelect-placeholder');
-        </script>
 
         <div id="base-placeholder"></div>
 
@@ -730,10 +738,6 @@
             // Load the requirements section
             loadSection('base.html', 'base-placeholder');
         </script>
-
-
-
-        
 
         
 
