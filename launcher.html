@@ -1,3 +1,6 @@
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 <style>
   /* --- D.A.R.T. Launcher 3D Hotspots --- */
   
@@ -291,6 +294,67 @@
             <p class="text-zinc-400 text-sm leading-relaxed">100% of the "Follow-Through" energy is preserved in the projectile, resulting in the successful 25m range.</p>
         </div>
     </div>
+
+
+    <div class="py-24 border-t border-zinc-900" data-aos="fade-up">
+        <div class="max-w-4xl px-6 mb-16">
+            <h4 class="text-red-600 font-mono text-lg uppercase tracking-[0.3em] mb-4 font-bold italic">Iteration V2: The Dual Leadscrew Rig</h4>
+            <p class="text-zinc-400 text-lg leading-relaxed">
+                Transitioning from manual operation, the V2 Launcher was engineered to automate the power stroke. We moved to a <b>Dual Leadscrew Configuration</b> to ensure symmetric force distribution, utilizing a high-torque motor driving a 32T:100T gear reduction.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 px-6 items-start">
+        
+            <div class="bg-zinc-950 border border-zinc-900 rounded-3xl p-8">
+                <h5 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">V2 Mechanical Specifications</h5>
+                <div class="space-y-4">
+                    <div class="flex justify-between border-b border-zinc-900 pb-2">
+                        <span class="text-zinc-500 font-mono text-xs">Gear Ratio (G)</span>
+                        <span class="text-white font-bold">100T : 32T (3.125)</span>
+                    </div>
+                    <div class="flex justify-between border-b border-zinc-900 pb-2">
+                        <span class="text-zinc-500 font-mono text-xs">Leadscrew Pitch (P)</span>
+                        <span class="text-white font-bold">100mm / rev</span>
+                    </div>
+                    <div class="flex justify-between border-b border-zinc-900 pb-2">
+                        <span class="text-zinc-500 font-mono text-xs">Drawback Distance (L)</span>
+                        <span class="text-white font-bold">750mm</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-zinc-500 font-mono text-xs text-red-600">Observed Failure</span>
+                        <span class="text-red-600 font-bold">Motor Stall @ 30Nm</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6 bg-zinc-900/30 p-8 rounded-3xl border border-zinc-800">
+                <h5 class="text-red-600 font-bold mb-4 uppercase text-xs tracking-widest">Torque & Force Analysis</h5>
+                <div class="text-white font-mono text-sm space-y-4">
+                    <p>1. Gear Torque Multiplication: <br>
+                    $$ \tau_{ls} = \tau_{motor} \times G = 30\text{Nm} \times 3.125 = 93.75\text{Nm} $$</p>
+                
+                    <p>2. Theoretical Linear Pulling Force ($F$): <br>
+                    $$ F = \frac{2\pi \cdot \tau_{ls} \cdot \eta}{P} = \frac{2\pi \cdot 93.75 \cdot 0.9}{0.1} \approx 5301\text{N} $$</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 px-6">
+            <div class="bg-red-950/10 border-l-4 border-red-600 p-10 rounded-r-3xl">
+                <h5 class="text-white font-bold mb-4">Finding: The Speed-Torque Paradox</h5>
+                <p class="text-zinc-400 leading-relaxed mb-6">
+                    While the V2 rig achieved massive linear force, it was <b>unnecessarily fast.</b> To drawback 750mm in the required 6s window, the required linear velocity is only \(0.125\text{ m/s}\). At our gear ratio, the motor was over-revving, causing it to operate in the inefficient end of its power curve.
+                </p>
+                <div class="text-white font-mono text-sm">
+                    $$ \text{Required RPM} = \frac{v \times 60 \times G}{P} = \frac{0.125 \times 60 \times 3.125}{0.1} \approx 234\text{ RPM} $$
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="space-y-16 pb-32">
         <div class="max-w-4xl px-6">
