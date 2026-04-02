@@ -3,15 +3,14 @@
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
+      processEscapes: true
     },
     options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      enableMenu: false // Keeps the UI clean for your portfolio
     }
   };
 </script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 <!DOCTYPE html>
@@ -545,6 +544,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
+
+                    // 2. WAKE UP MATHJAX (The Fix)
+                    // We do this AFTER innerHTML is set so MathJax can actually see the new math
+                    if (window.MathJax) {
+                        MathJax.typesetPromise().then(() => {
+                            console.log(`Math rendered successfully for: ${file}`);
+                        }).catch((err) => console.error("MathJax rendering error:", err));
+                    }
             
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
@@ -560,6 +567,8 @@
             // Load the requirements section
             loadSection('launcher.html', 'launchermech-placeholder');
         </script>
+
+
 
         <div id="launcherelect-placeholder"></div>
 
