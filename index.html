@@ -551,9 +551,9 @@
                     if (window.MathJax) {
                         MathJax.typesetPromise([document.getElementById(elementId)])
                             .then(() => console.log("Math rendered!"))
-                            .catch((err) => console.error(err));
+                            .catch((err) => console.log('Math Rendering Error: ' + err.message));
                         }
-                    }, 100);
+                    }, 50);
             
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
