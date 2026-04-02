@@ -10,7 +10,7 @@
     }
   };
 </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 <!DOCTYPE html>
@@ -545,15 +545,11 @@
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
 
-                    // 2. WAKE UP MATHJAX (The Fix)
-                    // We do this AFTER innerHTML is set so MathJax can actually see the new math
-                    setTimeout(() => {
-                    if (window.MathJax) {
-                        MathJax.typesetPromise([document.getElementById(elementId)])
-                            .then(() => console.log("Math rendered!"))
-                            .catch((err) => console.log('Math Rendering Error: ' + err.message));
-                        }
-                    }, 50);
+                    // NEW ROBUST MATH RENDERING CALL
+                    if (window.MathJax && window.MathJax.typeset) {
+                        // Tell MathJax to scan the specific element we just filled
+                        MathJax.typeset([document.getElementById(elementId)]);
+                    }
             
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
