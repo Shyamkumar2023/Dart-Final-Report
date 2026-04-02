@@ -574,10 +574,14 @@
             // The Stitcher: Pulls sub-files into the main page
             async function loadSection(file, elementId) {
                 try {
+                    const target = document.getElementById(elementId);
+                    if (!target) return; // Prevent "null" errors
+
                     const response = await fetch(file);
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
-                    document.getElementById(elementId).innerHTML = text;
+        
+                    target.innerHTML = text;
 
                     setTimeout(() => {
                         if (window.MathJax && typeof window.MathJax.typeset === 'function') {
@@ -595,8 +599,6 @@
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
-                        `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
 
