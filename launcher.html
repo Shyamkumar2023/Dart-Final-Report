@@ -1,4 +1,25 @@
 <style>
+
+/* Force MathJax equations to be visible on dark backgrounds */
+mjx-container {
+    color: white !important;
+    display: inline-block;
+    margin: 0 0.25em;
+    vertical-align: middle;
+}
+
+/* For big display equations */
+mjx-container[display="true"] {
+    display: block;
+    margin: 1.5em 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensure math doesn't "blink" out during loading */
+.MathJax {
+    visibility: visible !important;
+}
   /* --- D.A.R.T. Launcher 3D Hotspots --- */
   
   /* The Anchor Dot (Red Point on Model) */

@@ -547,11 +547,13 @@
 
                     // 2. WAKE UP MATHJAX (The Fix)
                     // We do this AFTER innerHTML is set so MathJax can actually see the new math
+                    setTimeout(() => {
                     if (window.MathJax) {
-                        MathJax.typesetPromise().then(() => {
-                            console.log(`Math rendered successfully for: ${file}`);
-                        }).catch((err) => console.error("MathJax rendering error:", err));
-                    }
+                        MathJax.typesetPromise([document.getElementById(elementId)])
+                            .then(() => console.log("Math rendered!"))
+                            .catch((err) => console.error(err));
+                        }
+                    }, 100);
             
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
