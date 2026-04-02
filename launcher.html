@@ -6,6 +6,8 @@ mjx-container {
     font-size: 115% !important; /* Makes it slightly bigger and easier to read */
     line-height: 0;
     display: inline-block;
+    min-width: 1px; 
+    min-height: 1px;
 }
 
 /* For big display equations */
@@ -13,6 +15,8 @@ mjx-container[display="true"] {
     margin: 20px 0;
     color: white !important;
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Fix for potential "invisible" rendering in some browsers */
