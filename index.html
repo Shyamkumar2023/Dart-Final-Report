@@ -578,6 +578,16 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
+
+                    setTimeout(() => {
+                        if (window.MathJax && typeof window.MathJax.typeset === 'function') {
+                            MathJax.typeset([target]);
+                        } else {
+                            console.warn("MathJax not ready yet, retrying...");
+                            // Fallback: try again in 500ms if the library is still loading
+                            setTimeout(() => { if(window.MathJax.typeset) MathJax.typeset([target]); }, 500);
+                        }
+                    }, 100);
             
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
