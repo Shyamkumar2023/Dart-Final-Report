@@ -81,13 +81,13 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <img src="assets/JW/" alt="Elect Bay CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
+            <img src="assets/JW/Electronics Bay CAD.jpg" alt="Elect Bay CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
             <img src="assets/JW/Electronics_Bay_Actual.jpg" alt="Elect Bay Actual" class="rounded-xl border border-zinc-800 w-full object-cover">
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <img src="assets/JW/" alt="LCD CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
-            <img src="assets/JW/" alt="LCD Actual" class="rounded-xl border border-zinc-800 w-full object-cover">
+            <img src="assets/JW/LCD CAD.jpg" alt="LCD CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
+            <img src="assets/JW/LCD Actual.jpg" alt="LCD Actual" class="rounded-xl border border-zinc-800 w-full object-cover">
         </div>
 
         <div class="space-y-4">
@@ -95,7 +95,36 @@
                 Potential Improvements
             </h3>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                The current electronics bay is not without its flaws, and can be improved by
+                The current electronics bay is not without its flaws, and can be improved by,
+                1.	Improving wire routing to be more professional. Current wires are carelessly routed out from the box through generic holes 
+                cutout from the walls of the electronics bay.
+                    a.	Solution: Introduce dedicated wire routing outlets that are able to protect the wires upon exit from the bay. These 
+                    wires should remain protected and routed in a way that is neat and does not interrupt the dynamics of the robot.
+                2.	Improvements to electronic bay cover. The covers should be allowed to open for access to the internal electronics
+                    a.	Include hinges into design, and locking mechanisms to hold covers open or closed.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Final Design of Yaw Subsystem</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mb-24 px-4">
+            <div class="bg-zinc-950 rounded-2xl border border-red-900/30 p-4 h-[400px] relative">
+                <span class="absolute top-4 left-4 z-10 bg-red-600 text-[10px] font-black px-2 py-1 rounded uppercase">Final Direct V3</span>
+                <model-viewer src="assets/JW/yaw_direct_V3.glb" camera-controls auto-rotate shadow-intensity="1" class="w-full h-full"></model-viewer>
+            </div>
+        </div>
+        
+        <div>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                The figure above shows the final design of the yaw subsystem. The subsystem on it’s own is able to support full rotational 
+                motion, excluding the sector the LCD screen is in. This range of motion will be further reduced upon integration, but it 
+                fulfils our yaw range requirements of 2.2(anti-clockwise) to -7.8(clockwise) degrees.
+
+                The subsystem is also able to fully support the expected load from the other subsystems that will be mounted on the yaw 
+                subsystem.
+
             </p>
         </div>
     </div>
