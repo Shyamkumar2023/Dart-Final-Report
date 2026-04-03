@@ -206,5 +206,56 @@
                 following shows the results from our test.
             </p>
         </div>
+
+        <!-- insert the scatterplot for repeatability here -->
+
+        <div>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                The results actually show that the repeatability of the yaw positioning is good, with the mean of the final yaw angles being 
+                the target value itself with a low standard deviation indicating small deviations between each repetition. From the percentage 
+                difference between each repetition and the mean, we can see that except for repetition 1, all other repetitions have a 
+                percentage difference of less than 0.3 percent. These observations show that our yaw subsystem can achieve the repeatability 
+                to the required acceptable percentage deviation.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">Validation: Accuracy</h3>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                The test of accuracy is important for our robot, as the ability to achieve the required target yaw position is necessary for 
+                the dart projectile to be aimed accurately at the target structure, ensuring that the projectile will hit the target, aided by 
+                the adjustments from the projectile’s active control surfaces.<br>
+                <br>
+
+                Our test involved first setting a zero position, before inserting a target position angle in radians that references our chosen 
+                zero position, and allowed the yaw motor to adjust the yaw position to the target position. We then measured and recorded the 
+                final angle of the yaw from the zero position, and checked if there were deviations from the target angle. The yaw is then reset 
+                to the zero position. <br>
+
+                A total of 10 repetitions were done separately for two target positions, namely the -7.8-degree target angle and the 2.2-degree 
+                target angle. The acceptable deviation from the target angle will be 0.2 degrees, given that small inaccuracies to 0.1 degrees 
+                of the yaw position can cause large deviations in the final position of the projectile 26 meters away from launch. The test 
+                results for both targets are shown below.
+            </p>
+        </div>
+
+        <!-- insert the scatterplot for Accuracy here -->
+
+        <div>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                While the results show that the percentage difference between the target and actual yaw angle position is no larger than 2.1 
+                percent, when we look at the absolute deviation, we see that the launcher can reach up to 2 degrees off the target position. 
+                This does not meet our required standards for the yaw subsystem to be considered accurate. Small deviations in angular 
+                position can cause larger deviations of the projectile’s heading at a long target distance of 26 meters, which can cause the 
+                projectile to miss the target, even with active control surfaces to adjust the flight path. This is especially true when we 
+                consider the small size of the target plate the projectile has to strike.<br>
+
+                We note that the values above are recorded without tuning of the PID control loop, which could play a role in tightening the 
+                deviations from the target yaw angle. From the results, we can actually see a significant decrease in the deviations in 
+                repetitions for the 2.2-degree target from the -7.8-degree target. In the -7.8 degree test, the KP values were lower than 
+                those of the 2.2-degree target tests. This shows that through tuning of the yaw motor PID values, it is very possible to 
+                achieve the required accuracy. More work has to be done for this portion to validate the accuracy of the yaw subsystem.
+            </p>
+        </div>
     </div>
 </section>
