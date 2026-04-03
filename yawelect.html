@@ -1,25 +1,212 @@
 <section id="yawelec" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-start justify-between gap-12 border-b border-zinc-900 pb-16">
-        
+
         <div class="flex-1">
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Yaw Electronics
             </h3>
-            <p class="text-gray-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8">
-                Barry stuff here for Yaw.Put your LCD stuff here also, there is no separate page for your screen.
-            </p>
+            <div class="border-l-2 border-red-900 pl-8 space-y-6">
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Design requirements</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Yaw travel envelope</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Approximately <span class="text-gray-300">7.8°</span> to one side and <span class="text-gray-300">2.2°</span> to the other from centre, matching the mechanical aim window without exceeding bearing or cable-wrap limits.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Operator safety</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Software limits prevent the turret from entering the lateral space where teammates or judges can stand; commands that would violate the envelope are rejected or clamped.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Closed-loop position</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Encoder feedback is required so yaw holding torque and drift are compensated during long match segments.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Human–machine interface</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Operators need a single surface to adjust pitch, yaw, and fire-related parameters without recompiling firmware mid-event.</p>
+                        </article>
+                        <article class="md:col-span-2 rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Integration with competition stack</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">The RoboMaster development Type A electronics must interface cleanly to the custom wire-management PCB so competition harnesses remain serviceable.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Components and selection</p>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Each part below is summarized for the report; the yaw actuator includes the manufacturer table excerpt and a searchable English summary of the same figures. The operator display compares capacitive versus resistive touch options before the interconnect summary cards.
+                    </p>
+
+                    <div class="space-y-8">
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                            <div class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4">
+                                <h4 class="text-white font-semibold text-lg tracking-tight">Yaw actuator — Damiao DM-J10010L-2EC</h4>
+                                <p class="text-gray-500 text-sm mt-1 font-mono">Integrated brushless servo actuator (motor + driver + encoders)</p>
+                            </div>
+                            <div class="p-5 space-y-6">
+                                <p class="text-gray-400 text-lg leading-relaxed">
+                                    Selected for continuous torque headroom on the yaw linkage and built-in dual magnetic encoders so the axis does not rely on a separate encoder assembly. Control uses the onboard <span class="text-gray-300">CAN</span> interface at <span class="text-gray-300">1&nbsp;Mbps</span>; parameter tuning uses <span class="text-gray-300">UART</span> at <span class="text-gray-300">921600</span> baud per the manufacturer documentation.
+                                </p>
+
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                        <img src="assets/DM10010L.png" alt="Manufacturer specification table for DM-J10010L series (original datasheet excerpt)" class="w-full h-auto rounded-md object-contain">
+                                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Figure: datasheet excerpt (<span class="text-gray-400">DM10010L.png</span>) — retain for traceability; values are transcribed in the table alongside for search and accessibility.</figcaption>
+                                    </figure>
+
+                                    <div class="overflow-x-auto rounded-lg border border-zinc-800">
+                                        <table class="w-full text-sm text-gray-400">
+                                            <thead>
+                                                <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
+                                                    <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Parameter</th>
+                                                    <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="divide-y divide-zinc-800/80">
+                                                <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Electrical — motor</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated voltage</th><td class="px-3 py-2">48&nbsp;V DC (operating range typically 24–48&nbsp;V)</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated / peak phase current</th><td class="px-3 py-2">23.5&nbsp;A / 95&nbsp;A</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated / peak torque</th><td class="px-3 py-2">40&nbsp;N·m / 120&nbsp;N·m</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated speed</th><td class="px-3 py-2">70&nbsp;rpm @ 24&nbsp;V · 100&nbsp;rpm @ 48&nbsp;V</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">No-load speed (max)</th><td class="px-3 py-2">100&nbsp;rpm @ 24&nbsp;V · 200&nbsp;rpm @ 48&nbsp;V</td></tr>
+                                                <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Mechanism</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Reduction ratio</th><td class="px-3 py-2">10 : 1</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Pole pairs</th><td class="px-3 py-2">21</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Phase L / R</th><td class="px-3 py-2">85&nbsp;µH / 0.11&nbsp;Ω</td></tr>
+                                                <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Mechanical</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Outer Ø × height</th><td class="px-3 py-2">120&nbsp;mm × 53&nbsp;mm</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Mass</th><td class="px-3 py-2">≈ 1372&nbsp;g</td></tr>
+                                                <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Encoder (onboard)</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Resolution / count</th><td class="px-3 py-2">14-bit · 2× magnetic (single-turn, output-shaft referenced)</td></tr>
+                                                <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Interfaces</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Control bus</th><td class="px-3 py-2">CAN @ 1&nbsp;Mbps</td></tr>
+                                                <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Configuration / debug</th><td class="px-3 py-2">UART @ 921600&nbsp;bps (parameter tuning)</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                            <div class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4">
+                                <h4 class="text-white font-semibold text-lg tracking-tight">Operator display — capacitive vs resistive touch</h4>
+                                <p class="text-gray-500 text-sm mt-1 font-mono">4.0″ class modules · SPI LCD · touch overlay technology trade-off</p>
+                            </div>
+                            <div class="p-5 space-y-6">
+                                <p class="text-gray-400 text-lg leading-relaxed">
+                                    The pit crew UI needs a readable panel that works with gloved or dry fingers under time pressure. Two representative <span class="text-gray-300">4.0″</span> module styles were compared: a <strong class="text-gray-300 font-semibold">capacitive</strong> SPI TFT with I²C touch (ST7796S + FT6336U class, as documented on <a href="https://www.lcdwiki.com/4.0inch_Capacitive_SPI_Module_ST7796" class="text-red-primary hover:underline" target="_blank" rel="noopener noreferrer">LCD Wiki — 4.0″ capacitive SPI ST7796</a>) and a conventional <strong class="text-gray-300 font-semibold">resistive</strong> 4.0″ assembly that relies on pressure and often ships with a stylus.
+                                </p>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                        <img src="assets/Cap_touch_screen.png" alt="4.0 inch ST7796 SPI TFT with capacitive touch, front and back showing 14-pin header and pin labels" class="w-full h-auto rounded-md object-contain max-h-[320px] mx-auto">
+                                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Capacitive module — <span class="text-gray-400">Cap_touch_screen.png</span> · SPI display + I²C CTP (e.g. CTP_SDA/SCL, INT, RST).</figcaption>
+                                    </figure>
+                                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                        <img src="assets/Res_touch_screen.png" alt="4.0 inch resistive touch LCD module with red PCB and stylus" class="w-full h-auto rounded-md object-contain max-h-[320px] mx-auto">
+                                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Resistive module — <span class="text-gray-400">Res_touch_screen.png</span> · pressure stack; stylus typical for reliable hits.</figcaption>
+                                    </figure>
+                                </div>
+
+                                <div class="overflow-x-auto rounded-lg border border-zinc-800">
+                                    <table class="w-full text-sm text-gray-400 min-w-[640px]">
+                                        <thead>
+                                            <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
+                                                <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Aspect</th>
+                                                <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Capacitive (ST7796 SPI + CTP)</th>
+                                                <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Resistive (typ. 4-wire)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-zinc-800/80">
+                                            <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Touch principle</th><td class="px-3 py-2">Finger (or thin glove) couples to projected capacitance; multi-touch capable with controller (e.g. FT6336U)</td><td class="px-3 py-2">Mechanical deflection of stacked films; single-point unless specially designed</td></tr>
+                                            <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Operator experience</th><td class="px-3 py-2">Light tap; glass-like surface; familiar smartphone feel</td><td class="px-3 py-2">Firmer press or stylus; matte stack can feel softer; stylus easily dropped in the pit</td></tr>
+                                            <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Optics</th><td class="px-3 py-2">Higher clarity; fewer diffusing layers (per typical TN + glass stack)</td><td class="px-3 py-2">Extra ITO/film layers can reduce contrast and add glare</td></tr>
+                                            <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Wear</th><td class="px-3 py-2">Durable cover glass; no flex fatigue of a soft stack</td><td class="px-3 py-2">Plastic overlay wears and can scratch; hinge-like fatigue over long cycles</td></tr>
+                                            <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Host interfaces</th><td class="px-3 py-2">4-line <span class="text-gray-300">SPI</span> for LCD + <span class="text-gray-300">I²C</span> for touch (plus INT/RST); shared bus with SD_CS on many boards</td><td class="px-3 py-2">Often parallel or SPI LCD + analog or dedicated resistive controller; pin count varies</td></tr>
+                                            <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Calibration / drift</th><td class="px-3 py-2">Factory-tuned matrix; occasional re-cal rare</td><td class="px-3 py-2">Periodic calibration; edge accuracy can drift with temperature and wear</td></tr>
+                                            <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Environmental</th><td class="px-3 py-2">Water or heavy moisture can false-trigger; dry wipe usually sufficient</td><td class="px-3 py-2">Works with water films in some cases but pressure must couple through contaminants</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="rounded-lg border border-red-900/30 bg-red-950/20 p-5">
+                                    <p class="text-white font-semibold text-base tracking-tight mb-2">Why capacitive was chosen</p>
+                                    <p class="text-gray-400 text-lg leading-relaxed">
+                                        For field adjustments next to a running launcher, the team prioritized <strong class="text-gray-300 font-semibold">fast, low-effort taps</strong> without hunting for a stylus, plus a <strong class="text-gray-300 font-semibold">brighter, cleaner</strong> readout for numbers under venue lighting. The <span class="text-gray-300">4.0″</span> <span class="text-gray-300">320×480</span> capacitive SPI module family on <a href="https://www.lcdwiki.com/4.0inch_Capacitive_SPI_Module_ST7796" class="text-red-primary hover:underline" target="_blank" rel="noopener noreferrer">LCD Wiki</a> documents a compact <span class="text-gray-300">14-pin</span> header (LCD SPI, backlight, SD_CS, and CTP I²C), onboard level shifting for <span class="text-gray-300">5&nbsp;V / 3.3&nbsp;V</span> MCUs, and an SD slot for assets—matching the RoboMaster controller wiring budget better than a resistive panel that pushes the operator toward stylus-based workflows. Resistive remains a valid low-cost fallback where gloves are thick or where EMI noise on the analog sense lines is easier to manage than capacitive moisture edge cases.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
+                                <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Yaw interconnect PCB</h4>
+                                <p class="text-gray-400 text-lg leading-relaxed">
+                                    Routes CAN to the DM-J actuator, distributes logic power, and breaks out any local sense lines. Mechanical strain relief matches the competition harness bend radius.
+                                </p>
+                                <!-- TODO: Yaw PCB stackup, connector designators, key nets (B2). -->
+                            </article>
+                            <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
+                                <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Touchscreen module (build)</h4>
+                                <p class="text-gray-400 text-lg leading-relaxed">
+                                    <span class="text-gray-300">4.0″</span> capacitive SPI TFT (<span class="text-gray-300">ST7796S</span> + <span class="text-gray-300">FT6336U</span>-class touch on I²C). Single UI for pitch, yaw, and fire trims, presets, and diagnostics. See comparison and photos above; full pinout and parameters on <a href="https://www.lcdwiki.com/4.0inch_Capacitive_SPI_Module_ST7796" class="text-red-primary hover:underline" target="_blank" rel="noopener noreferrer">LCD Wiki</a>.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Implementation</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-3">
+                        Firmware enforces asymmetric angular limits corresponding to <span class="text-gray-300">7.8°</span> and <span class="text-gray-300">2.2°</span> so the launcher centroid stays inside the safety sector. Encoder readings close the loop on the driver; when a touchscreen command would exceed either bound, the command scaler reduces magnitude while preserving sign, or drops the update and flags the operator.
+                    </p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-3">
+                        The touchscreen application mirrors critical parameters also stored as presets so a field technician can recover from a corrupted page by reloading defaults from flash. Pitch and yaw pages share navigation chrome for consistency under stress.
+                    </p>
+                    <!-- TODO: Document Likert-scale survey (items, scale, aggregation) and human testing of the touchscreen UI—protocol, participants, tasks, and key findings for the report (supports A5/A6 user-facing validation). -->
+                    <!-- TODO: Describe wiring from RoboMaster Dev A to the wire management PCB (connectors, pin/harness mapping, power and signal groups). Add annotated diagram or photo when available. -->
+                </div>
+
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Testing</p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Yaw limit enforcement</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        With the mechanism on a fixture, ramped position commands are sent past each software stop; logged encoder position must plateau at the configured <span class="text-gray-300">7.8°</span> / <span class="text-gray-300">2.2°</span> boundaries without chatter or limit cycling.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Encoder and holding torque</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        A constant side load is applied while yaw is commanded to hold; drift rate and recovery after release characterise whether <span class="text-gray-300">14-bit</span> feedback is sufficient for the regulator gains chosen.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Touchscreen workflow</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        Operators step through pitch, yaw, and fire pages under time pressure; incorrect entries are deliberately injected to confirm validation messages and that illegal combinations cannot be committed to RAM.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Harness continuity</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        Ring-out from Dev A through the wire-management PCB to the yaw driver confirms continuity and correct pairing of power, ground, and differential or single-ended sense lines before full-motion commissioning.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">User evaluation (planned)</p>
+                    <p class="text-gray-400 text-xl leading-relaxed">
+                        Structured sessions with a Likert-style questionnaire and task timing will quantify learnability and perceived workload once the UI is frozen; results will replace the TODO block above.
+                    </p>
+                    <!-- TODO: Add touchscreen UI screenshot and formal limit-test notes (B2 / A5). -->
+                </div>
+            </div>
         </div>
 
         <div class="w-48 shrink-0 text-center group">
             <div class="relative mb-4">
-                <img src="assets/barry.jpg" alt="Lead Engineer" 
+                <img src="assets/barry.jpg" alt="Lead Engineer"
                      class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                
+
                 <div class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
                     Lead Eng
                 </div>
             </div>
-            
+
             <h4 class="text-white font-bold text-xl mb-0">Barry</h4>
             <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 EE</p>
         </div>
