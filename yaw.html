@@ -1,48 +1,53 @@
 <section id="yawmech" data-aos="fade-left">
-    <div class="flex flex-col items-start justify-between gap-12 border-b border-zinc-900 pb-16">
+    <div class="flex flex-col gap-16 border-b border-zinc-900 pb-16">
         
-        <div class="flex-1">
-            <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
-                Yaw Subsystem Design
-            </h3>
-            <p class="text-gray-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8">
-                Built to bear the load, tuned to hit the mark. The yaw subsystem controls the yaw positioning of the robot, aiming the projectile
-                at the target.
-            </p>
-        </div>
-
-        <div class="w-48 shrink-0 text-center group">
-            <div class="relative mb-4">
-                <img src="assets/jw.png" alt="Lead Engineer" 
-                     class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                
-                <div class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
-                    Lead Eng
-                </div>
-            </div>
+        <!-- Top row -->
+        <div class="flex flex-col md:flex-row items-start justify-between gap-12">
             
-            <h4 class="text-white font-bold text-xl mb-0">Jian Wen</h4>
-            <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 ME</p>
-        </div>
-
-        <div class="space-y-12 mb-32">
-            <div class="max-w-4xl">
-                <p class="text-zinc-250 text-lg leading-relaxed">
-                    The yaw subsystem controls the robot’s heading through a single drive system and forms 
-                    the base frame supporting the upper assembly. In the interim report, we completed the 
-                    load considerations and calculations needed to determine the drive system needed, as 
-                    well as the rotating platform involved. The relevant calculations can be seen below.
+            <!-- Left side: title + intro -->
+            <div class="flex-1 flex flex-col gap-8">
+                <h3 class="text-4xl font-bold text-red-primary uppercase tracking-tighter">
+                    Yaw Subsystem Design
+                </h3>
+                <p class="text-gray-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8">
+                    Built to bear the load, tuned to hit the mark. The yaw subsystem controls the yaw positioning of the robot, aiming the projectile
+                    at the target.
                 </p>
             </div>
+
+            <!-- Right side: image card -->
+            <div class="w-48 shrink-0 text-center group">
+                <div class="relative mb-4">
+                    <img src="assets/jw.png" alt="Lead Engineer" 
+                         class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
+                    
+                    <div class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
+                        Lead Eng
+                    </div>
+                </div>
+                
+                <h4 class="text-white font-bold text-xl mb-0">Jian Wen</h4>
+                <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 ME</p>
+            </div>
         </div>
 
-        <div class="flex justify-center mt-8">
-            <img src="assets/JW/Yaw_Calculations.jpg" alt="Yaw subsystem calculations"
-                class="max-w-full h-auto rounded-xl border border-zinc-800 shadow-lg">
+        <!-- Lower content stays stacked -->
+        <div class="max-w-4xl">
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                The yaw subsystem controls the robot’s heading through a single drive system and forms 
+                the base frame supporting the upper assembly. In the interim report, we completed the 
+                load considerations and calculations needed to determine the drive system needed, as 
+                well as the rotating platform involved. The relevant calculations can be seen below.
+            </p>
+
+            <div class="flex justify-center mt-8">
+                <img src="assets/JW/Yaw_Calculations.jpg" alt="Yaw subsystem calculations"
+                     class="w-full max-w-2xl h-auto rounded-xl border border-zinc-800 shadow-lg">
+            </div> 
         </div>
 
-        <div class="space-y-12 mb-32">
-            <div class="max-w-4xl">
+        <div class="max-w-4xl space-y-8">
+            <div>
                 <h2 class="text-4xl font-bold text-white mb-6">Drive System Considerations</h2>
                 <p class="text-zinc-250 text-lg leading-relaxed">
                     A direct-drive system was selected for its ease of maintenance and low potential for failure points. The Damiao DL10010L 
@@ -50,6 +55,9 @@
                     integration with Calibur Robotics’ current hardware infrastructure, with their extensive use of Damiao motors. The interim 
                     report covers more details on the selection considerations.
                 </p>
+            </div>
+
+            <div>
                 <h2 class="text-4xl font-bold text-white mb-6">Electronics Bay</h2>
                 <p class="text-zinc-250 text-lg leading-relaxed">
                     An electronics bay was designed and equipped on the yaw subsystem as well, to better house all electronics and PCBs 
