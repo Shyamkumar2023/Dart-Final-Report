@@ -115,7 +115,315 @@
 
                     <div class="mt-6 rounded-xl border border-zinc-800 bg-zinc-950 overflow-x-auto">
                         <pre class="p-4 text-sm text-zinc-200 leading-relaxed"><code>
-    
+// ==========================================
+// Arduino Uno R4 WiFi + TB6600 + end switch
+// Startup:
+// 1. Move toward switch
+// 2. Confirm switch press with filtered input
+// 3. Set zero position
+// 4. Move opposite direction to Position O
+// 5. Stop there
+//
+// Button 1:
+// - Move to a random position between BUTTON1_MIN_MM and BUTTON1_MAX_MM
+//
+// Button 2:
+// - Move back and forth continuously between BUTTON1_MIN_MM and BUTTON1_MAX_MM
+// - Keep moving for BUTTON2_MOVE_TIME_MS
+// - Stop wherever it is when time is up
+// - Keep tracking position relative to zero
+// ==========================================
+
+// ---------- Pins ----------
+const int STEP_PIN    = 2;   // D2 -> TB6600 PUL-
+const int DIR_PIN     = 3;   // D3 -> TB6600 DIR-
+const int LIMIT_PIN   = 8;   // D8 -> end switch signal
+const int BUTTON1_PIN = 9;   // D9 -> button 1
+const int BUTTON2_PIN = 10;  // D10 -> button 2
+
+// ---------- Timing ----------
+const unsigned int STEP_PULSE_US         = 10;
+const unsigned int HOME_STEP_DELAY_US    = 300;   // speed toward switch
+const unsigned int MOVE_STEP_DELAY_US    = 800;   // speed for normal moves
+const unsigned int BUTTON2_STEP_DELAY_US = 800;   // speed during button 2 motion
+const unsigned long BUTTON2_MOVE_TIME_MS = 30000;  // change this to whatever time you want
+const unsigned long PRINT_INTERVAL_MS    = 100;
+
+// ---------- Direction ----------
+// If the motor moves the wrong way, swap these two values.
+const bool DIR_TOWARD_SWITCH = HIGH;
+const bool DIR_AWAY_SWITCH   = LOW;
+
+// ---------- Calibration ----------
+const float STEPS_PER_MM   = 80.0f;
+const float TARGET_O_MM    = 217.0f; //217 center
+const float BUTTON1_MIN_MM = 154.5f; //154.5 end of 250 mm range
+const float BUTTON1_MAX_MM = 279.5f; //279.5 end of 250 mm range
+
+// ---------- Safety / travel ----------
+const float MAX_TRAVEL_MM = 435.0f;
+
+// ---------- Filter settings ----------
+const int PRESS_COUNT_REQUIRED = 8;
+
+// ---------- State ----------
+enum State {
+  MOVING_TO_SWITCH,
+  MOVING_TO_TARGET,
+  BUTTON2_MOVING,
+  IDLE
+};
+
+State state = MOVING_TO_SWITCH;
+
+long currentPositionSteps = 0;
+long targetPositionSteps = 0;
+long maxTravelSteps = 0;
+long button1MinSteps = 0;
+long button1MaxSteps = 0;
+int lowCount = 0;
+unsigned long lastPrintMs = 0;
+
+// Button 2 state
+bool button2MovingAway = true;
+unsigned long button2StartMs = 0;
+
+// ---------- Helpers ----------
+long mmToSteps(float mm) {
+  return (long)(mm * STEPS_PER_MM + 0.5f);
+}
+
+float stepsToMm(long steps) {
+  return ((float)steps) / STEPS_PER_MM;
+}
+
+bool rawLimitPressed() {
+  return digitalRead(LIMIT_PIN) == LOW;
+}
+
+bool filteredLimitPressed() {
+  if (rawLimitPressed()) {
+    lowCount++;
+    if (lowCount >= PRESS_COUNT_REQUIRED) {
+      return true;
+    }
+  } else {
+    lowCount = 0;
+  }
+  return false;
+}
+
+bool button1Pressed() {
+  return digitalRead(BUTTON1_PIN) == LOW;
+}
+
+bool button2Pressed() {
+  return digitalRead(BUTTON2_PIN) == LOW;
+}
+
+void waitButton1Release() {
+  delay(20);
+  while (digitalRead(BUTTON1_PIN) == LOW) {
+    delay(5);
+  }
+  delay(20);
+}
+
+void waitButton2Release() {
+  delay(20);
+  while (digitalRead(BUTTON2_PIN) == LOW) {
+    delay(5);
+  }
+  delay(20);
+}
+
+void pulseStep(unsigned int delayUs) {
+  digitalWrite(STEP_PIN, LOW);
+  delayMicroseconds(STEP_PULSE_US);
+  digitalWrite(STEP_PIN, HIGH);
+  delayMicroseconds(delayUs);
+}
+
+void printStatus(bool rawPressed, bool filteredPressed) {
+  if (millis() - lastPrintMs >= PRINT_INTERVAL_MS) {
+    Serial.print("RAW: ");
+    Serial.print(rawPressed ? "PRESSED" : "NOT PRESSED");
+    Serial.print(" | FILTERED: ");
+    Serial.print(filteredPressed ? "PRESSED" : "NOT PRESSED");
+    Serial.print(" | lowCount = ");
+    Serial.print(lowCount);
+    Serial.print(" | pos = ");
+    Serial.print(stepsToMm(currentPositionSteps));
+    Serial.print(" mm");
+    Serial.print(" | target = ");
+    Serial.print(stepsToMm(targetPositionSteps));
+    Serial.println(" mm");
+    lastPrintMs = millis();
+  }
+}
+
+// One step away from switch
+void stepAwayFromSwitch(unsigned int delayUs) {
+  digitalWrite(DIR_PIN, DIR_AWAY_SWITCH);
+  pulseStep(delayUs);
+
+  if (currentPositionSteps < maxTravelSteps) {
+    currentPositionSteps++;
+  }
+}
+
+// One step toward switch
+void stepTowardSwitch(unsigned int delayUs) {
+  digitalWrite(DIR_PIN, DIR_TOWARD_SWITCH);
+  pulseStep(delayUs);
+
+  if (currentPositionSteps > 0) {
+    currentPositionSteps--;
+  } else {
+    currentPositionSteps = 0;
+  }
+}
+
+void setup() {
+  pinMode(STEP_PIN, OUTPUT);
+  pinMode(DIR_PIN, OUTPUT);
+  pinMode(LIMIT_PIN, INPUT_PULLUP);
+  pinMode(BUTTON1_PIN, INPUT_PULLUP);
+  pinMode(BUTTON2_PIN, INPUT_PULLUP);
+
+  digitalWrite(STEP_PIN, HIGH);   // idle high for active-low pulse wiring
+  digitalWrite(DIR_PIN, DIR_TOWARD_SWITCH);
+
+  Serial.begin(115200);
+  delay(1000);
+
+  randomSeed(analogRead(A0) + micros());
+
+  targetPositionSteps = mmToSteps(TARGET_O_MM);
+  maxTravelSteps = mmToSteps(MAX_TRAVEL_MM);
+  button1MinSteps = mmToSteps(BUTTON1_MIN_MM);
+  button1MaxSteps = mmToSteps(BUTTON1_MAX_MM);
+
+  Serial.println("Starting move toward switch...");
+}
+
+void loop() {
+  bool rawPressed = rawLimitPressed();
+  bool filteredPressed = filteredLimitPressed();
+
+  printStatus(rawPressed, filteredPressed);
+
+  if (state == MOVING_TO_SWITCH) {
+    if (filteredPressed) {
+      currentPositionSteps = 0;
+      lowCount = 0;
+      targetPositionSteps = mmToSteps(TARGET_O_MM);
+      state = MOVING_TO_TARGET;
+      digitalWrite(DIR_PIN, DIR_AWAY_SWITCH);
+      Serial.println("SWITCH CONFIRMED -> ZERO SET -> MOVING TO POSITION O");
+      return;
+    }
+
+    digitalWrite(DIR_PIN, DIR_TOWARD_SWITCH);
+    pulseStep(HOME_STEP_DELAY_US);
+    return;
+  }
+
+  if (state == MOVING_TO_TARGET) {
+    if (currentPositionSteps == targetPositionSteps) {
+      state = IDLE;
+      Serial.print("REACHED TARGET -> STOPPED AT ");
+      Serial.print(stepsToMm(currentPositionSteps));
+      Serial.println(" MM");
+      return;
+    }
+
+    if (currentPositionSteps < targetPositionSteps) {
+      stepAwayFromSwitch(MOVE_STEP_DELAY_US);
+    } else {
+      if (filteredPressed) {
+        currentPositionSteps = 0;
+        state = IDLE;
+        Serial.println("SWITCH CONFIRMED WHILE MOVING TOWARD HOME -> STOPPED AT 0 MM");
+        return;
+      }
+      stepTowardSwitch(MOVE_STEP_DELAY_US);
+    }
+    return;
+  }
+
+  if (state == BUTTON2_MOVING) {
+    if (millis() - button2StartMs >= BUTTON2_MOVE_TIME_MS) {
+      state = IDLE;
+      Serial.print("BUTTON 2 DONE -> STOPPED AT ");
+      Serial.print(stepsToMm(currentPositionSteps));
+      Serial.println(" MM");
+      return;
+    }
+
+    if (button2MovingAway) {
+      if (currentPositionSteps >= button1MaxSteps) {
+        button2MovingAway = false;
+      }
+    } else {
+      if (currentPositionSteps <= button1MinSteps) {
+        button2MovingAway = true;
+      }
+    }
+
+    if (button2MovingAway) {
+      stepAwayFromSwitch(BUTTON2_STEP_DELAY_US);
+    } else {
+      if (filteredPressed) {
+        currentPositionSteps = 0;
+        button2MovingAway = true;
+        Serial.println("HOME SWITCH CONFIRMED DURING BUTTON 2 -> RESET TO 0 MM");
+        return;
+      }
+      stepTowardSwitch(BUTTON2_STEP_DELAY_US);
+    }
+    return;
+  }
+
+  if (state == IDLE) {
+    if (button1Pressed()) {
+      waitButton1Release();
+
+      targetPositionSteps = random(button1MinSteps, button1MaxSteps + 1);
+      state = MOVING_TO_TARGET;
+
+      Serial.print("BUTTON 1 PRESSED -> NEW RANDOM TARGET = ");
+      Serial.print(stepsToMm(targetPositionSteps));
+      Serial.println(" MM");
+      return;
+    }
+
+    if (button2Pressed()) {
+      waitButton2Release();
+
+      button2StartMs = millis();
+
+      if (currentPositionSteps <= button1MinSteps) {
+        button2MovingAway = true;
+      } else if (currentPositionSteps >= button1MaxSteps) {
+        button2MovingAway = false;
+      } else {
+        button2MovingAway = (random(0, 2) == 1);
+      }
+
+      state = BUTTON2_MOVING;
+
+      Serial.print("BUTTON 2 PRESSED -> OSCILLATING BETWEEN ");
+      Serial.print(BUTTON1_MIN_MM);
+      Serial.print(" MM AND ");
+      Serial.print(BUTTON1_MAX_MM);
+      Serial.println(" MM");
+      return;
+    }
+
+    return;
+  }
+}
                         </code></pre>
                     </div>
                 </details>
