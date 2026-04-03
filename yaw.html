@@ -118,13 +118,80 @@
         
         <div>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                The figure above shows the final design of the yaw subsystem. The subsystem on it’s own is able to support full rotational 
+                The interactive above shows the final design of the yaw subsystem. The subsystem on it’s own is able to support full rotational 
                 motion, excluding the sector the LCD screen is in. This range of motion will be further reduced upon integration, but it 
-                fulfils our yaw range requirements of 2.2(anti-clockwise) to -7.8(clockwise) degrees.
+                fulfils our yaw range requirements of 2.2(anti-clockwise) to -7.8(clockwise) degrees.<br>
 
                 The subsystem is also able to fully support the expected load from the other subsystems that will be mounted on the yaw 
                 subsystem.
+            </p>
+        </div>
 
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Integration with other subsystems</h2>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                The Yaw subsystem is designed to directly integrate with the pitch subsystem, and the upper assembly, which consists of the 
+                launcher and feeder subsystems, will be mounted on the pitch subsystem. The figure below shows the pitch subsystem integrated 
+                with the yaw subsystem.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img src="assets/JW/" alt="Pitch + Yaw only CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
+            <img src="assets/JW/" alt="Pitch + Yaw only actual" class="rounded-xl border border-zinc-800 w-full object-cover">
+        </div>
+
+        <div>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                Upon integration with the other subsystems, the range of yaw motion is restricted to a -10 to 10-degree sector, with the 
+                0-degree reference being the launcher parallel to the yaw frame, and pointing towards the direction of launch for the 
+                projectile.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Validation and testing</h2>
+            <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">Functionality testing</h3>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                The basic functionality testing includes the movement of the yaw. The yaw subsystem was able to move its position freely within 
+                the -10 to 10 degree sector, without any interference with wires, electronics, or other components of the Dart robot. This is 
+                also accomplished without any failure of structural components.<br>
+
+                With that, we show that the dart robot is capable of achieving the target yaw angles of 2.2 and -7.8 degrees as required by 
+                the RMUC competition rules.
+            </p>
+        </div>
+
+        <!--insert the yaw functionality test video here-->
+
+        <div>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                It is worth noting that while there was no immediate failure, after many repetitions of use, and movement from location to 
+                location, fatigue was observed at the standoffs situated near the frame. Specifically, the 3D printed component that acted as 
+                a spacer had started to show signs of fatigue, and can be seen to be crushed under the weight of the launcher.<br>
+
+                While this does not cause the functionality of the yaw or overall functionality of any components to cease, it does affect the 
+                accuracy and reliability of the robot in aiming of the projectile. Furthermore, it is likely that the fatigue of this component 
+                contributes to the swaying phenomenon when an external force is used to shake the robot.<br>
+
+                A solution to this will be to make use of a stronger material that is less likely to fatigue under the expected load, or 
+                reconsider the settings and print orientation used when 3D printing the spacer to achieve a stronger 3D printed component.
+            </p>
+            <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">Validation: Repeatability</h3>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                A controlled test to validate the repeatability of the yaw subsystem to reach target angles was conducted. Repeatability is a 
+                high priority for the robot, as the robot is responsible for aiming the projectile towards the target structure, and moving to 
+                a target yaw angle will be needed each time the robot is moved to and from the starting position in the competition.<br>
+
+                In our test, we directly controlled the yaw motor and drew angular data from the motor through the development board via live 
+                expressions in the STM32 Cube IDE. We first chose a zero position, which was designated to be the center position allowing the 
+                launcher to be parallel to the yaw frames. Next, we move the yaw position away from the zero position, before inputting the 
+                chosen zero position as the target angle. The yaw is allowed to adjust freely to the target position, and the final yaw angle 
+                is observed from live expressions and recorded.<br>
+
+                A total of 10 repetitions were done in a single test. Our target is to accept that the system is able to achieve repeatability 
+                is 1 percent deviation, given that small changes in yaw angles can result in large deviations from target by the projectile. The 
+                following shows the results from our test.
             </p>
         </div>
     </div>
