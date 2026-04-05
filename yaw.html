@@ -132,7 +132,7 @@
                 motion, excluding the sector the LCD screen is in. This range of motion will be further reduced upon integration, but it 
                 fulfils our yaw range requirements of 2.2(anti-clockwise) to -7.8(clockwise) degrees.
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 The subsystem is also able to fully support the expected load from the other subsystems that will be mounted on the yaw 
                 subsystem.
             </p>
@@ -194,12 +194,12 @@
                 location, fatigue was observed at the standoffs situated near the frame. Specifically, the 3D printed component that acted as 
                 a spacer had started to show signs of fatigue, and can be seen to be crushed under the weight of the launcher.
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 While this does not cause the functionality of the yaw or overall functionality of any components to cease, it does affect the 
                 accuracy and reliability of the robot in aiming of the projectile. Furthermore, it is likely that the fatigue of this component 
                 contributes to the swaying phenomenon when an external force is used to shake the robot.
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 A solution to this will be to make use of a stronger material that is less likely to fatigue under the expected load, or 
                 reconsider the settings and print orientation used when 3D printing the spacer to achieve a stronger 3D printed component.
             </p>
@@ -209,14 +209,14 @@
                 high priority for the robot, as the robot is responsible for aiming the projectile towards the target structure, and moving to 
                 a target yaw angle will be needed each time the robot is moved to and from the starting position in the competition.
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 In our test, we directly controlled the yaw motor and drew angular data from the motor through the development board via live 
                 expressions in the STM32 Cube IDE. We first chose a zero position, which was designated to be the center position allowing the 
                 launcher to be parallel to the yaw frames. Next, we move the yaw position away from the zero position, before inputting the 
                 chosen zero position as the target angle. The yaw is allowed to adjust freely to the target position, and the final yaw angle 
                 is observed from live expressions and recorded.
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 A total of 10 repetitions were done in a single test. Our target deviation, so as to accept that the system is able to 
                 achieve repeatability, is 1 percent deviation, given that small changes in yaw angles can result in large deviations from 
                 target by the projectile. The following shows the results from our test. 
@@ -242,13 +242,13 @@
                 the dart projectile to be aimed accurately at the target structure, ensuring that the projectile will hit the target, aided by 
                 the adjustments from the projectile’s active control surfaces.
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 Our test involved first setting a zero position, before inserting a target position angle in radians that references our chosen 
                 zero position, and allowed the yaw motor to adjust the yaw position to the target position. We then measured and recorded the 
                 final angle of the yaw from the zero position, and checked if there were deviations from the target angle. The yaw is then reset 
                 to the zero position. 
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 A total of 10 repetitions were done separately for two target positions, namely the -7.8-degree target angle and the 2.2-degree 
                 target angle. The acceptable deviation from the target angle will be 0.2 degrees, given that small inaccuracies to 0.1 degrees 
                 of the yaw position can cause large deviations in the final position of the projectile 26 meters away from launch. The test 
@@ -267,7 +267,7 @@
                 projectile to miss the target, even with active control surfaces to adjust the flight path. This is especially true when we 
                 consider the small size of the target plate the projectile has to strike.
             </p>
-            <p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
                 We note that the values above are recorded without tuning of the PID control loop, which could play a role in tightening the 
                 deviations from the target yaw angle. From the results, we can actually see a significant decrease in the deviations in 
                 repetitions for the 2.2-degree target from the -7.8-degree target. In the -7.8 degree test, the KP values were lower than 
