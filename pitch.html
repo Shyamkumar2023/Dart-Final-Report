@@ -170,6 +170,58 @@
                 Basic functionality tests for the pitch include finding the maximum pitch angles after integration with other subsystems, 
                 as well as checking that no immediate failures occur during operation of the pitch. 
             </p>
+            <p>
+                From our test of the maximum angles using a calibrated digital angle gauge, the pitch is able to reach a maximum range of 
+                0.6 degrees to 52.7 degrees, before beginning to interfere with other components on board the dart robot. This maximum range 
+                shows that the pitch is able to accommodate the 25-45 degree range limitation as stated in the RMUC rules. Additional 
+                endstops are included at the 35 and 45 degree marks to limit the pitch angles to be within requirements according to the rules. 
+            </p>
+        </div>
+
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <img src="assets/JW/Max Angle.jpg" alt="Maximum Angle" class="rounded-xl border border-zinc-800 w-full object-cover">
+            <img src="assets/JW/Min Angle.jpg" alt="Minimum Angle" class="rounded-xl border border-zinc-800 w-full object-cover">
+        </div>
+
+        <div>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                Additionally, we conducted a stress test of the pitch, which is essentially putting the pitch, under full load, through 
+                about 50 repetitions of movement between the 0.6 to 52.7 degree range, at varying pitch speeds. Through the stress test, 
+                there were no visible failures or fatigue from the pitch motor or physical structural components on the pitch subsystem. 
+            </p>
+        </div>
+
+        <div>
+            <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">Validation: Time Taken to Pitch</h3>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                In the competition, there may arise the need to quickly adjust the pitch angle when it is out of place for any reason. 
+                In the worst case, the pitch is required to adjust from the lower limit to the upper limit quickly, as the desired pitch 
+                angle for launch is close to the upper limit of 45 degrees. 
+            </p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                Selection of the pitch motor with the gearbox had already included the consideration of pitching speed, and the calculated 
+                time take to clear the 20 degree range was 1.85s. The calculations can be seen in detail above, under Pitch Speed Calculations.
+            </p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                Our test involved adjusting the pitch to the lower limit of 25 degrees and pushing the pitch at operational speed to the 
+                upper limit of 45 degrees. The angle will be monitored by our digital angle gauge. Through the operation, time will be 
+                taken using a stopwatch for the duration needed to reach the 45-degree limit. 
+            </p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                A total of 10 repetitions were conducted in one test. Our target timing, to accept that the pitch speed is validated 
+                according to calculations, is to clear the 20-degree range within 1.85 seconds. The test results for time taken is shown below.
+            </p>
+        </div>
+
+        <!--insert results for Speed to Pitch-->
+
+        <div>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                From the results, we can see that the average time taken between the repetitions is 1.60 seconds, which is faster than the 
+                original calculated time taken. The derivation from our calculations can be attributed to the final load the pitch needs to 
+                drive being lower than the maximum expected load used in our calculations. Since the actual time taken to clear the range is 
+                well within the 1.85s target, we accept the speed of the pitch, and the speed is validated.
+            </p>
         </div>
     </div>
 </section>
