@@ -96,7 +96,7 @@
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-4">
             
-            <div class="w-full md:w-1/3 text-center">
+            <div class="w-full md:w-1/4 text-center">
                 <img src="assets/JW/Iteration 1.jpg" alt="Iteration 1 CAD"
                     class="rounded-xl border border-zinc-800 w-full object-cover mb-2">
                 <p class="text-zinc-300 text-sm">Iteration 1, dual z-axis with linear rail compensators</p>
@@ -106,24 +106,58 @@
                 →
             </div>
 
-            <div class="w-full md:w-1/3 text-center">
-                <img src="assets/JW/Iteration 2.jpg" alt="Iteration 2 CAD"
+            <div class="w-full md:w-1/4 text-center">
+                <img src="assets/JW/4 Bar Linkage Iteration.jpg" alt="Iteration 2 CAD"
                     class="rounded-xl border border-zinc-800 w-full object-cover mb-2">
-                <p class="text-zinc-300 text-sm">Iteration 2, direct drive</p>
+                <p class="text-zinc-300 text-sm">Iteration 2, 4 bar linkage setup</p>
             </div>
 
             <div class="flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 text-red-primary text-2xl font-bold shrink-0">
                 →
             </div>
 
-            <div class="w-full md:w-1/3 text-center">
-                <img src="assets/JW/Iteration 3 (final).jpg" alt="Iteration 3 (final) CAD"
+            <div class="w-full md:w-1/4 text-center">
+                <img src="assets/JW/Iteration 2.jpg" alt="Iteration 3 CAD"
+                    class="rounded-xl border border-zinc-800 w-full object-cover mb-2">
+                <p class="text-zinc-300 text-sm">Iteration 3, direct drive</p>
+            </div>
+
+            <div class="flex items-center justify-center w-10 h-10 rounded-full bg-zinc-900 border border-zinc-700 text-red-primary text-2xl font-bold shrink-0">
+                →
+            </div>
+
+            <div class="w-full md:w-1/4 text-center">
+                <img src="assets/JW/Iteration 3 (final).jpg" alt="Iteration 4 (final) CAD"
                     class="rounded-xl border border-zinc-800 w-full object-cover mb-2">
                 <p class="text-zinc-300 text-sm">Final Design, improved direct drive with integration elements</p>
             </div>
         </div>
 
         <div>
+            <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">Dual z-axis iteration</h3>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                This iteration featured two z-axis lead screws driven by stepper motors located at the bottom. Inspired greatly by the 
+                dual z-axis setup on many modern 3D printers, the setup was designed to be capable of driving high loads vertically. The 
+                setup would eliminant the cantilever effect brought about by the length and expected of the upper assembly. However, the 
+                setup has multiple flaws.
+            </p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                The dual z-axis offers little to no braking when power is turned off, posing a safety hazard to users and equipment, should 
+                the operator fail to properly secure the upper assembly before cutting off power. Furthermore, more mechanical components 
+                such as compensation linear rails and rotary joints, are needed to translate the turning motion of the lead screw into the 
+                rotation needed to adjust the pitch. Furthermore, alignment concerns between the two z-axis components complicate the system, 
+                making the pitch become more unreliable for little to no gain in benefit. The idea was hence discontinued.
+            </p>
+            <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">4-Bar Linkage iteration</h3>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                One other approach was the 4-bar linkage setup, which usually allows for high mechanical torque transfer for small angle 
+                adjustments, meaning a smaller, more compact motor could be used for the pitch instead.
+            </p>
+            <p class="text-zinc-250 text-lg leading-relaxed">
+                However, the angle range needed to cover was 20 degrees minimum, and this angle is counted large for the 4-bar linkage setup. 
+                Covering this range would make the setup lose its mechanical benefits of driving torque and holding torque, resulting in a 
+                stronger motor being needed to drive the setup. This idea was hence discontinued in favour of the direct drive setup.
+            </p>
             <p class="text-zinc-250 text-lg leading-relaxed">
                 The isolated subsystem is capable of full 360-degree rotation for pitch motion, but this will be restricted to a smaller 
                 range once all other subsystems are in place due to the requirements of RMUC rules.
@@ -145,12 +179,12 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <img src="assets/JW/" alt="Integration - Gearbox CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
+            <img src="assets/JW/Gearbox Joint CAD.jpg" alt="Integration - Gearbox CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
             <img src="assets/JW/" alt="Integration - Gearbox Actual" class="rounded-xl border border-zinc-800 w-full object-cover">
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <img src="assets/JW/" alt="Integration - Passive Rotary Joint CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
+            <img src="assets/JW/Passive Rotary Joint CAD.jpg" alt="Integration - Passive Rotary Joint CAD" class="rounded-xl border border-zinc-800 w-full object-cover">
             <img src="assets/JW/" alt="Integration - Passive Rotary Joint Actual" class="rounded-xl border border-zinc-800 w-full object-cover">
         </div>
 
