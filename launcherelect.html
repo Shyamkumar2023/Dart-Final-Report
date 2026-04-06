@@ -15,66 +15,59 @@
                     </p>
 
                     <p class="text-white font-semibold text-lg tracking-tight pt-2">Evolution at a glance</p>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
-                            <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Iteration 1</p>
-                            <p class="text-white text-sm font-bold mb-2">Independent launcher stack</p>
-                            <p class="text-zinc-600 text-xs leading-relaxed">Damiao draw motor + solenoid lock + handheld remote; standalone firmware for elastic-band and rail checkout without feeder dependencies.</p>
-                        </article>
-                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
-                            <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Iteration 2</p>
-                            <p class="text-white text-sm font-bold mb-2">Evidence-driven release pivot</p>
-                            <p class="text-zinc-600 text-xs leading-relaxed">Bench PSU sweep on the solenoid; pullback-versus-release trials showed unreliable release beyond ~<span class="text-zinc-500">0.2&nbsp;m</span> draw—motivating a servo-based latch and clearer sequencing.</p>
-                        </article>
-                        <article class="rounded-xl border border-red-900/40 bg-zinc-950/60 p-5 shadow-lg shadow-red-900/10">
-                            <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Final integration</p>
-                            <p class="text-white text-sm font-bold mb-2">Feeder-coupled state machine</p>
-                            <p class="text-zinc-600 text-xs leading-relaxed">Launcher position vs. optical endstop, feeder rotary indexing, servo settle delays, motor torque for tension, compile-time <span class="text-zinc-500">C</span> directives and live-expression tuning.</p>
-                        </article>
-                    </div>
-
-                    <div class="overflow-x-auto rounded-xl border border-zinc-800">
-                        <table class="w-full text-sm text-left text-gray-400 min-w-[720px]">
-                            <thead>
-                                <tr class="border-b border-zinc-800 bg-zinc-900/80">
-                                    <th scope="col" class="px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-red-primary">Iteration</th>
-                                    <th scope="col" class="px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-red-primary">Implemented</th>
-                                    <th scope="col" class="px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-red-primary">Limitation found</th>
-                                    <th scope="col" class="px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-red-primary">Change introduced</th>
-                                    <th scope="col" class="px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-red-primary">Evidence</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-zinc-800/80">
-                                <tr class="bg-zinc-950/40">
-                                    <td class="px-4 py-3 font-mono text-xs text-gray-300 whitespace-nowrap">Onboarding A</td>
-                                    <td class="px-4 py-3">Launcher motor, solenoid lock, RC link; <strong class="text-gray-300">isolated</strong> firmware for band tests.</td>
-                                    <td class="px-4 py-3">Solenoid release not robust for deeper draws; binary actuation hard to trim.</td>
-                                    <td class="px-4 py-3">Servo release path; structured fire sequence.</td>
-                                    <td class="px-4 py-3">Bench setup photo; voltage sweep table.</td>
-                                </tr>
-                                <tr class="bg-zinc-950/20">
-                                    <td class="px-4 py-3 font-mono text-xs text-gray-300 whitespace-nowrap">Sensing</td>
-                                    <td class="px-4 py-3">Load-cell style tension concept in firmware.</td>
-                                    <td class="px-4 py-3">Extra wiring/fragility; alignment with integrated actuator torque.</td>
-                                    <td class="px-4 py-3">Tension from <strong class="text-gray-300">launcher motor</strong> telemetry / draw stroke.</td>
-                                    <td class="px-4 py-3">Static pull logs vs. blocked carriage.</td>
-                                </tr>
-                                <tr class="bg-zinc-950/40">
-                                    <td class="px-4 py-3 font-mono text-xs text-gray-300 whitespace-nowrap">System</td>
-                                    <td class="px-4 py-3">Single-shot “preloaded” launcher task.</td>
-                                    <td class="px-4 py-3">No feeder hooks, no shared datums.</td>
-                                    <td class="px-4 py-3">Optical endstop + feeder rotary position + servo delays → <strong class="text-gray-300">general state machine</strong>.</td>
-                                    <td class="px-4 py-3">Multi-shot strings; state logs.</td>
-                                </tr>
-                                <tr class="bg-zinc-950/20">
-                                    <td class="px-4 py-3 font-mono text-xs text-gray-300 whitespace-nowrap">Tuning</td>
-                                    <td class="px-4 py-3">Hard-coded timeouts/positions.</td>
-                                    <td class="px-4 py-3">Slow iteration when reburning firmware.</td>
-                                    <td class="px-4 py-3"><strong class="text-gray-300">#define</strong> test modes + live-expression tuning hooks.</td>
-                                    <td class="px-4 py-3">Comment blocks in source; tuning session notes.</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="space-y-4" data-launcher-evolution>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3" role="tablist" aria-label="Launcher evolution iterations" onclick="var b=event.target.closest('[data-evo-tab]');if(!b)return;var wrap=this.closest('[data-launcher-evolution]');var tabs=wrap.querySelectorAll('[data-evo-tab]');var panels=wrap.querySelectorAll('[data-evo-panel]');var i=parseInt(b.getAttribute('data-evo-tab'),10)||0;tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on?'true':'false');t.classList.toggle('ring-2',on);t.classList.toggle('ring-red-600/70',on);t.classList.toggle('border-red-600/50',on);t.classList.toggle('bg-zinc-900/50',on);});panels.forEach(function(p,j){var hide=j!==i;p.classList.toggle('hidden',hide);p.hidden=hide;});">
+                            <button type="button" data-evo-tab="0" aria-selected="true" class="rounded-xl border border-zinc-800 bg-zinc-900/50 ring-2 ring-red-600/70 border-red-600/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Iteration 0</p>
+                                <p class="text-white text-sm font-bold mb-1">Interim</p>
+                                <p class="text-zinc-600 text-xs leading-relaxed">Interim architecture assumptions before full physical onboarding.</p>
+                            </button>
+                            <button type="button" data-evo-tab="1" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Iteration 1</p>
+                                <p class="text-white text-sm font-bold mb-1">Isolated launcher</p>
+                                <p class="text-zinc-600 text-xs leading-relaxed">Motor + solenoid + RC tests with mechanical requirements and bench validation.</p>
+                            </button>
+                            <button type="button" data-evo-tab="2" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Iteration 2</p>
+                                <p class="text-white text-sm font-bold mb-1">Motor torque tension</p>
+                                <p class="text-zinc-600 text-xs leading-relaxed">Load-cell path retired in favor of launcher motor torque telemetry.</p>
+                            </button>
+                            <button type="button" data-evo-tab="3" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Iteration 3</p>
+                                <p class="text-white text-sm font-bold mb-1">System integration</p>
+                                <p class="text-zinc-600 text-xs leading-relaxed">Feeder + launcher cooperation via shared datums and state machine.</p>
+                            </button>
+                            <button type="button" data-evo-tab="4" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Iteration 4</p>
+                                <p class="text-white text-sm font-bold mb-1">Tuning workflow</p>
+                                <p class="text-zinc-600 text-xs leading-relaxed">Compile-time directives and live-expression parameter tuning.</p>
+                            </button>
+                        </div>
+                        <div class="rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden">
+                            <div class="border-b border-zinc-800 bg-zinc-900/80 px-4 py-2">
+                                <p class="text-[11px] font-bold uppercase tracking-wider text-red-primary">Selected iteration summary</p>
+                            </div>
+                            <div data-evo-panel class="p-4 md:p-5">
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 0</p>
+                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Interim report assumptions.<br><strong class="text-gray-300">Outcome:</strong> Electronics onboarding was planned before hardware integration revealed real coupling issues.<br><strong class="text-gray-300">Evidence:</strong> Interim electrical/software write-up and onboarding notes.</p>
+                            </div>
+                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 1</p>
+                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Independent launcher stack for mechanical testing.<br><strong class="text-gray-300">Outcome:</strong> Solenoid limitations were exposed and a structured release path was defined.<br><strong class="text-gray-300">Evidence:</strong> Solenoid bench setup, voltage vs pullback results, and component bring-up logs.</p>
+                            </div>
+                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 2</p>
+                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Load cell to motor-torque sensing migration.<br><strong class="text-gray-300">Outcome:</strong> Tension estimation moved to Damiao telemetry for simpler, more robust integration.<br><strong class="text-gray-300">Evidence:</strong> Static pull behavior and firmware evolution notes.</p>
+                            </div>
+                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 3</p>
+                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Working with launcher + feeder as one system.<br><strong class="text-gray-300">Outcome:</strong> Optical datum, feeder rotary position, and servo delays were unified in a general state machine.<br><strong class="text-gray-300">Evidence:</strong> Multi-shot sequence behavior and integrated state transitions.</p>
+                            </div>
+                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
+                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 4</p>
+                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Tuning workflow speed and safety.<br><strong class="text-gray-300">Outcome:</strong> Compile-time directives and live expressions reduced flash cycles for parameter refinement.<br><strong class="text-gray-300">Evidence:</strong> Tuning sessions and e-stop validation during calibration.</p>
+                            </div>
+                        </div>
                     </div>
                     <p class="text-gray-500 text-xs leading-relaxed">Each row is intentionally short so reviewers can anchor comments to a phase; detail follows in the subsections below.</p>
                 </div>
