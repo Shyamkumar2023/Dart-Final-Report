@@ -1,56 +1,82 @@
 <style>
   /* --- D.A.R.T. Launcher 3D Hotspots (Hover Version) --- */
 
-  /* The Anchor Dot */
-  .hotspot {
+    /* 1. The Anchor Dot - Now with Glow and Pulse */
+    .hotspot {
     background: #ef4444; /* red-600 */
     border-radius: 50%;
-    border: 2px solid #ffffff33;
+    border: none;
     width: 14px;
     height: 14px;
     cursor: pointer;
     position: relative;
-    transition: transform 0.3s ease;
-  }
+    z-index: 10;
+    transition: all 0.3s ease;
+  
+    /* The Glow Effect */
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.8), 
+              0 0 20px rgba(239, 68, 68, 0.4);
+    }
 
-  .hotspot:hover {
-    pointer-events: auto;
-    opacity: 1 !important;
-    transform: scale(1.2);
-    background: #ffffff;
-  }
+/* 2. The Pulse Animation (This makes them "Glow") */
+.hotspot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ef4444;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+  z-index: -1;
+}
 
-  /* The Info Box (Annotation) - Hidden by default */
-  .annotation {
-    position: absolute;
-    bottom: 20px; /* Positions it above the dot */
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(9, 9, 11, 0.95); /* zinc-950 */
-    border: 1px solid #3f3f46; /* zinc-700 */
-    color: #ffffff;
-    padding: 10px 14px;
-    border-radius: 6px;
-    width: 200px;
-    text-align: center;
-    opacity: 0; /* HIDE BY DEFAULT */
-    pointer-events: none;
-    transition: opacity 0.3s ease, bottom 0.3s ease;
-    z-index: 20;
-  }
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
 
-  /* Show annotation on hover */
-  .hotspot:hover .annotation {
+/* 3. Improved Hover State */
+.hotspot:hover {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  transform: scale(1.4);
+  box-shadow: 0 0 20px #ffffff, 0 0 40px rgba(239, 68, 68, 0.6);
+}
+
+/* 4. Tightened Info Box (Annotation) */
+.annotation {
+  position: absolute;
+  /* Reduced distance from dot (was 20px, now 10px) */
+  bottom: 10px; 
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(9, 9, 11, 0.95);
+  border: 1px solid #3f3f46;
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: 160px; /* Slightly narrower to stay centered */
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+}
+
+    /* Hover Effect for Text - Pulling it closer */
+    .hotspot:hover .annotation {
     opacity: 1;
-    bottom: 25px;
-    pointer-events: auto; /* Subtle float-up effect */
-  }
+    bottom: 22px; /* Pulls it up just slightly from the dot */
+    }
 
-  /* Hide when the hotspot is behind the model */
-  .hotspot:not([data-visible]) {
-    opacity: 0.1;
-    cursor: default;
-  }
+    /* Visibility when blocked by model - increased from 0.2 to 0.4 */
+    .hotspot:not([data-visible]) {
+    opacity: 0.4;
+    filter: blur(1px); /* Looks like it's actually 'inside' the model */
+    }
 
   /* Hotspot Typography */
   .hotspot-title {
