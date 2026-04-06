@@ -14,6 +14,8 @@
   }
 
   .hotspot:hover {
+    pointer-events: auto;
+    opacity: 1 !important;
     transform: scale(1.2);
     background: #ffffff;
   }
@@ -40,13 +42,14 @@
   /* Show annotation on hover */
   .hotspot:hover .annotation {
     opacity: 1;
-    bottom: 25px; /* Subtle float-up effect */
+    bottom: 25px;
+    pointer-events: auto; /* Subtle float-up effect */
   }
 
   /* Hide when the hotspot is behind the model */
   .hotspot:not([data-visible]) {
-    opacity: 0.2;
-    pointer-events: none;
+    opacity: 0.1;
+    cursor: default;
   }
 
   /* Hotspot Typography */
