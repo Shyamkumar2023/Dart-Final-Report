@@ -523,10 +523,7 @@
                     class="rounded-3xl border border-zinc-900 w-full object-cover shadow-2xl">
                     Your browser does not support the video tag.
             </video>
-
         </div>
-
-
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 px-6 items-stretch">
         
@@ -662,11 +659,37 @@
     </div>
 
     <div class="px-6 mb-32">
-        <div class="text-center mb-16">
-            <p class="text-zinc-500 font-mono text-xs uppercase tracking-[0.4em] italic mb-4">Instrumented Characterization Rig Analysis</p>
-            <p class="text-zinc-400 text-sm max-w-3xl mx-auto leading-relaxed">
-                By utilizing the DM8009 motor’s internal encoder, we mapped Motor Torque ($\tau$) against Draw Length ($x$). Since the motor drives a gear of radius $r$, the instantaneous linear force ($F$) was derived via $F = \frac{\tau}{r}$, providing the empirical foundation for our Work-Energy simulations.
-            </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+    
+            <div class="space-y-6 order-2 lg:order-1">
+                <div>
+                    <p class="text-zinc-500 font-mono text-xs uppercase tracking-[0.4em] italic mb-4">Instrumented Characterization Rig Analysis</p>
+                    <p class="text-zinc-400 text-lg leading-relaxed">
+                        By utilizing the <b>DM8009 motor’s internal encoder</b>, we mapped Motor Torque against Draw Length ($x$). This effectively turned the launcher into a dynamic characterization rig.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-900/30 border-l-2 border-red-600 p-6 rounded-r-xl">
+                    <p class="text-white font-mono text-2xl tracking-tighter">F = τ / r</p>
+                    <p class="text-zinc-500 text-[10px] uppercase tracking-widest mt-1">Linear Force Derivation</p>
+                </div>
+
+                <p class="text-zinc-400 text-sm leading-relaxed">
+                    Since the motor drives a gear of radius <i>r</i>, the instantaneous linear force (<i>F</i>) was derived as a function of torque (<i>τ</i>), providing the empirical foundation for our high-fidelity Work-Energy simulations.
+                </p>
+            </div>
+
+            <div class="order-1 lg:order-2">
+                <video src="assets/torque.MOV" 
+                    controls 
+                    playsinline 
+                    class="rounded-[2rem] border border-zinc-900 w-full shadow-2xl">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="mt-4 text-center text-zinc-600 font-mono text-[10px] uppercase tracking-widest">
+                    Live Encoder Feedback & Torque Mapping
+                </p>
+            </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
