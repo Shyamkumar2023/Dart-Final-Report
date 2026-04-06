@@ -9,7 +9,7 @@
 
                 <!-- Interim context + hybrid evolution strip -->
                 <div class="space-y-6">
-                    <p class="text-white font-semibold text-lg tracking-tight">Interim assumptions and physical onboarding</p>
+                    <p class="text-white font-semibold text-lg tracking-tight">Design Requirements</p>
                     <p class="text-zinc-250 text-lg leading-relaxed">
                         The <a href="https://nusrobomaster.github.io/Dart-FYP/dart-system/dart-robot/elec-software" class="text-red-primary hover:text-red-400 underline underline-offset-4" target="_blank" rel="noopener noreferrer">interim electrical &amp; software write-up</a> captured the intended launcher architecture before full robot bring-up. At that stage, several choices—especially latch release and tension sensing—were justified from datasheets and mechanical intent rather than from integrated testing. First electronics onboarding on hardware quickly surfaced coupling issues (solenoid release versus draw depth, feeder timing, and torque observability) that the interim document could not predict. The sections below follow a <strong class="text-gray-300 font-semibold">hybrid, iteration-first</strong> order: a short evolution strip and log table for scanning, then deeper component evidence, bench data, and firmware narrative.
                     </p>
@@ -43,29 +43,26 @@
                                 <p class="text-zinc-600 text-xs leading-relaxed">Compile-time directives and live-expression parameter tuning.</p>
                             </button>
                         </div>
-                        <div class="rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden">
-                            <div class="border-b border-zinc-800 bg-zinc-900/80 px-4 py-2">
-                                <p class="text-[11px] font-bold uppercase tracking-wider text-red-primary">Selected iteration summary</p>
+                        <div class="max-w-4xl">
+                            <div data-evo-panel>
+                                <h4 class="text-white font-semibold text-xl mb-2">Iteration 0</h4>
+                                <p class="text-zinc-250 text-lg leading-relaxed"><strong class="text-gray-300">Focus:</strong> Interim report assumptions. <strong class="text-gray-300">Outcome:</strong> Electronics onboarding was planned before hardware integration revealed real coupling issues. <strong class="text-gray-300">Evidence:</strong> Interim electrical/software write-up and onboarding notes.</p>
                             </div>
-                            <div data-evo-panel class="p-4 md:p-5">
-                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 0</p>
-                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Interim report assumptions.<br><strong class="text-gray-300">Outcome:</strong> Electronics onboarding was planned before hardware integration revealed real coupling issues.<br><strong class="text-gray-300">Evidence:</strong> Interim electrical/software write-up and onboarding notes.</p>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">Iteration 1</h4>
+                                <p class="text-zinc-250 text-lg leading-relaxed"><strong class="text-gray-300">Focus:</strong> Independent launcher stack for mechanical testing. <strong class="text-gray-300">Outcome:</strong> Solenoid limitations were exposed and a structured release path was defined. <strong class="text-gray-300">Evidence:</strong> Solenoid bench setup, voltage vs pullback results, and component bring-up logs.</p>
                             </div>
-                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
-                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 1</p>
-                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Independent launcher stack for mechanical testing.<br><strong class="text-gray-300">Outcome:</strong> Solenoid limitations were exposed and a structured release path was defined.<br><strong class="text-gray-300">Evidence:</strong> Solenoid bench setup, voltage vs pullback results, and component bring-up logs.</p>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">Iteration 2</h4>
+                                <p class="text-zinc-250 text-lg leading-relaxed"><strong class="text-gray-300">Focus:</strong> Load cell to motor-torque sensing migration. <strong class="text-gray-300">Outcome:</strong> Tension estimation moved to Damiao telemetry for simpler, more robust integration. <strong class="text-gray-300">Evidence:</strong> Static pull behavior and firmware evolution notes.</p>
                             </div>
-                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
-                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 2</p>
-                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Load cell to motor-torque sensing migration.<br><strong class="text-gray-300">Outcome:</strong> Tension estimation moved to Damiao telemetry for simpler, more robust integration.<br><strong class="text-gray-300">Evidence:</strong> Static pull behavior and firmware evolution notes.</p>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">Iteration 3</h4>
+                                <p class="text-zinc-250 text-lg leading-relaxed"><strong class="text-gray-300">Focus:</strong> Working with launcher + feeder as one system. <strong class="text-gray-300">Outcome:</strong> Optical datum, feeder rotary position, and servo delays were unified in a general state machine. <strong class="text-gray-300">Evidence:</strong> Multi-shot sequence behavior and integrated state transitions.</p>
                             </div>
-                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
-                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 3</p>
-                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Working with launcher + feeder as one system.<br><strong class="text-gray-300">Outcome:</strong> Optical datum, feeder rotary position, and servo delays were unified in a general state machine.<br><strong class="text-gray-300">Evidence:</strong> Multi-shot sequence behavior and integrated state transitions.</p>
-                            </div>
-                            <div data-evo-panel class="hidden p-4 md:p-5" hidden>
-                                <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-3">Iteration 4</p>
-                                <p class="text-gray-400 text-sm leading-relaxed"><strong class="text-gray-300">Focus:</strong> Tuning workflow speed and safety.<br><strong class="text-gray-300">Outcome:</strong> Compile-time directives and live expressions reduced flash cycles for parameter refinement.<br><strong class="text-gray-300">Evidence:</strong> Tuning sessions and e-stop validation during calibration.</p>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">Iteration 4</h4>
+                                <p class="text-zinc-250 text-lg leading-relaxed"><strong class="text-gray-300">Focus:</strong> Tuning workflow speed and safety. <strong class="text-gray-300">Outcome:</strong> Compile-time directives and live expressions reduced flash cycles for parameter refinement. <strong class="text-gray-300">Evidence:</strong> Tuning sessions and e-stop validation during calibration.</p>
                             </div>
                         </div>
                     </div>
@@ -74,6 +71,9 @@
 
                 <div>
                     <p class="text-white font-semibold text-lg tracking-tight mb-4">Design requirements</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        The launcher operates reliably only when several core constraints are enforced together: <strong class="text-gray-300 font-semibold">motor torque must be observed with sufficient resolution</strong> to infer band preload, <strong class="text-gray-300 font-semibold">lock detection must be explicit before any fire command</strong>, <strong class="text-gray-300 font-semibold">release must be driven by a repeatable servo action</strong>, and <strong class="text-gray-300 font-semibold">the shot sequence must handle both preloaded first-shot and feeder-coupled subsequent-shot branches</strong>. The requirements below capture these operating essentials along with safety and tuning constraints.
+                    </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
                             <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Force / torque awareness</h4>
