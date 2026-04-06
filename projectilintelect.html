@@ -5,9 +5,76 @@
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Projectile Internal Electronics
             </h3>
-            <p class="text-gray-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8">
-                VJ stuff here for projectile PCB.
-            </p>
+
+            <div class="border-l-2 border-red-900 pl-8 space-y-6">
+                <div>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-6">
+                        The projectile internal electronics were designed around strict space, power, and functionality constraints. The system had to fit fully within the projectile while supporting onboard sensing, image processing, fin actuation, and reliable power distribution.
+                    </p>
+
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Design requirements</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Battery capacity limit</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                The projectile battery must not exceed <span class="text-gray-300">4 Wh</span>, as this is a competition requirement.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Continuous current supply</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                The power system must support at least <span class="text-gray-300">8 A</span> continuous current so all onboard components can operate under peak load with margin.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Dual voltage rails</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                The electronics must provide both <span class="text-gray-300">5 V</span> and <span class="text-gray-300">7.4 V</span> rails, since different components require different supply voltages for proper operation.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Plug-and-play wiring</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                All connectors and ports must be labelled and fit within the projectile, so damaged parts can be replaced quickly and maintenance stays simple.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Compact PCB form factor</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                The custom PCB must fit fully inside the projectile. Internal space is limited, so the board has to remain compact.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">PCB mounting stability</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                The PCB should include at least <span class="text-gray-300">two mounting holes</span> to reduce vibration and lower the risk of electrical failure during operation.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Onboard image processing</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                The projectile must support onboard colour detection and tracking so it can detect and track the target during operation.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Servo control capability</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                The control electronics must support reliable servo actuation to drive the projectile fins smoothly and consistently.
+                            </p>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="w-48 shrink-0 text-center group">
