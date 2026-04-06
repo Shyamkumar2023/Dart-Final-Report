@@ -1,73 +1,72 @@
 <style>
+  /* --- D.A.R.T. Launcher 3D Hotspots (Hover Version) --- */
 
-
-  /* --- D.A.R.T. Launcher 3D Hotspots --- */
-  
-  /* The Anchor Dot (Red Point on Model) */
+  /* The Anchor Dot */
   .hotspot {
     background: #ef4444; /* red-600 */
     border-radius: 50%;
-    border: none;
-    width: 10px;
-    height: 10px;
-    display: block; /* Ensures it stays visible */
-    pointer-events: auto;
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    border: 2px solid #ffffff33;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
   }
 
-  /* The Info Box (Annotation) */
+  .hotspot:hover {
+    transform: scale(1.2);
+    background: #ffffff;
+  }
+
+  /* The Info Box (Annotation) - Hidden by default */
   .annotation {
     position: absolute;
+    bottom: 20px; /* Positions it above the dot */
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(9, 9, 11, 0.95); /* zinc-950 */
-    border: 1px solid #7f1d1d; /* red-900 */
+    border: 1px solid #3f3f46; /* zinc-700 */
     color: #ffffff;
-    padding: 12px 16px;
-    border-radius: 2px;
-    width: 220px;
-    text-align: left;
-    
-    /* Position the box away from the dot */
-    transform: translate(35px, -90px); 
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    padding: 10px 14px;
+    border-radius: 6px;
+    width: 200px;
+    text-align: center;
+    opacity: 0; /* HIDE BY DEFAULT */
+    pointer-events: none;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    z-index: 20;
   }
 
-  /* The Red Leader Line (Diagonal Connection) */
-  .annotation::before {
-    content: "";
-    position: absolute;
-    top: 100%;  /* Starts at the bottom of the box */
-    left: 0;
-    width: 55px;
-    height: 1.5px;
-    background: #ef4444; /* red-600 */
-    
-    /* Rotates the line to point back to the hotspot dot */
-    transform: rotate(45deg);
-    transform-origin: top left;
+  /* Show annotation on hover */
+  .hotspot:hover .annotation {
+    opacity: 1;
+    bottom: 25px; /* Subtle float-up effect */
+  }
+
+  /* Hide when the hotspot is behind the model */
+  .hotspot:not([data-visible]) {
+    opacity: 0.2;
+    pointer-events: none;
   }
 
   /* Hotspot Typography */
   .hotspot-title {
     display: block;
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
     font-size: 10px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     color: #ef4444;
-    margin-bottom: 6px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    margin-bottom: 2px;
   }
 
   .hotspot-text {
     display: block;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #d1d1d6; /* zinc-300 */
-    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #d1d1d6;
   }
 
-  /* Ensure Model Viewer takes up proper space */
   model-viewer {
     width: 100%;
     height: 100%;
@@ -135,7 +134,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <video src="assets/scrapmetallauncher.MOV" autoplay controls playsinline class="rounded-xl border border-zinc-800 w-full">Your browser does not support the video tag.</video>
+            <video src="assets/scrapmetallauncher.MOV" controls playsinline class="rounded-xl border border-zinc-800 w-full">Your browser does not support the video tag.</video>
             <img src="assets/scrapmetal.jpg" alt="Hand pull test" class="rounded-xl border border-zinc-800 w-full object-cover">
         </div>
 
@@ -145,9 +144,9 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <img src="assets/broken1.jpg" alt="Hand pull test" class="rounded-xl border border-zinc-800 w-full object-cover">
-            <img src="assets/broken2.jpg" alt="Hand pull test" class="rounded-xl border border-zinc-800 w-full object-cover">
+        <div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+            <img src="assets/broken1.jpg" alt="Broken carrier 1" class="rounded-xl border border-zinc-800 w-full object-cover aspect-video">
+            <img src="assets/broken2.jpg" alt="Broken carrier 2" class="rounded-xl border border-zinc-800 w-full object-cover aspect-video">
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
@@ -167,22 +166,18 @@
 
         <div class="flex flex-col lg:flex-row items-center gap-16 bg-zinc-950/50 p-12 rounded-[2rem] border border-zinc-900 shadow-2xl">
     
-            <div class="flex gap-8 shrink-0">
-        
+            <div class="flex gap-4 md:gap-8 shrink"> 
+    
                 <div class="flex flex-col items-center gap-4 group">
                     <img src="assets/springdamper.jpg" alt="Spring damping prototype" 
-                        class="w-80 h-96 rounded-2xl border border-zinc-800 object-cover shadow-lg group-hover:border-red-600 transition-all duration-500">
-                    <p class="text-zinc-300 font-mono text-[15px] uppercase tracking-[0.3em] group-hover:text-red-500 transition-colors">
-                        spring damper
-                    </p>
+                        class="w-48 h-64 md:w-64 md:h-80 xl:w-80 xl:h-96 rounded-2xl border border-zinc-800 object-cover shadow-lg group-hover:border-red-600 transition-all duration-500">
+                    <p class="text-zinc-300 font-mono text-[12px] uppercase tracking-[0.3em] group-hover:text-red-500">spring damper</p>
                 </div>
 
                 <div class="flex flex-col items-center gap-4 group">
                     <img src="assets/rubberbanddamper.jpg" alt="Rubber band damping prototype" 
-                        class="w-80 h-96 rounded-2xl border border-zinc-800 object-cover shadow-lg group-hover:border-red-600 transition-all duration-500">
-                    <p class="text-zinc-300 font-mono text-[15px] uppercase tracking-[0.3em] group-hover:text-red-500 transition-colors">
-                        rubber band damper
-                    </p>
+                        class="w-48 h-64 md:w-64 md:h-80 xl:w-80 xl:h-96 rounded-2xl border border-zinc-800 object-cover shadow-lg group-hover:border-red-600 transition-all duration-500">
+                    <p class="text-zinc-300 font-mono text-[12px] uppercase tracking-[0.3em] group-hover:text-red-500">rubber band damper</p>
                 </div>
             </div>
 
@@ -224,7 +219,7 @@
                 </div>
             </div>
             <div class="space-y-6">
-                <video src="assets/catapultexpl.MP4" autoplay controls playsinline class="rounded-2xl shadow-2xl w-full">Your browser does not support the video tag.</video>
+                <video src="assets/catapultexpl.MP4" controls playsinline class="rounded-2xl shadow-2xl w-full">Your browser does not support the video tag.</video>
                 <p class="text-zinc-300 text-sm italic text-center uppercase tracking-widest">Reference: Naval Steam Catapult Mechanics</p>
             </div>
         </div>
