@@ -285,12 +285,113 @@
                 <div class="p-4 border-t border-zinc-900 bg-[#1e1e1e]"> 
                     <pre class="rounded-xl overflow-x-auto"><code class="language-python">
     import numpy as np
+    from scipy.integrate import solve_ivp
+    from scipy.interpolate import interp1d
 
-    def rk4_step(state, dt, params):
-        # Your ballistic logic here...
-        pass
+    # author : S Shyam Y4 ME (2026)
+    # all rights reserved
+    # mathematical equations referenced above
 
-    print("Fire Control System Ready.")
+    # --- SYSTEM & ENVIRONMENTAL CONSTANTS ---
+    M_PROJ = 0.260           # Mass of Projectile (kg)
+    M_CARR = 0.435           # Mass of Carrier/Shuttle (kg)
+    M_SYS  = M_PROJ + M_CARR # Total Accelerated Mass (0.695 kg)
+
+    CD = 0.35                # Drag Coefficient
+    AREA = 0.00245947        # Frontal Area (m^2)
+    RHO = 1.225              # Air Density (kg/m^3)
+    G = 9.81                 # Gravity (m/s^2)
+    ETA_SYS = 0.88           # Estimated System Efficiency (Latex + Rail friction)
+
+    TARGET_X = 25.0          # Target Distance (m)
+    TARGET_Y = 1.1165        # Target Height (m)
+    Y_INIT = 0.205           # Launcher Exit Height (m)
+
+    # Quadratic Drag Constant
+    K_DRAG = 0.5 * RHO * CD * AREA
+
+    # --- EXPERIMENTAL BAND CHARACTERIZATION 18-LOOP DATA ---
+    # Representative data for the 18-loop configuration (Distance in m, Force in N)
+    dist_data = np.array([0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.705])
+    force_data = np.array([0.0, 80.0, 160.0, 240.0, 310.0, 370.0, 420.0, 480.0])
+
+    # High-fidelity linear interpolation for force curve
+    band_interpolator = interp1d(dist_data, force_data, kind='linear', fill_value="extrapolate")
+
+    def calculate_v0(L):
+        """
+        Calculates Exit Velocity using Work-Energy Theorem for Coupled Mass.
+        L = Drawback length (m)
+        """
+        x_steps = np.linspace(0, L, 200)
+        f_steps = band_interpolator(x_steps)
+    
+        # Calculate Potential Energy (PE) using Trapezoidal integration
+        PE_total = np.trapz(f_steps, x_steps)
+    
+        # Solve for v0: KE = 0.5 * m_sys * v0^2
+        # Using M_SYS here because the bands must move both carrier and dart
+        v0 = np.sqrt((2 * ETA_SYS * PE_total) / M_SYS)
+        return v0
+
+    # --- FLIGHT DYNAMICS, Ballistic Engine ---
+    def flight_ode(t, state):
+        """
+        State vector S = [x, y, vx, vy]
+        Note: Using M_PROJ here because the dart flies alone after launch.
+        """
+        x, y, vx, vy = state
+        v = np.sqrt(vx**2 + vy**2)
+    
+        ax = -(K_DRAG / M_PROJ) * v * vx
+        ay = -G - (K_DRAG / M_PROJ) * v * vy
+    
+        return [vx, vy, ax, ay]
+
+    # --- SIMULATION & OPTIMIZATION ---
+    def simulate_shot(alpha, L):
+        v0 = calculate_v0(L)
+        rad = np.radians(alpha)
+        s0 = [0, Y_INIT, v0 * np.cos(rad), v0 * np.sin(rad)]
+    
+        # Define an event to stop sim when target_x is reached
+        def hit_target_plane(t, s): return s[0] - TARGET_X
+        hit_target_plane.terminal = True
+    
+        sol = solve_ivp(flight_ode, [0, 5], s0, events=hit_target_plane, max_step=0.01)
+    
+        if sol.t_events[0].size > 0:
+            y_impact = sol.y_events[0][0][1]
+            t_impact = sol.t_events[0][0]
+            return y_impact, t_impact
+        return -999, -1
+
+    # --- GRID SEARCH (Real-World Calibration) ---
+    print("Running Grid Search for Optimal Launch Parameters...")
+
+    alpha_range = np.linspace(10, 45, 36) # 1 degree steps
+    L_range = np.linspace(0.4, 0.705, 31) # 1 cm steps
+
+    best_error = float('inf')
+    best_params = (0, 0)
+
+    for alpha in alpha_range:
+        for L in L_range:
+            y_hit, t_hit = simulate_shot(alpha, L)
+            error = abs(y_hit - TARGET_Y)
+        
+            if error < best_error:
+                best_error = error
+                best_params = (alpha, L, y_hit, t_hit)
+
+    # --- OUTPUT FINAL RESULTS ---
+    alpha, L, y_final, t_final = best_params
+    print(f"\n--- OPTIMAL SOLUTION FOUND ---")
+    print(f"Best Angle (α): {alpha:.2f}°")
+    print(f"Best Draw Length (L): {L:.3f} m")
+    print(f"Required Peak Force: {band_interpolator(L):.2f} N")
+    print(f"Resulting Exit Velocity (v0): {calculate_v0(L):.2f} m/s")
+    print(f"Predicted Impact Height: {y_final:.4f} m (Target: {TARGET_Y}m)")
                     </code></pre>
                 </div>
             </details>
