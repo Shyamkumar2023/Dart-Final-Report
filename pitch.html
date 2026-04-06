@@ -136,27 +136,24 @@
         <div class="max-w-4xl space-y-8">
             <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">Dual Z-Axis Iteration</h3>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                This iteration featured two z-axis lead screws driven by stepper motors located at the bottom. Inspired greatly by the 
-                dual z-axis setup on many modern 3D printers, the setup was designed to be capable of driving high loads vertically. The 
-                setup would eliminant the cantilever effect brought about by the length and expected of the upper assembly. However, the 
-                setup has multiple flaws.
+                This iteration used two bottom-mounted stepper motors to drive dual z-axis lead screws. Inspired by modern 3D printers, 
+                it aimed to support high vertical loads and reduce cantilever effects from the upper assembly. However, the design was 
+                discontinued due to several flaws.
             </p>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                The dual z-axis offers little to no braking when power is turned off, posing a safety hazard to users and equipment, should 
-                the operator fail to properly secure the upper assembly before cutting off power. Furthermore, more mechanical components 
-                such as compensation linear rails and rotary joints, are needed to translate the turning motion of the lead screw into the 
-                rotation needed to adjust the pitch. Furthermore, alignment concerns between the two z-axis components complicate the system, 
-                making the pitch become more unreliable for little to no gain in benefit. The idea was hence discontinued.
+                The system provided little holding torque when unpowered, creating a safety risk if the upper assembly was not secured 
+                before shutdown. It also needed extra components to convert lead screw motion into pitch rotation. In addition, 
+                keeping both z-axis drives aligned increased complexity and reduced reliability, with little benefit.
             </p>
             <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">4-Bar Linkage Iteration</h3>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                One other approach was the 4-bar linkage setup, which usually allows for high mechanical torque transfer for small angle 
-                adjustments, meaning a smaller, more compact motor could be used for the pitch instead.
+                Another concept explored was a 4-bar linkage, which can provide high torque transmission over small angular movements and 
+                allow the use of a smaller, more compact pitch motor.
             </p>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                However, the angle range needed to cover was 20 degrees minimum, and this angle is counted large for the 4-bar linkage setup. 
-                Covering this range would make the setup lose its mechanical benefits of driving torque and holding torque, resulting in a 
-                stronger motor being needed to drive the setup. This idea was hence discontinued in favour of the direct drive setup.
+                However, the required pitch range was at least 20°, which is large for this type of setup. Operating over this range 
+                would reduce its torque and holding advantages, removing its main benefit and requiring a stronger motor. This concept was 
+                therefore discontinued in favour of a direct-drive setup.
             </p>
             <p class="text-zinc-250 text-lg leading-relaxed">
                 The isolated subsystem is capable of full 360-degree rotation for pitch motion, but this will be restricted to a smaller 
