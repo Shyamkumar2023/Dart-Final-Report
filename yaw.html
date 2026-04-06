@@ -35,9 +35,9 @@
         <div class="max-w-4xl">
             <p class="text-zinc-250 text-lg leading-relaxed">
                 The yaw subsystem controls the robot’s heading through a single drive system and forms 
-                the base frame supporting the upper assembly. In the interim report, we completed the 
-                load considerations and calculations needed to determine the drive system needed, as 
-                well as the rotating platform involved. The relevant calculations can be seen below.
+                the base frame that supports the upper assembly. In the interim report, load calculations 
+                and design considerations were completed to determine the required drive system and rotating 
+                platform. The relevant calculations are shown below.
             </p>
         </div>
 
@@ -54,8 +54,9 @@
 
         <div class="max-w-4xl">
             <p class="text-zinc-250 text-lg leading-relaxed">
-                The resulting requirement of 53.5 Nm was needed, which contributed to the drive-system and motor 
-                selection. This calculated figure is updated from the interim report.
+                A required torque of <strong class="font-bold text-white">53.5 Nm</strong> was obtained from these calculations, 
+                the value updated compared to those in the interim report. This value guided the selection of the motor and overall 
+                drive system.
             </p>
         </div>
 
@@ -63,19 +64,20 @@
             <div>
                 <h2 class="text-4xl font-bold text-white mb-6">Drive System Considerations</h2>
                 <p class="text-zinc-250 text-lg leading-relaxed">
-                    A direct-drive system was selected for its ease of maintenance and low potential for failure points. The Damiao DL10010L 
-                    Motor was selected as the drive motor due to its capability to handle the required drive torque, as well as its ease of 
-                    integration with Calibur Robotics’ current hardware infrastructure, with their extensive use of Damiao motors. The interim 
-                    report covers more details on the selection considerations.
+                    A direct-drive system was selected due to its simplicity, ease of maintenance, and lower number of potential failure 
+                    points. The <strong class="font-bold text-white">Damiao DL10010L motor</strong> was chosen as the drive motor because 
+                    it can meet the required torque demand and integrates well with Calibur Robotics’ existing hardware ecosystem, 
+                    which already makes extensive use of Damiao motors. Further details on the selection process have been covered in the 
+                    interim report.
                 </p>
             </div>
 
             <div>
                 <h2 class="text-4xl font-bold text-white mb-6">Electronics Bay</h2>
                 <p class="text-zinc-250 text-lg leading-relaxed">
-                    An electronics bay was designed and equipped on the yaw subsystem as well, to better house all electronics and PCBs 
-                    required for the robot’s operations, and act as a central node for wires to route to. The LCD Touch Screen, covered in 
-                    later sections, is also mounted on the frame of the robot.
+                    An electronics bay was designed as part of the yaw subsystem to house the electronics and PCBs required for 
+                    robot operation. It also serves as a central routing point for the wiring across the robot. The LCD touch screen, 
+                    discussed in later sections, is mounted on the robot frame as part of this subsystem.
                 </p>
             </div>
         </div>
@@ -92,7 +94,7 @@
 
         <div class="max-w-4xl space-y-8">
             <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">
-                Potential Improvements
+                Potential Design Improvements
             </h3>
             <p class="text-zinc-250 text-lg leading-relaxed">
                 The current electronics bay is not without its flaws, and can be improved by,
@@ -128,20 +130,20 @@
         
         <div class="max-w-4xl space-y-8">
             <p class="text-zinc-250 text-lg leading-relaxed">
-                The interactive above shows the final design of the yaw subsystem. The subsystem on its own is able to support full rotational 
-                motion, excluding the sector the LCD screen is in. This range of motion will be further reduced upon integration, but it 
-                fulfils our yaw range requirements of 2.2(anti-clockwise) to -7.8(clockwise) degrees.
+                The interactive display above shows the final design of the yaw subsystem. On its own, the subsystem is capable of 
+                full rotational motion, except in the sector occupied by the LCD screen. This range of motion is further reduced after 
+                integration with other subsystems. However, it still satisfies the yaw range required for the application, namely 
+                <strong class="font-bold text-white">2.2° anticlockwise to -7.8° clockwise</strong>.
             </p>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                The subsystem is also able to fully support the expected load from the other subsystems that will be mounted on the yaw 
-                subsystem.
+                The subsystem is also designed to support the expected load of 15kg from the other subsystems mounted above it.
             </p>
         </div>
 
         <div class="max-w-4xl space-y-8">
             <h2 class="text-4xl font-bold text-white mb-6">Integration with other subsystems</h2>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                The Yaw subsystem is designed to directly integrate with the pitch subsystem, and the upper assembly, which consists of the 
+                The yaw subsystem is designed to directly integrate with the pitch subsystem, and the upper assembly, which consists of the 
                 launcher and feeder subsystems, will be mounted on the pitch subsystem. The figure below shows the pitch subsystem integrated 
                 with the yaw subsystem.
             </p>
@@ -154,9 +156,9 @@
 
         <div class="max-w-4xl space-y-8">
             <p class="text-zinc-250 text-lg leading-relaxed">
-                Upon integration with the other subsystems, the range of yaw motion is restricted to a -10 to 10-degree sector, with the 
-                0-degree reference being the launcher parallel to the yaw frame, and pointing towards the direction of launch for the 
-                projectile.
+                Upon integration with the other subsystems, the range of yaw motion is restricted to a 
+                <strong class="font-bold text-white">-10° to 10°</strong> sector, with the 
+                0° reference is defined as the launcher being parallel to the yaw frame and pointing in the launch direction of the projectile.
             </p>
         </div>
 
@@ -165,12 +167,13 @@
             <h3 class="inline-block text-2xl text-white font-semibold border-b-2 border-red-primary pb-1">Functionality testing</h3>
             <p class="text-zinc-250 text-lg leading-relaxed">
                 The basic functionality testing includes the movement of the yaw. The yaw subsystem was able to move its position freely within 
-                the -10 to 10 degree sector, without any interference with wires, electronics, or other components of the Dart robot. This is 
+                the <strong class="font-bold text-white">-10° to 10°</strong> sector, without any interference with wires, 
+                electronics, or other components of the Dart robot. This is 
                 also accomplished without any failure of structural components.
             </p>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                With that, we show that the dart robot is capable of achieving the target yaw angles of 2.2 and -7.8 degrees as required by 
-                the RMUC competition rules.
+                With that, we show that the dart robot is capable of achieving the target yaw angles of 
+                <strong class="font-bold text-white">2.2° and -7.8°</strong> as required by the RMUC competition rules.
             </p>
         </div>
 
@@ -249,7 +252,7 @@
                 to the zero position. 
             </p>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                A total of 10 repetitions were done separately for two target positions, namely the -7.8-degree target angle and the 2.2-degree 
+                A total of 10 repetitions were done separately for two target positions, namely the -7.8° target angle and the 2.2° 
                 target angle. The acceptable deviation from the target angle will be 0.2 degrees, given that small inaccuracies to 0.1 degrees 
                 of the yaw position can cause large deviations in the final position of the projectile 26 meters away from launch. The test 
                 results for both targets are shown below.
@@ -270,8 +273,8 @@
             <p class="text-zinc-250 text-lg leading-relaxed">
                 We note that the values above are recorded without tuning of the PID control loop, which could play a role in tightening the 
                 deviations from the target yaw angle. From the results, we can actually see a significant decrease in the deviations in 
-                repetitions for the 2.2-degree target from the -7.8-degree target. In the -7.8 degree test, the KP values were lower than 
-                those of the 2.2-degree target tests. This shows that through tuning of the yaw motor PID values, it is very possible to 
+                repetitions for the 2.2° target from the -7.8° target. In the -7.8° test, the KP values were lower than 
+                those of the 2.2° target tests. This shows that through tuning of the yaw motor PID values, it is very possible to 
                 achieve the required accuracy. More work has to be done for this portion to validate the accuracy of the yaw subsystem.
             </p>
         </div>
