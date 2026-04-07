@@ -71,7 +71,7 @@
                             <div data-evo-version-detail class="hidden" hidden>
                                 <div class="space-y-10">
                                     <div class="space-y-3">
-                                        <p class="text-white font-semibold text-lg tracking-tight">What was required</p>
+                                        <p class="text-white font-semibold text-lg tracking-tight">System requirements</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             The first bring-up goal was to exercise the launcher <em>alone</em>: prove the carriage could draw elastic preload under motor control, that a latch could release on command, and that an operator could stop the rig quickly—<strong class="text-gray-300 font-semibold">without</strong> debugging feeder indexing or multi-subsystem timing. That deliberately shrank the failure domain while rail travel, band sets, and latch geometry were still changing weekly.
                                         </p>
@@ -81,7 +81,7 @@
                                     </div>
 
                                     <div class="space-y-3">
-                                        <p class="text-white font-semibold text-lg tracking-tight">Components used</p>
+                                        <p class="text-white font-semibold text-lg tracking-tight">Hardware components</p>
                                         <div class="space-y-4">
                                             <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl" open>
                                                 <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
@@ -115,7 +115,7 @@
                                     </div>
 
                                     <div class="space-y-4">
-                                        <p class="text-white font-semibold text-lg tracking-tight">What testing was done</p>
+                                        <p class="text-white font-semibold text-lg tracking-tight">Test methodology</p>
                                         <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 overflow-hidden shadow-lg shadow-red-900/5">
                                             <div class="border-b border-zinc-800 bg-zinc-900/40 px-5 py-3">
                                                 <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em]">Test evidence — solenoid release bench</h4>
@@ -123,46 +123,48 @@
                                             <div class="p-5 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
                                                 <figure class="rounded-lg border border-zinc-800 bg-black/40 p-2">
                                                     <img src="assets/Barry/solenoid_lock_release_testing.jpg" alt="Bench setup for solenoid latch release testing with PSU and launcher hardware" class="w-full h-auto rounded-md object-contain">
-                                                    <figcaption class="text-gray-500 text-xs mt-2 leading-relaxed">Figure: bench configuration used to sweep solenoid supply and observe whether the latch could reliably release at representative draw depths.</figcaption>
+                                                    <figcaption class="text-gray-500 text-xs mt-2 leading-relaxed">Figure: bench setup for solenoid release-voltage characterization across pullback distances.</figcaption>
                                                 </figure>
-                                                <p class="text-gray-400 text-lg leading-relaxed">
-                                                    This setup isolated the <strong class="text-gray-300 font-semibold">solenoid driver</strong>, <strong class="text-gray-300 font-semibold">mechanical latch</strong>, and <strong class="text-gray-300 font-semibold">launcher carriage position</strong> from the rest of the robot so failures could be attributed to release margin—not feeder indexing. Observed behaviour: beyond roughly <span class="text-gray-300">0.2&nbsp;m</span> pullback (with the band configurations tested), release became inconsistent; increasing drive voltage did not restore margin in a way that felt safe for competition use. That outcome directly motivated migrating dart release to a <strong class="text-gray-300 font-semibold">servo-actuated</strong> latch with deterministic travel.
-                                                </p>
+                                                <div class="space-y-4">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">
+                                                        Following this issue, the solenoid lock was tested at different pullback distances to determine the release voltage required at each position. A benchtop power supply was used to vary the input voltage during testing.
+                                                    </p>
+                                                    <p class="text-gray-400 text-lg leading-relaxed">
+                                                        In each trial, the lock was pulled to a set distance, and the voltage was increased until release occurred. The test was then repeated for multiple distances to study the relationship between pullback distance and required release voltage.
+                                                    </p>
+                                                </div>
                                             </div>
                                         </article>
 
                                         <div class="rounded-xl border border-zinc-800 bg-zinc-950/30 p-6 space-y-4">
-                                            <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.28em] mb-1">Solenoid supply vs. draw depth</p>
+                                            <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.28em] mb-1">Results and analysis</p>
                                             <h4 class="text-white font-semibold text-lg tracking-tight">Solenoid supply vs. draw depth at release</h4>
-                                            <p class="text-gray-400 text-lg leading-relaxed">
-                                                Solenoid bench characterisation from the isolated launcher bring-up: PSU sweep and pullback trials; conclusions fed directly into the servo release pivot and minimum acceptable margins for fire gating.
-                                            </p>
-                                            <p class="text-gray-400 text-lg leading-relaxed">
-                                                A bench PSU swept the solenoid rail while the launcher was positioned to representative pullback distances. The goal was to see whether higher coil voltage recovered reliable release at deep draws. The trend supported the pivot: the mechanism behaved as a <strong class="text-gray-300 font-semibold">binary</strong> plunger with limited controllable overlap against growing band load.
-                                            </p>
-                                            <p class="text-amber-600/90 text-xs font-mono uppercase tracking-wider mb-2">Placeholder dataset — replace cells with final logged measurements during report freeze.</p>
+                                            <p class="text-amber-600/90 text-xs font-mono uppercase tracking-wider mb-2">Measured dataset from V1 solenoid release bench tests.</p>
 
                                             <div class="flex flex-col xl:flex-row gap-8 items-start">
                                                 <div class="w-full xl:w-1/2 rounded-lg border border-zinc-800 bg-black/50 p-4">
-                                                    <p class="text-gray-500 text-xs mb-3 font-mono uppercase tracking-widest">Voltage vs. max reliable pullback before failed release</p>
-                                                    <svg viewBox="0 0 440 260" class="w-full h-auto text-zinc-400" role="img" aria-label="Line chart: solenoid voltage versus pullback distance with 0.2 meter failure threshold">
-                                                        <text x="220" y="22" text-anchor="middle" fill="#a1a1aa" font-size="11" font-family="ui-monospace, monospace">Illustrative trend (placeholder points)</text>
+                                                    <p class="text-gray-500 text-xs mb-3 font-mono uppercase tracking-widest">Voltage vs. pullback distance at release</p>
+                                                    <svg viewBox="0 0 440 260" class="w-full h-auto text-zinc-400" role="img" aria-label="Line chart: minimum solenoid release voltage versus pullback distance">
+                                                        <text x="220" y="22" text-anchor="middle" fill="#a1a1aa" font-size="11" font-family="ui-monospace, monospace">V1 measured release dataset</text>
                                                         <line x1="56" y1="210" x2="400" y2="210" stroke="#3f3f46" stroke-width="1.5"/>
                                                         <line x1="56" y1="210" x2="56" y2="36" stroke="#3f3f46" stroke-width="1.5"/>
-                                                        <text x="228" y="248" text-anchor="middle" fill="#a1a1aa" font-size="11">Solenoid supply (V)</text>
-                                                        <text x="18" y="130" text-anchor="middle" fill="#a1a1aa" font-size="11" transform="rotate(-90 18 130)">Pullback (m)</text>
-                                                        <line x1="56" y1="111" x2="400" y2="111" stroke="#dc2626" stroke-dasharray="5 4" stroke-width="1.2"/>
-                                                        <text x="405" y="115" fill="#f87171" font-size="10">~0.20 m — observed unreliable zone</text>
-                                                        <text x="80" y="228" text-anchor="middle" fill="#71717a" font-size="10">9</text>
-                                                        <text x="176" y="228" text-anchor="middle" fill="#71717a" font-size="10">10</text>
-                                                        <text x="272" y="228" text-anchor="middle" fill="#71717a" font-size="10">11</text>
-                                                        <text x="368" y="228" text-anchor="middle" fill="#71717a" font-size="10">12</text>
-                                                        <text x="48" y="214" text-anchor="end" fill="#71717a" font-size="10">0</text>
-                                                        <text x="48" y="140" text-anchor="end" fill="#71717a" font-size="10">0.2</text>
-                                                        <text x="48" y="66" text-anchor="end" fill="#71717a" font-size="10">0.35</text>
+                                                        <text x="228" y="248" text-anchor="middle" fill="#a1a1aa" font-size="11">Pullback distance (m)</text>
+                                                        <text x="18" y="130" text-anchor="middle" fill="#a1a1aa" font-size="11" transform="rotate(-90 18 130)">Minimum release voltage (V)</text>
+                                                        <line x1="400" y1="36" x2="400" y2="210" stroke="#dc2626" stroke-dasharray="5 4" stroke-width="1.2"/>
+                                                        <text x="312" y="48" fill="#f87171" font-size="10">0.20 m point (highest measured pullback)</text>
+                                                        <text x="56" y="228" text-anchor="middle" fill="#71717a" font-size="10">0.05</text>
+                                                        <text x="125" y="228" text-anchor="middle" fill="#71717a" font-size="10">0.08</text>
+                                                        <text x="194" y="228" text-anchor="middle" fill="#71717a" font-size="10">0.11</text>
+                                                        <text x="262" y="228" text-anchor="middle" fill="#71717a" font-size="10">0.14</text>
+                                                        <text x="331" y="228" text-anchor="middle" fill="#71717a" font-size="10">0.17</text>
+                                                        <text x="400" y="228" text-anchor="middle" fill="#71717a" font-size="10">0.20</text>
+                                                        <text x="48" y="214" text-anchor="end" fill="#71717a" font-size="10">9</text>
+                                                        <text x="48" y="156" text-anchor="end" fill="#71717a" font-size="10">14</text>
+                                                        <text x="48" y="98" text-anchor="end" fill="#71717a" font-size="10">19</text>
+                                                        <text x="48" y="40" text-anchor="end" fill="#71717a" font-size="10">24</text>
                                                         <polyline fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                            points="80,186 176,162 272,138 368,118"/>
-                                                        <circle cx="80" cy="186" r="4" fill="#f43f5e"/><circle cx="176" cy="162" r="4" fill="#f43f5e"/><circle cx="272" cy="138" r="4" fill="#f43f5e"/><circle cx="368" cy="118" r="4" fill="#f43f5e"/>
+                                                            points="56,210 125,210 194,207 262,197 331,163 400,36"/>
+                                                        <circle cx="56" cy="210" r="4" fill="#f43f5e"/><circle cx="125" cy="210" r="4" fill="#f43f5e"/><circle cx="194" cy="207" r="4" fill="#f43f5e"/><circle cx="262" cy="197" r="4" fill="#f43f5e"/><circle cx="331" cy="163" r="4" fill="#f43f5e"/><circle cx="400" cy="36" r="4" fill="#f43f5e"/>
                                                     </svg>
                                                 </div>
                                                 <div class="w-full xl:flex-1 overflow-x-auto rounded-lg border border-zinc-800">
@@ -176,14 +178,25 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody class="divide-y divide-zinc-800/80">
-                                                            <tr><td class="px-3 py-2 font-mono">9.0</td><td class="px-3 py-2">0.12</td><td class="px-3 py-2 text-emerald-500/90">OK</td><td class="px-3 py-2">Placeholder row</td></tr>
-                                                            <tr><td class="px-3 py-2 font-mono">10.0</td><td class="px-3 py-2">0.17</td><td class="px-3 py-2 text-emerald-500/90">OK</td><td class="px-3 py-2">Placeholder row</td></tr>
-                                                            <tr><td class="px-3 py-2 font-mono">11.0</td><td class="px-3 py-2">0.19</td><td class="px-3 py-2 text-amber-500/90">Marginal</td><td class="px-3 py-2">Approaching ~0.2&nbsp;m band-dependent limit</td></tr>
-                                                            <tr><td class="px-3 py-2 font-mono">12.0</td><td class="px-3 py-2">0.22</td><td class="px-3 py-2 text-red-500/90">Fail / inconsistent</td><td class="px-3 py-2">Placeholder — aligns with “&gt;0.2&nbsp;m” field finding</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">9.00</td><td class="px-3 py-2">0.05</td><td class="px-3 py-2 text-emerald-500/90">OK</td><td class="px-3 py-2">Minimum release voltage met</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">9.00</td><td class="px-3 py-2">0.08</td><td class="px-3 py-2 text-emerald-500/90">OK</td><td class="px-3 py-2">Minimum release voltage met</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">9.30</td><td class="px-3 py-2">0.11</td><td class="px-3 py-2 text-emerald-500/90">OK</td><td class="px-3 py-2">Release achieved with slight voltage increase</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">10.10</td><td class="px-3 py-2">0.14</td><td class="px-3 py-2 text-amber-500/90">Marginal</td><td class="px-3 py-2">Increasing voltage trend observed</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">13.05</td><td class="px-3 py-2">0.17</td><td class="px-3 py-2 text-amber-500/90">Marginal</td><td class="px-3 py-2">Release possible with higher voltage demand</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">24.00</td><td class="px-3 py-2">0.20</td><td class="px-3 py-2 text-red-500/90">Limit reached</td><td class="px-3 py-2">Highest measured pullback in this dataset</td></tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
+                                            <p class="text-gray-400 text-lg leading-relaxed">
+                                                At a pullback distance of 0.25 m, even 24 V was not sufficient to release the band. Since 24 V was the maximum output of the benchtop power supply, it was judged to be unwise to operate the solenoid lock beyond its rated voltage in an attempt to force release.
+                                            </p>
+                                            <p class="text-gray-400 text-lg leading-relaxed">
+                                                The test results also showed that the voltage required for release increased exponentially with pullback distance. In addition, the pullback distance needed from the band exceeded the practical operating range of the solenoid lock. This showed that the solenoid-based release method became unreliable after a certain distance and was therefore not suitable for the launcher.
+                                            </p>
+                                            <p class="text-gray-400 text-lg leading-relaxed">
+                                                As a result, a different release solution had to be implemented in V2.
+                                            </p>
                                             <p class="text-gray-500 text-sm leading-relaxed">
                                                 <strong class="text-gray-400">Interpretation:</strong> if increasing voltage mainly trades heat and inrush current for small gains in release reliability—while deep draws remain a moving target—then a <strong class="text-gray-300">position-controlled servo</strong> is a better match to the final requirement for repeatable, tunable release under varying preload.
                                             </p>
