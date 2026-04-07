@@ -83,16 +83,56 @@
                                     <div class="space-y-3">
                                         <p class="text-white font-semibold text-lg tracking-tight">Hardware components</p>
                                         <div class="space-y-4">
-                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl" open>
+                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
                                                 <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
                                                     <p class="text-white font-semibold text-base">Launching motor — Damiao DM-J8009-2EC</p>
                                                     <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
                                                 </summary>
-                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900">
-                                                    <p class="text-gray-400 text-lg leading-relaxed">Main draw actuator for launcher carriage and elastic-band preload. CAN control and telemetry are used for motion and monitoring.</p>
+                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">
+                                                        Main draw actuator for launcher carriage and elastic-band preload. The module is an integrated Damiao servo actuator with onboard sensing and communication for closed-loop draw control.
+                                                    </p>
+                                                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/DM8009.png" alt="Damiao DM-J8009-2EC launcher actuator reference photo" class="w-full h-auto rounded-md object-contain max-h-[420px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Figure: <span class="text-gray-400">DM8009.png</span> — launcher motor photo reference; ratings below are transcribed from <span class="text-gray-400">dm8009_data_sheet.png</span>.</figcaption>
+                                                        </figure>
+                                                        <div class="overflow-x-auto rounded-lg border border-zinc-800">
+                                                            <table class="w-full text-sm text-gray-400">
+                                                                <thead>
+                                                                    <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
+                                                                        <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Parameter</th>
+                                                                        <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Value</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="divide-y divide-zinc-800/80">
+                                                                    <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Electrical — motor</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated voltage</th><td class="px-3 py-2">24 V (supports 24-48 V)</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated / peak current</th><td class="px-3 py-2">20 A / 50 A</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated / peak torque</th><td class="px-3 py-2">20 N.m / 40 N.m</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated speed</th><td class="px-3 py-2">100 rpm @ 24 V; 200 rpm @ 48 V</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">No-load speed (max)</th><td class="px-3 py-2">160 rpm @ 24 V; 320 rpm @ 48 V</td></tr>
+                                                                    <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Motor characteristics</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Reduction ratio</th><td class="px-3 py-2">9 : 1</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Polar logarithm</th><td class="px-3 py-2">21</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Phase inductance</th><td class="px-3 py-2">61 uH (@25 C)</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Phase resistance</th><td class="px-3 py-2">0.09 ohm (@25 C)</td></tr>
+                                                                    <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Mechanical</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Outer diameter</th><td class="px-3 py-2">98 mm</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Height</th><td class="px-3 py-2">61.7 mm</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Motor weight</th><td class="px-3 py-2">About 896 g</td></tr>
+                                                                    <tr class="bg-zinc-950/60"><td colspan="2" class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">Encoder / interfaces</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Encoder bits / count</th><td class="px-3 py-2">14-bit; 2 encoders</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Encoder type</th><td class="px-3 py-2">Magnetic encoder (single-turn output-shaft absolute position)</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Control interface</th><td class="px-3 py-2">CAN @ 1 Mbps</td></tr>
+                                                                    <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Parameter interface</th><td class="px-3 py-2">UART @ 921600 bps</td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </details>
-                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl" open>
+                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
                                                 <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
                                                     <p class="text-white font-semibold text-base">Solenoid lock + relay trigger</p>
                                                     <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
@@ -102,7 +142,7 @@
                                                     <p class="text-gray-400 text-lg leading-relaxed">A relay path is included in this version to trigger/energize the lock circuit during bring-up tests.</p>
                                                 </div>
                                             </details>
-                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl" open>
+                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
                                                 <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
                                                     <p class="text-white font-semibold text-base">Remote controller</p>
                                                     <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
