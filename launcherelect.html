@@ -1,28 +1,263 @@
 <section id="launcherelec" class="pt-24 border-t border-zinc-800" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-start justify-between gap-12 pb-12">
-        
+
         <div class="flex-1">
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Launcher Electronics
             </h3>
-            <p class="text-gray-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8">
-                Barry stuff here for launcher.
-                Motor torque-based launching gives a controlled ramp of rotational force to the drive wheels and actuators, ensuring smooth energy transfer to the projectile.
-                By tuning torque and RPM, the system can optimize launch velocity while avoiding drivetrain slippage or mechanical stress.
-                This approach also enables precise repeatability in experimental trials and supports rapid adjustments to payload mass or target range.
-            </p>
+            <div class="border-l-2 border-red-900 pl-8 space-y-10">
+
+                <!-- Interim context + hybrid evolution strip -->
+                <div class="space-y-6">
+                    <p class="text-white font-semibold text-lg tracking-tight">Design Requirements</p>
+                    <p class="text-zinc-250 text-lg leading-relaxed">
+                        Reliable launcher operation depends on four core functional elements: measuring force to determine firing force, detecting latch engagement to confirm pull-back, actuating the release mechanism to fire, and driving the linear rail with a motor to perform the pull-back motion.    
+                    </p>
+                    
+                    <p class="text-white font-semibold text-lg tracking-tight pt-2">Evolution at a glance</p>
+                    <div class="space-y-4" data-launcher-evolution>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3" role="tablist" aria-label="Launcher evolution iterations" onclick="var b=event.target.closest('[data-evo-tab]');if(!b)return;var wrap=this.closest('[data-launcher-evolution]');var tabs=wrap.querySelectorAll('[data-evo-tab]');var panels=wrap.querySelectorAll('[data-evo-panel]');var compPanels=document.querySelectorAll('[data-evo-components-panel]');var versionDetailPanels=document.querySelectorAll('[data-evo-version-detail]');var i=parseInt(b.getAttribute('data-evo-tab'),10)||0;tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on?'true':'false');t.classList.toggle('ring-2',on);t.classList.toggle('ring-red-600/70',on);t.classList.toggle('border-red-600/50',on);t.classList.toggle('bg-zinc-900/50',on);});panels.forEach(function(p,j){var hide=j!==i;p.classList.toggle('hidden',hide);p.hidden=hide;});compPanels.forEach(function(p,j){var hide=j!==i;p.classList.toggle('hidden',hide);p.hidden=hide;});versionDetailPanels.forEach(function(p,j){var hide=j!==i;p.classList.toggle('hidden',hide);p.hidden=hide;});">
+                            <button type="button" data-evo-tab="0" aria-selected="true" class="rounded-xl border border-zinc-800 bg-zinc-900/50 ring-2 ring-red-600/70 border-red-600/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-xs sm:text-sm uppercase tracking-[0.16em] mb-2 font-bold">V0</p>
+                                <p class="text-white text-base sm:text-lg font-bold mb-1.5 leading-tight">Interim</p>
+                                <p class="text-zinc-600 text-[10px] sm:text-[11px] leading-snug">Interim architecture assumptions before full physical onboarding.</p>
+                            </button>
+                            <button type="button" data-evo-tab="1" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-xs sm:text-sm uppercase tracking-[0.16em] mb-2 font-bold">V1</p>
+                                <p class="text-white text-base sm:text-lg font-bold mb-1.5 leading-tight">Isolated launcher</p>
+                                <p class="text-zinc-600 text-[10px] sm:text-[11px] leading-snug">Motor + solenoid + RC tests with mechanical requirements and bench validation.</p>
+                            </button>
+                            <button type="button" data-evo-tab="2" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-xs sm:text-sm uppercase tracking-[0.16em] mb-2 font-bold">V2</p>
+                                <p class="text-white text-base sm:text-lg font-bold mb-1.5 leading-tight">Motor torque tension</p>
+                                <p class="text-zinc-600 text-[10px] sm:text-[11px] leading-snug">Load-cell path retired in favor of launcher motor torque telemetry.</p>
+                            </button>
+                            <button type="button" data-evo-tab="3" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-xs sm:text-sm uppercase tracking-[0.16em] mb-2 font-bold">V3</p>
+                                <p class="text-white text-base sm:text-lg font-bold mb-1.5 leading-tight">System integration</p>
+                                <p class="text-zinc-600 text-xs leading-relaxed">Feeder + launcher cooperation via shared datums and state machine.</p>
+                            </button>
+                            <button type="button" data-evo-tab="4" aria-selected="false" class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4 shadow-lg shadow-red-900/5 text-left">
+                                <p class="text-red-primary font-mono text-xs sm:text-sm uppercase tracking-[0.16em] mb-2 font-bold">V4</p>
+                                <p class="text-white text-base sm:text-lg font-bold mb-1.5 leading-tight">Tuning workflow</p>
+                                <p class="text-zinc-600 text-[10px] sm:text-[11px] leading-snug">Compile-time directives and live-expression parameter tuning.</p>
+                            </button>
+                        </div>
+                        <div class="max-w-4xl">
+                            <div data-evo-panel>
+                                <h4 class="text-white font-semibold text-xl mb-2">V0</h4>
+                                <p class="text-zinc-250 text-lg leading-relaxed">
+                                    The <a href="https://nusrobomaster.github.io/Dart-FYP/dart-system/dart-robot/elec-software" class="text-red-primary hover:text-red-400 underline underline-offset-4" target="_blank" rel="noopener noreferrer">interim electrical &amp; software write-up</a> captured the intended launcher architecture before full robot bring-up. At that stage, several choices—especially latch release and tension sensing—were justified from datasheets and mechanical intent rather than from integrated testing. First electronics onboarding on hardware quickly surfaced coupling issues (solenoid release versus draw depth, feeder timing, and torque observability) that the interim document could not predict.                                </p>
+                            </div>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">V1</h4>
+                            </div>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">V2</h4>
+                            </div>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">V3</h4>
+                            </div>
+                            <div data-evo-panel class="hidden" hidden>
+                                <h4 class="text-white font-semibold text-xl mb-2">V4</h4>
+                            </div>
+                        </div>
+
+                <div>
+
+                            <div data-evo-version-detail>
+                                <p class="text-zinc-250 text-lg leading-relaxed">Select <strong class="text-gray-300">V1</strong> above to view the next version's details.</p>
+                            </div>
+                            <div data-evo-version-detail class="hidden" hidden>
+                                <div class="space-y-10">
+                                    <div class="space-y-3">
+                                        <p class="text-white font-semibold text-lg tracking-tight">What was required</p>
+                                        <p class="text-zinc-250 text-lg leading-relaxed">
+                                            The first bring-up goal was to exercise the launcher <em>alone</em>: prove the carriage could draw elastic preload under motor control, that a latch could release on command, and that an operator could stop the rig quickly—<strong class="text-gray-300 font-semibold">without</strong> debugging feeder indexing or multi-subsystem timing. That deliberately shrank the failure domain while rail travel, band sets, and latch geometry were still changing weekly.
+                                        </p>
+                                        <p class="text-zinc-250 text-lg leading-relaxed">
+                                            Interim reasoning (pre–full onboarding) favoured a <strong class="text-gray-300 font-semibold">solenoid</strong> for release because it offered the shortest path to a software-triggered “fire,” minimal PWM choreography, and straightforward bench wiring next to a relay for clean energisation of the coil. A <strong class="text-gray-300 font-semibold">remote controller</strong> was included for manual draw/release and emergency stop authority during mechanical experiments. Those choices were <em>plausible from datasheets and intent</em>; whether release stayed reliable at depth under real band load was left to bench testing—documented in the testing subsection below.
+                                        </p>
+                                    </div>
+
+                                    <div class="space-y-3">
+                                        <p class="text-white font-semibold text-lg tracking-tight">Components used</p>
+                                        <div class="space-y-4">
+                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl" open>
+                                                <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
+                                                    <p class="text-white font-semibold text-base">Launching motor — Damiao DM-J8009-2EC</p>
+                                                    <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
+                                                </summary>
+                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">Main draw actuator for launcher carriage and elastic-band preload. CAN control and telemetry are used for motion and monitoring.</p>
+                                                </div>
+                                            </details>
+                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl" open>
+                                                <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
+                                                    <p class="text-white font-semibold text-base">Solenoid lock + relay trigger</p>
+                                                    <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
+                                                </summary>
+                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-2">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">Electromagnetic lock used for early latch release experiments.</p>
+                                                    <p class="text-gray-400 text-lg leading-relaxed">A relay path is included in this version to trigger/energize the lock circuit during bring-up tests.</p>
+                                                </div>
+                                            </details>
+                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl" open>
+                                                <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
+                                                    <p class="text-white font-semibold text-base">Remote controller</p>
+                                                    <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
+                                                </summary>
+                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">Manual control channel for safe mechanical checkout and stop authority. Image/datasheet to be added later.</p>
+                                                </div>
+                                            </details>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-y-4">
+                                        <p class="text-white font-semibold text-lg tracking-tight">What testing was done</p>
+                                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 overflow-hidden shadow-lg shadow-red-900/5">
+                                            <div class="border-b border-zinc-800 bg-zinc-900/40 px-5 py-3">
+                                                <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em]">Test evidence — solenoid release bench</h4>
+                                            </div>
+                                            <div class="p-5 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+                                                <figure class="rounded-lg border border-zinc-800 bg-black/40 p-2">
+                                                    <img src="assets/Barry/solenoid_lock_release_testing.jpg" alt="Bench setup for solenoid latch release testing with PSU and launcher hardware" class="w-full h-auto rounded-md object-contain">
+                                                    <figcaption class="text-gray-500 text-xs mt-2 leading-relaxed">Figure: bench configuration used to sweep solenoid supply and observe whether the latch could reliably release at representative draw depths.</figcaption>
+                                                </figure>
+                                                <p class="text-gray-400 text-lg leading-relaxed">
+                                                    This setup isolated the <strong class="text-gray-300 font-semibold">solenoid driver</strong>, <strong class="text-gray-300 font-semibold">mechanical latch</strong>, and <strong class="text-gray-300 font-semibold">launcher carriage position</strong> from the rest of the robot so failures could be attributed to release margin—not feeder indexing. Observed behaviour: beyond roughly <span class="text-gray-300">0.2&nbsp;m</span> pullback (with the band configurations tested), release became inconsistent; increasing drive voltage did not restore margin in a way that felt safe for competition use. That outcome directly motivated migrating dart release to a <strong class="text-gray-300 font-semibold">servo-actuated</strong> latch with deterministic travel.
+                                                </p>
+                                            </div>
+                                        </article>
+
+                                        <div class="rounded-xl border border-zinc-800 bg-zinc-950/30 p-6 space-y-4">
+                                            <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.28em] mb-1">Solenoid supply vs. draw depth</p>
+                                            <h4 class="text-white font-semibold text-lg tracking-tight">Solenoid supply vs. draw depth at release</h4>
+                                            <p class="text-gray-400 text-lg leading-relaxed">
+                                                Solenoid bench characterisation from the isolated launcher bring-up: PSU sweep and pullback trials; conclusions fed directly into the servo release pivot and minimum acceptable margins for fire gating.
+                                            </p>
+                                            <p class="text-gray-400 text-lg leading-relaxed">
+                                                A bench PSU swept the solenoid rail while the launcher was positioned to representative pullback distances. The goal was to see whether higher coil voltage recovered reliable release at deep draws. The trend supported the pivot: the mechanism behaved as a <strong class="text-gray-300 font-semibold">binary</strong> plunger with limited controllable overlap against growing band load.
+                                            </p>
+                                            <p class="text-amber-600/90 text-xs font-mono uppercase tracking-wider mb-2">Placeholder dataset — replace cells with final logged measurements during report freeze.</p>
+
+                                            <div class="flex flex-col xl:flex-row gap-8 items-start">
+                                                <div class="w-full xl:w-1/2 rounded-lg border border-zinc-800 bg-black/50 p-4">
+                                                    <p class="text-gray-500 text-xs mb-3 font-mono uppercase tracking-widest">Voltage vs. max reliable pullback before failed release</p>
+                                                    <svg viewBox="0 0 440 260" class="w-full h-auto text-zinc-400" role="img" aria-label="Line chart: solenoid voltage versus pullback distance with 0.2 meter failure threshold">
+                                                        <text x="220" y="22" text-anchor="middle" fill="#a1a1aa" font-size="11" font-family="ui-monospace, monospace">Illustrative trend (placeholder points)</text>
+                                                        <line x1="56" y1="210" x2="400" y2="210" stroke="#3f3f46" stroke-width="1.5"/>
+                                                        <line x1="56" y1="210" x2="56" y2="36" stroke="#3f3f46" stroke-width="1.5"/>
+                                                        <text x="228" y="248" text-anchor="middle" fill="#a1a1aa" font-size="11">Solenoid supply (V)</text>
+                                                        <text x="18" y="130" text-anchor="middle" fill="#a1a1aa" font-size="11" transform="rotate(-90 18 130)">Pullback (m)</text>
+                                                        <line x1="56" y1="111" x2="400" y2="111" stroke="#dc2626" stroke-dasharray="5 4" stroke-width="1.2"/>
+                                                        <text x="405" y="115" fill="#f87171" font-size="10">~0.20 m — observed unreliable zone</text>
+                                                        <text x="80" y="228" text-anchor="middle" fill="#71717a" font-size="10">9</text>
+                                                        <text x="176" y="228" text-anchor="middle" fill="#71717a" font-size="10">10</text>
+                                                        <text x="272" y="228" text-anchor="middle" fill="#71717a" font-size="10">11</text>
+                                                        <text x="368" y="228" text-anchor="middle" fill="#71717a" font-size="10">12</text>
+                                                        <text x="48" y="214" text-anchor="end" fill="#71717a" font-size="10">0</text>
+                                                        <text x="48" y="140" text-anchor="end" fill="#71717a" font-size="10">0.2</text>
+                                                        <text x="48" y="66" text-anchor="end" fill="#71717a" font-size="10">0.35</text>
+                                                        <polyline fill="none" stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                            points="80,186 176,162 272,138 368,118"/>
+                                                        <circle cx="80" cy="186" r="4" fill="#f43f5e"/><circle cx="176" cy="162" r="4" fill="#f43f5e"/><circle cx="272" cy="138" r="4" fill="#f43f5e"/><circle cx="368" cy="118" r="4" fill="#f43f5e"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="w-full xl:flex-1 overflow-x-auto rounded-lg border border-zinc-800">
+                                                    <table class="w-full text-sm text-gray-400">
+                                                        <thead>
+                                                            <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
+                                                                <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Voltage (V)</th>
+                                                                <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Pullback at test (m)</th>
+                                                                <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Release outcome</th>
+                                                                <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Notes</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="divide-y divide-zinc-800/80">
+                                                            <tr><td class="px-3 py-2 font-mono">9.0</td><td class="px-3 py-2">0.12</td><td class="px-3 py-2 text-emerald-500/90">OK</td><td class="px-3 py-2">Placeholder row</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">10.0</td><td class="px-3 py-2">0.17</td><td class="px-3 py-2 text-emerald-500/90">OK</td><td class="px-3 py-2">Placeholder row</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">11.0</td><td class="px-3 py-2">0.19</td><td class="px-3 py-2 text-amber-500/90">Marginal</td><td class="px-3 py-2">Approaching ~0.2&nbsp;m band-dependent limit</td></tr>
+                                                            <tr><td class="px-3 py-2 font-mono">12.0</td><td class="px-3 py-2">0.22</td><td class="px-3 py-2 text-red-500/90">Fail / inconsistent</td><td class="px-3 py-2">Placeholder — aligns with “&gt;0.2&nbsp;m” field finding</td></tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <p class="text-gray-500 text-sm leading-relaxed">
+                                                <strong class="text-gray-400">Interpretation:</strong> if increasing voltage mainly trades heat and inrush current for small gains in release reliability—while deep draws remain a moving target—then a <strong class="text-gray-300">position-controlled servo</strong> is a better match to the final requirement for repeatable, tunable release under varying preload.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-evo-version-detail class="hidden" hidden>
+                                <div class="space-y-6">
+                                    <p class="text-zinc-250 text-lg leading-relaxed">V2 is motor-torque tension and the move from solenoid to <strong class="text-gray-300 font-semibold">servo</strong> for latch release. Bench evidence for the solenoid rail stays under <strong class="text-gray-300 font-semibold">V1</strong>; the component stack when V2 is selected is under <strong class="text-gray-300 font-semibold">Components used</strong>.</p>
+                                    <div class="space-y-3">
+                                        <p class="text-white font-semibold text-lg tracking-tight">Load cell removed from the V0 path</p>
+                                        <p class="text-zinc-250 text-lg leading-relaxed">
+                                            The interim (V0) architecture assumed explicit tension / firing-force sensing—commonly a <strong class="text-gray-300 font-semibold">load-cell</strong> path alongside the launcher. That path was <strong class="text-gray-300 font-semibold">removed</strong> in favour of <strong class="text-gray-300 font-semibold">launcher motor torque</strong> and CAN telemetry (see the evolution strip: “load-cell path retired in favour of launcher motor torque telemetry”). The same “measure force” requirement from the design block is still met, but without a separate strain-gauge channel on the rail.
+                                        </p>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <p class="text-white font-semibold text-lg tracking-tight">Force reading</p>
+                                        <p class="text-zinc-250 text-lg leading-relaxed">
+                                            For force-related conclusions, the testing already described under <strong class="text-gray-300 font-semibold">V1</strong>—<strong class="text-gray-300 font-semibold">Test evidence — solenoid release bench</strong>, the pullback / carriage-position context, and the <strong class="text-gray-300 font-semibold">solenoid supply vs. draw depth</strong> sweep, table, and interpretation—can be reused for <strong class="text-gray-300 font-semibold">force reading</strong>: draw depth, supply margin, and release outcome bracket preload and release reliability together with motor torque, without relying on a load cell.
+                                        </p>
+                                    </div>
+                                    <div class="rounded-xl border border-red-900/30 bg-zinc-950/60 p-6 space-y-4">
+                                        <h4 class="text-white font-semibold text-lg tracking-tight">Design evolution: solenoid → servo release</h4>
+                                        <p class="text-gray-400 text-lg leading-relaxed">TBC</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-evo-version-detail class="hidden" hidden>
+                                <div class="space-y-6">
+                                    <p class="text-zinc-250 text-lg leading-relaxed">
+                                        <strong class="text-gray-300 font-semibold">V3</strong> is the inclusion of the <strong class="text-gray-300 font-semibold">feeder</strong>: launcher and feeder are no longer brought up in isolation—timing, datums, and shared state must line up. Early solenoid bench characterisation remains under <strong class="text-gray-300 font-semibold">V1</strong>.
+                                    </p>
+                                    <div class="space-y-3">
+                                        <p class="text-white font-semibold text-lg tracking-tight">Extra signals</p>
+                                        <p class="text-zinc-250 text-lg leading-relaxed">
+                                            The integrated stack needs additional inputs: <strong class="text-gray-300 font-semibold">distance</strong> from the <strong class="text-gray-300 font-semibold">optical sensor</strong>, <strong class="text-gray-300 font-semibold">position</strong> of the <strong class="text-gray-300 font-semibold">feeder motor</strong>, and <strong class="text-gray-300 font-semibold">delays</strong> for <strong class="text-gray-300 font-semibold">servos</strong> so datum alignment, indexing, and fire sequencing stay coherent across both subsystems.
+                                        </p>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <p class="text-white font-semibold text-lg tracking-tight">Software integration</p>
+                                        <p class="text-zinc-250 text-lg leading-relaxed">
+                                            More code was written to integrate <strong class="text-gray-300 font-semibold">feeder</strong> and <strong class="text-gray-300 font-semibold">launcher</strong> firmware that had been written <strong class="text-gray-300 font-semibold">independently</strong>: shared state, hand-offs, and coordination so the combined behaviour matches the full-robot electrical and mechanical intent.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-evo-version-detail class="hidden" hidden>
+                                <div class="space-y-6">
+                                    <p class="text-zinc-250 text-lg leading-relaxed">
+                                        <strong class="text-gray-300 font-semibold">V4</strong> is <strong class="text-gray-300 font-semibold">additional code</strong> written to <strong class="text-gray-300 font-semibold">aid tuning</strong>—supporting faster iteration when calibrating parameters and checking behaviour on the bench. Bring-up bench evidence for the solenoid rail remains under <strong class="text-gray-300 font-semibold">V1</strong>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+
+                    </div>
+                </div>
         </div>
 
         <div class="w-48 shrink-0 text-center group">
             <div class="relative mb-4">
-                <img src="assets/barry.jpg" alt="Lead Engineer" 
+                <img src="assets/barry.jpg" alt="Lead Engineer"
                      class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                
+
                 <div class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
                     Lead Eng
                 </div>
             </div>
-            
+
             <h4 class="text-white font-bold text-xl mb-0">Barry</h4>
             <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 EE</p>
         </div>

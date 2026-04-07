@@ -1,25 +1,102 @@
 <section id="pitchelec" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-start justify-between gap-12 border-b border-zinc-900 pb-16">
-        
+
         <div class="flex-1">
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Pitch Electronics
             </h3>
-            <p class="text-gray-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8">
-                Barry stuff here for Pitch.
-            </p>
+            <div class="border-l-2 border-red-900 pl-8 space-y-6">
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Design requirements</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Angular envelope</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Commanded pitch must stay between <span class="text-gray-300">35°</span> and <span class="text-gray-300">45°</span>—a <span class="text-gray-300">10°</span> working span—so the launcher cannot strike structure or violate the mechanical hard stops.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Electrical supply</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">The motor must run from the available <span class="text-gray-300">24&nbsp;V</span> bus; the driver is selected for continuous and peak current at that voltage.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Resolution</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Feedback must resolve small pitch changes so aim adjustments on the order of a fraction of a degree remain meaningful after gear reduction.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Datum and zeroing</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">After homing, the quadrature counter must be referenced to <span class="text-gray-300">35°</span> so all setpoints lie in a consistent frame.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Counter integrity</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Position integration must not overflow during the longest commanded move; timer/counter hardware must cover the worst-case count excursion.</p>
+                        </article>
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Operator interface</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">Pitch commands must be accepted from the touchscreen or from stored presets with identical limiting behaviour.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Components and selection</p>
+                    <ul class="text-gray-400 text-xl leading-relaxed list-disc pl-5 space-y-2">
+                        <li><span class="text-gray-300 font-semibold">Brushed DC motor:</span> chosen for the torque constant and thermal margin at <span class="text-gray-300">24&nbsp;V</span> within the pitch linkage.</li>
+                        <li><span class="text-gray-300 font-semibold">Brushed DC motor driver:</span> matched to stall current, PWM frequency, and logic-level control from the STM32.</li>
+                        <li><span class="text-gray-300 font-semibold">Hall-effect encoder and gearing:</span> stages of <span class="text-gray-300">1:50</span> and <span class="text-gray-300">1:100</span> with <span class="text-gray-300">34</span> poles / <span class="text-gray-300">17</span> pole pairs and quadrature decoding yield <span class="text-gray-300">340&nbsp;000</span> counts per revolution of the output shaft in the documented arithmetic.</li>
+                        <li><span class="text-gray-300 font-semibold">STM32F4 encoder interface:</span> quadrature channels are wired to the peripheral encoder inputs so hardware maintains the count rather than bit-banging edges under interrupt load.</li>
+                        <li><span class="text-gray-300 font-semibold">TIM2 (32-bit):</span> used as the timing/count resource associated with the encoder channel so wrap distance exceeds any single manoeuvre in the <span class="text-gray-300">10°</span> window.</li>
+                        <li><span class="text-gray-300 font-semibold">Optical endstop:</span> provides a repeatable mechanical reference during homing before the software applies the <span class="text-gray-300">35°</span> zero offset.</li>
+                        <li><span class="text-gray-300 font-semibold">Pitch PCB:</span> routes motor power, encoder signals, endstop, and logic grounds with separation to limit switching noise on the sensor lines.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Implementation</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-3">
+                        At initialisation the motor drives slowly toward the optical stop; when the beam breaks, firmware records the mechanical reference and applies the offset that maps the quadrature counter to <span class="text-gray-300">0</span> at <span class="text-gray-300">35°</span> physical pitch. All further commands are clamped to <span class="text-gray-300">35°–45°</span>. Setpoints from the operator UI and from non-volatile presets pass through the same limiter so behaviour is identical in competition and bench modes.
+                    </p>
+                    <p class="text-gray-400 text-xl leading-relaxed">
+                        Each encoder increment represents <span class="text-gray-300">360/340&nbsp;000</span> degrees. The full <span class="text-gray-300">10°</span> span therefore corresponds to about <span class="text-gray-300">10 ÷ (360/340&nbsp;000) ≈ 9&nbsp;444</span> counts—far below the <span class="text-gray-300">2³²−1</span> capacity of <strong class="text-gray-300 font-semibold">TIM2</strong>, so counter overflow is not expected for this axis.
+                    </p>
+                    <!-- TODO: Add annotated PCB photo and key net list (B2 / A4). -->
+                </div>
+
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Testing</p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Homing repeatability</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        Multiple power cycles record the encoder count at endstop capture; spread in captured values indicates mechanical backlash or sensor placement tolerance.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Software limits at 35° and 45°</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        Commands beyond each bound are issued from the UI; firmware must clamp without windup and the measured encoder position must remain inside the allowed count band derived from <span class="text-gray-300">360/340&nbsp;000</span> per tick.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Span vs predicted counts</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        A slow sweep from <span class="text-gray-300">35°</span> to <span class="text-gray-300">45°</span> is compared against the theoretical <span class="text-gray-300">≈9&nbsp;444</span> count delta to validate gear documentation and wiring polarity.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">Encoder peripheral vs interrupt counting</p>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-4">
+                        Stress tests with rapid dither at the linkage verify the hardware counter matches a reference trace without dropped quadrature edges—something difficult to guarantee with GPIO interrupt service alone at high edge rates.
+                    </p>
+                    <p class="text-gray-300 font-semibold text-base mb-2">UI and preset equivalence</p>
+                    <p class="text-gray-400 text-xl leading-relaxed">
+                        The same numeric target is applied from live touchscreen entry and from recall of a stored preset; resulting steady-state encoder counts must match within one LSB after settling.
+                    </p>
+                    <!-- TODO: Cite STM32 reference manual (encoder/TIM2) and motor/encoder datasheets in site References (B3). -->
+                </div>
+            </div>
         </div>
 
         <div class="w-48 shrink-0 text-center group">
             <div class="relative mb-4">
-                <img src="assets/barry.jpg" alt="Lead Engineer" 
+                <img src="assets/barry.jpg" alt="Lead Engineer"
                      class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                
+
                 <div class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
                     Lead Eng
                 </div>
             </div>
-            
+
             <h4 class="text-white font-bold text-xl mb-0">Barry</h4>
             <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 EE</p>
         </div>
