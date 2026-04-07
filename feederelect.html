@@ -5,9 +5,15 @@
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Feeder Electronics
             </h3>
-            <div class="border-l-2 border-red-900 pl-8 space-y-6">
-                <div>
-                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Design requirements</p>
+            <p class="text-zinc-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8 max-w-4xl mb-10">
+                The feeder electronics coordinate magazine indexing, dart transfer, and launcher handoff through
+                sensor-gated state transitions. The design emphasizes repeatability, safe sequencing, and
+                bench-tunable parameters for rapid iteration.
+            </p>
+            <div class="space-y-10">
+                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
+                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Feeder foundation</p>
+                    <p class="text-white font-semibold text-xl tracking-tight mb-5">Design requirements</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
                             <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Indexing accuracy</h4>
@@ -36,8 +42,9 @@
                     </div>
                 </div>
 
-                <div>
-                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Components and selection</p>
+                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
+                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Architecture stack</p>
+                    <p class="text-white font-semibold text-xl tracking-tight mb-4">Components and selection</p>
                     <p class="text-gray-400 text-lg leading-relaxed mb-6">
                         The magazine uses a Damiao integrated indexer and TIANKONGRC digital servos for dart transfer; each major electromechanical part includes a photo reference and a transcribed datasheet summary. Remaining interface hardware is summarized in the cards at the end of this section.
                     </p>
@@ -226,8 +233,9 @@
                     </div>
                 </div>
 
-                <div>
-                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Implementation</p>
+                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
+                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Firmware flow</p>
+                    <p class="text-white font-semibold text-xl tracking-tight mb-4">Implementation</p>
                     <p class="text-gray-400 text-xl leading-relaxed mb-3">
                         The PCB routes power and signals from the robot backbone to the feeder motor driver, servos, and optical sensor. Ground and return paths are kept short to limit noise on the endstop channel during launcher vibration. Firmware implements a guarded state machine: after the first launch, a <span class="text-gray-300">ready</span> handshake allows the magazine to index; the BLDC rotates until the next cell is aligned; once the launcher has advanced and the optical beam breaks, servos lower the dart; the launcher captures hooks, backs off to a hook-clear pose, and the feeder rotates clear of the launch line.
                     </p>
@@ -236,8 +244,9 @@
                     </p>
                 </div>
 
-                <div>
-                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Testing</p>
+                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
+                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Validation plan</p>
+                    <p class="text-white font-semibold text-xl tracking-tight mb-4">Testing</p>
                     <p class="text-gray-300 font-semibold text-base mb-2">Indexing and encoder</p>
                     <p class="text-gray-400 text-xl leading-relaxed mb-4">
                         Bench tests step the feeder motor between the three index commands and compare commanded steps to onboard <span class="text-gray-300">14-bit</span> encoder deltas; mismatches indicate mechanical slip or calibration drift before integration with the launcher.
