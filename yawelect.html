@@ -55,8 +55,13 @@
                                         <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Figure: datasheet excerpt (<span class="text-gray-400">DM10010L.png</span>) — retain for traceability; values are transcribed in the table alongside for search and accessibility.</figcaption>
                                     </figure>
 
-                                    <div class="overflow-x-auto rounded-lg border border-zinc-800">
-                                        <table class="w-full text-sm text-gray-400">
+                                    <details class="group rounded-lg border border-zinc-800 overflow-hidden">
+                                        <summary class="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer bg-zinc-900/60 hover:bg-zinc-900/80 text-gray-300 text-sm font-semibold tracking-wide list-none [&::-webkit-details-marker]:hidden">
+                                            <span>DM-J10010L-2EC datasheet details</span>
+                                            <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
+                                        </summary>
+                                        <div class="overflow-x-auto">
+                                            <table class="w-full text-sm text-gray-400">
                                             <thead>
                                                 <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
                                                     <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Parameter</th>
@@ -83,8 +88,9 @@
                                                 <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Control bus</th><td class="px-3 py-2">CAN @ 1&nbsp;Mbps</td></tr>
                                                 <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Configuration / debug</th><td class="px-3 py-2">UART @ 921600&nbsp;bps (parameter tuning)</td></tr>
                                             </tbody>
-                                        </table>
-                                    </div>
+                                            </table>
+                                        </div>
+                                    </details>
                                 </div>
                             </div>
                         </article>
@@ -110,8 +116,13 @@
                                     </figure>
                                 </div>
 
-                                <div class="overflow-x-auto rounded-lg border border-zinc-800">
-                                    <table class="w-full text-sm text-gray-400 min-w-[640px]">
+                                <details class="group rounded-lg border border-zinc-800 overflow-hidden">
+                                    <summary class="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer bg-zinc-900/60 hover:bg-zinc-900/80 text-gray-300 text-sm font-semibold tracking-wide list-none [&::-webkit-details-marker]:hidden">
+                                        <span>Touchscreen comparison datasheet details</span>
+                                        <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
+                                    </summary>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-sm text-gray-400 min-w-[640px]">
                                         <thead>
                                             <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
                                                 <th scope="col" class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">Aspect</th>
@@ -128,8 +139,9 @@
                                             <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Calibration / drift</th><td class="px-3 py-2">Factory-tuned matrix; occasional re-cal rare</td><td class="px-3 py-2">Periodic calibration; edge accuracy can drift with temperature and wear</td></tr>
                                             <tr><th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Environmental</th><td class="px-3 py-2">Water or heavy moisture can false-trigger; dry wipe usually sufficient</td><td class="px-3 py-2">Works with water films in some cases but pressure must couple through contaminants</td></tr>
                                         </tbody>
-                                    </table>
-                                </div>
+                                        </table>
+                                    </div>
+                                </details>
 
                                 <div class="rounded-lg border border-red-900/30 bg-red-950/20 p-5">
                                     <p class="text-white font-semibold text-base tracking-tight mb-2">Why capacitive was chosen</p>
