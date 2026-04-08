@@ -96,7 +96,70 @@
                         </div>
                     </div>
                 </div>
+                <div class="pt-6">
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Breakdown of the components and its uses</p>
 
+                    <div class="overflow-x-auto rounded-2xl border border-red-900/30 bg-zinc-950">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-zinc-800">
+                                    <th class="px-5 py-4 text-white font-semibold text-base">Component</th>
+                                    <th class="px-5 py-4 text-white font-semibold text-base">Function</th>
+                                    <th class="px-5 py-4 text-white font-semibold text-base">Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300 text-lg leading-relaxed">
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Battery</td>
+                                    <td class="px-5 py-4">Can store and supply power</td>
+                                    <td class="px-5 py-4">Powers all the electronics on the projectile</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Projectile PCB</td>
+                                    <td class="px-5 py-4">Overvoltage, overdischarge, undervoltage, short circuit protection and switch to turn the board on/off</td>
+                                    <td class="px-5 py-4">Protects the battery and the components by cutting off power in unsafe conditions. Onboard LED also acts as an indicator of power supply and switch allows for easy connection and disconnection of battery power supply.</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">OpenMV PCB</td>
+                                    <td class="px-5 py-4">Easier wire management and steps down 7.4 V to 5 V</td>
+                                    <td class="px-5 py-4">Allows for plug and play connections inside the projectile.</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">OpenMV Board</td>
+                                    <td class="px-5 py-4">Sends servo signals and tracks the target</td>
+                                    <td class="px-5 py-4">Acts as the “Brain” of the projectile</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Type-C Adapter</td>
+                                    <td class="px-5 py-4">Allows Type-C data and power to transfer</td>
+                                    <td class="px-5 py-4">Camera feed can be seen on laptop which allows for easier debugging</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">SD card</td>
+                                    <td class="px-5 py-4">Stores data</td>
+                                    <td class="px-5 py-4">Allows for code and in-flight camera feed to be stored</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Servos</td>
+                                    <td class="px-5 py-4">Actuates the fins</td>
+                                    <td class="px-5 py-4">Allows the projectile to make in-flight corrections</td>
+                                </tr>
+
+                                <tr class="align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Dart Trigger</td>
+                                    <td class="px-5 py-4">Turns red/blue when more than 5g of acceleration is detected</td>
+                                    <td class="px-5 py-4">Competition Requirement</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <div class="pt-6">
                     <p class="text-white font-semibold text-lg tracking-tight mb-4">Projectile cross-section view</p>
                     <p class="text-gray-400 text-lg leading-relaxed mb-6">
@@ -113,6 +176,58 @@
                                 alt="Cross-section view of the projectile" 
                                 class="w-full h-full object-contain rounded-xl"
                             >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">PCB 3D views</p>
+
+                    <div class="overflow-hidden rounded-[2rem] border border-red-900/30 bg-zinc-950">
+                        <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-zinc-900">
+                            
+                            <!-- Left column -->
+                            <div>
+                                <div class="px-6 py-4 border-b border-zinc-900">
+                                    <p class="text-white font-semibold text-lg tracking-tight">Dart Battery PCB</p>
+                                </div>
+                                <div class="h-[360px] md:h-[420px] w-full bg-black/40 relative overflow-hidden">
+                                    <model-viewer
+                                        class="w-full h-full"
+                                        src="assets/VJ/DART_Battery.glb"
+                                        auto-rotate
+                                        camera-orbit="0deg 90deg auto"
+                                        min-camera-orbit="auto auto auto"
+                                        max-camera-orbit="auto auto auto"
+                                        shadow-intensity="2"
+                                        exposure="1"
+                                        camera-controls
+                                        interaction-prompt="none">
+                                    </model-viewer>
+                                </div>
+                            </div>
+
+                            <!-- Right column -->
+                            <div>
+                                <div class="px-6 py-4 border-b border-zinc-900">
+                                    <p class="text-white font-semibold text-lg tracking-tight">OpenMV PCB</p>
+                                </div>
+                                <div class="h-[360px] md:h-[420px] w-full bg-black/40 relative overflow-hidden">
+                                    <model-viewer
+                                        class="w-full h-full"
+                                        src="assets/VJ/fyp_DARTv3.glb"
+                                        auto-rotate
+                                        camera-orbit="0deg 90deg auto"
+                                        min-camera-orbit="auto auto auto"
+                                        max-camera-orbit="auto auto auto"
+                                        shadow-intensity="2"
+                                        exposure="1"
+                                        camera-controls
+                                        interaction-prompt="none">
+                                    </model-viewer>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
