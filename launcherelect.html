@@ -184,6 +184,9 @@
 
                                     <div class="space-y-4">
                                         <p class="text-white font-semibold text-lg tracking-tight">Test methodology</p>
+                                        <p class="text-gray-400 text-lg leading-relaxed">
+                                            With this setup, there was an issue faced which was the inability to unlock the solenoid lock after a certain distance. The testing of the distance achieve was continued with a manual release of the solenoid lock.
+                                        </p>
                                         <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 overflow-hidden shadow-lg shadow-red-900/5">
                                             <div class="border-b border-zinc-800 bg-zinc-900/40 px-5 py-3">
                                                 <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em]">Test evidence — solenoid release bench</h4>
@@ -204,10 +207,13 @@
                                             </div>
                                         </article>
 
-                                        <div class="rounded-xl border border-zinc-800 bg-zinc-950/30 p-6 space-y-4">
-                                            <p class="text-red-primary font-mono text-[10px] uppercase tracking-[0.28em] mb-1">Results and analysis</p>
-                                            <h4 class="text-white font-semibold text-lg tracking-tight">Solenoid supply vs. draw depth at release</h4>
-                                            <p class="text-amber-600/90 text-xs font-mono uppercase tracking-wider mb-2">Measured dataset from V1 solenoid release bench tests.</p>
+                                        <p class="text-white font-semibold text-lg tracking-tight">Results and analysis</p>
+                                        <div class="rounded-xl border border-zinc-800 bg-zinc-950/30 overflow-hidden shadow-lg shadow-red-900/5">
+                                            <div class="border-b border-zinc-800 bg-zinc-900/40 px-5 py-3">
+                                                <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em]">Results and analysis &mdash; solenoid supply vs. draw depth at release</h4>
+                                            </div>
+                                            <div class="p-6 space-y-4">
+                                                <p class="text-amber-600/90 text-xs font-mono uppercase tracking-wider mb-2">Measured dataset from V1 solenoid release bench tests.</p>
 
                                             <div class="flex flex-col xl:flex-row gap-8 items-start">
                                                 <div class="w-full xl:w-1/2 rounded-lg border border-zinc-800 bg-black/50 p-4">
@@ -265,7 +271,7 @@
                                             <p class="text-gray-400 text-lg leading-relaxed">
                                                 As a result, a different release solution had to be implemented in V2.
                                             </p>
-                                            <p class="text-gray-500 text-sm leading-relaxed">
+                                            <p class="hidden">
                                                 <strong class="text-gray-400">Interpretation:</strong> if increasing voltage mainly trades heat and inrush current for small gains in release reliability—while deep draws remain a moving target—then a <strong class="text-gray-300">position-controlled servo</strong> is a better match to the final requirement for repeatable, tunable release under varying preload.
                                             </p>
                                         </div>
@@ -327,6 +333,7 @@
 
                     </div>
                 </div>
+        </div>
         </div>
 
         <div class="w-48 shrink-0 text-center group">
