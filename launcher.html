@@ -514,25 +514,25 @@
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="border-b border-zinc-800">
-                            <th class="py-4 text-red-600 font-mono text-sm uppercase">Zone</th>
-                            <th class="py-4 text-red-600 font-mono text-sm uppercase">Length</th>
+                            <th class="py-4 pr-12 text-red-600 font-mono text-sm uppercase">Zone</th>
+                            <th class="py-4 pr-12 text-red-600 font-mono text-sm uppercase">Length</th>
                             <th class="py-4 text-red-600 font-mono text-sm uppercase">Function</th>
                         </tr>
                     </thead>
                     <tbody class="text-zinc-400 text-sm">
                         <tr class="border-b border-zinc-900">
-                            <td class="py-6 text-white font-bold">Acceleration</td>
-                            <td class="py-6">750.0 mm</td>
+                            <td class="py-6 pr-12 text-white font-bold">Acceleration</td>
+                            <td class="py-6 pr-12">750.0 mm</td>
                             <td class="py-6">Elastic bands provide continuous positive work ($+W$).</td>
                         </tr>
                         <tr class="border-b border-zinc-900">
-                            <td class="py-6 text-white font-bold">Deceleration</td>
-                            <td class="py-6">129.2 mm</td>
+                            <td class="py-6 pr-12 text-white font-bold">Deceleration</td>
+                            <td class="py-6 pr-12">129.2 mm</td>
                             <td class="py-6">Secondary damping bands safely arrest the carrier.</td>
                         </tr>
                         <tr>
-                            <td class="py-6 text-red-600 font-bold italic">Total</td>
-                            <td class="py-6 font-bold text-white">879.2 mm</td>
+                            <td class="py-6 pr-12 text-red-600 font-bold italic">Total</td>
+                            <td class="py-6 pr-12 font-bold text-white">879.2 mm</td>
                             <td class="py-6 italic">Optimized within RMUC size constraints.</td>
                         </tr>
                     </tbody>
@@ -572,7 +572,7 @@
         <div class="max-w-4xl px-6 mb-16">
             <h2 class="text-4xl font-bold text-white mb-6">Prototype V2: The Dual Leadscrew Rig</h2>
             <p class="text-zinc-400 text-lg leading-relaxed">
-                Transitioning from manually pulling the launcher, the V2 Launcher was engineered to automate the power stroke. We moved to a <b>Dual Leadscrew Configuration</b> to ensure symmetric force distribution, utilizing a high-torque motor driving a 32T:100T gear reduction.
+                Transitioning from pulling the launcher by hand in V1, the V2 Launcher was engineered to automate the power stroke. We moved to a <b>Dual Leadscrew Configuration</b> to ensure symmetric force distribution, utilizing a high-torque motor driving a 32T:100T gear reduction.
             </p>
         </div>
 
@@ -603,15 +603,15 @@
                 <h5 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">V2 Mechanical Specifications</h5>
                 <div class="space-y-4">
                     <div class="flex justify-between border-b border-zinc-900 pb-2">
-                        <span class="text-zinc-500 font-mono text-xs">Gear Ratio ($G$)</span>
+                        <span class="text-zinc-300 font-mono text-xs">Gear Ratio (G)</span>
                         <span class="text-white font-bold">100T : 32T (3.125)</span>
                     </div>
                     <div class="flex justify-between border-b border-zinc-900 pb-2">
-                        <span class="text-zinc-500 font-mono text-xs">Leadscrew Pitch ($P$)</span>
+                        <span class="text-zinc-300 font-mono text-xs">Leadscrew Pitch (P)</span>
                         <span class="text-white font-bold">100mm / rev</span>
                     </div>
                     <div class="flex justify-between border-b border-zinc-900 pb-2">
-                        <span class="text-zinc-500 font-mono text-xs">Drawback Distance ($L$)</span>
+                        <span class="text-zinc-300 font-mono text-xs">Drawback Distance (L)</span>
                         <span class="text-white font-bold">750mm</span>
                     </div>
                     <div class="flex justify-between">
@@ -621,18 +621,28 @@
                 </div>
             </div>
 
-            <div class="space-y-8 bg-zinc-900/30 p-10 rounded-3xl border border-zinc-800 flex flex-col justify-center">
-                <h5 class="text-red-600 font-bold mb-2 uppercase text-xs tracking-widest">Torque & Force Analysis</h5>
-            
-                <div class="math-content text-white">
-                    <p class="text-zinc-500 text-xs mb-2 font-mono uppercase">1. Gear Torque Multiplication:</p>
-                    <div class="text-xl mb-8">
-                        \[ \tau_{ls} = \tau_{motor} \times G = 30\text{Nm} \times 3.125 = 93.75\text{Nm} \]
-                    </div>
-                
-                    <p class="text-zinc-500 text-xs mb-2 font-mono uppercase">2. Theoretical Linear Pulling Force ($F$):</p>
-                    <div class="text-xl">
-                        \[ F = \frac{2\pi \cdot \tau_{ls} \cdot \eta}{P} = \frac{2\pi \cdot 93.75 \cdot 0.9}{0.1} \approx 5301\text{N} \]
+            <div class="math-content text-white">
+                <p class="text-zinc-500 text-xs mb-2 font-mono uppercase tracking-widest">1. Gear Torque Multiplication:</p>
+                <div class="text-xl mb-12 font-mono tracking-tighter">
+                    τ<sub>ls</sub> = τ<sub>motor</sub> × G = 30Nm × 3.125 = <span class="text-red-600 font-bold">93.75Nm</span>
+                </div>
+
+                <p class="text-zinc-500 text-xs mb-2 font-mono uppercase tracking-widest">2. Theoretical Linear Pulling Force (F):</p>
+                <div class="flex flex-col font-mono text-xl tracking-tighter">
+                    <div class="flex items-center gap-2">
+                        <span>F = </span>
+                        <div class="flex flex-col items-center">
+                            <span class="px-2">2π · τ<sub>ls</sub> · η</span>
+                            <div class="w-full h-px bg-zinc-700"></div>
+                            <span class="px-2">P</span>
+                        </div>
+                        <span> = </span>
+                        <div class="flex flex-col items-center">
+                            <span class="px-2">2π · 93.75 · 0.9</span>
+                            <div class="w-full h-px bg-zinc-700"></div>
+                            <span class="px-2">0.1</span>
+                        </div>
+                        <span> ≈ <span class="text-red-600 font-bold">5301N</span></span>
                     </div>
                 </div>
             </div>
@@ -642,13 +652,26 @@
             <div class="bg-red-950/10 border-l-4 border-red-600 p-10 rounded-r-3xl shadow-xl">
                 <h5 class="text-white font-bold mb-4 text-xl">Finding: The Speed-Torque Paradox</h5>
                 <p class="text-zinc-400 leading-relaxed mb-8 text-lg">
-                    While the V2 rig achieved massive linear force, it was <b>unnecessarily fast.</b> To drawback 750mm in the required 6s window, the required linear velocity is only $0.125\text{ m/s}$. At our gear ratio, the motor was over-revving, operating at the inefficient end of its power curve.
+                    While the V2 rig achieved massive linear force, it was <b>unnecessarily fast.</b> To drawback 750mm in the required 6s window, the required linear velocity is only 0.125m/s. At our gear ratio, the motor was over-revving, operating at the inefficient end of its power curve. Not only that but the motor was also struggling to hold the band at max draw length of 750mm, indicating more speed over torque.
                 </p>
             
-                <div class="bg-black/40 p-6 rounded-xl border border-white/5 text-center">
-                    <p class="text-zinc-500 font-mono text-[10px] uppercase mb-4 tracking-[0.2em]">Required Operational RPM</p>
-                    <div class="text-2xl text-white">
-                        \[ \text{RPM}_{req} = \frac{v \times 60 \times G}{P} = \frac{0.125 \times 60 \times 3.125}{0.1} \approx 234\text{ RPM} \]
+                <div class="bg-black/40 p-8 rounded-2xl border border-white/5 text-center">
+                    <p class="text-zinc-500 font-mono text-[10px] uppercase mb-6 tracking-[0.4em]">Required Operational RPM</p>
+    
+                    <div class="inline-flex items-center font-mono text-2xl text-white tracking-tighter">
+                        <span>RPM<sub>req</sub> = </span>
+                        <div class="flex flex-col items-center mx-3">
+                            <span class="px-2">v × 60 × G</span>
+                            <div class="w-full h-px bg-zinc-600"></div>
+                            <span class="px-2">P</span>
+                        </div>
+                        <span> = </span>
+                        <div class="flex flex-col items-center mx-3">
+                            <span class="px-2">0.125 × 60 × 3.125</span>
+                            <div class="w-full h-px bg-zinc-600"></div>
+                            <span class="px-2">0.1</span>
+                        </div>
+                        <span> ≈ <span class="text-red-600 font-bold">234 RPM</span></span>
                     </div>
                 </div>
             </div>
