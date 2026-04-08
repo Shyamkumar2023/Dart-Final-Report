@@ -10,9 +10,37 @@
                 <!-- Interim context + hybrid evolution strip -->
                 <div class="space-y-6">
                     <p class="text-white font-semibold text-lg tracking-tight">Design Requirements</p>
-                    <p class="text-zinc-250 text-lg leading-relaxed">
-                        Reliable launcher operation depends on four core functional elements: measuring force to determine firing force, detecting latch engagement to confirm pull-back, actuating the release mechanism to fire, and driving the linear rail with a motor to perform the pull-back motion.    
+                    <p class="text-zinc-250 text-lg leading-loose">
+                        Reliable launcher operation depends on four core functional elements:
+                        <span class="text-red-primary text-xl sm:text-2xl font-extrabold">measuring force</span>,
+                        <span class="text-red-primary text-xl sm:text-2xl font-extrabold">detecting latch engagement</span>,
+                        <span class="text-red-primary text-xl sm:text-2xl font-extrabold">actuating the release mechanism</span>,
+                        and <span class="text-red-primary text-xl sm:text-2xl font-extrabold">driving the linear rail with a motor</span>.
                     </p>
+                    <details class="group rounded-2xl border border-zinc-800 bg-zinc-950/50 overflow-hidden shadow-lg shadow-red-900/5">
+                        <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/60 transition-colors [&::-webkit-details-marker]:hidden">
+                            <p class="text-white font-semibold text-base sm:text-lg tracking-tight">Detailed Design Requirements</p>
+                            <span class="text-red-primary text-lg transform transition-transform duration-300 group-open:rotate-180">⌄</span>
+                        </summary>
+                        <div class="px-5 pb-5 pt-4 border-t border-zinc-800 space-y-4">
+                            <div>
+                                <p class="text-red-primary font-bold text-base uppercase tracking-wide">1) Measuring Force</p>
+                                <p class="text-zinc-300 text-base leading-relaxed">Estimate firing force during pull-back to ensure consistent launch energy and support tuning of pull depth.</p>
+                            </div>
+                            <div>
+                                <p class="text-red-primary font-bold text-base uppercase tracking-wide">2) Detecting Latch Engagement</p>
+                                <p class="text-zinc-300 text-base leading-relaxed">Confirm latch lock-in after pull-back so release is only permitted when the mechanism is fully engaged.</p>
+                            </div>
+                            <div>
+                                <p class="text-red-primary font-bold text-base uppercase tracking-wide">3) Actuating The Release Mechanism</p>
+                                <p class="text-zinc-300 text-base leading-relaxed">Trigger release on command with repeatable timing and sufficient actuation authority across operating pullback distances.</p>
+                            </div>
+                            <div>
+                                <p class="text-red-primary font-bold text-base uppercase tracking-wide">4) Driving The Linear Rail With A Motor</p>
+                                <p class="text-zinc-300 text-base leading-relaxed">Provide controlled carriage pull-back motion with stable speed and torque to meet preload targets without overshoot.</p>
+                            </div>
+                        </div>
+                    </details>
                     
                     <p class="text-white font-semibold text-lg tracking-tight pt-2">Evolution at a glance</p>
                     <div class="space-y-4" data-launcher-evolution>
@@ -246,22 +274,22 @@
                             </div>
                             <div data-evo-version-detail class="hidden" hidden>
                                 <div class="space-y-6">
-                                    <p class="text-zinc-250 text-lg leading-relaxed">V2 is motor-torque tension and the move from solenoid to <strong class="text-gray-300 font-semibold">servo</strong> for latch release. Bench evidence for the solenoid rail stays under <strong class="text-gray-300 font-semibold">V1</strong>; the component stack when V2 is selected is under <strong class="text-gray-300 font-semibold">Components used</strong>.</p>
+                                    <p class="text-zinc-250 text-lg leading-relaxed">V2 introduces the release-mechanism change and force-reading strategy update after V1 solenoid release limitations were observed.</p>
                                     <div class="space-y-3">
-                                        <p class="text-white font-semibold text-lg tracking-tight">Load cell removed from the V0 path</p>
+                                        <p class="text-white font-semibold text-lg tracking-tight">Solenoid lock unlocking -> servo triggering the mechanical unlocking mechanism</p>
+                                        <p class="text-zinc-250 text-lg leading-relaxed">
+                                            After it was deemed that the solenoid lock unlocking mechanism does not work, a change in releasing mechanism was required. This came in the form of using a servo to pull the releasing mechanism. This mechanism worked in releasing the solenoid at the distance needed.
+                                        </p>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <p class="text-white font-semibold text-lg tracking-tight">Load cell force reading -> launching motor torque reading</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             The interim (V0) architecture assumed explicit tension / firing-force sensing—commonly a <strong class="text-gray-300 font-semibold">load-cell</strong> path alongside the launcher. That path was <strong class="text-gray-300 font-semibold">removed</strong> in favour of <strong class="text-gray-300 font-semibold">launcher motor torque</strong> and CAN telemetry (see the evolution strip: “load-cell path retired in favour of launcher motor torque telemetry”). The same “measure force” requirement from the design block is still met, but without a separate strain-gauge channel on the rail.
                                         </p>
                                     </div>
-                                    <div class="space-y-3">
-                                        <p class="text-white font-semibold text-lg tracking-tight">Force reading</p>
-                                        <p class="text-zinc-250 text-lg leading-relaxed">
-                                            For force-related conclusions, the testing already described under <strong class="text-gray-300 font-semibold">V1</strong>—<strong class="text-gray-300 font-semibold">Test evidence — solenoid release bench</strong>, the pullback / carriage-position context, and the <strong class="text-gray-300 font-semibold">solenoid supply vs. draw depth</strong> sweep, table, and interpretation—can be reused for <strong class="text-gray-300 font-semibold">force reading</strong>: draw depth, supply margin, and release outcome bracket preload and release reliability together with motor torque, without relying on a load cell.
-                                        </p>
-                                    </div>
                                     <div class="rounded-xl border border-red-900/30 bg-zinc-950/60 p-6 space-y-4">
-                                        <h4 class="text-white font-semibold text-lg tracking-tight">Design evolution: solenoid → servo release</h4>
-                                        <p class="text-gray-400 text-lg leading-relaxed">TBC</p>
+                                        <h4 class="text-white font-semibold text-lg tracking-tight">Torque testing note</h4>
+                                        <p class="text-gray-400 text-lg leading-relaxed">Testing of the launching motor torque was also done and is shown in the launching section.</p>
                                     </div>
                                 </div>
                             </div>
