@@ -33,20 +33,19 @@
 
         <div class="max-w-4xl space-y-8">
             <p class="text-zinc-250 text-lg leading-relaxed">
-                From the interim report, we had identified the need for a test target structure due to the lack of an accurate replica of the 
-                actual competition target structure for accurate testing and data collection. We had already built a static version for 
-                preliminary testing of the projectile, but still needed to introduce revisions to include the dynamic nature of the dart 
-                target plate, as shown in the competition rules.
+                The interim report identified the need for a test target structure, as no accurate replica of the 
+                competition target was available. A static version had already been built, but further revisions were 
+                needed to replicate the dynamic target plate motion.
             </p>
         </div>
 
         <div class="max-w-4xl space-y-8">
             <h2 class="text-4xl font-bold text-white mb-6">Dynamic Base Iteration</h2>
             <p class="text-zinc-250 text-lg leading-relaxed">
-                In this iteration, the platform hoisting the dart target plate will be moved via a belt-driven system. Taking inspiration 
-                from the belt drive systems of the Ender 3 series 3D printers’ x-axis, the new iteration of the base will have a stepper 
-                motor driving the belt, moving the platform to the specified location according to the definitions of each base motion 
-                level. The 3 levels are specified below.
+                This iteration used a belt-driven system to move the platform carrying the dart target plate. 
+                Inspired by the x-axis belt drive of the Ender 3 series 3D printers, the design uses a stepper 
+                motor to drive the belt and position the platform according to the defined base motion levels. 
+                The three levels are described below.
             </p>
             <ol class="space-y-8 text-zinc-250 text-lg leading-relaxed list-none counter-reset-[section]">
                 <li class="flex items-start gap-3">
@@ -83,19 +82,18 @@
             <div>
                 <h2 class="text-4xl font-bold text-white mb-6">Functionality</h2>
                 <p class="text-zinc-250 text-lg leading-relaxed">
-                    The base will be able to enter the 3 levels via the press of buttons. We made use of an Arduino Uno R4 Wifi board, 
-                    together with a TB6600 Stepper motor driver to control the stepper motor. Level 1 is triggered by resetting the Arduino 
-                    board, which sends the platform into a homing state, where it will be homed when the platform triggers a mechanical 
-                    limit switch, serving also as the zero position. The platform then moves to the centered position before stopping and 
-                    staying at that position to achieve level 1.
+                    The base operates in three levels using push buttons, with an Arduino Uno R4 WiFi and TB6600 
+                    stepper driver controlling the stepper motor. Level 1 is triggered by resetting the Arduino, 
+                    which homes the platform to a mechanical limit switch, sets the zero position, then moves to 
+                    and holds at the centre position.
                 </p>
             </div>
 
             <div class="max-w-4xl space-y-8">
                 <p class="text-zinc-250 text-lg leading-relaxed">
-                    Level 2 is triggered by push button 1, where pressing the button will generate a random target position that the 
-                    platform will shift to and hold that position. Level 3 is triggered by push button 2, which allows the platform to 
-                    constantly move from end to end for 60 seconds, achieving the moving target.
+                    Level 2 is triggered by push button 1, which commands the platform to move to a random target 
+                    position and hold. Level 3 is triggered by push button 2, which drives the platform continuously 
+                    from end to end for 60 seconds to simulate a moving target.
                 </p>
             </div>
 
