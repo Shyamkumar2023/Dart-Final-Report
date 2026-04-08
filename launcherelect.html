@@ -165,9 +165,40 @@
                                                     <p class="text-white font-semibold text-base">Solenoid lock + relay trigger</p>
                                                     <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
                                                 </summary>
-                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-2">
-                                                    <p class="text-gray-400 text-lg leading-relaxed">Electromagnetic lock used for early latch release experiments.</p>
-                                                    <p class="text-gray-400 text-lg leading-relaxed">A relay path is included in this version to trigger/energize the lock circuit during bring-up tests.</p>
+                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">
+                                                        Electromagnetic lock release path used for early launcher experiments. The solenoid lock provided the unlatch action, while a relay trigger path was added to switch the lock circuit during bring-up tests.
+                                                    </p>
+
+                                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/solenoid%20lock.jpg" alt="Solenoid lock hardware used for launcher latch release testing" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Figure: <span class="text-gray-400">solenoid lock.jpg</span> — hardware photo reference; supporting specs referenced from <span class="text-gray-400">solenoid_datasheet_info.png</span>.
+                                                            </figcaption>
+                                                        </figure>
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/solenoid_datasheet_info.png" alt="Solenoid lock datasheet excerpt used as the electrical and mechanical reference" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Reference: <span class="text-gray-400">solenoid_datasheet_info.png</span>.
+                                                            </figcaption>
+                                                        </figure>
+                                                    </div>
+
+                                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/solenoid_lock_relay.jpg" alt="Relay trigger module used to switch the solenoid lock path" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Figure: <span class="text-gray-400">solenoid_lock_relay.jpg</span> — relay trigger hardware integrated with the solenoid path.
+                                                            </figcaption>
+                                                        </figure>
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/solenoid_lock_relay_data_sheet.png" alt="Relay module datasheet excerpt used for relay trigger selection reference" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Reference: <span class="text-gray-400">solenoid_lock_relay_data_sheet.png</span>.
+                                                            </figcaption>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                             </details>
                                             <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
@@ -175,8 +206,50 @@
                                                     <p class="text-white font-semibold text-base">Remote controller</p>
                                                     <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">⌄</span>
                                                 </summary>
-                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900">
-                                                    <p class="text-gray-400 text-lg leading-relaxed">Manual control channel for safe mechanical checkout and stop authority. Image/datasheet to be added later.</p>
+                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">
+                                                        Manual control channel used for safe launcher bring-up, direct trigger testing, and emergency stop authority during early mechanical experiments.
+                                                    </p>
+
+                                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/remote_conroller.jpg" alt="Remote controller used for manual launcher control during bench testing" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Figure: <span class="text-gray-400">remote_conroller.jpg</span> — remote controller hardware reference used in launcher bench tests.
+                                                            </figcaption>
+                                                        </figure>
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/remote_controller_data_sheet.png" alt="Remote controller datasheet excerpt used for channel and signal reference" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Reference: <span class="text-gray-400">remote_controller_data_sheet.png</span>.
+                                                            </figcaption>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </details>
+                                            <details class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
+                                                <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
+                                                    <p class="text-white font-semibold text-base">Microcontroller</p>
+                                                    <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">âŒ„</span>
+                                                </summary>
+                                                <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
+                                                    <p class="text-gray-400 text-lg leading-relaxed">
+                                                        Primary control board used to coordinate launcher signals, command sequencing, and integration with actuator and sensor interfaces during electronics bring-up.
+                                                    </p>
+                                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/dev_a.png" alt="Microcontroller board used in launcher electronics setup" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Figure: <span class="text-gray-400">dev_a.png</span> â€” microcontroller hardware reference.
+                                                            </figcaption>
+                                                        </figure>
+                                                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                            <img src="assets/Barry/dev_a_datasheet.png" alt="Microcontroller datasheet excerpt for electrical and interface reference" class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                                Reference: <span class="text-gray-400">dev_a_datasheet.png</span>.
+                                                            </figcaption>
+                                                        </figure>
+                                                    </div>
                                                 </div>
                                             </details>
                                         </div>
