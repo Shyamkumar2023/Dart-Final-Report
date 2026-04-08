@@ -30,6 +30,7 @@
                                 class="text-red-primary text-lg transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                         </summary>
                         <div class="px-5 pb-5 pt-4 border-t border-zinc-800 space-y-4">
+                            // TODO FILL UP THE CONTENT WITH THE REQUIREMENTS
                             <div>
                                 <p class="text-red-primary font-bold text-base uppercase tracking-wide">1) Measuring
                                     Force</p>
@@ -151,8 +152,6 @@
                             <div data-evo-version-detail class="hidden" hidden>
                                 <div class="space-y-10">
                                     <div class="space-y-3">
-                                        <p class="text-white font-semibold text-lg tracking-tight">System requirements
-                                        </p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             The first bring-up goal was to test the launcher in isolation. This was done
                                             to confirm that the carriage could pull the elastic bands under motor
@@ -738,6 +737,131 @@
                                             unlocking mechanism. This new approach was able to release the lock at the
                                             required distance, making it a workable solution for the launcher.
                                         </p>
+                                        <details
+                                            class="group rounded-lg border border-zinc-800 overflow-hidden">
+                                            <summary
+                                                class="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer bg-zinc-900/60 hover:bg-zinc-900/80 text-gray-300 text-sm font-semibold tracking-wide list-none [&::-webkit-details-marker]:hidden">
+                                                <span>Servo Used for Release &mdash; TIANKONGRC TD-8120MG (datasheet)</span>
+                                                <span
+                                                    class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                                            </summary>
+                                            <div class="p-4 space-y-4 bg-zinc-950/40">
+                                                <p class="text-zinc-250 text-base leading-relaxed">
+                                                    This is the same servo model documented in the feeder electronics
+                                                    section and reused here for the launcher release mechanism.
+                                                </p>
+                                                <div
+                                                    class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                                                    <figure
+                                                        class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                        <img src="assets/Barry/Tian_kong_rc_servo_20kg.jpg"
+                                                            alt="TIANKONGRC TD-8120MG digital servo with horns and mounting hardware"
+                                                            class="w-full h-auto rounded-md object-contain max-h-[320px] mx-auto">
+                                                        <figcaption
+                                                            class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                            Figure: <span class="text-gray-400">Tian_kong_rc_servo_20kg.jpg</span>
+                                                            &mdash; servo, horns, screws, and grommets.
+                                                        </figcaption>
+                                                    </figure>
+                                                    <div
+                                                        class="overflow-x-auto rounded-lg border border-zinc-800">
+                                                        <table class="w-full text-sm text-gray-400">
+                                                            <thead>
+                                                                <tr
+                                                                    class="border-b border-zinc-800 bg-zinc-900/80 text-left">
+                                                                    <th scope="col"
+                                                                        class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
+                                                                        Parameter</th>
+                                                                    <th scope="col"
+                                                                        class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
+                                                                        Value</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody class="divide-y divide-zinc-800/80">
+                                                                <tr class="bg-zinc-950/60">
+                                                                    <td colspan="2"
+                                                                        class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">
+                                                                        Electrical</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Working voltage</th>
+                                                                    <td class="px-3 py-2">4.8-7.2&nbsp;V DC</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        No-load speed (60&deg;)</th>
+                                                                    <td class="px-3 py-2">0.18&nbsp;s @ 4.8&nbsp;V
+                                                                        &middot; 0.14&nbsp;s @ 7.2&nbsp;V</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Running current</th>
+                                                                    <td class="px-3 py-2">140&nbsp;mA @ 4.8&nbsp;V
+                                                                        &middot; 200&nbsp;mA @ 7.2&nbsp;V</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Stall torque</th>
+                                                                    <td class="px-3 py-2">23.5&nbsp;kg&middot;cm @
+                                                                        4.8&nbsp;V &middot; 26.8&nbsp;kg&middot;cm @
+                                                                        7.2&nbsp;V</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Stall current</th>
+                                                                    <td class="px-3 py-2">2600&nbsp;mA &plusmn;10% @
+                                                                        4.8&nbsp;V &middot; 3400&nbsp;mA &plusmn;10% @
+                                                                        7.2&nbsp;V</td>
+                                                                </tr>
+                                                                <tr class="bg-zinc-950/60">
+                                                                    <td colspan="2"
+                                                                        class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">
+                                                                        Mechanical / Control</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Dimensions (L x W x H)</th>
+                                                                    <td class="px-3 py-2">40.0 x 20.5 x
+                                                                        40.5&nbsp;mm</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Mass</th>
+                                                                    <td class="px-3 py-2">56&nbsp;g &plusmn;5%</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Signal</th>
+                                                                    <td class="px-3 py-2">PWM (digital amplifier)</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Pulse width range</th>
+                                                                    <td class="px-3 py-2">500-2500&nbsp;&micro;s
+                                                                        (neutral 1500&nbsp;&micro;s)</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row"
+                                                                        class="px-3 py-2 text-left font-medium text-gray-300">
+                                                                        Dead band</th>
+                                                                    <td class="px-3 py-2">5&nbsp;&micro;s</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </details>
                                     </div>
                                     <div class="space-y-3">
                                         <p class="text-white font-semibold text-lg tracking-tight">Replacement of Load
@@ -788,6 +912,12 @@
                                         are no longer brought up in isolation&mdash;timing, datums, and shared state must line
                                         up.
                                     </p>
+
+                                    <p class="text-zinc-250 text-lg leading-relaxed">
+                                        The V0 code served as a suitable baseline, as it captured most of the functionality required for launcher operation, apart from feeder-related considerations. 
+                                        Based on the control code developed in V0, V3 introduced the modifications needed to integrate the launcher with the feeder.
+                                    </p>
+
                                     <div class="space-y-3">
                                         <p class="text-white font-semibold text-lg tracking-tight">Improved Lock Detection
                                         </p>
@@ -884,16 +1014,7 @@
                                             class="text-gray-300 font-semibold">additional code</strong> written to
                                         <strong class="text-gray-300 font-semibold">aid tuning</strong>&mdash;supporting
                                         faster iteration when calibrating parameters and checking behaviour on the
-                                        bench. Bring-up bench evidence for the solenoid rail remains under <strong
-                                            class="text-gray-300 font-semibold">V1</strong>.
-                                    </p>
-                                    <p class="text-zinc-250 text-lg leading-relaxed">
-                                        Compared to V3, the launcher control in V4 was simplified so that the system
-                                        follows a more consistent method during operation. In the earlier version,
-                                        multiple control approaches were still present for the pullback stage, which made
-                                        the launcher behaviour harder to adjust and compare during testing. In this
-                                        version, the launcher relies more clearly on a position-based control method.
-                                        This makes the behaviour more consistent and makes the system easier to tune.
+                                        bench.
                                     </p>
                                     <div class="space-y-3">
                                         <p class="text-white font-semibold text-lg tracking-tight">Easier Access to
