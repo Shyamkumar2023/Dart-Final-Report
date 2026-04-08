@@ -96,7 +96,58 @@
                         </div>
                     </div>
                 </div>
+                <div class="pt-6">
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Breakdown of the components and its uses</p>
 
+                    <div class="overflow-x-auto rounded-2xl border border-red-900/30 bg-zinc-950">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b border-zinc-800">
+                                    <th class="px-5 py-4 text-white font-semibold text-base">Component</th>
+                                    <th class="px-5 py-4 text-white font-semibold text-base">Function</th>
+                                    <th class="px-5 py-4 text-white font-semibold text-base">Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-300 text-lg leading-relaxed">
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Battery</td>
+                                    <td class="px-5 py-4">Can store and supply power</td>
+                                    <td class="px-5 py-4">Powers all the electronics on the projectile</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Projectile PCB</td>
+                                    <td class="px-5 py-4">Overvoltage, overdischarge, undervoltage, short circuit protection and switch to turn the board on/off</td>
+                                    <td class="px-5 py-4">Protects the battery and the components by cutting off power in unsafe conditions. Onboard LED also acts as an indicator of power supply and switch allows for easy connection and disconnection of battery power supply.</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">OpenMV PCB</td>
+                                    <td class="px-5 py-4">Easier wire management and steps down 7.4v to 5v</td>
+                                    <td class="px-5 py-4">Allows for plug and play connections inside the projectile.</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">OpenMV Board</td>
+                                    <td class="px-5 py-4">Sends servo signals and tracks the target</td>
+                                    <td class="px-5 py-4">Acts as the “Brain” of the projectile</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Servos</td>
+                                    <td class="px-5 py-4">Actuates the fins</td>
+                                    <td class="px-5 py-4">Allows the projectile to make in-flight corrections</td>
+                                </tr>
+
+                                <tr class="align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Dart Trigger</td>
+                                    <td class="px-5 py-4">Turns red/blue when more than 5g of acceleration is detected</td>
+                                    <td class="px-5 py-4">Competition Requirement</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+</div>
                 <div class="pt-6">
                     <p class="text-white font-semibold text-lg tracking-tight mb-4">Projectile cross-section view</p>
                     <p class="text-gray-400 text-lg leading-relaxed mb-6">
