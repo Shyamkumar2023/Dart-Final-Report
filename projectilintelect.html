@@ -123,7 +123,7 @@
 
                                 <tr class="border-b border-zinc-800 align-top">
                                     <td class="px-5 py-4 text-white font-medium">OpenMV PCB</td>
-                                    <td class="px-5 py-4">Easier wire management and steps down 7.4v to 5v</td>
+                                    <td class="px-5 py-4">Easier wire management and steps down 7.4 V to 5 V</td>
                                     <td class="px-5 py-4">Allows for plug and play connections inside the projectile.</td>
                                 </tr>
 
@@ -131,6 +131,18 @@
                                     <td class="px-5 py-4 text-white font-medium">OpenMV Board</td>
                                     <td class="px-5 py-4">Sends servo signals and tracks the target</td>
                                     <td class="px-5 py-4">Acts as the “Brain” of the projectile</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">Type-C Adapter</td>
+                                    <td class="px-5 py-4">Allows Type-C data and power to transfer</td>
+                                    <td class="px-5 py-4">Camera feed can be seen on laptop which allows for easier debugging</td>
+                                </tr>
+
+                                <tr class="border-b border-zinc-800 align-top">
+                                    <td class="px-5 py-4 text-white font-medium">SD card</td>
+                                    <td class="px-5 py-4">Stores data</td>
+                                    <td class="px-5 py-4">Allows for code and in-flight camera feed to be stored</td>
                                 </tr>
 
                                 <tr class="border-b border-zinc-800 align-top">
@@ -167,6 +179,50 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="overflow-hidden rounded-[2rem] border border-zinc-900 bg-zinc-950/40">
+            <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-zinc-900">
+                
+                <!-- Left column -->
+                <div>
+                    <div class="px-6 py-4 border-b border-zinc-900">
+                        <p class="text-white font-semibold text-lg tracking-tight">Dart Battery PCB</p>
+                    </div>
+                    <div class="h-[420px] w-full bg-black/40 relative">
+                        <model-viewer
+                            class="w-full h-full"
+                            src="assets/VJ/DART_Battery.glb"
+                            auto-rotate
+                            camera-orbit="0deg 75deg auto"
+                            shadow-intensity="2"
+                            exposure="1"
+                            camera-controls
+                            interaction-prompt="none">
+                        </model-viewer>
+                    </div>
+                </div>
+
+                <!-- Right column -->
+                <div>
+                    <div class="px-6 py-4 border-b border-zinc-900">
+                        <p class="text-white font-semibold text-lg tracking-tight">OpenMV PCB</p>
+                    </div>
+                    <div class="h-[420px] w-full bg-black/40 relative">
+                        <model-viewer
+                            class="w-full h-full"
+                            src="assets/VJ/fyp_Dartv3.glb"
+                            auto-rotate
+                            camera-orbit="0deg 75deg auto"
+                            shadow-intensity="2"
+                            exposure="1"
+                            camera-controls
+                            interaction-prompt="none">
+                        </model-viewer>
+                    </div>
+                </div>
+
             </div>
         </div>
 
