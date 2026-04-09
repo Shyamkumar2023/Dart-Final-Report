@@ -380,21 +380,41 @@
 
         <div class="max-w-6xl mx-auto px-6 mb-32">
             <h5 class="text-zinc-500 font-mono text-[10px] uppercase tracking-[0.4em] mb-8 text-center">Testing Protocol & Hardware Staging</h5>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
-                <div class="space-y-4">
-                    <img src="assets/carbonsetup1.jpg" alt="Paper Alignment" class="w-full h-40 object-cover rounded-xl border border-zinc-900 grayscale hover:grayscale-0 transition-all">
-                    <img src="assets/carbonsetup2.jpg" alt="Carbon Layering" class="w-full h-40 object-cover rounded-xl border border-zinc-900 grayscale hover:grayscale-0 transition-all">
-                </div>
-                <div class="md:col-span-2">
+    
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
+        
+                <div class="md:col-span-3 space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="assets/carbonsetup1.jpg" alt="Paper Alignment" 
+                            class="w-full h-48 object-cover rounded-2xl border border-zinc-900 grayscale hover:grayscale-0 transition-all duration-500">
+                        <img src="assets/carbonsetup2.jpg" alt="Carbon Layering" 
+                            class="w-full h-48 object-cover rounded-2xl border border-zinc-900 grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+            
                     <div class="relative group">
-                        <video src="assets/shyamsecond/servofinsmove.MP4" controls class="w-full rounded-[2rem] border border-zinc-800 bg-zinc-900/50"></video>
-                        <p class="absolute bottom-4 left-6 text-[10px] font-mono text-white/50 bg-black/60 px-2 py-1 rounded">Actuation Sweep: 0° to 20°</p>
+                        <video src="assets/ink_launch.MOV" controls 
+                            class="w-full rounded-[2.5rem] border border-zinc-800 bg-zinc-900/50">
+                        </video>
+                        <div class="absolute bottom-6 left-8 flex items-center gap-3">
+                            <span class="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+                            <p class="text-[10px] font-mono text-white/50 uppercase tracking-widest">25m Launch Phase (Landscape)</p>
+                        </div>
                     </div>
                 </div>
-                <div class="md:col-span-1">
-                    <video src="assets/ink_launch.MOV" controls class="w-full aspect-[9/16] object-cover rounded-xl border border-zinc-800"></video>
-                    <p class="mt-2 text-[10px] text-zinc-500 font-mono text-center uppercase tracking-widest">25m Launch Phase</p>
+
+                <div class="md:col-span-2">
+                    <div class="relative h-full">
+                        <video src="assets/shyamsecond/servofinsmove.MP4" controls 
+                            class="w-full aspect-[9/16] object-cover rounded-[3rem] border border-zinc-800 bg-zinc-900/50 shadow-2xl">
+                        </video>
+                        <div class="absolute top-6 left-1/2 -translate-x-1/2 w-full text-center">
+                            <p class="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em] bg-black/40 backdrop-blur-md py-2 inline-block px-4 rounded-full">
+                                Actuation Sweep: 0° - 20°
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
