@@ -369,51 +369,117 @@
     </section>
 
 
-
-
-
-
-    <div class="space-y-12 mb-32">
-        <div class="text-center">
+    <section id="control-validation" class="py-24 border-t border-zinc-900 bg-black">
+        <div class="max-w-6xl mx-auto px-6 mb-20">
             <h4 class="text-red-600 font-mono text-sm uppercase tracking-[0.4em] mb-4">Empirical Control Validation</h4>
-            <h3 class="text-4xl font-bold text-white">Servo Fin Sensitivity Analysis</h3>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <img src="assets/carbonsetup1.jpg" alt="Carbon paper setup" class="rounded-2xl border border-zinc-900">
-            <img src="assets/carbonsetup2.jpg" alt="Carbon paper layout" class="rounded-2xl border border-zinc-900">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tighter">Yaw Sensitivity & <span class="text-zinc-500">Ballistic Mapping</span></h2>
+            <p class="text-zinc-400 text-lg leading-relaxed max-w-4xl border-l-2 border-red-900 pl-8">
+                Before implementing the autonomous detection algorithm, we had to mechanically validate the control surfaces. This test serves two purposes: <b>Predictive Validation</b> (confirming the fins work as intended) and <b>Software Mapping</b> (providing a precise "mm-per-degree" sensitivity value for the yaw-correction code).
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-zinc-950 p-12 rounded-[3rem] border border-zinc-900">
-            <div class="lg:col-span-4">
-                <video src="assets/ink_launch.MOV" controls playsinline class="rounded-2xl border border-zinc-800 w-full"></video>
+        <div class="max-w-6xl mx-auto px-6 mb-32">
+            <h5 class="text-zinc-500 font-mono text-[10px] uppercase tracking-[0.4em] mb-8 text-center">Testing Protocol & Hardware Staging</h5>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+                <div class="space-y-4">
+                    <img src="assets/carbonsetup1.jpg" alt="Paper Alignment" class="w-full h-40 object-cover rounded-xl border border-zinc-900 grayscale hover:grayscale-0 transition-all">
+                    <img src="assets/carbonsetup2.jpg" alt="Carbon Layering" class="w-full h-40 object-cover rounded-xl border border-zinc-900 grayscale hover:grayscale-0 transition-all">
+                </div>
+                <div class="md:col-span-2">
+                    <div class="relative group">
+                        <video src="assets/shyamsecond/servofinsmove.MP4" controls class="w-full rounded-[2rem] border border-zinc-800 bg-zinc-900/50"></video>
+                        <p class="absolute bottom-4 left-6 text-[10px] font-mono text-white/50 bg-black/60 px-2 py-1 rounded">Actuation Sweep: 0° to 20°</p>
+                    </div>
+                </div>
+                <div class="md:col-span-1">
+                    <video src="assets/ink_launch.MOV" controls class="w-full aspect-[9/16] object-cover rounded-xl border border-zinc-800"></video>
+                    <p class="mt-2 text-[10px] text-zinc-500 font-mono text-center uppercase tracking-widest">25m Launch Phase</p>
+                </div>
             </div>
-            <div class="lg:col-span-8 space-y-6">
-                <h4 class="text-white font-bold text-2xl">The Carbon Paper Methodology</h4>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 mb-32 bg-zinc-950 p-12 rounded-[3rem] border border-zinc-900" data-aos="fade-up">
+            <h4 class="text-white font-bold text-2xl mb-8">Kinematic Turn Derivation</h4>
+            <div class="space-y-8 font-mono text-sm text-zinc-300">
+                <div class="flex flex-col gap-4">
+                    <p class="text-zinc-500 uppercase text-[10px]">Step 1: Lateral Force Output (F<sub>y</sub>)</p>
+                    <p class="text-white text-lg">F<sub>y</sub> = q · S<sub>f</sub> · C<sub>Lα</sub> · δ</p>
+                    <p class="text-zinc-600 text-[11px] italic">Where q (Dynamic Pressure) = 382.8 Pa and C<sub>Lα</sub> (Lift Slope) = 0.075/deg.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-zinc-900">
+                    <div class="space-y-4">
+                        <p class="text-zinc-500 uppercase text-[10px]">Step 2: Lateral Acceleration (a<sub>y</sub>)</p>
+                        <p class="text-white text-lg">a<sub>y</sub> = F<sub>y</sub> / m</p>
+                        <p class="text-zinc-600 text-[11px] italic">Based on Darkstar AUW: 0.26kg.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-zinc-500 uppercase text-[10px]">Step 3: Linear Displacement (Δy)</p>
+                        <div class="flex items-center gap-2 text-white text-lg">
+                            <span>Δy = </span>
+                            <div class="flex flex-col items-center">
+                                <span>1</span>
+                                <div class="w-full h-px bg-zinc-700"></div>
+                                <span>2</span>
+                            </div>
+                            <span>· a<sub>y</sub> · t<sup>2</sup></span>
+                        </div>
+                        <p class="text-zinc-600 text-[11px] italic">t (Flight Window) ≈ 0.615s.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 mb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-mono text-[11px] border-collapse">
+                        <thead>
+                            <tr class="border-b border-zinc-800 text-zinc-500 uppercase">
+                                <th class="py-4 pr-4">Servo (δ)</th>
+                                <th class="py-4 px-4">Force (F<sub>y</sub>)</th>
+                                <th class="py-4 px-4">Theo. Shift</th>
+                                <th class="py-4 px-4 text-red-600">Empirical (Real)</th>
+                                <th class="py-4 pl-4">Loss</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-zinc-300">
+                            <tr class="border-b border-zinc-900"><td class="py-4 text-white">0°</td><td>0.00N</td><td>0mm</td><td class="text-white">0mm</td><td>0%</td></tr>
+                            <tr class="border-b border-zinc-900"><td class="py-4 text-white">4°</td><td>0.09N</td><td>66mm</td><td class="text-white">64mm</td><td>3.1%</td></tr>
+                            <tr class="border-b border-zinc-900"><td class="py-4 text-white">8°</td><td>0.18N</td><td>133mm</td><td class="text-white font-bold">125mm</td><td>6.4%</td></tr>
+                            <tr class="border-b border-zinc-900"><td class="py-4 text-white">12°</td><td>0.27N</td><td>199mm</td><td class="text-white">181mm</td><td>9.9%</td></tr>
+                            <tr class="border-b border-zinc-900"><td class="py-4 text-white">16°</td><td>0.37N</td><td>266mm</td><td class="text-white">234mm</td><td>13.6%</td></tr>
+                            <tr class="border-b border-zinc-900"><td class="py-4 text-white font-bold">20°</td><td>0.46N</td><td>332mm</td><td class="text-red-600 font-bold">295mm</td><td>11.3%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="relative">
+                    <img src="assets/shyamsecond/inkdata.jpg" alt="Carbon Paper Results" class="w-full rounded-[3rem] border border-zinc-800 shadow-2xl shadow-red-600/5">
+                    <div class="absolute -bottom-6 -right-6 bg-red-600 text-white font-black px-6 py-2 rounded-xl text-xs uppercase tracking-widest shadow-xl">
+                        Validated Accuracy
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="space-y-8">
+                <h3 class="text-3xl font-bold text-white">Sensitivity Analysis</h3>
                 <p class="text-zinc-400 leading-relaxed">
-                    To validate control surface sensitivity before autonomous tracking, we pre-programmed yaw deflections of <b>0°, 4°, 8°, 12°, 16°, and 20°</b>. By launching into carbon paper layered over plain sheets, we captured the exact impact coordinates via ink displacement.
+                    As predicted, precision scales linearly up to <b>12°</b>. Beyond this threshold, we observed <b>Aerodynamic Saturation</b>; the increased induced drag and flow separation on the leeward side of the rudder reduce the efficiency gain per degree. This turbulence accounts for the increased scatter in the high-angle clusters.
                 </p>
-                <img src="assets/ink_data.jpg" alt="Ink Mark Data" class="rounded-xl border border-zinc-800">
-                <div class="p-6 bg-black/40 border-l-4 border-red-600 rounded-r-xl">
-                    <p class="text-zinc-300 text-sm">
-                        <b>Analysis:</b> 0° deflection demonstrated extreme precision. As fin angle increased, we observed a <b>linear deviation to the right</b>, confirming that the projectile's mechanical sensitivity scale is highly predictable—even as turbulence reduces grouping at high angles.
+            
+                <div class="bg-zinc-950 border border-red-900/50 p-10 rounded-[2.5rem] relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-600/5 blur-3xl group-hover:bg-red-600/10 transition-all"></div>
+                    <h5 class="text-red-600 font-mono text-[10px] uppercase tracking-[0.4em] mb-4">Software Implementation Hand-off</h5>
+                    <p class="text-white text-2xl font-bold tracking-tight mb-4">
+                        Control Sensitivity: <span class="text-red-600">15.6mm / 1°</span>
+                    </p>
+                    <p class="text-zinc-500 text-sm italic">
+                        For optimal course correction within the 25m trajectory, the PID algorithm should prioritize deflections within the <b class="text-white">±12°</b> linear window to maintain maximum grouping precision.
                     </p>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-        <div class="bg-zinc-950 border border-zinc-900 p-8 rounded-3xl">
-            <h5 class="text-zinc-500 font-mono text-[15px] uppercase mb-4">Interim Body (Rectangular)</h5>
-            <img src="assets/oldbody.jpg" alt="Old rectangular body" class="rounded-xl grayscale opacity-50 mb-4">
-            <p class="text-zinc-600 text-sm italic">"High interference with teammate's large-scale PCB layouts."</p>
-        </div>
-        <div class="bg-zinc-950 border border-red-900/20 p-8 rounded-3xl shadow-[0_0_40px_-20px_rgba(220,38,38,0.2)]">
-            <h5 class="text-red-600 font-mono text-[15px] uppercase mb-4">V7 Oval Chassis (Current)</h5>
-            <img src="assets/newbody.jpg" alt="New oval body" class="rounded-xl mb-4 border border-red-600/20">
-            <p class="text-zinc-300 text-sm">"Optimized rounded internal volume to safely house all embedded electronics."</p>
-        </div>
-    </div>
+    </section>
 
 </section>
