@@ -245,33 +245,115 @@
     </section>
 
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
-        <div class="space-y-6">
-            <h4 class="text-red-600 font-mono text-sm uppercase tracking-[0.4em]">Aero-Control Surface Analysis</h4>
-            <h3 class="text-3xl font-bold text-white">Hinge Moment & Static Stability</h3>
-            <p class="text-zinc-400 leading-relaxed">
-                Utilizing <b>Ansys Flow</b>, we calculated the required hinge moment to deflect control fins at $25\text{ m/s}$. The simulation confirmed that our direct-drive servo choice provides sufficient stall torque to maintain control authority at peak velocity.
-            </p>
-            <div class="p-6 bg-zinc-900/30 border border-zinc-800 rounded-2xl">
-                <p class="text-zinc-500 font-mono text-[10px] uppercase mb-2">Stability Metric</p>
-                <p class="text-white text-xl font-bold">Positive Static Stability Margin: CG > CP</p>
+    <section id="aero-analysis" class="py-24 border-t border-zinc-900 bg-black">
+        <div class="max-w-6xl mx-auto px-6">
+        
+            <div class="mb-20" data-aos="fade-up">
+                <h4 class="text-red-600 font-mono text-sm uppercase tracking-[0.4em] mb-4">Aerodynamic Validation</h4>
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tighter">Control Authority & <span class="text-zinc-500">Static Stability</span></h2>
+                <p class="text-zinc-400 text-lg leading-relaxed max-w-4xl border-l-2 border-red-900 pl-8">
+                    Theoretical flight performance was evaluated to ensure that the <b>Direct-Drive Servo System</b> could overcome aerodynamic resistance at terminal velocity, and that the <b>Passive Stability Margin</b> remained sufficient for predictable, non-tumbling ballistic trajectories.
+                </p>
             </div>
-        </div>
-        <img src="assets/ansys_stability.jpg" alt="Ansys Simulation" class="rounded-3xl border border-zinc-800">
-    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
-        <div class="bg-zinc-950 border border-zinc-900 p-8 rounded-3xl">
-            <h5 class="text-zinc-500 font-mono text-[15px] uppercase mb-4">Interim Body (Rectangular)</h5>
-            <img src="assets/oldbody.jpg" alt="Old rectangular body" class="rounded-xl grayscale opacity-50 mb-4">
-            <p class="text-zinc-600 text-sm italic">"High interference with teammate's large-scale PCB layouts."</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-24">
+            
+                <div class="bg-zinc-950 border border-zinc-900 p-10 rounded-[3rem] space-y-8" data-aos="fade-up">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Hinge Moment Analysis (M<sub>h</sub>)</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">
+                            Calculated to verify that the <b>2.0 Nm servos</b> can actuate the fins under the peak dynamic pressure (q) of 25m/s without stalling.
+                        </p>
+                    </div>
+
+                    <div class="bg-black border border-zinc-800 p-8 rounded-2xl font-mono text-white text-sm relative overflow-hidden">
+                        <div class="flex flex-col gap-6">
+                            <div class="flex items-center gap-3">
+                                <span class="text-zinc-500">q = </span>
+                                <div class="flex flex-col items-center">
+                                    <span>1</span>
+                                    <div class="w-full h-px bg-zinc-700"></div>
+                                    <span>2</span>
+                                </div>
+                                <span>· ρ · v<sup>2</sup> ≈ <span class="text-white">382.8 Pa</span></span>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <span>M<sub>h</sub> = q · S<sub>f</sub> · c<sub>f</sub> · C<sub>h</sub></span>
+                            </div>
+
+                            <div class="text-[11px] text-zinc-500 space-y-1">
+                                <p>S<sub>f</sub> (Fin Area) = 0.000796 m<sup>2</sup></p>
+                                <p>c<sub>f</sub> (Mean Chord) = 0.0177 m</p>
+                                <p>C<sub>h</sub> (Hinge Coeff) = 0.10</p>
+                            </div>
+
+                            <div class="pt-4 border-t border-zinc-900">
+                                <p class="text-xl">M<sub>h</sub> ≈ <span class="text-green-500 font-bold">0.00054 Nm</span></p>
+                                <p class="text-[10px] uppercase tracking-widest text-zinc-600 mt-2">Required Torque vs 2.0Nm Available</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-zinc-400 text-xs italic leading-relaxed">
+                        The calculated aerodynamic load is less than <b>1%</b> of the servo's rated torque, providing a massive Factor of Safety for high-speed terminal maneuvers.
+                    </p>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-900 p-10 rounded-[3rem] space-y-8" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Passive Stability Margin (SM)</h3>
+                        <p class="text-zinc-500 text-sm leading-relaxed">
+                            Validated using the distance between the <b>Center of Gravity (X<sub>cg</sub>)</b> and <b>Neutral Point (X<sub>np</sub>)</b> as recorded in the Interim Report.
+                        </p>
+                    </div>
+
+                    <div class="bg-black border border-zinc-800 p-8 rounded-2xl font-mono text-white text-sm">
+                        <div class="flex flex-col gap-6">
+                            <div class="grid grid-cols-2 gap-4 text-[11px] text-zinc-500 uppercase tracking-tighter">
+                                <div class="p-3 border border-zinc-900 rounded-lg">
+                                    <p class="mb-1">X<sub>cg</sub> (Measured)</p>
+                                    <p class="text-white font-bold">105.0 mm</p>
+                                </div>
+                                <div class="p-3 border border-zinc-900 rounded-lg">
+                                    <p class="mb-1">X<sub>np</sub> (Calculated)</p>
+                                    <p class="text-white font-bold">145.0 mm</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <span>SM = </span>
+                                <div class="flex flex-col items-center">
+                                    <span>(X<sub>np</sub> - X<sub>cg</sub>)</span>
+                                    <div class="w-full h-px bg-zinc-700"></div>
+                                    <span>L<sub>total</sub></span>
+                                </div>
+                                <span>· 100%</span>
+                            </div>
+
+                            <div class="pt-4 border-t border-zinc-900 text-center">
+                                <p class="text-2xl text-red-600 font-bold">16%</p>
+                                <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-600 mt-2">Optimized Stability Window</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-zinc-400 text-xs italic leading-relaxed">
+                        A Static Margin of <b>16%</b> ensures the Darkstar is inherently self-correcting; the aerodynamic pressure naturally points the nose into the relative wind.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center" data-aos="fade-up">
+                <p class="text-zinc-500 font-light italic text-xl max-w-3xl mx-auto border-t border-zinc-900 pt-12">
+                    "Theoretical stability is the blueprint; terminal precision is the result. This aerodynamic foundation led directly to the successful Carbon-Paper Impact Validation."
+                </p>
+            </div>
+
         </div>
-        <div class="bg-zinc-950 border border-red-900/20 p-8 rounded-3xl shadow-[0_0_40px_-20px_rgba(220,38,38,0.2)]">
-            <h5 class="text-red-600 font-mono text-[15px] uppercase mb-4">V7 Oval Chassis (Current)</h5>
-            <img src="assets/newbody.jpg" alt="New oval body" class="rounded-xl mb-4 border border-red-600/20">
-            <p class="text-zinc-300 text-sm">"Optimized rounded internal volume to safely house all embedded electronics."</p>
-        </div>
-    </div>
+    </section>
+
+
+
+
 
 
     <div class="space-y-12 mb-32">
@@ -303,4 +385,18 @@
             </div>
         </div>
     </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+        <div class="bg-zinc-950 border border-zinc-900 p-8 rounded-3xl">
+            <h5 class="text-zinc-500 font-mono text-[15px] uppercase mb-4">Interim Body (Rectangular)</h5>
+            <img src="assets/oldbody.jpg" alt="Old rectangular body" class="rounded-xl grayscale opacity-50 mb-4">
+            <p class="text-zinc-600 text-sm italic">"High interference with teammate's large-scale PCB layouts."</p>
+        </div>
+        <div class="bg-zinc-950 border border-red-900/20 p-8 rounded-3xl shadow-[0_0_40px_-20px_rgba(220,38,38,0.2)]">
+            <h5 class="text-red-600 font-mono text-[15px] uppercase mb-4">V7 Oval Chassis (Current)</h5>
+            <img src="assets/newbody.jpg" alt="New oval body" class="rounded-xl mb-4 border border-red-600/20">
+            <p class="text-zinc-300 text-sm">"Optimized rounded internal volume to safely house all embedded electronics."</p>
+        </div>
+    </div>
+
 </section>
