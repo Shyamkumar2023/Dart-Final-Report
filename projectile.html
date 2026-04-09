@@ -120,6 +120,131 @@
         </div>
     </div>
 
+
+    <section id="impact-validation" class="py-24 border-t border-zinc-900 bg-black">
+        <div class="max-w-6xl mx-auto px-6 mb-20" data-aos="fade-up">
+            <h4 class="text-red-600 font-mono text-sm uppercase tracking-[0.4em] mb-4">Numerical Validation</h4>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8 tracking-tighter">Impact Mechanics & <span class="text-zinc-500">FEA Analysis</span></h2>
+        
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <p class="text-zinc-400 text-lg leading-relaxed">
+                    To predict fuselage behavior during a 25m/s terminal impact, we executed a <b>Virtual Drop Test</b> series using high-fidelity Finite Element Analysis (FEA). By isolating the projectile body and removing the trigger head, we simulated a direct-load transfer where 100% of the kinetic impulse is absorbed by the structural chassis.
+                </p>
+                <div class="bg-zinc-950 border border-zinc-900 p-8 rounded-2xl">
+                    <p class="text-zinc-500 font-mono text-[10px] uppercase mb-6 tracking-widest text-center">Impulse Force Calculation (F)</p>
+                    <div class="flex flex-col items-center font-mono text-white tracking-tighter">
+                        <div class="flex items-center gap-3 text-xl">
+                            <span>F = </span>
+                            <div class="flex flex-col items-center">
+                                <span>m · v<sup>2</sup></span>
+                                <div class="w-full h-px bg-zinc-700"></div>
+                                <span>2 · d</span>
+                            </div>
+                            <span> = </span>
+                            <div class="flex flex-col items-center">
+                                <span>0.26 · 25<sup>2</sup></span>
+                                <div class="w-full h-px bg-zinc-700"></div>
+                                <span>2 · 0.005</span>
+                            </div>
+                            <span class="text-red-600 font-bold ml-2">≈ 16,250 N</span>
+                        </div>
+                        <p class="mt-6 text-[10px] text-zinc-600 uppercase text-center italic">
+                            *Calculated based on 260g mass and 5mm deceleration displacement
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 mb-32" data-aos="fade-up">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 space-y-4">
+                    <h5 class="text-white font-bold uppercase text-xs tracking-widest">Custom Material Synthesis</h5>
+                    <p class="text-zinc-500 text-sm leading-relaxed">
+                        Since standard libraries lack high-performance elastomers, a custom SolidWorks database was synthesized. Material properties for <b>TPU 64D</b> (E=550MPa) and <b>TPU 95A</b> (E=26MPa) were manually defined to ensure accurate stress propagation.
+                    </p>
+                </div>
+                <div class="lg:col-span-2 grid grid-cols-2 gap-4">
+                    <img src="assets/shyamsecond/library.png" alt="Custom Library Setup" class="rounded-xl border border-zinc-900 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="assets/shyamsecond/tpu95edit.png" alt="Isotropic Properties" class="rounded-xl border border-zinc-900 opacity-80 hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 mb-32" data-aos="fade-up">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-zinc-950 border border-zinc-900 rounded-3xl p-8 space-y-6">
+                    <div class="flex justify-between items-center">
+                        <span class="text-zinc-500 font-mono text-[10px] uppercase">Control Group</span>
+                        <span class="bg-red-950 text-red-500 text-[9px] px-2 py-1 rounded font-bold uppercase">Critical Failure</span>
+                    </div>
+                    <img src="assets/shyamsecond/tpu95A.png" alt="TPU95A FEA" class="w-full rounded-xl border border-zinc-800">
+                    <p class="text-zinc-400 text-sm italic">
+                        <b class="text-red-600">Observation:</b> High-G impact causes the TPU 95A to enter the plastic regime instantly. The "Red Zone" propagates deep into the fuselage, risking internal electronic damage.
+                    </p>
+                </div>
+                <div class="bg-zinc-950 border border-red-900/30 rounded-3xl p-8 space-y-6 shadow-[0_0_50px_rgba(220,38,38,0.05)]">
+                    <div class="flex justify-between items-center">
+                        <span class="text-zinc-500 font-mono text-[10px] uppercase">Darkstar Hybrid</span>
+                        <span class="bg-green-950 text-green-500 text-[9px] px-2 py-1 rounded font-bold uppercase">Elastic Stability</span>
+                    </div>
+                    <img src="assets/shyamsecond/darkstr.png" alt="Darkstar FEA" class="w-full rounded-xl border border-red-900/20">
+                    <p class="text-zinc-400 text-sm italic">
+                        <b class="text-green-600">Observation:</b> The increased stiffness of 64D confines the impulse to the nose-cone. Stress levels remain well below yield, protecting the CF wings and electronics.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6">
+            <h4 class="text-center text-zinc-500 font-mono text-xs uppercase tracking-[0.4em] mb-12">Mechanical Validation: Experimental Phase</h4>
+        
+            <div class="relative w-full overflow-hidden rounded-[3rem] border border-zinc-800 bg-black shadow-2xl mb-12">
+                <video id="impactVideo" class="w-full h-auto pointer-events-none" preload="auto">
+                    <source src="assets/impact_video.MP4" type="video/mp4">
+                </video>
+                <div class="absolute top-8 right-8 bg-black/80 border border-red-900/50 px-4 py-2 rounded font-mono text-xs text-zinc-400">
+                    TS: <span id="timestamp" class="text-white">0.00s</span> | FR: <span id="frameNum" class="text-white">0</span>
+                </div>
+            </div>
+            <div class="mt-8 mb-24">
+                <input type="range" id="scrubber" min="0" max="100" value="0" step="0.1" 
+                    class="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-red-600">
+                <div class="flex justify-between mt-2 text-[10px] font-mono text-white uppercase tracking-widest">
+                    <span>Launch [t=0]</span>
+                    <span>Hold and Drag to Analyze Impact Phase</span>
+                    <span>Target Contact [t=6.0]</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center border-t border-zinc-900 pt-16">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <img src="assets/shyamsecond/damg.jpg" alt="TPU95A Damage" class="rounded-2xl border border-zinc-900 grayscale hover:grayscale-0 transition-all duration-500">
+                        <p class="text-[10px] text-red-600 font-mono uppercase text-center">Tear damage observed after 57 shots</p>
+                    </div>
+                    <div class="space-y-4">
+                        <img src="assets/shyamsecond/nodamg.jpg" alt="Darkstar Durability" class="rounded-2xl border border-green-900/50">
+                        <p class="text-[10px] text-green-600 font-mono uppercase text-center">Surface scratches only after 227 shots</p>
+                    </div>
+                </div>
+            
+                <div class="space-y-8">
+                    <h3 class="text-3xl font-bold text-white tracking-tight">The Endurance Gauntlet</h3>
+                    <p class="text-zinc-400 leading-relaxed text-lg">
+                        Real-world endurance testing mirrored the computational predictions. After <b>57 consecutive shots</b>, the TPU 95A prototype exhibited critical tearing at the head-to-fuselage interface and structural fatigue. 
+                    </p>
+                    <div class="p-6 bg-zinc-950 border-l-4 border-red-600 rounded-r-2xl">
+                        <p class="text-white text-sm">
+                            <b>Darkstar Performance:</b> Survived <b>227 high-velocity launches</b> with zero structural failure. Minor superficial scratching was observed on the Carbon Fiber wings, but core control authority remained 100% nominal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
         <div class="space-y-6">
             <h4 class="text-red-600 font-mono text-sm uppercase tracking-[0.4em]">Aero-Control Surface Analysis</h4>
@@ -148,40 +273,6 @@
         </div>
     </div>
 
-    <div class="mb-32">
-        <h4 class="text-center text-zinc-500 font-mono text-xs uppercase tracking-[0.4em] mb-12">Mechanical Validation: Impact Phase</h4>
-        
-        <div class="relative w-full overflow-hidden rounded-[3rem] border border-zinc-800 bg-black shadow-2xl mb-12">
-            <video id="impactVideo" class="w-full h-auto pointer-events-none" preload="auto">
-                <source src="assets/impact_video.MP4" type="video/mp4">
-            </video>
-            <div class="absolute top-8 right-8 bg-black/80 border border-red-900/50 px-4 py-2 rounded font-mono text-xs text-zinc-400">
-                TS: <span id="timestamp" class="text-white">0.00s</span> | FR: <span id="frameNum" class="text-white">0</span>
-            </div>
-        </div>
-        <div class="mt-8 px-4">
-            <input type="range" id="scrubber" min="0" max="100" value="0" step="0.1" 
-               class="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-red-600">
-            <div class="flex justify-between mt-2 text-[10px] font-mono text-white uppercase tracking-widest">
-                <span>Launch [t=0]</span>
-                <span>Hold and Drag to Analyze Impact Phase</span>
-                <span>Target Contact [t=6.0]</span>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div class="grid grid-cols-2 gap-4">
-                <img src="assets/damage_tpu95a.jpg" alt="TPU95A Damage" class="rounded-xl border border-zinc-900">
-                <img src="assets/damage_darkstar.jpg" alt="Darkstar Durability" class="rounded-xl border border-red-600">
-            </div>
-            <div class="space-y-6">
-                <h3 class="text-2xl font-bold text-white">Survival Statistics</h3>
-                <p class="text-zinc-400 leading-relaxed">
-                    After <b>167 consecutive high-velocity launches</b>, the V7 Darkstar fuselage showed zero visible stress fractures. In comparison, the TPU 95A control models exhibited critical tearing at the head-to-fuselage interface within 20 launches.
-                </p>
-            </div>
-        </div>
-    </div>
 
     <div class="space-y-12 mb-32">
         <div class="text-center">
