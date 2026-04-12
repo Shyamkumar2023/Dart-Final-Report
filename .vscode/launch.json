@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/ongji/AppData/Local/Temp/3463625f-a73d-4dc8-8803-b2ce5e220439_p2_team08.zip.439/p2_team08/src/ee4308_drone/src",
+      "program": "c:/Users/ongji/AppData/Local/Temp/3463625f-a73d-4dc8-8803-b2ce5e220439_p2_team08.zip.439/p2_team08/src/ee4308_drone/src/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
