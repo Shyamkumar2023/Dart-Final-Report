@@ -367,6 +367,69 @@
                                 This mode converts the <span class="text-gray-300">x and y deviation</span> together with the <span class="text-gray-300">size deviation</span> into servo angles for fin actuation.
                             </p>
                         </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 md:col-span-2">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">SD card storage</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                After camera parameters are set, the camera feed is stored in the <span class="text-gray-300">SD card</span>. The feed is saved once every <span class="text-gray-300">400 frames</span> as a <span class="text-gray-300">.mjpeg</span> (Motion JPEG) file.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Camera feed -->
+                <div class="pt-6">
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Camera feed</p>
+
+                    <div class="grid grid-cols-1 gap-6 px-4">
+                        <div class="bg-zinc-950 rounded-2xl border border-red-900/30 p-4 h-[420px] relative overflow-hidden">
+                            <span class="absolute top-4 left-4 z-10 bg-red-600 text-[10px] font-black px-2 py-1 rounded uppercase">
+                                Camera Feed
+                            </span>
+                            <img
+                                src="assets/VJ/camera_feed.jpg"
+                                alt="Camera feed from the projectile tracking system"
+                                class="w-full h-full object-contain rounded-xl"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 px-4">
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">TRK</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                <span class="text-gray-300">TRK</span> means tracking mode.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">FPS</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                <span class="text-gray-300">FPS</span> is frames per second.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">dx</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                <span class="text-gray-300">dx</span> is the x deviation in pixels.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">dy</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                <span class="text-gray-300">dy</span> is the y deviation in pixels.
+                            </p>
+                        </article>
+
+                        <article class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 md:col-span-2">
+                            <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">S / W</h4>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                <span class="text-gray-300">S</span> or <span class="text-gray-300">W</span> is the size of the target in pixels, calculated as
+                                <span class="text-gray-300">sqrt((vertical)^2 + (horizontal)^2)</span>.
+                            </p>
+                        </article>
                     </div>
                 </div>
             </div>
