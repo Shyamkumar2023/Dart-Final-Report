@@ -1,13 +1,36 @@
-﻿<section id="launcherelec" class="pt-24 border-t border-zinc-800" data-aos="fade-up">
+<section id="launcherelec" class="pt-24 border-t border-zinc-800" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-start justify-between gap-12 pb-12">
 
-        <div class="flex-1">
+        <div class="flex-1 px-4 md:px-0">
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Launcher Electronics
             </h3>
-            <div class="border-l-2 border-red-900 pl-8 space-y-10">
+            <p class="text-gray-400 text-xl md:text-2xl leading-relaxed border-l-2 border-red-900 pl-8">
+                Delivering precise launch control, the D.A.R.T. launcher electronics subsystem coordinates elastic
+                draw and release to produce repeatable dart propulsion across the required operational range.
+            </p>
+        </div>
 
-                <!-- Interim context + hybrid evolution strip -->
+        <div class="w-48 shrink-0 text-center group">
+            <div class="relative mb-4">
+                <img src="assets/barry.jpg" alt="Lead Engineer"
+                    class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
+
+                <div
+                    class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
+                    Lead Eng
+                </div>
+            </div>
+
+            <h4 class="text-white font-bold text-xl mb-0">Barry</h4>
+            <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 EE</p>
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT BODY OUTSIDE FLEXBOX -->
+    <div class="max-w-6xl mx-auto px-4 mb-24 space-y-10">
+        <!-- Interim context + hybrid evolution strip -->
                 <div class="space-y-6">
                     <p class="text-white font-semibold text-lg tracking-tight">Design Requirements</p>
                     <p class="text-zinc-250 text-lg leading-loose">
@@ -157,7 +180,8 @@
                                             to confirm that the carriage could pull the elastic bands under motor
                                             control, that the latch could be released on command, and that the operator
                                             could stop the system quickly in an emergency. It also allowed the band to
-                                            be pulled to specific distances so that its behaviour could be characterised,
+                                            be pulled to specific distances so that its behaviour could be
+                                            characterised,
                                             providing the data needed to develop the V3 launcher design.
                                         </p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
@@ -183,7 +207,8 @@
                                                 class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
                                                 <summary
                                                     class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&amp;::-webkit-details-marker]:hidden">
-                                                    <p class="text-white font-semibold text-base">Launching motor &mdash;
+                                                    <p class="text-white font-semibold text-base">Launching motor
+                                                        &mdash;
                                                         Damiao DM-J8009-2EC</p>
                                                     <span
                                                         class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
@@ -202,7 +227,8 @@
                                                                 class="w-full h-auto rounded-md object-contain max-h-[420px] mx-auto">
                                                             <figcaption
                                                                 class="text-gray-500 text-xs mt-3 leading-relaxed">
-                                                                Figure: <span class="text-gray-400">DM8009.png</span> &mdash;
+                                                                Figure: <span class="text-gray-400">DM8009.png</span>
+                                                                &mdash;
                                                                 launcher motor photo reference; ratings below are
                                                                 transcribed from <span
                                                                     class="text-gray-400">dm8009_data_sheet.png</span>.
@@ -403,7 +429,8 @@
                                                                 class="text-gray-500 text-xs mt-3 leading-relaxed">
                                                                 Figure: <span
                                                                     class="text-gray-400">solenoid_lock_relay.jpg</span>
-                                                                &mdash; relay trigger hardware integrated with the solenoid
+                                                                &mdash; relay trigger hardware integrated with the
+                                                                solenoid
                                                                 path.
                                                             </figcaption>
                                                         </figure>
@@ -445,7 +472,8 @@
                                                             <figcaption
                                                                 class="text-gray-500 text-xs mt-3 leading-relaxed">
                                                                 Figure: <span
-                                                                    class="text-gray-400">remote_conroller.jpg</span> &mdash;
+                                                                    class="text-gray-400">remote_conroller.jpg</span>
+                                                                &mdash;
                                                                 remote controller hardware reference used in launcher
                                                                 bench tests.
                                                             </figcaption>
@@ -486,7 +514,8 @@
                                                                 class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
                                                             <figcaption
                                                                 class="text-gray-500 text-xs mt-3 leading-relaxed">
-                                                                Figure: <span class="text-gray-400">dev_a.png</span> &mdash;
+                                                                Figure: <span class="text-gray-400">dev_a.png</span>
+                                                                &mdash;
                                                                 microcontroller hardware reference.
                                                             </figcaption>
                                                         </figure>
@@ -709,7 +738,8 @@
                                                 <p class="hidden">
                                                     <strong class="text-gray-400">Interpretation:</strong> if increasing
                                                     voltage mainly trades heat and inrush current for small gains in
-                                                    release reliability&mdash;while deep draws remain a moving target&mdash;then a
+                                                    release reliability&mdash;while deep draws remain a moving
+                                                    target&mdash;then a
                                                     <strong class="text-gray-300">position-controlled servo</strong> is
                                                     a better match to the final requirement for repeatable, tunable
                                                     release under varying preload.
@@ -731,17 +761,18 @@
                                         <p class="text-white font-semibold text-lg tracking-tight">Replacement of
                                             Solenoid Release with a Servo-Actuated Mechanism</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
-                                            After testing showed that the solenoid-based unlocking mechanism was not able
+                                            After testing showed that the solenoid-based unlocking mechanism was not
+                                            able
                                             to operate reliably, the release method had to be changed. In this version,
                                             the solenoid release was replaced with a servo that mechanically pulls the
                                             unlocking mechanism. This new approach was able to release the lock at the
                                             required distance, making it a workable solution for the launcher.
                                         </p>
-                                        <details
-                                            class="group rounded-lg border border-zinc-800 overflow-hidden">
+                                        <details class="group rounded-lg border border-zinc-800 overflow-hidden">
                                             <summary
                                                 class="flex items-center justify-between gap-3 px-4 py-3 cursor-pointer bg-zinc-900/60 hover:bg-zinc-900/80 text-gray-300 text-sm font-semibold tracking-wide list-none [&::-webkit-details-marker]:hidden">
-                                                <span>Servo Used for Release &mdash; TIANKONGRC TD-8120MG (datasheet)</span>
+                                                <span>Servo Used for Release &mdash; TIANKONGRC TD-8120MG
+                                                    (datasheet)</span>
                                                 <span
                                                     class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                                             </summary>
@@ -750,21 +781,18 @@
                                                     This is the same servo model documented in the feeder electronics
                                                     section and reused here for the launcher release mechanism.
                                                 </p>
-                                                <div
-                                                    class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-                                                    <figure
-                                                        class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                                                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
                                                         <img src="assets/Barry/Tian_kong_rc_servo_20kg.jpg"
                                                             alt="TIANKONGRC TD-8120MG digital servo with horns and mounting hardware"
                                                             class="w-full h-auto rounded-md object-contain max-h-[320px] mx-auto">
-                                                        <figcaption
-                                                            class="text-gray-500 text-xs mt-3 leading-relaxed">
-                                                            Figure: <span class="text-gray-400">Tian_kong_rc_servo_20kg.jpg</span>
+                                                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                                            Figure: <span
+                                                                class="text-gray-400">Tian_kong_rc_servo_20kg.jpg</span>
                                                             &mdash; servo, horns, screws, and grommets.
                                                         </figcaption>
                                                     </figure>
-                                                    <div
-                                                        class="overflow-x-auto rounded-lg border border-zinc-800">
+                                                    <div class="overflow-x-auto rounded-lg border border-zinc-800">
                                                         <table class="w-full text-sm text-gray-400">
                                                             <thead>
                                                                 <tr
@@ -873,9 +901,11 @@
                                             firing force was intended to be measured through a separate sensing path
                                             alongside the launcher. In this version, that separate load cell path was
                                             removed, and the required force information is instead inferred from the
-                                            torque reading of the launching motor. This allowed the design requirement of
+                                            torque reading of the launching motor. This allowed the design requirement
+                                            of
                                             monitoring firing force to still be met, while simplifying the system by
-                                            removing the need for an additional strain-based sensing channel on the linear
+                                            removing the need for an additional strain-based sensing channel on the
+                                            linear
                                             rail.
                                         </p>
 
@@ -884,7 +914,8 @@
                                         <p class="text-white font-semibold text-lg tracking-tight">Torque Validation
                                             Testing</p>
                                         <p class="text-gray-400 text-lg leading-relaxed">Testing was also carried out on
-                                            the launching motor torque readings to check that they could be used for this
+                                            the launching motor torque readings to check that they could be used for
+                                            this
                                             purpose. The results of this testing are presented in the Launcher Design
                                             section.</p>
                                     </div>
@@ -897,7 +928,7 @@
                                             became apparent when both subsystems were brought together and tested as a
                                             complete system.
                                         </p>
-                                        <p  class="text-white font-semibold text-lg tracking-tight">
+                                        <p class="text-white font-semibold text-lg tracking-tight">
                                             Click on V3 to view the full system bring-up, along with the code and
                                             electrical changes needed to support integration.
                                         </p>
@@ -909,23 +940,29 @@
                                     <p class="text-zinc-250 text-lg leading-relaxed">
                                         <strong class="text-gray-300 font-semibold">V3</strong> is the inclusion of the
                                         <strong class="text-gray-300 font-semibold">feeder</strong>: launcher and feeder
-                                        are no longer brought up in isolation&mdash;timing, datums, and shared state must line
+                                        are no longer brought up in isolation&mdash;timing, datums, and shared state
+                                        must line
                                         up.
                                     </p>
 
                                     <p class="text-zinc-250 text-lg leading-relaxed">
-                                        The V0 code served as a suitable baseline, as it captured most of the functionality required for launcher operation, apart from feeder-related considerations. 
-                                        Based on the control code developed in V0, V3 introduced the modifications needed to integrate the launcher with the feeder.
+                                        The V0 code served as a suitable baseline, as it captured most of the
+                                        functionality required for launcher operation, apart from feeder-related
+                                        considerations.
+                                        Based on the control code developed in V0, V3 introduced the modifications
+                                        needed to integrate the launcher with the feeder.
                                     </p>
 
                                     <div class="space-y-3">
-                                        <p class="text-white font-semibold text-lg tracking-tight">Improved Lock Detection
+                                        <p class="text-white font-semibold text-lg tracking-tight">Improved Lock
+                                            Detection
                                         </p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             Compared to V0, the launcher was changed so it does not treat the lock as
                                             engaged the moment a signal is detected. In the earlier version, the system
                                             reacted right away, even though the physical parts still needed a short time
-                                            to settle into place. In this version, the system waits about 2 seconds after
+                                            to settle into place. In this version, the system waits about 2 seconds
+                                            after
                                             the lock signal appears before confirming that the launcher is fully locked.
                                             This makes the locking process more reliable and helps avoid mistakes caused
                                             by brief or accidental sensor signals.
@@ -936,10 +973,13 @@
                                             After Locking</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             The behaviour after locking was also simplified. In the earlier version, the
-                                            launcher could remain in a holding state while waiting for the next condition
+                                            launcher could remain in a holding state while waiting for the next
+                                            condition
                                             to be met. In this version, that waiting branch was removed. Instead, the
-                                            launcher now responds more directly to the feeder-related signals. This gives
-                                            the sequence a clearer flow and makes it easier to follow what the launcher is
+                                            launcher now responds more directly to the feeder-related signals. This
+                                            gives
+                                            the sequence a clearer flow and makes it easier to follow what the launcher
+                                            is
                                             doing at each stage.
                                         </p>
                                     </div>
@@ -956,14 +996,18 @@
                                         </p>
                                     </div>
                                     <div class="space-y-3">
-                                        <p class="text-white font-semibold text-lg tracking-tight">Rotary Feeder Position
+                                        <p class="text-white font-semibold text-lg tracking-tight">Rotary Feeder
+                                            Position
                                             Awareness</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
-                                            Compared to V0, the launching code was updated to account for the position of
+                                            Compared to V0, the launching code was updated to account for the position
+                                            of
                                             the rotary feeder. This was necessary because if the rotary feeder is not in
                                             the correct position, it may collide with the loaded dart while the launcher
-                                            is moving. There is also a risk that the launcher could fire before the rotary
-                                            feeder has moved clear of the firing path. By making the launching code aware
+                                            is moving. There is also a risk that the launcher could fire before the
+                                            rotary
+                                            feeder has moved clear of the firing path. By making the launching code
+                                            aware
                                             of the rotary feeder position, the sequence becomes safer and more reliable.
                                         </p>
                                     </div>
@@ -980,14 +1024,17 @@
                                         </p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             Further firing tests revealed a consistent pattern: the electronics failed
-                                            after each firing event or emergency stop. This indicated that when the motor
+                                            after each firing event or emergency stop. This indicated that when the
+                                            motor
                                             was no longer holding the elastic band load, the stored energy in the
                                             stretched band drove the motor in reverse, causing it to generate back EMF.
-                                            This back-fed into the shared electrical system and progressively damaged the
+                                            This back-fed into the shared electrical system and progressively damaged
+                                            the
                                             electronics.
                                         </p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
-                                            To address this issue, the launcher motor was connected to a separate battery
+                                            To address this issue, the launcher motor was connected to a separate
+                                            battery
                                             supply. This isolated the motor from the rest of the onboard electronics and
                                             prevented the back EMF from propagating into the main control circuitry.
                                         </p>
@@ -1034,7 +1081,8 @@
                                             Loading and Firing Speed</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             Compared to V3, V4 also separates the motion settings used during loading
-                                            from those used during firing. In the earlier version, these stages were less
+                                            from those used during firing. In the earlier version, these stages were
+                                            less
                                             clearly separated in terms of tuning. In this version, the launcher can use
                                             one speed limit for feeding and another for the firing pullback. This allows
                                             the loading stage to remain controlled and stable, while still allowing the
@@ -1048,10 +1096,12 @@
                                             Loading Distance</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             A major improvement in V4 was the ability to tune the loading distance more
-                                            easily. In the earlier version, the loading sequence depended more heavily on
+                                            easily. In the earlier version, the loading sequence depended more heavily
+                                            on
                                             fixed distance values that were less convenient to adjust. In this version,
                                             more of these distance-related settings were exposed as editable values, and
-                                            extra intermediate steps were added to the sequence. This gives finer control
+                                            extra intermediate steps were added to the sequence. This gives finer
+                                            control
                                             over how far the launcher moves before reloading, and makes the loading
                                             process easier to refine during testing.
                                         </p>
@@ -1061,9 +1111,11 @@
                                             Testing and Tuning</p>
                                         <p class="text-zinc-250 text-lg leading-relaxed">
                                             V4 also introduced a clearer manual testing path for the launcher. In the
-                                            earlier version, testing depended more heavily on the main automatic sequence.
+                                            earlier version, testing depended more heavily on the main automatic
+                                            sequence.
                                             In this version, the launcher can also be driven manually during bench
-                                            testing, and the release mechanism can be triggered directly when needed. This
+                                            testing, and the release mechanism can be triggered directly when needed.
+                                            This
                                             makes it easier to test the launcher in smaller steps, observe its behaviour
                                             more clearly, and adjust the system during development.
                                         </p>
@@ -1075,8 +1127,10 @@
                                             Overall, the main improvement in V4 was that the launcher became easier to
                                             tune. Compared to V3, the control method was simplified, more adjustable
                                             values were made easier to access, and important settings such as speed,
-                                            distance, and tolerance could be changed more directly. This made the launcher
-                                            more practical to refine and test, especially when adjusting loading distance
+                                            distance, and tolerance could be changed more directly. This made the
+                                            launcher
+                                            more practical to refine and test, especially when adjusting loading
+                                            distance
                                             and motion behaviour.
                                         </p>
                                     </div>
@@ -1089,25 +1143,5 @@
                 <div>
 
                 </div>
-            </div>
-        </div>
-
-        <div class="w-48 shrink-0 text-center group">
-            <div class="relative mb-4">
-                <img src="assets/barry.jpg" alt="Lead Engineer"
-                    class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-
-                <div
-                    class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
-                    Lead Eng
-                </div>
-            </div>
-
-            <h4 class="text-white font-bold text-xl mb-0">Barry</h4>
-            <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 EE</p>
-        </div>
-
     </div>
 </section>
-
-
