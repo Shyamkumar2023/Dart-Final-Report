@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,16 +13,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 
     <style>
-        body { background-color: #000; color: #d1d5db; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        
+        body {
+            background-color: #000;
+            color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
         /* The Dot */
         .hotspot {
             display: block;
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            border: 2px solid #fff; /* White ring for contrast */
-            background-color: #e11d48; /* Your Tactical Red */
+            border: 2px solid #fff;
+            /* White ring for contrast */
+            background-color: #e11d48;
+            /* Your Tactical Red */
             box-shadow: 0 0 15px rgba(225, 29, 72, 0.9);
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -33,9 +41,20 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+            }
+
+            70% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 10px rgba(225, 29, 72, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+            }
         }
 
         .hotspot:hover {
@@ -52,7 +71,8 @@
             transform: translate(25px, -50%);
             padding: 6px 14px;
             border-radius: 6px;
-            border-left: 3px solid #e11d48; /* Red indicator line */
+            border-left: 3px solid #e11d48;
+            /* Red indicator line */
             border: 1px solid #e11d48;
             font-family: 'Inter', sans-serif;
             font-size: 13px;
@@ -60,28 +80,54 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
             white-space: nowrap;
-            opacity: 0; /* Hidden until hover */
-            pointer-events: none; /* User clicks the dot, not the text */
+            opacity: 0;
+            /* Hidden until hover */
+            pointer-events: none;
+            /* User clicks the dot, not the text */
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .hotspot:hover .annotation {
             opacity: 1;
-            transform: translate(30px, -50%); /* Subtle slide-in effect */
+            transform: translate(30px, -50%);
+            /* Subtle slide-in effect */
         }
+
         /* Hide default model-viewer focus ring */
-        :not(:defined) > * {
+        :not(:defined)>* {
             display: none;
         }
 
-        .sidebar { background-color: #050505; border-right: 1px solid #1a1a1a; }
-        .text-red-primary { color: #e11d48; }
-        .nav-item:hover { background-color: #111; color: #e11d48; transition: 0.3s; }
-        details summary { list-style: none; cursor: pointer; }
-        section { padding-top: 100px; margin-bottom: 100px; } /* Space for scrolling */
+        .sidebar {
+            background-color: #050505;
+            border-right: 1px solid #1a1a1a;
+        }
+
+        .text-red-primary {
+            color: #e11d48;
+        }
+
+        .nav-item:hover {
+            background-color: #111;
+            color: #e11d48;
+            transition: 0.3s;
+        }
+
+        details summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        section {
+            padding-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        /* Space for scrolling */
         /* Style for the active sidebar chapter */
         .nav-active {
-            color: #e11d48 !important; /* Tactical Red */
+            color: #e11d48 !important;
+            /* Tactical Red */
             border-left: 3px solid #e11d48;
             padding-left: 12px !important;
             background-color: #0a0a0a;
@@ -89,6 +135,7 @@
         }
     </style>
 </head>
+
 <body class="flex">
 
     <nav class="sidebar w-72 fixed h-full overflow-y-auto p-6 z-10">
@@ -101,7 +148,7 @@
             <li><a href="index.html#intro" class="nav-item block p-2 rounded">1) Introduction</a></li>
             <li><a href="#problem-placeholder" class="nav-item block p-2 rounded">2) Problem Statement</a></li>
             <li><a href="#requirements-placeholder" class="nav-item block p-2 rounded">3) Project Requirements</a></li>
-            
+
             <li>
                 <details open>
                     <summary class="nav-item block p-2 rounded text-red-primary flex justify-between">
@@ -110,46 +157,61 @@
                     <ul class="pl-4 mt-2 space-y-2 border-l border-red-900/20 ml-2">
                         <li>
                             <details>
-                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Projectile <span>▼</span></summary>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Projectile
+                                    <span>▼</span></summary>
                                 <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
-                                    <li><a href="#projectilemech-placeholder" class="hover:text-red-primary">→ Mech Design</a></li>
-                                    <li><a href="#projectintelect-placeholder" class="hover:text-red-primary">→ Electronics</a></li>
+                                    <li><a href="#projectilemech-placeholder" class="hover:text-red-primary">→ Mech
+                                            Design</a></li>
+                                    <li><a href="#projectintelect-placeholder" class="hover:text-red-primary">→
+                                            Electronics</a></li>
                                 </ul>
                             </details>
                         </li>
                         <li>
                             <details>
-                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Feeder <span>▼</span></summary>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Feeder
+                                    <span>▼</span></summary>
                                 <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
-                                    <li><a href="#feedermech-placeholder" class="hover:text-red-primary">→ Feeder Design</a></li>
-                                    <li><a href="#feederelect-placeholder" class="hover:text-red-primary">→Feeder Electronics</a></li>
+                                    <li><a href="#feedermech-placeholder" class="hover:text-red-primary">→ Feeder
+                                            Design</a></li>
+                                    <li><a href="#feederelect-placeholder" class="hover:text-red-primary">→Feeder
+                                            Electronics</a></li>
                                 </ul>
                             </details>
                         </li>
                         <li>
                             <details>
-                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Launcher <span>▼</span></summary>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Launcher
+                                    <span>▼</span></summary>
                                 <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
-                                    <li><a href="#launchermech-placeholder" class="hover:text-red-primary">→ Launcher Design</a></li>
-                                    <li><a href="#launcherelect-placeholder" class="hover:text-red-primary">→Launcher Electronics</a></li>
+                                    <li><a href="#launchermech-placeholder" class="hover:text-red-primary">→ Launcher
+                                            Design</a></li>
+                                    <li><a href="#launcherelect-placeholder" class="hover:text-red-primary">→Launcher
+                                            Electronics</a></li>
                                 </ul>
                             </details>
                         </li>
                         <li>
                             <details>
-                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Pitch <span>▼</span></summary>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Pitch
+                                    <span>▼</span></summary>
                                 <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
-                                    <li><a href="#pitchmech-placeholder" class="hover:text-red-primary">→ Pitch Design</a></li>
-                                    <li><a href="#pitchelect-placeholder" class="hover:text-red-primary">→Pitch Electronics</a></li>
+                                    <li><a href="#pitchmech-placeholder" class="hover:text-red-primary">→ Pitch
+                                            Design</a></li>
+                                    <li><a href="#pitchelect-placeholder" class="hover:text-red-primary">→Pitch
+                                            Electronics</a></li>
                                 </ul>
                             </details>
                         </li>
                         <li>
                             <details>
-                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Yaw <span>▼</span></summary>
+                                <summary class="p-1 hover:text-red-primary flex justify-between text-xs">Yaw
+                                    <span>▼</span></summary>
                                 <ul class="pl-4 text-[10px] text-gray-500 space-y-1">
-                                    <li><a href="#yawmech-placeholder" class="hover:text-red-primary">→ Yaw Design</a></li>
-                                    <li><a href="#ywelect-placeholder" class="hover:text-red-primary">→Yaw Electronics</a></li>
+                                    <li><a href="#yawmech-placeholder" class="hover:text-red-primary">→ Yaw Design</a>
+                                    </li>
+                                    <li><a href="#yawelect-placeholder" class="hover:text-red-primary">→Yaw
+                                            Electronics</a></li>
                                 </ul>
                             </details>
                         </li>
@@ -167,14 +229,17 @@
 
     <main class="ml-72 p-16 w-full px-20">
 
-        <section id="cover" class="min-h-screen flex flex-col justify-center mb-32 border-b border-zinc-900 pb-20" data-aos="fade-in">
+        <section id="cover" class="min-h-screen flex flex-col justify-center mb-32 border-b border-zinc-900 pb-20"
+            data-aos="fade-in">
             <div class="w-full mb-16">
-                <img src="assets/NUS_logo_horizontal.jpg" alt="NUS Logo" class="w-full h-auto object-contain brightness-110">
+                <img src="assets/NUS_logo_horizontal.jpg" alt="NUS Logo"
+                    class="w-full h-auto object-contain brightness-110">
             </div>
 
             <div class="mb-20">
                 <h1 class="text-6xl font-black tracking-tighter text-white mb-4 leading-tight">
-                    D.A.R.T. <span class="text-red-primary text-4xl block mt-2 font-light">Autonomous Projectile Launcher</span>
+                    D.A.R.T. <span class="text-red-primary text-4xl block mt-2 font-light">Autonomous Projectile
+                        Launcher</span>
                 </h1>
                 <p class="text-xl text-gray-500 font-mono tracking-widest uppercase">Final Report for ASI 403</p>
             </div>
@@ -182,29 +247,31 @@
             <div class="grid grid-cols-2 gap-16 border-t border-zinc-800 pt-12">
                 <div>
                     <h4 class="text-red-primary uppercase tracking-widest font-bold mb-6 text-xs">Project Team</h4>
-                    <ul class="space-y-4 text-gray-200 text-lg"> <li class="flex justify-between items-center">
-                            <span class="font-semibold">S Shyamkumar</span> 
+                    <ul class="space-y-4 text-gray-200 text-lg">
+                        <li class="flex justify-between items-center">
+                            <span class="font-semibold">S Shyamkumar</span>
                             <span class="text-gray-300 font-semibold text-base uppercase">A0251760J</span>
                         </li>
                         <li class="flex justify-between items-center">
-                            <span class="font-semibold">Ong Jian Wen</span> 
+                            <span class="font-semibold">Ong Jian Wen</span>
                             <span class="text-gray-300 font-semibold text-base uppercase">A0252100E</span>
                         </li>
                         <li class="flex justify-between items-center">
-                            <span class="font-semibold">Veejay</span> 
+                            <span class="font-semibold">Veejay</span>
                             <span class="text-gray-300 font-semibold text-base uppercase">A0261513N</span>
                         </li>
                         <li class="flex justify-between items-center">
-                            <span class="font-semibold">Barry Ang</span> 
+                            <span class="font-semibold">Barry Ang</span>
                             <span class="text-gray-300 font-semibold text-base uppercase">A0258254Y</span>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-red-primary uppercase tracking-widest font-bold mb-6 text-xs">Supervision & Faculty</h4>
-                    <p class="text-white text-2xl font-black mb-3">Adjunct Prof Goh Cher Hiang</p> 
-                    <p class="text-white text-2xl font-black mb-3">Graham Zhu</p> 
-                    <div class="text-gray-400 text-base space-y-1 leading-snug"> 
+                    <h4 class="text-red-primary uppercase tracking-widest font-bold mb-6 text-xs">Supervision & Faculty
+                    </h4>
+                    <p class="text-white text-2xl font-black mb-3">Adjunct Prof Goh Cher Hiang</p>
+                    <p class="text-white text-2xl font-black mb-3">Graham Zhu</p>
+                    <div class="text-gray-400 text-base space-y-1 leading-snug">
                         <p>Innovation & Design Programme</p>
                         <p>College of Design and Engineering</p>
                         <p>National University of Singapore</p>
@@ -213,41 +280,52 @@
             </div>
         </section>
 
-        
+
         <section id="intro" class="mb-32 pt-20" data-aos="fade-up">
             <h2 class="text-5xl font-bold mb-8 text-white uppercase tracking-tighter">
                 <span class="text-red-primary">Introduction</span>
             </h2>
-    
+
             <h3 class="text-xl font-mono text-gray-500 mb-6 uppercase tracking-[0.2em]">
                 Full Robot Interactive Rendering
             </h3>
 
             <div class="relative group mb-12">
-                <model-viewer 
-                    src="assets/try_second.glb" 
-                    ar 
-                    camera-controls 
-                    shadow-intensity="2" 
-                    exposure="0.8" 
-                    environment-image="neutral" 
-                    auto-rotate 
-                    interaction-prompt="auto"
+                <model-viewer src="assets/try_second.glb" ar camera-controls shadow-intensity="2" exposure="0.8"
+                    environment-image="neutral" auto-rotate interaction-prompt="auto"
                     style="width: 100%; height: 650px; background-color: #050505; border-radius: 12px; border: 1px solid #1a1a1a;">
                 </model-viewer>
-                <div class="absolute bottom-4 right-4 text-[10px] text-gray-600 font-mono uppercase bg-black/80 px-3 py-1 rounded border border-zinc-800">
-                    D.A.R.T. Assembly V5 
+                <div
+                    class="absolute bottom-4 right-4 text-[10px] text-gray-600 font-mono uppercase bg-black/80 px-3 py-1 rounded border border-zinc-800">
+                    D.A.R.T. Assembly V5
                 </div>
             </div>
             <div class="max-w-5xl pl-10 space-y-8 my-16" data-aos="fade-up">
                 <p class="text-gray-400 text-xl leading-relaxed">
-                    This project aims to develop a dart robot and projectile for the RoboMaster University Championship (RMUC), an international robotics competition organised by DJI. The system is intended to accurately hit designated battlefield targets, particularly the opponent’s Base, within the competition’s launch window constraints. To support this, the project includes the development of a robot featuring an elastic band-based launcher, with adjustable pitch and yaw control, automatic projectile reloading, in-flight corrective capability for an active projectile, and an accurate target mock-up for testing. Predictive maintenance, ease of debugging, and maintainability are also prioritised.
+                    This project aims to develop a dart robot and projectile for the RoboMaster University Championship
+                    (RMUC), an international robotics competition organised by DJI. The system is intended to accurately
+                    hit designated battlefield targets, particularly the opponent’s Base, within the competition’s
+                    launch window constraints. To support this, the project includes the development of a robot
+                    featuring an elastic band-based launcher, with adjustable pitch and yaw control, automatic
+                    projectile reloading, in-flight corrective capability for an active projectile, and an accurate
+                    target mock-up for testing. Predictive maintenance, ease of debugging, and maintainability are also
+                    prioritised.
                 </p>
                 <p class="text-gray-400 text-xl leading-relaxed">
-                    The project builds on challenges observed in NUS Calibur Robotics previous dart robot attempts. Earlier projectile designs showed unstable flight due to poor aerodynamic performance, while past robot designs faced issues in pitch-yaw control, structural stability, and release consistency. In response, the current design adopts an improved projectile focused on aerodynamic stability and active trajectory correction, alongside a more stable launcher with stronger actuation and structure. The previous flywheel launcher concept is also replaced with an elastic band launch system to improve consistency and accuracy.
+                    The project builds on challenges observed in NUS Calibur Robotics previous dart robot attempts.
+                    Earlier projectile designs showed unstable flight due to poor aerodynamic performance, while past
+                    robot designs faced issues in pitch-yaw control, structural stability, and release consistency. In
+                    response, the current design adopts an improved projectile focused on aerodynamic stability and
+                    active trajectory correction, alongside a more stable launcher with stronger actuation and
+                    structure. The previous flywheel launcher concept is also replaced with an elastic band launch
+                    system to improve consistency and accuracy.
                 </p>
                 <p class="text-gray-400 text-xl leading-relaxed">
-                    The project also supports key stakeholders such as NUS Calibur Robotics goal of qualifying for RMUC by delivering a competition-ready dart system that meets the RoboMaster Organising Committee’s (RMOC) rules and technical assessment requirements. The proposed system is intended to be simple, accurate, and maintainable, while improving the team’s technical readiness and overall competitiveness.
+                    The project also supports key stakeholders such as NUS Calibur Robotics goal of qualifying for RMUC
+                    by delivering a competition-ready dart system that meets the RoboMaster Organising Committee’s
+                    (RMOC) rules and technical assessment requirements. The proposed system is intended to be simple,
+                    accurate, and maintainable, while improving the team’s technical readiness and overall
+                    competitiveness.
                 </p>
             </div>
         </section>
@@ -262,14 +340,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -288,14 +366,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -304,22 +382,27 @@
             loadSection('requirements.html', 'requirements-placeholder');
         </script>
 
-        
+
         <section id="team" class="mb-32 pt-20" data-aos="fade-up">
             <h2 class="text-5xl font-bold mb-16 text-white uppercase tracking-tighter">
                 Meet the <span class="text-red-primary">Team</span>
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
+
                 <div class="group">
-                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                        <img src="assets/shyamv2.png" alt="S Shyamkumar" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div
+                        class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
+                        <img src="assets/shyamv2.png" alt="S Shyamkumar"
+                            class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                        </div>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">S Shyamkumar</h3>
-                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4 Mechanical Engineering</p>
-                    <ul class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
+                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4
+                        Mechanical Engineering</p>
+                    <ul
+                        class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
                         <li>• Projectile Design</li>
                         <li>• Feeder Design</li>
                         <li>• Launcher Design</li>
@@ -327,13 +410,18 @@
                 </div>
 
                 <div class="group">
-                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                        <img src="assets/jw.png" alt="Ong Jian Wen" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div
+                        class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
+                        <img src="assets/jw.png" alt="Ong Jian Wen"
+                            class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                        </div>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">Ong Jian Wen</h3>
-                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4 Mechanical Engineering</p>
-                    <ul class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
+                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4
+                        Mechanical Engineering</p>
+                    <ul
+                        class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
                         <li>• Pitch Design</li>
                         <li>• Yaw Design</li>
                         <li>• Base Target</li>
@@ -341,26 +429,36 @@
                 </div>
 
                 <div class="group">
-                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                        <img src="assets/vj.jpg" alt="Veejay" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div
+                        class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
+                        <img src="assets/vj.jpg" alt="Veejay"
+                            class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                        </div>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">Veejay</h3>
-                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4 Electrical Engineering</p>
-                    <ul class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
+                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4
+                        Electrical Engineering</p>
+                    <ul
+                        class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
                         <li>• Projectile Electronics</li>
                         <li>• Target Tracking</li>
                     </ul>
                 </div>
 
                 <div class="group">
-                    <div class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-                        <img src="assets/barry.jpg" alt="Barry" class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div
+                        class="relative mb-6 overflow-hidden rounded-xl border-2 border-red-600/50 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
+                        <img src="assets/barry.jpg" alt="Barry"
+                            class="w-full aspect-[3/4] object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                        </div>
                     </div>
                     <h3 class="text-2xl font-bold text-white mb-1">Barry Ang</h3>
-                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4 Electrical Engineering</p>
-                    <ul class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
+                    <p class="text-red-primary font-mono text-base uppercase tracking-widest mb-4 font-bold">Y4
+                        Electrical Engineering</p>
+                    <ul
+                        class="text-gray-400 text-sm space-y-1 border-l-2 border-zinc-800 pl-4 group-hover:border-red-600 transition-colors">
                         <li>• All Subsystem Electronics</li>
                     </ul>
                 </div>
@@ -372,45 +470,54 @@
             <h2 class="text-5xl font-bold mb-8 text-white uppercase tracking-tighter">
                 <span class="text-red-primary">D.A.R.T subsystems</span>
             </h2>
-    
+
             <h3 class="text-xl font-mono text-gray-500 mb-6 uppercase tracking-[0.2em]">
                 Click to view each subsystem
             </h3>
 
             <div class="relative group mb-12">
-                <model-viewer 
-                    src="assets/try_second.glb" 
-                    ar 
-                    camera-controls 
-                    shadow-intensity="2"  
-                    exposure="0.8" 
-                    environment-image="neutral"
-                    auto-rotate
-                    interaction-prompt="auto"
+                <model-viewer src="assets/try_second.glb" ar camera-controls shadow-intensity="2" exposure="0.8"
+                    environment-image="neutral" auto-rotate interaction-prompt="auto"
                     style="width: 100%; height: 650px; background-color: #050505; border-radius: 12px; border: 1px solid #1a1a1a;">
 
-                    <button class="hotspot" slot="hotspot-1" data-position="0.2717781607062277m 0.9026956992003917m 0.7215710957372615m" data-normal="-0.9194562768611885m 0.23058304800920043m 0.3184833008359285m" onclick="document.getElementById('projectilemech-placeholder').scrollIntoView({behavior: 'smooth'})">
+                    <button class="hotspot" slot="hotspot-1"
+                        data-position="0.2717781607062277m 0.9026956992003917m 0.7215710957372615m"
+                        data-normal="-0.9194562768611885m 0.23058304800920043m 0.3184833008359285m"
+                        onclick="document.getElementById('projectilemech-placeholder').scrollIntoView({behavior: 'smooth'})">
                         <div class="annotation">Projectile</div>
                     </button>
 
-                    <button class="hotspot" slot="hotspot-2" data-position="0.2423504636534211m 0.6766103046664008m 0.7960919601315732m" data-normal="-0.9910032866124874m -0.11464819751850011m -0.06905270978757679m" onclick="document.getElementById('feedermech-placeholder').scrollIntoView({behavior: 'smooth'})">
+                    <button class="hotspot" slot="hotspot-2"
+                        data-position="0.2423504636534211m 0.6766103046664008m 0.7960919601315732m"
+                        data-normal="-0.9910032866124874m -0.11464819751850011m -0.06905270978757679m"
+                        onclick="document.getElementById('feedermech-placeholder').scrollIntoView({behavior: 'smooth'})">
                         <div class="annotation">Feeder System</div>
                     </button>
 
-                    <button class="hotspot" slot="hotspot-3" data-position="0.1415521874832037m 0.3961485437979583m 0.3784380080939694m" data-normal="-0.9999357895512938m 2.6967245308409568e-9m 0.011332112531690922m" onclick="document.getElementById('launchermech-placeholder').scrollIntoView({behavior: 'smooth'})">
+                    <button class="hotspot" slot="hotspot-3"
+                        data-position="0.1415521874832037m 0.3961485437979583m 0.3784380080939694m"
+                        data-normal="-0.9999357895512938m 2.6967245308409568e-9m 0.011332112531690922m"
+                        onclick="document.getElementById('launchermech-placeholder').scrollIntoView({behavior: 'smooth'})">
                         <div class="annotation">Launcher System</div>
                     </button>
 
-                    <button class="hotspot" slot="hotspot-4" data-position="0.41095411509453256m 0.14721533426898883m 0.6861908524249762m" data-normal="0.9999385801529677m 0.00044486672620410264m -0.011074204949488978m" onclick="document.getElementById('pitchmech-placeholder').scrollIntoView({behavior: 'smooth'})">
+                    <button class="hotspot" slot="hotspot-4"
+                        data-position="0.41095411509453256m 0.14721533426898883m 0.6861908524249762m"
+                        data-normal="0.9999385801529677m 0.00044486672620410264m -0.011074204949488978m"
+                        onclick="document.getElementById('pitchmech-placeholder').scrollIntoView({behavior: 'smooth'})">
                         <div class="annotation">Pitch System</div>
                     </button>
 
-                    <button class="hotspot" slot="hotspot-5" data-position="0.28112891229276993m 0.07199683592224121m 0.6280569255382638m" data-normal="0m 1m 0m" onclick="document.getElementById('yawmech-placeholder').scrollIntoView({behavior: 'smooth'})">
+                    <button class="hotspot" slot="hotspot-5"
+                        data-position="0.28112891229276993m 0.07199683592224121m 0.6280569255382638m"
+                        data-normal="0m 1m 0m"
+                        onclick="document.getElementById('yawmech-placeholder').scrollIntoView({behavior: 'smooth'})">
                         <div class="annotation">Yaw System</div>
                     </button>
                 </model-viewer>
-                <div class="absolute bottom-4 right-4 text-[10px] text-gray-600 font-mono uppercase bg-black/80 px-3 py-1 rounded border border-zinc-800">
-                    D.A.R.T. Assembly V5 
+                <div
+                    class="absolute bottom-4 right-4 text-[10px] text-gray-600 font-mono uppercase bg-black/80 px-3 py-1 rounded border border-zinc-800">
+                    D.A.R.T. Assembly V5
                 </div>
             </div>
         </section>
@@ -426,14 +533,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -452,14 +559,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -479,14 +586,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -505,14 +612,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -575,12 +682,12 @@
                     const response = await fetch(file);
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
-        
+
                     target.innerHTML = text;
                     if (window.Prism) {
                         Prism.highlightAll();
                     }
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
@@ -606,14 +713,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -632,14 +739,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -662,14 +769,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -688,7 +795,7 @@
                     // Map slider (0-100) to video duration
                     const time = (slider.value / 100) * video.duration;
                     video.currentTime = time;
-        
+
                     // Update readouts
                     tsDisplay.innerText = time.toFixed(2) + 's';
                     frameDisplay.innerText = Math.floor(time * 30); // Assumes 30fps
@@ -719,14 +826,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -746,14 +853,14 @@
                     if (!response.ok) throw new Error('File not found');
                     const text = await response.text();
                     document.getElementById(elementId).innerHTML = text;
-            
+
                     // Re-trigger AOS animations for the newly added content
                     if (window.AOS) {
                         AOS.refresh();
                     }
                 } catch (err) {
                     console.error("Stitcher Error:", err);
-                    document.getElementById(elementId).innerHTML = 
+                    document.getElementById(elementId).innerHTML =
                         `<p class="text-red-500">System Error: Could not load ${file}. Check console (F12).</p>`;
                 }
             }
@@ -766,9 +873,21 @@
         <section id="conclusion" class="pb-20 max-w-4xl">
             <h3 class="text-3xl font-bold mb-6">Conclusion</h3>
             <p class="text-gray-200 font-bold">D.A.R.T. is fully operational.</p>
-            <p class="text-gray-300 mt-4">This project delivered the development of a complete dart robot and projectile system from the ground up, covering the full process from design and fabrication to integration, testing, and validation. Rather than stopping at individual concepts or isolated subsystems, the work resulted in a functional prototype and product supported by structured engineering development and verification.</p>
-            <p class="text-gray-300 mt-4">The project also met the main milestones and requirements defined for both the robot and projectile. On the robot side, the system satisfied the required specifications in dimensions, automation, mass, payload capacity, power source, pitch range, and electronic integration. On the projectile side, the design met the required limits in dimensions, power, mass, electronics housing, and autonomy, and was validated through fixed-target, random fixed-target, and random moving-target testing. These outcomes show that the project progressed from requirement setting to a working system with measurable results.</p>
-            <p class="text-gray-300 mt-4">Taken together, our work provides NUS Calibur Robotics with a solid technical base for further refinement toward RMUC participation, where teams are expected to design and build robots that satisfy formal competition rules and assessment requirements. </p>
+            <p class="text-gray-300 mt-4">This project delivered the development of a complete dart robot and projectile
+                system from the ground up, covering the full process from design and fabrication to integration,
+                testing, and validation. Rather than stopping at individual concepts or isolated subsystems, the work
+                resulted in a functional prototype and product supported by structured engineering development and
+                verification.</p>
+            <p class="text-gray-300 mt-4">The project also met the main milestones and requirements defined for both the
+                robot and projectile. On the robot side, the system satisfied the required specifications in dimensions,
+                automation, mass, payload capacity, power source, pitch range, and electronic integration. On the
+                projectile side, the design met the required limits in dimensions, power, mass, electronics housing, and
+                autonomy, and was validated through fixed-target, random fixed-target, and random moving-target testing.
+                These outcomes show that the project progressed from requirement setting to a working system with
+                measurable results.</p>
+            <p class="text-gray-300 mt-4">Taken together, our work provides NUS Calibur Robotics with a solid technical
+                base for further refinement toward RMUC participation, where teams are expected to design and build
+                robots that satisfy formal competition rules and assessment requirements. </p>
         </section>
 
     </main>
@@ -792,7 +911,7 @@
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute("id");
-                
+
                     // Remove active class from all links
                     navLinks.forEach((link) => {
                         link.classList.remove("nav-active");
@@ -811,4 +930,5 @@
         });
     </script>
 </body>
+
 </html>
