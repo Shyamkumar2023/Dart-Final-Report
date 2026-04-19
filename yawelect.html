@@ -157,11 +157,6 @@
 
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Yaw Components and selection</h2>
-            <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                Each part below is summarized for the report; the yaw actuator includes the manufacturer table
-                excerpt and a searchable English summary of the same figures. The operator display compares
-                capacitive versus resistive touch options before the interconnect summary cards.
-            </p>
 
             <div class="space-y-8">
                 <details
@@ -182,15 +177,13 @@
                         </svg>
                     </summary>
                     <div class="p-5 space-y-6">
-                        <p class="text-gray-400 text-lg leading-relaxed">
-                            Selected for continuous torque headroom on the yaw linkage and built-in dual
-                            magnetic encoders so the axis does not rely on a separate encoder assembly. Control
-                            uses the onboard <span class="text-gray-300">CAN</span> interface at <span
-                                class="text-gray-300">1&nbsp;Mbps</span>; parameter tuning uses <span
-                                class="text-gray-300">UART</span> at <span class="text-gray-300">921600</span>
-                            baud per the manufacturer documentation.
+                        <p>
+                            The rationale for selecting the Damiao DL10010L actuator is presented in the
+                            <a href="index.html#yawmech-placeholder" class="text-red-400 hover:text-red-300 underline">
+                                Yaw Subsystem Design
+                            </a>
+                            section.
                         </p>
-
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
                             <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
                                 <img src="assets/Barry/DM10010L.png"
@@ -518,20 +511,21 @@
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Yaw Implementation</h2>
             <p class="text-gray-400 text-xl leading-relaxed mb-3">
-               The yaw subsystem is built around the Damiao DM-J10010L-2EC integrated servo actuator,  
-                which provides the required torque and precision within the compact turret envelope.  
+                The yaw subsystem is built around the Damiao DM-J10010L-2EC integrated servo actuator,
+                which provides the required torque and precision within the compact turret envelope.
 
-                Its built-in dual absolute magnetic encoders support closed-loop position control  
-                without additional sensing hardware, which simplifies the design and improves reliability.  
+                Its built-in dual absolute magnetic encoders support closed-loop position control
+                without additional sensing hardware, which simplifies the design and improves reliability.
 
-                This allows the subsystem to achieve the required angular control range of approximately  
-                <span class="text-gray-300">7.8°</span> to one side and <span class="text-gray-300">2.2°</span> to the other from centre.  
+                This allows the subsystem to achieve the required angular control range of approximately
+                <span class="text-gray-300">7.8°</span> to one side and <span class="text-gray-300">2.2°</span> to the
+                other from centre.
 
-                Control commands are sent over a dedicated <span class="text-gray-300">CAN</span> bus at  
-                <span class="text-gray-300">1&nbsp;Mbps</span>, while parameter tuning is performed via a high-speed  
-                <span class="text-gray-300">UART</span> interface at <span class="text-gray-300">921600&nbsp;bps</span>.  
+                Control commands are sent over a dedicated <span class="text-gray-300">CAN</span> bus at
+                <span class="text-gray-300">1&nbsp;Mbps</span>, while parameter tuning is performed via a high-speed
+                <span class="text-gray-300">UART</span> interface at <span class="text-gray-300">921600&nbsp;bps</span>.
 
-                For operator safety, software clamps are implemented to restrict motion  
+                For operator safety, software clamps are implemented to restrict motion
                 within the defined allowable range.
             </p>
         </div>
@@ -539,7 +533,8 @@
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Yaw Testing</h2>
             <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                Testing shown in yaw design
+                Testing shown in <a href="index.html#yawmech-placeholder" class="text-red-primary hover:underline">yaw
+                    design</a>
             </p>
         </div>
 
@@ -547,11 +542,9 @@
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">All Subsystems Electronics Requirements</h2>
             <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                With each subsystem verified in isolation, the integration layer must satisfy a further set of
-                requirements that only become testable when all electronics share a common power rail and CAN
-                bus. The following requirements govern the robot as a whole.
+                Once each subsystem has been verified in isolation, the integration layer must satisfy additional
+                system-level requirements for the overall system to fulfil the project objectives
             </p>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <article
                     class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
