@@ -10,11 +10,29 @@
                 sensor-gated state transitions. The design emphasizes repeatability, safe sequencing, and
                 bench-tunable parameters for rapid iteration.
             </p>
-            <div class="space-y-10">
-                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
-                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Feeder foundation
-                    </p>
-                    <p class="text-white font-semibold text-xl tracking-tight mb-5">Design requirements</p>
+        </div>
+
+        <div class="w-48 shrink-0 text-center group">
+            <div class="relative mb-4">
+                <img src="assets/barry.jpg" alt="Lead Engineer"
+                    class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
+
+                <div
+                    class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
+                    Lead Eng
+                </div>
+            </div>
+
+            <h4 class="text-white font-bold text-xl mb-0">Barry</h4>
+            <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 EE</p>
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT BODY OUTSIDE FLEXBOX -->
+    <div class="space-y-12 pb-16">
+        <div>
+            <p class="text-white font-semibold text-lg tracking-tight mb-4">Design requirements</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <article
                             class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
@@ -68,10 +86,8 @@
                     </div>
                 </div>
 
-                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
-                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Architecture
-                        stack</p>
-                    <p class="text-white font-semibold text-xl tracking-tight mb-4">Components and selection</p>
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-4">Components and selection</p>
                     <p class="text-gray-400 text-lg leading-relaxed mb-6">
                         The magazine uses a Damiao integrated indexer and TIANKONGRC digital servos for dart transfer;
                         each major electromechanical part includes a photo reference and a transcribed datasheet
@@ -582,9 +598,8 @@
                     </div>
                 </div>
 
-                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
-                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Firmware flow</p>
-                    <p class="text-white font-semibold text-xl tracking-tight mb-4">Implementation</p>
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Implementation</p>
                     <p class="text-gray-400 text-xl leading-relaxed mb-3">
                         The PCB routes power and signals from the robot backbone to the feeder motor driver, servos, and
                         optical sensor. Ground and return paths are kept short to limit noise on the endstop channel
@@ -602,10 +617,8 @@
                     </p>
                 </div>
 
-                <div class="bg-zinc-950/50 border border-zinc-900 rounded-[2rem] p-6 md:p-8 shadow-lg shadow-red-900/5">
-                    <p class="text-red-primary font-mono text-[11px] uppercase tracking-[0.28em] mb-2">Validation plan
-                    </p>
-                    <p class="text-white font-semibold text-xl tracking-tight mb-4">Testing</p>
+                <div>
+                    <p class="text-white font-semibold text-lg tracking-tight mb-3">Testing</p>
                     <p class="text-gray-300 font-semibold text-base mb-2">Indexing and encoder</p>
                     <p class="text-gray-400 text-xl leading-relaxed mb-4">
                         Bench tests step the feeder motor between the three index commands and compare commanded steps
@@ -636,22 +649,4 @@
                     <!-- TODO: Summarize quantitative repeatability (encoder σ), endstop timing stats, and servo current peaks (A5 / A6). -->
                 </div>
             </div>
-        </div>
-
-        <div class="w-48 shrink-0 text-center group">
-            <div class="relative mb-4">
-                <img src="assets/barry.jpg" alt="Lead Engineer"
-                    class="w-full h-auto aspect-square object-cover rounded-xl border-2 border-zinc-800 group-hover:border-red-600 transition-all duration-500 shadow-lg shadow-red-900/10">
-
-                <div
-                    class="absolute -bottom-2 -right-2 bg-red-600 text-[9px] font-black text-white px-2 py-1 rounded uppercase tracking-tighter">
-                    Lead Eng
-                </div>
-            </div>
-
-            <h4 class="text-white font-bold text-xl mb-0">Barry</h4>
-            <p class="text-red-primary font-mono text-xs uppercase tracking-widest font-bold mt-1">Y4 EE</p>
-        </div>
-
-    </div>
 </section>
