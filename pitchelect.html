@@ -42,7 +42,7 @@
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Pitch Design requirements</h2>
+            <h2 class="text-4xl font-bold text-white mb-6">Pitch Electronics Design requirements</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <article
                     class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
@@ -78,152 +78,58 @@
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Components and selection</h2>
+            <h2 class="text-4xl font-bold text-white mb-6">Pitch Electronics Components and selection</h2>
+            <img src="assets/Barry/Pitch_electronic_placement.png" alt="Pitch electronics placement"
+                class="mx-auto w-full max-w-4xl rounded-xl">
             <details
                 class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
                 <summary
                     class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
                     <div>
-                        <p class="text-white font-semibold text-base">Feeder indexer — Damiao
-                            DM4340</p>
-                        <p class="text-gray-500 text-sm mt-1 font-mono">Integrated brushless servo actuator
-                            (motor + driver + dual encoders)</p>
+                        <p class="text-white font-semibold text-base">Pitch Motor</p>
+                        <p class="text-gray-500 text-sm mt-1 font-mono">Brushed DC motor with Hall effect AB encoder</p>
                     </div>
                     <span
                         class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                 </summary>
                 <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
                     <p class="text-gray-400 text-lg leading-relaxed">
-                        Drives the feeder magazine to the next cell and holds intermediate positions during
-                        the load sequence. Control uses onboard <span class="text-gray-300">CAN</span> at
-                        <span class="text-gray-300">1&nbsp;Mbps</span>; factory tuning uses <span
-                            class="text-gray-300">UART</span> at <span class="text-gray-300">921600</span>
-                        baud. Dual <span class="text-gray-300">14-bit</span> magnetic encoders on the module
-                        provide shaft-referenced feedback for indexing without a separate encoder assembly.
+                        The pitch axis is driven by a <span class="text-gray-300">brushed DC motor</span> fitted with a
+                        <span class="text-gray-300">Hall effect AB quadrature encoder</span>. As stated in the
+                        <span class="text-gray-300">Pitch Subsystem Design</span>, the motor was chosen to meet the
+                        required
+                        mechanical torque while remaining within the intended price point. The encoder's two-channel
+                        output feeds
+                        the STM32's timer peripheral in encoder mode, providing high-resolution angular feedback for
+                        closed-loop
+                        position control across the <span class="text-gray-300">35°–45°</span> operating span without a
+                        separate
+                        encoder assembly.
                     </p>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
-                            <img src="assets/Barry/DM4340.jpg"
-                                alt="Damiao DM4340 feeder actuator — product and labeling (reference photo)"
-                                class="w-full h-auto rounded-md object-contain max-h-[420px] mx-auto">
+                            <img src="assets/Barry/Pitch_motor.jpg" alt="Pitch brushed DC motor — physical unit"
+                                class="w-full h-auto rounded-md object-contain max-h-[320px] mx-auto">
                             <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Figure: <span
-                                    class="text-gray-400">DM4340.jpg</span> — physical unit and connector
-                                labeling; numerical ratings are summarized in the table.</figcaption>
+                                    class="text-gray-400">Pitch_motor.jpg</span> — physical motor unit.</figcaption>
                         </figure>
-
-                        <div class="rounded-lg border border-zinc-800 overflow-hidden">
-                            <div class="px-4 py-3 bg-zinc-900/60 border-b border-zinc-800">
-                                <span class="text-gray-300 text-sm font-semibold tracking-wide">DM4340
-                                    datasheet details</span>
-                            </div>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-sm text-gray-400">
-                                    <thead>
-                                        <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
-                                            <th scope="col"
-                                                class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
-                                                Parameter</th>
-                                            <th scope="col"
-                                                class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
-                                                Value</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-zinc-800/80">
-                                        <tr class="bg-zinc-950/60">
-                                            <td colspan="2"
-                                                class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">
-                                                Electrical — motor</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated
-                                                voltage</th>
-                                            <td class="px-3 py-2">24&nbsp;V DC</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated
-                                                / peak current</th>
-                                            <td class="px-3 py-2">2.5&nbsp;A / 8&nbsp;A</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated
-                                                / peak torque</th>
-                                            <td class="px-3 py-2">9&nbsp;N·m / 27&nbsp;N·m</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Rated
-                                                speed</th>
-                                            <td class="px-3 py-2">36&nbsp;rpm</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
-                                                No-load speed (max)</th>
-                                            <td class="px-3 py-2">52&nbsp;rpm</td>
-                                        </tr>
-                                        <tr class="bg-zinc-950/60">
-                                            <td colspan="2"
-                                                class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">
-                                                Mechanism</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
-                                                Reduction ratio</th>
-                                            <td class="px-3 py-2">40 : 1</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Pole
-                                                pairs (per datasheet)</th>
-                                            <td class="px-3 py-2">14</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Phase
-                                                L / R</th>
-                                            <td class="px-3 py-2">360&nbsp;µH / 880&nbsp;mΩ</td>
-                                        </tr>
-                                        <tr class="bg-zinc-950/60">
-                                            <td colspan="2"
-                                                class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">
-                                                Mechanical</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Outer
-                                                Ø × height</th>
-                                            <td class="px-3 py-2">57&nbsp;mm × 56.5&nbsp;mm</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">Mass
-                                            </th>
-                                            <td class="px-3 py-2">≈ 375&nbsp;g</td>
-                                        </tr>
-                                        <tr class="bg-zinc-950/60">
-                                            <td colspan="2"
-                                                class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">
-                                                Encoder (onboard)</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
-                                                Resolution / count</th>
-                                            <td class="px-3 py-2">14-bit · 2× magnetic (single-turn)</td>
-                                        </tr>
-                                        <tr class="bg-zinc-950/60">
-                                            <td colspan="2"
-                                                class="px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-300">
-                                                Interfaces</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
-                                                Control bus</th>
-                                            <td class="px-3 py-2">CAN @ 1&nbsp;Mbps</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
-                                                Configuration / tuning</th>
-                                            <td class="px-3 py-2">UART @ 921600&nbsp;bps</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                            <img src="assets/Barry/Pitch_motor_specifications.jpg"
+                                alt="Pitch motor datasheet specifications"
+                                class="w-full h-auto rounded-md object-contain max-h-[320px] mx-auto">
+                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Figure: <span
+                                    class="text-gray-400">Pitch_motor_specifications.jpg</span> — datasheet electrical
+                                and mechanical ratings.</figcaption>
+                        </figure>
+                        <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                            <img src="assets/Barry/Pitch_motor_encoder_data.jpg"
+                                alt="Pitch motor Hall effect AB encoder data"
+                                class="w-full h-auto rounded-md object-contain max-h-[320px] mx-auto">
+                            <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Figure: <span
+                                    class="text-gray-400">Pitch_motor_encoder_data.jpg</span> — Hall effect AB encoder
+                                specifications.</figcaption>
+                        </figure>
                     </div>
                 </div>
             </details>
@@ -233,21 +139,20 @@
                 <summary
                     class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
                     <div>
-                        <p class="text-white font-semibold text-base"> Pitch 35/45 degrees limit switch vs optical
-                            endstop
-                        </p>
+                        <p class="text-white font-semibold text-base"> Homing Sensors</p>
+                        <p class="text-gray-500 text-sm mt-1 font-mono">Limit Switch vs Optical Endstop</p>
                     </div>
                     <span
                         class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                 </summary>
                 <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
                     <p class="text-gray-400 text-lg leading-relaxed">
-                        The feeder must know when the launcher carriage has reached a safe pose before
-                        indexing and dart transfer. Two common classes of sensors were compared: a
-                        subminiature <strong class="text-gray-300 font-semibold">roller-lever
-                            microswitch</strong> (contact) and a <strong class="text-gray-300 font-semibold">slot-type
-                            optical interrupter</strong> on a
-                        breakout board (non-contact).
+                        The pitch mechanism requires reliable angular feedback for closed-loop position control and
+                        safe operation within its commanded range. An <strong
+                            class="text-gray-300 font-semibold">incremental encoder</strong> was used to measure
+                        relative motion of the pitch axis and provide continuous feedback during operation. This
+                        supports accurate and repeatable positioning, but the system must first establish a reference
+                        position at startup since the encoder does not report absolute angle directly.
                     </p>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -346,21 +251,25 @@
                     </div>
 
                     <div class="rounded-lg border border-red-900/30 bg-red-950/20 p-5">
-                        <p class="text-white font-semibold text-base tracking-tight mb-2">Why the optical
-                            endstop was chosen</p>
+                        <p class="text-white font-semibold text-base tracking-tight mb-2">Why the optical endstop was
+                            chosen over a limit switch</p>
                         <p class="text-gray-400 text-lg leading-relaxed">
-                            For the feeder–launcher handshake, the design prioritizes a <strong
-                                class="text-gray-300 font-semibold">non-contact datum</strong> (see design
-                            requirements): the carriage should not have to push a lever every cycle while
-                            the band system is under tension and vibration. The optical interrupter removes
-                            mechanical wear and contact bounce from the critical “feeder enabled” edge,
-                            improving <strong class="text-gray-300 font-semibold">repeatability</strong> of
-                            when the feeder motor and servos are allowed to move. That simplifies the state
-                            machine and reduces the risk of false triggers during tuning. The
-                            trade-off—keeping the optical slot clean and shielded from ambient light—is
-                            accepted and handled with mechanical shrouding and inspection during
-                            maintenance. The mechanical switch remains a valid backup concept for harsh dust
-                            environments but was not selected for this interface.
+                            For the pitch mechanism, the reference position must be detected with good <strong
+                                class="text-gray-300 font-semibold">repeatability</strong> so that the encoder can be
+                            zeroed
+                            consistently during homing. The <strong class="text-gray-300 font-semibold">optical
+                                endstop</strong> was chosen over a mechanical limit
+                            switch because it provides <strong class="text-gray-300 font-semibold">non-contact
+                                sensing</strong>,
+                            which removes lever wear, mechanical hysteresis, and contact bounce. This gives a cleaner
+                            and more
+                            repeatable trigger point, improving the consistency of the homing process and the accuracy
+                            of the
+                            resulting pitch angle reference. The trade-off is that the optical sensor must be protected
+                            from dust
+                            and misalignment, but this was accepted because the improved repeatability was more
+                            important for this
+                            application.
                         </p>
                     </div>
                 </div>
@@ -370,20 +279,20 @@
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Implementation</h2>
             <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                At initialisation the motor drives slowly toward the optical stop; when the beam breaks, firmware
-                records the mechanical reference and applies the offset that maps the quadrature counter to <span
-                    class="text-gray-300">0</span> at <span class="text-gray-300">35°</span> physical pitch. All further
-                commands are clamped to <span class="text-gray-300">35°–45°</span>. Setpoints from the operator UI and
-                from non-volatile presets pass through the same limiter so behaviour is identical in competition and
-                bench modes.
+                Automatic quadrature decoding is implemented using the built-in <strong
+                    class="text-gray-300 font-semibold">hardware timer encoder mode</strong> of the <strong
+                    class="text-gray-300 font-semibold">STM32F4 microcontroller</strong>, rather than software
+                interrupts. This
+                reduces the risk of missed pulses and counting errors during motor operation.
             </p>
             <p class="text-gray-400 text-xl leading-relaxed">
-                Each encoder increment represents <span class="text-gray-300">360/340&nbsp;000</span> degrees. The full
-                <span class="text-gray-300">10°</span> span therefore corresponds to about <span
-                    class="text-gray-300">10 ÷ (360/340&nbsp;000) ≈ 9&nbsp;444</span> counts—far below the <span
-                    class="text-gray-300">2³²−1</span> capacity of <strong
-                    class="text-gray-300 font-semibold">TIM2</strong>, so counter overflow is not expected for this
-                axis.
+                During initialisation, the pitch motor is driven in the downward direction until the <span
+                    class="text-gray-300">optical endstop</span> is triggered. Upon detection of the endstop, the
+                firmware resets
+                the <strong class="text-gray-300 font-semibold">hardware timer count</strong> to <span
+                    class="text-gray-300">0</span>, thereby defining the reference position. The pitch angle is then
+                determined
+                using the relation <span class="text-gray-300">35° + (hardware timer count × 0.00106°)</span>.
             </p>
             <!-- TODO: Add annotated PCB photo and key net list (B2 / A4). -->
         </div>
