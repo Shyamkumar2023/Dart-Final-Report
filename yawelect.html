@@ -325,6 +325,152 @@
                     </div>
                 </details>
 
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Yaw Electronics Implementation</h2>
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">
+                The yaw subsystem is built around the Damiao DM-J10010L-2EC integrated servo actuator,
+                which provides the required torque and precision within the compact turret envelope.
+
+                Its built-in dual absolute magnetic encoders support closed-loop position control
+                without additional sensing hardware, which simplifies the design and improves reliability.
+
+                This allows the subsystem to achieve the required angular control range of approximately
+                <span class="text-gray-300">7.8°</span> to one side and <span class="text-gray-300">2.2°</span> to the
+                other from centre.
+
+                Control commands are sent over a dedicated <span class="text-gray-300">CAN</span> bus at
+                <span class="text-gray-300">1&nbsp;Mbps</span>, while parameter tuning is performed via a high-speed
+                <span class="text-gray-300">UART</span> interface at <span class="text-gray-300">921600&nbsp;bps</span>.
+
+                For operator safety, software clamps are implemented to restrict motion
+                within the defined allowable range.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Yaw Electronics Testing</h2>
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">
+                Testing shown in <a href="index.html#yawmech-placeholder" class="text-red-primary hover:underline">yaw
+                    design</a>
+            </p>
+        </div>
+
+        <!-- === ALL SUBSYSTEM ELECTRONICS === -->
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Requirements</h2>
+            <ul class="space-y-3 text-gray-400 text-lg leading-relaxed list-none">
+                <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full bg-red-600 shrink-0"></span>
+                    Support accurate target aiming through pitch and yaw control
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full bg-red-600 shrink-0"></span>
+                    Launch four darts individually
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full bg-red-600 shrink-0"></span>
+                    Plug&#8209;and&#8209;play electrical connections
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full bg-red-600 shrink-0"></span>
+                    Battery&#8209;powered
+                </li>
+                <li class="flex items-start gap-3">
+                    <span class="mt-1.5 w-2 h-2 rounded-full bg-red-600 shrink-0"></span>
+                    Provide operator interfaces for operation, calibration, and testing
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Components and selection</h2>
+            <div class="space-y-8">
+
+                <!-- Microcontroller -->
+                <details
+                    class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
+                    <summary
+                        class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
+                        <div>
+                            <p class="text-white font-semibold text-base">Microcontroller</p>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">Primary control board for launcher signal
+                                coordination</p>
+                        </div>
+                        <span
+                            class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Primary control board used to coordinate launcher signals, command sequencing, and
+                            integration with actuator and sensor interfaces during electronics bring-up.
+                        </p>
+                        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+                            <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                <img src="assets/Barry/dev_a.png"
+                                    alt="Microcontroller board used in launcher electronics setup"
+                                    class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                    Figure: <span class="text-gray-400">dev_a.png</span> &mdash; microcontroller
+                                    hardware reference.
+                                </figcaption>
+                            </figure>
+                            <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                <img src="assets/Barry/dev_a_datasheet.png"
+                                    alt="Microcontroller datasheet excerpt for electrical and interface reference"
+                                    class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                    Reference: <span class="text-gray-400">dev_a_datasheet.png</span>.
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Remote controller -->
+                <details
+                    class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
+                    <summary
+                        class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
+                        <div>
+                            <p class="text-white font-semibold text-base">Remote controller</p>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">Manual draw, release, and emergency stop
+                                during
+                                bring-up</p>
+                        </div>
+                        <span
+                            class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                    </summary>
+                    <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Manual control channel used for safe launcher bring-up, direct trigger testing, and
+                            emergency stop authority during early mechanical experiments.
+                        </p>
+                        <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
+                            <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                <img src="assets/Barry/remote_conroller.jpg"
+                                    alt="Remote controller used for manual launcher control during bench testing"
+                                    class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                    Figure: <span class="text-gray-400">remote_conroller.jpg</span> &mdash; remote
+                                    controller hardware reference used in launcher bench tests.
+                                </figcaption>
+                            </figure>
+                            <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                <img src="assets/Barry/remote_controller_data_sheet.png"
+                                    alt="Remote controller datasheet excerpt used for channel and signal reference"
+                                    class="w-full h-auto rounded-md object-contain max-h-[360px] mx-auto">
+                                <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                    Reference: <span class="text-gray-400">remote_controller_data_sheet.png</span>.
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Operator display (screen) -->
                 <details
                     class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
                     <summary
@@ -407,8 +553,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
-                                                Operator
-                                                experience</th>
+                                                Operator experience</th>
                                             <td class="px-3 py-2">Light tap; glass-like surface; familiar
                                                 smartphone feel</td>
                                             <td class="px-3 py-2">Firmer press or stylus; matte stack can feel
@@ -485,8 +630,7 @@
                     </div>
                 </details>
 
-
-
+                <!-- Dart Launcher Robot PCB -->
                 <details class="group overflow-hidden rounded-[2rem] border border-red-900/30 bg-zinc-950">
                     <summary
                         class="px-6 py-4 border-b border-zinc-900 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
@@ -506,182 +650,27 @@
                         </model-viewer>
                     </div>
                 </details>
+
             </div>
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Yaw Electronics Implementation</h2>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                The yaw subsystem is built around the Damiao DM-J10010L-2EC integrated servo actuator,
-                which provides the required torque and precision within the compact turret envelope.
-
-                Its built-in dual absolute magnetic encoders support closed-loop position control
-                without additional sensing hardware, which simplifies the design and improves reliability.
-
-                This allows the subsystem to achieve the required angular control range of approximately
-                <span class="text-gray-300">7.8°</span> to one side and <span class="text-gray-300">2.2°</span> to the
-                other from centre.
-
-                Control commands are sent over a dedicated <span class="text-gray-300">CAN</span> bus at
-                <span class="text-gray-300">1&nbsp;Mbps</span>, while parameter tuning is performed via a high-speed
-                <span class="text-gray-300">UART</span> interface at <span class="text-gray-300">921600&nbsp;bps</span>.
-
-                For operator safety, software clamps are implemented to restrict motion
-                within the defined allowable range.
-            </p>
-        </div>
-
-        <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Yaw Electronics Testing</h2>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                Testing shown in <a href="index.html#yawmech-placeholder" class="text-red-primary hover:underline">yaw
-                    design</a>
-            </p>
-        </div>
-
-        <!-- === ROBOT-LEVEL ELECTRONICS === -->
-        <div>
-            <h2 class="text-4xl font-bold text-white mb-6">All Subsystems Electronics Requirements</h2>
-            <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                Once each subsystem has been verified in isolation, the integration layer must satisfy additional
-                system-level requirements for the overall system to fulfil the project objectives
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <article
-                    class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
-                    <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">CAN bus
-                        arbitration</h4>
-                    <p class="text-gray-400 text-lg leading-relaxed">All actuators (yaw DM-J10010L, pitch
-                        motor driver, feeder DM4340) share a single <span class="text-gray-300">1&nbsp;Mbps</span>
-                        CAN segment. IDs must be assigned without collision, and worst-case bus loading
-                        must leave headroom for time-critical position frames during a launch cycle.</p>
-                </article>
-                <article
-                    class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
-                    <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Power
-                        rail integrity</h4>
-                    <p class="text-gray-400 text-lg leading-relaxed">The <span class="text-gray-300">24&nbsp;V</span>
-                        distribution bus must supply peak stall
-                        currents of all simultaneous consumers without the rail sagging below the minimum
-                        specified for any actuator driver. Decoupling at each PCB must keep ripple within
-                        datasheet limits.</p>
-                </article>
-                <article
-                    class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
-                    <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">EMC /
-                        cross-subsystem noise</h4>
-                    <p class="text-gray-400 text-lg leading-relaxed">Launcher flywheel switching transients
-                        must not corrupt encoder edges on the pitch axis or endstop signals on the feeder
-                        during simultaneous operation. Ground paths on each PCB must be routed to minimise
-                        common-impedance coupling.</p>
-                </article>
-                <article
-                    class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
-                    <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Safe
-                        sequencing across subsystems</h4>
-                    <p class="text-gray-400 text-lg leading-relaxed">The launch command may only execute when
-                        yaw, pitch, and feeder all report a ready state. A firmware interlock on the
-                        RoboMaster controller must gate the launcher trigger on all three acknowledgements
-                        to prevent partial-state firing.</p>
-                </article>
-                <article
-                    class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
-                    <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Harness
-                        serviceability</h4>
-                    <p class="text-gray-400 text-lg leading-relaxed">All inter-board connectors must be
-                        keyed or colour-coded so no harness can be mis-inserted within a match cycle.
-                        The wire management PCB must survive at least one full competition day of repeated
-                        insertion cycles without derating.</p>
-                </article>
-                <article
-                    class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
-                    <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-3">Thermal
-                        management</h4>
-                    <p class="text-gray-400 text-lg leading-relaxed">Motor drivers and power distribution
-                        components must not exceed their thermal ratings during back-to-back match
-                        sequences. Placement and airflow must be evaluated to confirm steady-state junction
-                        temperatures remain within safe margins.</p>
-                </article>
-            </div>
-        </div>
-
-        <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Robot-Level Electronics Implementation</h2>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                All four subsystem PCBs plug into the wire management layer via keyed connectors, creating a
-                single serviceable harness exit from the turret. The <span class="text-gray-300">24&nbsp;V</span> rail
-                is distributed from the RoboMaster power supply through a common fused branch point; each PCB carries
-                its own bulk capacitance and ferrite bead filtering to decouple switching transients between the
-                launcher flywheel drive and the position-sensing circuits.
-            </p>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                The shared <span class="text-gray-300">CAN</span> bus at <span class="text-gray-300">1&nbsp;Mbps</span>
-                connects the RoboMaster Development Board A to the yaw
-                actuator, feeder actuator, and the launcher flywheel driver. Node IDs are assigned statically so the
-                host can detect a missing acknowledgement within one control cycle and escalate a fault before
-                commanding motion. Pitch uses a separate PWM and encoder path rather than CAN, keeping the CAN
-                utilisation budget below <span class="text-gray-300">50%</span> even at full refresh rate.
-            </p>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                A software interlock layer in the RoboMaster firmware collects the
-                <span class="text-gray-300">ready</span> flags from all subsystems before gating the launch trigger.
-                Flags are only set when positional targets are reached within tolerance and the feeder handshake has
-                completed; any subsystem fault clears the launch permission and illuminates the operator display.
-            </p>
-            <p class="text-gray-400 text-xl leading-relaxed">
-                Ground planes on each PCB are stitched via vias at the power connector so differential return currents
-                stay local to each board. Signal cables between boards are routed away from the flywheel motor leads;
-                where physical separation is limited, twisted-pair or shielded lines are used for endstop and encoder
-                signals.
-            </p>
+            <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Implementation</h2>
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact, single-sided board that mounts directly to the launcher
+                frame, with all connectors facing outward for harness access. The board is intended to be fabricated
+                using the standard RoboMaster PCB process, which uses a FR-4 substrate with solder mask and silkscreen
+                but omits the conformal coating used on the main controller. This keeps the board suitable for
+                field assembly and repair without requiring specialized coating equipment.</p>
             <!-- TODO: Add annotated system-level wiring diagram showing CAN topology, power branch, and connector mapping (B1/B2). -->
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Robot-Level Electronics Testing</h2>
-            <p class="text-gray-300 font-semibold text-base mb-2">CAN bus load and arbitration</p>
-            <p class="text-gray-400 text-xl leading-relaxed mb-4">
-                A logic analyser or CAN sniffer captures all frames during a simulated match sequence. Bus
-                utilisation is calculated; no frame should be delayed by more than one additional bit-time due
-                to arbitration loss, and no ID collision or error frame should appear during normal operation.
-            </p>
-            <p class="text-gray-300 font-semibold text-base mb-2">Rail sag under combined load</p>
-            <p class="text-gray-400 text-xl leading-relaxed mb-4">
-                All actuators are commanded simultaneously to peak demand while the <span
-                    class="text-gray-300">24&nbsp;V</span> rail is monitored on an oscilloscope. Voltage must
-                not sag below <span class="text-gray-300">22&nbsp;V</span> at any PCB connector; ripple
-                amplitude must remain within the maximum specified in each driver datasheet.
-            </p>
-            <p class="text-gray-300 font-semibold text-base mb-2">Cross-subsystem EMC</p>
-            <p class="text-gray-400 text-xl leading-relaxed mb-4">
-                The launcher flywheels are spun to operating speed while the pitch encoder and feeder
-                optical endstop are continuously monitored. Any spurious encoder edge or endstop
-                false-trigger during launcher operation constitutes a failure; the threshold is zero
-                unintended transitions in a <span class="text-gray-300">60&nbsp;s</span> window.
-            </p>
-            <p class="text-gray-300 font-semibold text-base mb-2">Interlock gate verification</p>
-            <p class="text-gray-400 text-xl leading-relaxed mb-4">
-                With each subsystem individually held in a non-ready state (yaw outside its sector, feeder
-                mid-index, pitch not yet homed), a launch command is issued; the interlock must suppress the
-                trigger in every case. When all subsystems simultaneously report ready, the launch must proceed
-                within the defined response latency.
-            </p>
-            <p class="text-gray-300 font-semibold text-base mb-2">Multi-shot endurance cycle</p>
-            <p class="text-gray-400 text-xl leading-relaxed mb-4">
-                A sequence of repeated aim-and-fire cycles is run to simulate competition usage. All
-                subsystem PCBs are monitored for thermal rise; temperatures are logged to confirm that
-                board surface temperatures do not approach component derating points after the longest
-                anticipated match block.
-            </p>
-            <p class="text-gray-300 font-semibold text-base mb-2">Connector and harness integrity</p>
-            <p class="text-gray-400 text-xl leading-relaxed">
-                All harness connectors are disconnected and reconnected the minimum number of times expected
-                over the competition day and re-examined for fretting, deformed contacts, or increased
-                mating resistance. Continuity and insulation resistance are re-checked after cycling to
-                confirm the wire management layer remains within specification.
-            </p>
-            <!-- TODO: Record quantitative outcomes: bus utilisation %, rail sag magnitude, noise event count, interlock latency, temperature deltas (A5/A6/B1). -->
+            <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Testing</h2>
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact, single-sided board that mounts directly to the launcher
+                frame, with all connectors facing outward for harness access. The board is intended to be fabricated
+                using the standard RoboMaster PCB process, which uses a FR-4 substrate with solder mask and silkscreen
+                but omits the conformal coating used on the main controller. This keeps the board suitable for
+                field assembly and repair without requiring specialized coating equipment.</p>
         </div>
     </div>
-
 </section>
