@@ -32,6 +32,25 @@
 
     <div class="space-y-12 pb-16">
         <div>
+            <p class="text-white font-semibold text-lg tracking-tight mb-4">Methodology used</p>
+            <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                The development process followed a comprehensive V-shaped system methodology. This approach enabled the
+                structured design, implementation, and rigorous unit testing of each distinct hardware and software
+                (<a href="http://127.0.0.1:5500/index.html#yawelect-placeholder" class="text-red-primary hover:underline">yaw</a>, <a href="http://127.0.0.1:5500/index.html#pitchelect-placeholder" class="text-red-primary hover:underline">pitch</a>, <a href="http://127.0.0.1:5500/index.html#launcherelect-placeholder" class="text-red-primary hover:underline">launcher</a>, <a href="http://127.0.0.1:5500/index.html#feederelect-placeholder" class="text-red-primary hover:underline">feeder</a>) subsystem in isolation. Once isolated tests were verified, these
+                elements were incrementally integrated and validated on the opposite side of the "V", culminating in a
+                robust, fully functional final system.
+            </p>
+
+            <div class="flex justify-center mb-8 mt-4">
+                <div class="w-full max-w-3xl relative">
+                    <img src="assets/Barry/V_shape_design_methodology.png"
+                        alt="V-shaped system design and testing methodology"
+                        class="w-full h-auto object-contain mx-auto">
+                </div>
+            </div>
+        </div>
+
+        <div>
             <p class="text-white font-semibold text-lg tracking-tight mb-4">Design requirements</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <article
@@ -87,15 +106,19 @@
             <div class="space-y-8">
                 <details
                     class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
-                    <summary class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <summary
+                        class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
                         <div>
                             <h4 class="text-white font-semibold text-lg tracking-tight">Yaw actuator — Damiao
                                 DM-J10010L-2EC</h4>
                             <p class="text-gray-500 text-sm mt-1 font-mono">Integrated brushless servo actuator
                                 (motor + driver + encoders)</p>
                         </div>
-                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 border-none outline-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 border-none outline-none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                clip-rule="evenodd" />
                         </svg>
                     </summary>
                     <div class="p-5 space-y-6">
@@ -121,7 +144,8 @@
 
                             <div class="rounded-lg border border-zinc-800 overflow-hidden">
                                 <div class="px-4 py-3 bg-zinc-900/60 border-b border-zinc-800">
-                                    <span class="text-gray-300 text-sm font-semibold tracking-wide">DM-J10010L-2EC datasheet details</span>
+                                    <span class="text-gray-300 text-sm font-semibold tracking-wide">DM-J10010L-2EC
+                                        datasheet details</span>
                                 </div>
                                 <div class="overflow-x-auto">
                                     <table class="w-full text-sm text-gray-400">
@@ -249,15 +273,19 @@
 
                 <details
                     class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
-                    <summary class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <summary
+                        class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
                         <div>
                             <h4 class="text-white font-semibold text-lg tracking-tight">Operator display —
                                 capacitive vs resistive touch</h4>
                             <p class="text-gray-500 text-sm mt-1 font-mono">4.0″ class modules · SPI LCD · touch
                                 overlay technology trade-off</p>
                         </div>
-                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 outline-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 outline-none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                clip-rule="evenodd" />
                         </svg>
                     </summary>
                     <div class="p-5 space-y-6">
@@ -295,7 +323,8 @@
 
                         <div class="rounded-lg border border-zinc-800 overflow-hidden">
                             <div class="px-4 py-3 bg-zinc-900/60 border-b border-zinc-800">
-                                <span class="text-gray-300 text-sm font-semibold tracking-wide">Touchscreen comparison datasheet details</span>
+                                <span class="text-gray-300 text-sm font-semibold tracking-wide">Touchscreen comparison
+                                    datasheet details</span>
                             </div>
                             <div class="overflow-x-auto">
                                 <table class="w-full text-sm text-gray-400 min-w-[640px]">
@@ -405,23 +434,20 @@
 
 
                 <details class="group overflow-hidden rounded-[2rem] border border-red-900/30 bg-zinc-950">
-                    <summary class="px-6 py-4 border-b border-zinc-900 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <summary
+                        class="px-6 py-4 border-b border-zinc-900 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
                         <p class="text-white font-semibold text-lg tracking-tight">Dart Launcher Robot PCB</p>
-                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 outline-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 outline-none"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                clip-rule="evenodd" />
                         </svg>
                     </summary>
                     <div class="h-[420px] w-full bg-black/40 relative overflow-hidden">
-                        <model-viewer
-                            class="w-full h-full"
-                            src="assets/Barry/Dart_launcher_robot_pcb_2.glb"
-                            auto-rotate
-                            camera-orbit="0deg 0deg auto"
-                            min-camera-orbit="auto auto auto"
-                            max-camera-orbit="auto auto auto"
-                            shadow-intensity="2"
-                            exposure="1"
-                            camera-controls
+                        <model-viewer class="w-full h-full" src="assets/Barry/Dart_launcher_robot_pcb_2.glb" auto-rotate
+                            camera-orbit="0deg 0deg auto" min-camera-orbit="auto auto auto"
+                            max-camera-orbit="auto auto auto" shadow-intensity="2" exposure="1" camera-controls
                             interaction-prompt="none">
                         </model-viewer>
                     </div>
