@@ -40,7 +40,7 @@
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Design Requirements</h2>
+            <h2 class="text-4xl font-bold text-white mb-6">Launcher Electronics Design Requirements</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <article
                     class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
@@ -75,8 +75,43 @@
 
     </div>
 
+    <h2 class="text-4xl font-bold text-white mb-6">Changes from Interim</h2>
+    <div class="space-y-8">
+        <div>
+            <h3 class="text-white font-semibold text-xl mb-3">
+                Replacement of Solenoid Release with a Servo-Actuated Mechanism
+            </h3>
+            <p class="text-gray-400 text-lg leading-relaxed">
+                In the interim version, the launcher was intended to use the release mechanism integrated with the
+                solenoid lock. However, testing showed that this approach did not remain reliable once the launcher
+                was pulled back beyond a short distance, as the solenoid lock was no longer able to release
+                consistently under that condition.
+            </p>
+            <p class="text-gray-400 text-lg leading-relaxed">
+                Because of this, the release method was changed to a servo-actuated mechanism that mechanically pulls
+                the unlocking feature. This provided a more dependable release approach for the required launcher
+                pullback distance.
+            </p>
+        </div>
+        
+        <div>
+            <div>
+                <h3 class="text-white font-semibold text-xl mb-3">
+                    Removal of Load Cell Measurement in Favour of Motor Torque Feedback
+                </h3>
+                <p class="text-gray-400 text-lg leading-relaxed mb-4">
+                    In the interim architecture, a load cell was planned to measure launcher
+                    tension or firing force. In the current version, the load cell was removed after the mechanical design side determined that
+                    the launching motor tension feedback was sufficient for this purpose. As a result, the system now
+                    relies on motor torque feedback obtained through CAN telemetry, which was considered good enough to
+                    monitor the required tension information without adding a separate load cell sensing path.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
     <div>
-        <h2 class="text-4xl font-bold text-white mb-6">Components and selection</h2>
+        <h2 class="text-4xl font-bold text-white mb-6">Launcher Electronics Components and selection</h2>
         <img src="assets/Barry/Launcher_electronic_placement.png" alt="Launcher Electronics"
             class="mx-auto w-full max-w-4xl rounded-xl">
         <div class="space-y-8">
@@ -86,7 +121,7 @@
                 <summary
                     class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
                     <div>
-                        <p class="text-white font-semibold text-base">Launching motor</p>
+                        <p class="text-white font-semibold text-base">Launcher Motor</p>
                         <p class="text-gray-500 text-sm mt-1 font-mono">Damiao DM-J8009-2EC Integrated brushless servo
                             actuator (motor +
                             driver + dual encoders)</p>
@@ -468,9 +503,9 @@
 
         </div>
     </div>
-    <p> </p>
+    <br>
     <div>
-        <h2 class="text-4xl font-bold text-white mb-6">Implementation & Testing</h2>
+        <h2 class="text-4xl font-bold text-white mb-6">Launcher Electronics Implementation & Testing</h2>
         <p>Shown in <a href="index.html#launchermech-placeholder" class="text-red-primary hover:underline">Launcher
                 Design</a></p>
     </div>
