@@ -95,15 +95,19 @@
                     </p>
 
                     <div class="space-y-8">
-                        <article
-                            class="rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
-                            <div class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4">
-                                <h4 class="text-white font-semibold text-lg tracking-tight">Feeder indexer — Damiao
-                                    DM4340</h4>
-                                <p class="text-gray-500 text-sm mt-1 font-mono">Integrated brushless servo actuator
-                                    (motor + driver + dual encoders)</p>
-                            </div>
-                            <div class="p-5 space-y-6">
+                        <details
+                            class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
+                            <summary
+                                class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
+                                <div>
+                                    <p class="text-white font-semibold text-base">Feeder indexer — Damiao
+                                        DM4340</p>
+                                    <p class="text-gray-500 text-sm mt-1 font-mono">Integrated brushless servo actuator
+                                        (motor + driver + dual encoders)</p>
+                                </div>
+                                <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                            </summary>
+                            <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
                                 <p class="text-gray-400 text-lg leading-relaxed">
                                     Drives the feeder magazine to the next cell and holds intermediate positions during
                                     the load sequence. Control uses onboard <span class="text-gray-300">CAN</span> at
@@ -250,17 +254,21 @@
                                     </div>
                                 </div>
                             </div>
-                        </article>
+                        </details>
 
-                        <article
-                            class="rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
-                            <div class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4">
-                                <h4 class="text-white font-semibold text-lg tracking-tight">Dart transfer servos —
-                                    TIANKONGRC TD-8120MG</h4>
-                                <p class="text-gray-500 text-sm mt-1 font-mono">Digital high-torque servo ·
-                                    20&nbsp;kg·cm class · PWM control</p>
-                            </div>
-                            <div class="p-5 space-y-6">
+                        <details
+                            class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
+                            <summary
+                                class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
+                                <div>
+                                    <p class="text-white font-semibold text-base">Dart transfer servos —
+                                        TIANKONGRC TD-8120MG</p>
+                                    <p class="text-gray-500 text-sm mt-1 font-mono">Digital high-torque servo ·
+                                        20&nbsp;kg·cm class · PWM control</p>
+                                </div>
+                                <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                            </summary>
+                            <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
                                 <p class="text-gray-400 text-lg leading-relaxed">
                                     These servos clamp and release the dart during the feeder–launcher handoff. Stall
                                     torque reaches <span class="text-gray-300">26.8&nbsp;kg·cm</span> at <span
@@ -438,17 +446,21 @@
                                     </div>
                                 </div>
                             </div>
-                        </article>
+                        </details>
 
-                        <article
-                            class="rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
-                            <div class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4">
-                                <h4 class="text-white font-semibold text-lg tracking-tight">Launcher datum — mechanical
-                                    limit switch vs optical endstop</h4>
-                                <p class="text-gray-500 text-sm mt-1 font-mono">Option study for detecting “feeder may
-                                    move” carriage pose</p>
-                            </div>
-                            <div class="p-5 space-y-6">
+                        <details
+                            class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
+                            <summary
+                                class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
+                                <div>
+                                    <p class="text-white font-semibold text-base">Launcher datum — mechanical
+                                        limit switch vs optical endstop</p>
+                                    <p class="text-gray-500 text-sm mt-1 font-mono">Option study for detecting “feeder may
+                                        move” carriage pose</p>
+                                </div>
+                                <span class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                            </summary>
+                            <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
                                 <p class="text-gray-400 text-lg leading-relaxed">
                                     The feeder must know when the launcher carriage has reached a safe pose before
                                     indexing and dart transfer. Two common classes of sensors were compared: a
@@ -571,30 +583,9 @@
                                     </p>
                                 </div>
                             </div>
-                        </article>
+                        </details>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <article
-                                class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
-                                <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-2">
-                                    Optical endstop (build)</h4>
-                                <p class="text-gray-400 text-lg leading-relaxed">
-                                    Slot sensor on a small breakout (photos and comparison above) generates the
-                                    feeder-clear signal when the launcher carriage occludes the beam. Routed to the
-                                    feeder PCB with short returns next to logic ground.
-                                </p>
-                            </article>
-                            <article
-                                class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5">
-                                <h4 class="text-red-primary text-[11px] font-bold uppercase tracking-[0.2em] mb-2">
-                                    Feeder PCB</h4>
-                                <p class="text-gray-400 text-lg leading-relaxed">
-                                    Aggregates CAN to the DM4340, servo drive signals, endstop conditioning, and returns
-                                    to the wire-management layer for a single serviceable harness exit.
-                                </p>
-                                <!-- TODO: Annotated feeder PCB photo and key nets (B2 / A4). -->
-                            </article>
-                        </div>
+
                     </div>
                 </div>
 
