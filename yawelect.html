@@ -65,7 +65,7 @@
                                 <span class="text-gray-300 group-hover:text-white text-sm font-medium">Yaw</span>
                             </a>
                             <div class="h-6 w-px bg-zinc-700"></div>
-                            <a href="http://127.0.0.1:5500/index.html#yawelect-placeholder"
+                            <a href="#all-subsystem-electronics"
                                 class="group px-5 py-2 bg-zinc-900/80 border border-zinc-800 rounded-lg hover:border-red-900/50 hover:bg-zinc-800 transition-all shadow-md shadow-black/20">
                                 <span class="text-gray-300 group-hover:text-white text-sm font-medium">All
                                     Subsystems</span>
@@ -165,9 +165,9 @@
                     <summary
                         class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
                         <div>
-                            <h4 class="text-white font-semibold text-lg tracking-tight">Yaw actuator — Damiao
-                                DM-J10010L-2EC</h4>
-                            <p class="text-gray-500 text-sm mt-1 font-mono">Integrated brushless servo actuator
+                            <h4 class="text-white font-semibold text-lg tracking-tight">Yaw Actuator</h4>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">Damiao
+                                DM-J10010L-2EC Integrated brushless servo actuator
                                 (motor + driver + encoders)</p>
                         </div>
                         <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 border-none outline-none"
@@ -345,7 +345,8 @@
                 <span class="text-gray-300">1&nbsp;Mbps</span>, while parameter tuning is performed via a high-speed
                 <span class="text-gray-300">UART</span> interface at <span class="text-gray-300">921600&nbsp;bps</span>.
 
-                For operator safety, software clamps are implemented to restrict motion
+                For operator safety, software clamps of <span class="text-gray-300">+/- 10°</span> are
+                implemented to restrict motion
                 within the defined allowable range.
             </p>
         </div>
@@ -359,6 +360,15 @@
         </div>
 
         <!-- === ALL SUBSYSTEM ELECTRONICS === -->
+        <div>
+            <h2 id="all-subsystem-electronics" class="text-4xl font-bold text-white mb-6">All Subsystem Electronics</h2>
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">
+                After verifying that each subsystem operates as intended on its own, the next step is to move toward
+                whole-system control. At this stage, the focus shifts from isolated subsystem performance to coordinated
+                system behaviour, where the pitch, yaw, launcher, feeder, and supporting electronics must work together
+                under a single control structure to meet the electronics requirements.
+            </p>
+        </div>
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Requirements</h2>
             <ul class="space-y-3 text-gray-400 text-lg leading-relaxed list-none">
@@ -404,8 +414,11 @@
                     </summary>
                     <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
                         <p class="text-gray-400 text-lg leading-relaxed">
-                            Primary control board used to coordinate launcher signals, command sequencing, and
-                            integration with actuator and sensor interfaces during electronics bring-up.
+                            The justification for using this primary control board was presented in the interim design,
+                            where it was stated that this microcontroller board was selected because it is one that
+                            Calibur Robotics is already familiar with, while still supporting launcher coordination,
+                            command sequencing, and integration with actuator and sensor interfaces during electronics
+                            bring-up.
                         </p>
                         <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
                             <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
@@ -445,8 +458,8 @@
                     </summary>
                     <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
                         <p class="text-gray-400 text-lg leading-relaxed">
-                            Manual control channel used for safe launcher bring-up, direct trigger testing, and
-                            emergency stop authority during early mechanical experiments.
+                            A remote controller is required for the competition, and it also provides flexibility in
+                            the mode of operation during testing, calibration, and safe launcher bring-up.
                         </p>
                         <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 items-start">
                             <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
@@ -476,8 +489,7 @@
                     <summary
                         class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
                         <div>
-                            <h4 class="text-white font-semibold text-lg tracking-tight">Operator display —
-                                capacitive vs resistive touch</h4>
+                            <h4 class="text-white font-semibold text-lg tracking-tight">Operator display</h4>
                             <p class="text-gray-500 text-sm mt-1 font-mono">4.0″ class modules · SPI LCD · touch
                                 overlay technology trade-off</p>
                         </div>
@@ -488,20 +500,55 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </summary>
-                    <div class="p-5 space-y-6">
-                        <p class="text-gray-400 text-lg leading-relaxed">
-                            The pit crew UI needs a readable panel that works with gloved or dry fingers under
-                            time pressure. Two representative <span class="text-gray-300">4.0″</span> module
-                            styles were compared: a <strong class="text-gray-300 font-semibold">capacitive</strong> SPI
-                            TFT with I²C touch
-                            (ST7796S + FT6336U class, as documented on <a
-                                href="https://www.lcdwiki.com/4.0inch_Capacitive_SPI_Module_ST7796"
-                                class="text-red-primary hover:underline" target="_blank" rel="noopener noreferrer">LCD
-                                Wiki — 4.0″ capacitive SPI ST7796</a>) and a
-                            conventional <strong class="text-gray-300 font-semibold">resistive</strong> 4.0″
-                            assembly that relies on pressure and often ships with a stylus.
-                        </p>
 
+                    <div class="p-5 space-y-6">
+                        <h3 class="text-white font-semibold text-xl mb-3">
+                            Touch Screen Purpose
+                        </h3>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The pit crew UI was introduced to give operators clear and immediate visual feedback during
+                            robot operation,
+                            testing, and calibration. In other robots, pit crew members had to rely mainly on
+                            sound cues to tell
+                            if the system had encountered an error or completed a step. That approach was slow to
+                            interpret in practice and
+                            made fault identification less direct, especially during fast-paced testing. By moving this
+                            feedback onto a
+                            readable screen, the pit crew can identify errors faster and understand the robot state at a
+                            glance.
+                        </p>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The screen also supports a wider range of control modes for the robot, which is useful
+                            during subsystem testing,
+                            calibration, and bring-up. Instead of limiting interaction to a small set of fixed inputs,
+                            the UI allows the pit
+                            crew to access different operating modes, monitor system status, and make adjustments more
+                            directly. This gives
+                            the team a more practical interface for development work and helps the robot be tested in a
+                            more controlled and
+                            efficient way.
+                        </p>
+                        <h3 class="text-white font-semibold text-xl mb-3">
+                            Moving from interim touchscreen selection
+                        </h3>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Moving on from the interim design, a <strong class="text-gray-300 font-semibold">resistive
+                                touchscreen</strong>
+                            was initially selected because it was cheaper and gave the project more financial room for
+                            other expensive
+                            components in the system. This made it an attractive option during early design selection,
+                            especially when the
+                            budget had to be managed across multiple subsystems.
+                        </p>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            However, after testing, the resistive touchscreen was found to be difficult to use in
+                            practice. It often required
+                            multiple firm presses before inputs were registered, which made interaction slower and less
+                            reliable during robot
+                            operation, testing, and calibration. As a result, its usability was judged to be poor for
+                            the intended pit crew
+                            interface.
+                        </p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
                                 <img src="assets/Barry/Cap_touch_screen.png"
@@ -633,19 +680,21 @@
                 <!-- Dart Launcher Robot PCB -->
                 <details class="group overflow-hidden rounded-[2rem] border border-red-900/30 bg-zinc-950">
                     <summary
-                        class="px-6 py-4 border-b border-zinc-900 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                        class="list-none cursor-pointer px-6 py-4 flex items-center justify-between transition-colors hover:bg-zinc-900/80 group-open:border-b group-open:border-zinc-900">
                         <p class="text-white font-semibold text-lg tracking-tight">Dart Launcher Robot PCB</p>
-                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180 outline-none"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                            aria-hidden="true">
                             <path fill-rule="evenodd"
                                 d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
                                 clip-rule="evenodd" />
                         </svg>
                     </summary>
-                    <div class="h-[420px] w-full bg-black/40 relative overflow-hidden">
-                        <model-viewer class="w-full h-full" src="assets/Barry/Dart_launcher_robot_pcb_2.glb" auto-rotate
-                            camera-orbit="0deg 0deg auto" min-camera-orbit="auto auto auto"
-                            max-camera-orbit="auto auto auto" shadow-intensity="2" exposure="1" camera-controls
+
+                    <div class="relative h-[420px] w-full overflow-hidden bg-black/40">
+                        <model-viewer class="h-full w-full" src="assets/Barry/Dart_launcher_robot_pcb_2.glb" auto-rotate
+                            camera-controls camera-orbit="45deg 75deg auto" shadow-intensity="2" exposure="1"
                             interaction-prompt="none">
                         </model-viewer>
                     </div>
@@ -656,7 +705,8 @@
 
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Implementation</h2>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact, single-sided board that mounts directly to the launcher
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact,
+                single-sided board that mounts directly to the launcher
                 frame, with all connectors facing outward for harness access. The board is intended to be fabricated
                 using the standard RoboMaster PCB process, which uses a FR-4 substrate with solder mask and silkscreen
                 but omits the conformal coating used on the main controller. This keeps the board suitable for
@@ -666,7 +716,8 @@
 
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Testing</h2>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact, single-sided board that mounts directly to the launcher
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact,
+                single-sided board that mounts directly to the launcher
                 frame, with all connectors facing outward for harness access. The board is intended to be fabricated
                 using the standard RoboMaster PCB process, which uses a FR-4 substrate with solder mask and silkscreen
                 but omits the conformal coating used on the main controller. This keeps the board suitable for
