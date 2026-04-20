@@ -822,8 +822,33 @@
                     <span
                         class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                 </summary>
-
-                <div> placeholder</div>
+                <div class="p-5 space-y-6">
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        The software architecture is implemented as multiple tasks under an <span
+                            class="text-gray-300">RTOS</span>, with the
+                        <span class="text-gray-300">Control Task</span>, <span class="text-gray-300">Pitch &amp; Yaw
+                            Task</span>, and
+                        <span class="text-gray-300">Launcher &amp; Feeder Task</span> each assigned dedicated stack
+                        memory. The Control Task acts
+                        as the central coordinator, receiving operator inputs from the <span
+                            class="text-gray-300">remote controller</span> and
+                        <span class="text-gray-300">touch screen</span>, then sending pitch and yaw angle commands to
+                        the Pitch &amp; Yaw Task
+                        and shot commands to the Launcher &amp; Feeder Task. Feedback is returned to the Control Task in
+                        the form of actual pitch
+                        and yaw angle and firing status. A larger stack allocation was given to the Control Task because
+                        it also handles the
+                        touchscreen interface, which has a higher memory demand than the other tasks. All three tasks
+                        run at the same priority
+                        level, allowing <span class="text-gray-300">round-robin scheduling</span> to be used for
+                        processor time sharing. This
+                        RTOS-based structure makes the software easier to organise, test, and extend.
+                    </p>
+                </div>
+                <div class="flex justify-center p-4">
+                    <img src="assets/Barry/Software_Architecture.drawio.png" alt="Software Architecture Diagram"
+                        class="max-w-full h-auto" />
+                </div>
             </details>
             <details
                 class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
