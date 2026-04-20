@@ -1,17 +1,15 @@
-<section id="pitchelec" data-aos="fade-up">
+<section id="pitchelec" class="pt-24 border-t border-zinc-800" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-start justify-between gap-12 pb-12">
 
-        <div class="flex-1">
+        <div class="flex-1 px-4 md:px-0">
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Pitch Electronics
             </h3>
-            <div class="border-l-2 border-red-900 pl-8">
-                <p class="text-zinc-400 text-xl leading-relaxed max-w-4xl">
-                    Controlling elevation with precision, the pitch electronics keep launcher motion sharp, stable, and
-                    reliable. The design emphasizes strict operational limits, high-resolution position tracking, and
-                    responsive operator interaction to coordinate accurate vertical target acquisition.
-                </p>
-            </div>
+            <p class="text-zinc-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8 max-w-4xl mb-10">
+                Controlling elevation with precision, the pitch electronics keep launcher motion sharp, stable, and
+                reliable. The design emphasizes strict operational limits, high-resolution position tracking, and
+                responsive operator interaction to coordinate accurate vertical target acquisition.
+            </p>
         </div>
 
         <div class="w-48 shrink-0 text-center group">
@@ -36,13 +34,13 @@
             <h2 class="text-4xl font-bold text-white mb-6">Methodology used</h2>
             <p class="text-gray-400 text-lg leading-relaxed mb-10">
                 The comprehensive V-shaped system methodology used for this subsystem is detailed in the <a
-                    href="http://127.0.0.1:5500/index.html#yawelect-placeholder"
+                    href="index.html#yawelect-placeholder"
                     class="text-red-primary hover:underline">Yaw Electronics</a> section.
             </p>
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Pitch Electronics Design requirements</h2>
+            <h2 class="text-4xl font-bold text-white mb-6">Pitch Electronics Design Requirements</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <article
                     class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
@@ -139,7 +137,7 @@
                 <summary
                     class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
                     <div>
-                        <p class="text-white font-semibold text-base"> Homing Sensors</p>
+                        <p class="text-white font-semibold text-base">Homing Sensors</p>
                         <p class="text-gray-500 text-sm mt-1 font-mono">Limit Switch vs Optical Endstop</p>
                     </div>
                     <span
@@ -278,31 +276,52 @@
 
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Pitch Electronics Implementation</h2>
+
             <p class="text-gray-400 text-xl leading-relaxed mb-3">
                 Automatic quadrature decoding is implemented using the built-in <strong
                     class="text-gray-300 font-semibold">hardware timer encoder mode</strong> of the <strong
                     class="text-gray-300 font-semibold">STM32F4 microcontroller</strong>, rather than software
-                interrupts. This
-                reduces the risk of missed pulses and counting errors during motor operation.
+                interrupts. This reduces the risk of missed pulses and counting errors during motor operation. In
+                quadrature encoder mode, the timer can count all four edges of the AB signals, giving a
+                <strong class="text-gray-300 font-semibold">4× decoding factor</strong>.
             </p>
-            <p class="text-gray-400 text-xl leading-relaxed">
+
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">
                 During initialisation, the pitch motor is driven in the downward direction until the <span
                     class="text-gray-300">optical endstop</span> is triggered. Upon detection of the endstop, the
-                firmware resets
-                the <strong class="text-gray-300 font-semibold">hardware timer count</strong> to <span
-                    class="text-gray-300">0</span>, thereby defining the reference position. The pitch angle is then
-                determined
-                using the relation <span class="text-gray-300">35° + (hardware timer count × 0.00106°)</span>.
+                firmware resets the <strong class="text-gray-300 font-semibold">hardware timer count</strong> to
+                <span class="text-gray-300">0</span>, thereby defining the reference position.
             </p>
-            <!-- TODO: Add annotated PCB photo and key net list (B2 / A4). -->
+
+            <p class="text-gray-400 text-xl leading-relaxed">
+                The pitch angle is then determined using the relation <span class="text-gray-300">35° + (hardware
+                    timer count × 0.00106°)</span>. The factor <span class="text-gray-300">0.00106° per count</span>
+                is obtained from one full output revolution divided by the total number of counts seen at the pitch
+                axis:
+                <span class="text-gray-300">360° / (50 × 100 × 17 × 4)</span> = <span class="text-gray-300">360° /
+                    340000</span> ≈ <span class="text-gray-300">0.00106°</span>. Here,
+                <span class="text-gray-300">50</span> is the harmonic gearbox reduction ratio from the pitch design,
+                <span class="text-gray-300">100</span> is the motor reduction, <span class="text-gray-300">17</span>
+                is the Hall sensor pole count, and <span class="text-gray-300">4</span> comes from 4× AB quadrature
+                decoding.
+            </p>
         </div>
 
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Pitch Electronics Testing</h2>
             <p class="text-gray-400 text-xl leading-relaxed">
                 Testing results are documented in the
-                <a href="http://127.0.0.1:5500/index.html#pitchmech-placeholder"
+                <a href="index.html#pitchmech-placeholder"
                     class="text-red-primary hover:underline">Pitch Design</a> section.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Future Works</h2>
+            <p class="text-gray-400 text-xl leading-relaxed">
+                The optical endstop currently provides a fixed reference only at the homing position. Future work should
+                investigate adding an absolute position sensor so that the system can recover a valid angle reference
+                after a power cycle without requiring a full homing sequence.
             </p>
         </div>
     </div>

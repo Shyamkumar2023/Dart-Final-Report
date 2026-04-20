@@ -35,13 +35,13 @@
             <h2 class="text-4xl font-bold text-white mb-6">Methodology used</h2>
             <p class="text-gray-400 text-lg leading-relaxed mb-10">
                 The comprehensive V-shaped system methodology used for this subsystem is detailed in the <a
-                    href="http://127.0.0.1:5500/index.html#yawelect-placeholder"
+                    href="index.html#yawelect-placeholder"
                     class="text-red-primary hover:underline">Yaw Electronics</a> section.
             </p>
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Design requirements</h2>
+            <h2 class="text-4xl font-bold text-white mb-6">Feeder Electronics Design Requirements</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <article
                     class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-5 shadow-lg shadow-red-900/5 transition-colors hover:border-red-900/30">
@@ -88,7 +88,7 @@
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Components and selection</h2>
+            <h2 class="text-4xl font-bold text-white mb-6">Feeder Electronics Components and selection</h2>
             <p class="text-gray-400 text-lg leading-relaxed mb-6">
                 The magazine uses a Damiao integrated indexer and TIANKONGRC digital servos for dart transfer;
                 each major electromechanical part includes a photo reference and a transcribed datasheet
@@ -450,7 +450,7 @@
                         class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
                         <div>
                             <p class="text-white font-semibold text-base">Launcher Position Sensors</p>
-                            <p class="text-gray-500 text-sm mt-1">Detect when the launcher reaches feed position</p>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">Detect when the launcher reaches feed position</p>
                         </div>
                         <span
                             class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
@@ -463,14 +463,6 @@
                         </p>
 
                         <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
-                            <!-- <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
-                                <img src="assets/Barry/limit_switch.png"
-                                    alt="Subminiature microswitch with roller lever actuator and three spade terminals"
-                                    class="w-full h-auto rounded-md object-contain max-h-[280px] mx-auto">
-                                <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">Mechanical limit
-                                    switch — <span class="text-gray-400">limit_switch.png</span> · roller trips
-                                    a plunger; C / NO / NC terminals.</figcaption>
-                            </figure> -->
                             <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
                                 <img src="assets/Barry/Optical_Endstop.jpg"
                                     alt="Optical endstop with U-shaped sensor on red PCB and 3-pin connector"
@@ -482,32 +474,11 @@
                             </figure>
                         </div>
 
-                        <p class="text-sm text-gray-400">
-                            Comparison shown in
-                            <a href="index.html#yawelect-placeholder" class="text-red-primary hover:underline">
-                                Yaw
-                            </a>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The rationale for choosing an optical endstop over a mechanical limit switch is detailed
+                            in the <a href="index.html#pitchelect-placeholder"
+                                class="text-red-primary hover:underline">Pitch Electronics</a> section.
                         </p>
-
-                        <!-- <div class="rounded-lg border border-red-900/30 bg-red-950/20 p-5">
-                            <p class="text-white font-semibold text-base tracking-tight mb-2">Why the optical endstop
-                                was chosen</p>
-                            <p class="text-gray-400 text-lg leading-relaxed">
-                                For the feeder–launcher handshake, the optical endstop was chosen because it can detect
-                                the carriage position
-                                without physical contact. This avoids repeated pressing of a mechanical lever while the
-                                launcher is under
-                                tension and vibration. As a result, the signal is more consistent, which improves
-                                repeatability for deciding
-                                when the feeder motor and servos are allowed to move. It also reduces contact wear and
-                                switch bounce, making
-                                the state machine easier to tune and less prone to false triggers. The main drawback is
-                                that the sensor area
-                                must be kept clean and protected from stray light, which is handled through mechanical
-                                shrouding and routine
-                                inspection.
-                            </p>
-                        </div> -->
                     </div>
                 </details>
 
@@ -516,21 +487,29 @@
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">Implementation & Testing</h2>
-            <p>Shown in <a href="index.html#feedermech-placeholder" class="text-red-primary hover:underline">Feeder
-                    Design</a></p>
+            <h2 class="text-4xl font-bold text-white mb-6">Feeder Electronics Implementation</h2>
+            <p class="text-gray-400 text-lg leading-relaxed">
+                Implementation details are shown in the <a href="index.html#feedermech-placeholder"
+                    class="text-red-primary hover:underline">Feeder Design</a> section.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Feeder Electronics Testing</h2>
+            <p class="text-gray-400 text-lg leading-relaxed">
+                Testing results are documented in the <a href="index.html#feedermech-placeholder"
+                    class="text-red-primary hover:underline">Feeder Design</a> section.
+            </p>
         </div>
 
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Future Works</h2>
             <p class="text-gray-400 text-lg leading-relaxed">
                 The current servos operate in <span class="text-gray-300">open-loop</span>, so the system assumes a
-                movement
-                is complete using a preset time delay. This means servo completion is time-based rather than confirmed
-                from
-                real feedback. Future work should add a feedback method to verify that the servo has actually reached
-                the
-                required position, which would improve reliability and make state transitions more robust.
+                movement is complete using a preset time delay. This means servo completion is time-based rather than
+                confirmed from real feedback. Future work should add a feedback method to verify that the servo has
+                actually reached the required position, which would improve reliability and make state transitions more
+                robust.
             </p>
         </div>
     </div>

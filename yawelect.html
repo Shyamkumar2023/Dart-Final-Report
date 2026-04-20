@@ -1,16 +1,14 @@
-<section id="yawelec" data-aos="fade-up">
+<section id="yawelec" class="pt-24 border-t border-zinc-800" data-aos="fade-up">
     <div class="flex flex-col md:flex-row items-start justify-between gap-12 pb-12">
 
-        <div class="flex-1">
+        <div class="flex-1 px-4 md:px-0">
             <h3 class="text-4xl font-bold mb-6 text-red-primary uppercase tracking-tighter">
                 Yaw Electronics
             </h3>
-            <div class="border-l-2 border-red-900 pl-8">
-                <p class="text-zinc-400 text-xl leading-relaxed max-w-4xl">
-                    Commanding precise yaw, the electronics pair an onboard screen for operation, calibration, and
-                    testing with a wire management PCB for clean plug-and-play integration.
-                </p>
-            </div>
+            <p class="text-zinc-400 text-xl leading-relaxed border-l-2 border-red-900 pl-8 max-w-4xl mb-10">
+                Commanding precise yaw, the electronics pair an onboard screen for operation, calibration, and
+                testing with a wire management PCB for clean plug-and-play integration.
+            </p>
         </div>
 
         <div class="w-48 shrink-0 text-center group">
@@ -60,7 +58,7 @@
                     <div class="flex justify-between w-full max-w-2xl px-6">
                         <div class="flex flex-col items-center">
                             <div class="h-6 w-px bg-zinc-700"></div>
-                            <a href="http://127.0.0.1:5500/index.html#yawelect-placeholder"
+                            <a href="index.html#yawelect-placeholder"
                                 class="group px-5 py-2 bg-zinc-900/80 border border-zinc-800 rounded-lg hover:border-red-900/50 hover:bg-zinc-800 transition-all shadow-md shadow-black/20">
                                 <span class="text-gray-300 group-hover:text-white text-sm font-medium">Yaw</span>
                             </a>
@@ -73,21 +71,21 @@
                         </div>
                         <div class="flex flex-col items-center">
                             <div class="h-6 w-px bg-zinc-700"></div>
-                            <a href="http://127.0.0.1:5500/index.html#pitchelect-placeholder"
+                            <a href="index.html#pitchelect-placeholder"
                                 class="group px-5 py-2 bg-zinc-900/80 border border-zinc-800 rounded-lg hover:border-red-900/50 hover:bg-zinc-800 transition-all shadow-md shadow-black/20">
                                 <span class="text-gray-300 group-hover:text-white text-sm font-medium">Pitch</span>
                             </a>
                         </div>
                         <div class="flex flex-col items-center">
                             <div class="h-6 w-px bg-zinc-700"></div>
-                            <a href="http://127.0.0.1:5500/index.html#launcherelect-placeholder"
+                            <a href="index.html#launcherelect-placeholder"
                                 class="group px-5 py-2 bg-zinc-900/80 border border-zinc-800 rounded-lg hover:border-red-900/50 hover:bg-zinc-800 transition-all shadow-md shadow-black/20">
                                 <span class="text-gray-300 group-hover:text-white text-sm font-medium">Launcher</span>
                             </a>
                         </div>
                         <div class="flex flex-col items-center">
                             <div class="h-6 w-px bg-zinc-700"></div>
-                            <a href="http://127.0.0.1:5500/index.html#feederelect-placeholder"
+                            <a href="index.html#feederelect-placeholder"
                                 class="group px-5 py-2 bg-zinc-900/80 border border-zinc-800 rounded-lg hover:border-red-900/50 hover:bg-zinc-800 transition-all shadow-md shadow-black/20">
                                 <span class="text-gray-300 group-hover:text-white text-sm font-medium">Feeder</span>
                             </a>
@@ -102,17 +100,18 @@
             <p class="text-gray-400 text-lg leading-relaxed mb-6">
                 The development process followed a comprehensive V-shaped system methodology. This approach enabled the
                 structured design, implementation, and rigorous unit testing of each distinct hardware and software
-                (<a href="http://127.0.0.1:5500/index.html#yawelect-placeholder"
+                (<a href="index.html#yawelect-placeholder"
                     class="text-red-primary hover:underline">yaw</a>, <a
-                    href="http://127.0.0.1:5500/index.html#pitchelect-placeholder"
+                    href="index.html#pitchelect-placeholder"
                     class="text-red-primary hover:underline">pitch</a>, <a
-                    href="http://127.0.0.1:5500/index.html#launcherelect-placeholder"
+                    href="index.html#launcherelect-placeholder"
                     class="text-red-primary hover:underline">launcher</a>, <a
-                    href="http://127.0.0.1:5500/index.html#feederelect-placeholder"
+                    href="index.html#feederelect-placeholder"
                     class="text-red-primary hover:underline">feeder</a>) subsystem in isolation. Once isolated tests
                 were verified, these
                 elements were incrementally integrated and validated on the opposite side of the "V", culminating in a
-                robust, fully functional final system.
+                robust, <a href="#all-subsystem-electronics" class="text-red-primary hover:underline">fully functional
+                    final system</a>.
             </p>
 
             <div class="flex justify-center mb-8 mt-4">
@@ -161,22 +160,21 @@
                 class="mx-auto w-full max-w-4xl rounded-xl">
             <div class="space-y-8">
                 <details
-                    class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                    class="group bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden transition-all duration-300 shadow-xl">
                     <summary
-                        class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                        class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none hover:bg-zinc-900/50 transition-colors [&::-webkit-details-marker]:hidden">
                         <div>
-                            <h4 class="text-white font-semibold text-lg tracking-tight">Yaw Actuator</h4>
-                            <p class="text-gray-500 text-sm mt-1 font-mono">Damiao
-                                DM-J10010L-2EC Integrated brushless servo actuator
-                                (motor + driver + encoders)</p>
+                            <p class="text-white font-semibold text-base">Yaw Actuator</p>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">Damiao DM-J10010L-2EC Integrated brushless
+                                servo actuator (motor + driver + encoders)</p>
                         </div>
                         <span
                             class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                     </summary>
-                    <div class="p-5 space-y-6">
-                        <p>
+                    <div class="px-5 pb-5 pt-4 border-t border-zinc-900 space-y-6">
+                        <p class="text-gray-400 text-lg leading-relaxed">
                             The rationale for selecting the Damiao DL10010L actuator is presented in the
-                            <a href="index.html#yawmech-placeholder" class="text-red-400 hover:text-red-300 underline">
+                            <a href="index.html#yawmech-placeholder" class="text-red-primary hover:underline">
                                 Yaw Subsystem Design
                             </a>
                             section.
@@ -357,19 +355,21 @@
         <div>
             <h2 class="text-4xl font-bold text-white mb-6">Future Works</h2>
             <p class="text-gray-400 text-xl leading-relaxed mb-3">
-                From the testing of yaw electronics, we found that the PID tuning for the Damiao motor can be done to
-                achieve better acuracy and response <time datetime=""></time>
+                Yaw design testing showed that further PID tuning of the Damiao motor could help address the
+                response and accuracy issues observed during testing.
             </p>
             <div class="space-y-8">
-                <h3 class="text-2xl font-bold text-white mb-3">Tuning PID for Damiao Motor</h3>
-                <p>The turning process can be very tedious and time consuming hence it might be better to use AI based
-                    tuning to tune the
-                    PID for the Damiao motor. With the microntroller acting as a middle man between the AI (computer
-                    based) and the motor,
-                    it can be used to tune the motor to meet the accruracy and precision we need. </p>
+                <p class="text-gray-400 text-xl leading-relaxed">
+                    Further PID tuning could improve the yaw system performance, but the tuning process is
+                    tedious and time-consuming when done manually. For this reason, an auto-tuning or
+                    AI-assisted approach could be explored, with the microcontroller acting as the interface
+                    between the computer-based tuning method and the motor so that the gains can be adjusted
+                    to achieve the required accuracy and response.
+                </p>
             </div>
         </div>
         <!-- === ALL SUBSYSTEM ELECTRONICS === -->
+        <hr class="my-12 border-zinc-800">
         <div>
             <h2 id="all-subsystem-electronics" class="text-4xl font-bold text-white mb-6">All Subsystem Electronics</h2>
             <p class="text-gray-400 text-xl leading-relaxed mb-3">
@@ -710,24 +710,21 @@
                             </div>
 
                             <p class="text-gray-400 text-lg leading-relaxed mt-4">
-                                The image above shows the cables made to connect to the Wire Managment PCB with the some
-                                sleeve for wire protection and management. The cables are made using 22 AWG wires and
-                                connectors.
+                                The image above shows the cables made to connect to the Wire Management PCB, together
+                                with sleeves for wire protection and management. The cables are made using 22 AWG wires
+                                and connectors.
                             </p>
 
                             <p class="text-gray-400 text-lg leading-relaxed mt-4">
-                                The increase in cable required the decrease in communication frequency from 48MHz to
-                                1MHz
-                                to prevent signal loss and ensure reliable communication for the spi and I2C
-                                communication
+                                The longer cable run required the SPI and I2C communication frequency to be reduced from
+                                48&nbsp;MHz to 1&nbsp;MHz in order to prevent signal loss and ensure reliable
+                                communication.
                             </p>
 
                             <p class="text-gray-400 text-lg leading-relaxed mt-4">
-                                However, testing the screen off the robot and on the the robot, the screen was not
-                                working as
-                                expected, the screen was not displaying the GUI and the touch was not working. From some
-                                testing, it was deemed that the electrical noise from the other systems were affecting
-                                it.
+                                However, when the screen was tested on the robot, it did not work as expected: the GUI
+                                was not displayed and touch input was not registered. Further testing indicated that
+                                electrical noise from the other systems was affecting the screen.
                             </p>
                         </div>
 
@@ -742,7 +739,7 @@
                             </div>
 
                             <p class="text-gray-400 text-lg leading-relaxed mt-4">
-                                The image above shows the screen being shielded with aluminuim foil to reduce the
+                                The image above shows the screen being shielded with aluminium foil to reduce the
                                 electrical noise from the other systems. The cables used were also shielded.
                             </p>
                         </div>
@@ -764,6 +761,7 @@
                         <span
                             class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                     </summary>
+                    
                     <div class="relative h-[420px] w-full overflow-hidden bg-black/40">
                         <iframe src="pcb_viewer.html" style="width:100%;height:100%;border:none;"
                             loading="lazy"></iframe>
@@ -772,6 +770,11 @@
                         <h3 class="text-white font-semibold text-xl mb-3">
                             Dart Launcher Robot PCB Description
                         </h3>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The custom PCB also meets one of the subsystem electronics requirements by providing
+                            <span class="text-gray-300 font-semibold">plug-and-play electrical connections</span> for the
+                            different electronic components.
+                        </p>
                         <img src="assets/Barry/PCB_description.png" alt="Dart Launcher Robot PCB"
                             class="w-full h-auto object-contain" />
                     </div>
@@ -1001,7 +1004,80 @@
 
         <div class="space-y-8">
             <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Implementation</h2>
-            <!-- TODO: Add annotated system-level wiring diagram showing CAN topology, power branch, and connector mapping (B1/B2). -->
+
+            <details
+                class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                <summary
+                    class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg tracking-tight">GUI Design</h4>
+                    </div>
+                    <span
+                        class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                </summary>
+
+                <div class="p-5 space-y-6">
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        The graphical user interface (GUI) was designed to be intuitive and responsive, providing the
+                        pit
+                        crew with real-time feedback and control over the robot's subsystems. The videos below
+                        demonstrate
+                        the GUI interaction and design.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        The first design is shown in the video below. It used separate pages for each control
+                        function required by the overall system.
+                    </p>
+                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                        <video class="w-full h-auto rounded-md" preload="metadata" playsinline controls>
+                            <source src="assets/Barry/UI_design.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                            GUI Interaction — <span class="text-gray-400">UI_design.mp4</span>.
+                        </figcaption>
+                    </figure>
+
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        This design was later found to be inefficient, as it consumed a large amount of memory, reaching
+                        <span class="text-gray-300">25,016 bytes</span>, as shown at the end of the video. While this
+                        was
+                        not a major issue at the start, it became a limitation as more functions were added, since the
+                        design did not scale well. This eventually caused the
+                        <span class="text-gray-300">microcontroller</span> to enter a hard fault state.
+                    </p>
+
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        To address this, a new GUI structure was developed to reduce memory usage. Instead of using
+                        multiple
+                        separate pages, the updated design keeps the required functions within the same page and
+                        controls
+                        their visibility through a <span class="text-gray-300">drop-down selection</span>. The same
+                        widgets
+                        were also reused across different functions to reduce memory consumption.
+                    </p>
+
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        This resulted in the improved design shown below. Despite providing
+                        <span class="text-gray-300">more functionality</span>, it reduced memory usage to
+                        <span class="text-gray-300">16,320 bytes</span>, as shown at the end of the video. This showed
+                        that
+                        the revised design was more memory-efficient and scaled better than the previous version.
+                    </p>
+                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                        <video class="w-full h-auto rounded-md" preload="metadata" playsinline controls>
+                            <source src="assets/Barry/UI_design_2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                            GUI Layout and Navigation — <span class="text-gray-400">UI_design_2.mp4</span>.
+                        </figcaption>
+                    </figure>
+
+                </div>
+            </details>
+
+            <!--Software Architecture Diagram-->
             <details
                 class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
                 <summary
@@ -1040,6 +1116,8 @@
                         class="max-w-full h-auto" />
                 </div>
             </details>
+
+            <!--Power Distribution Diagram-->
             <details
                 class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
                 <summary
@@ -1050,12 +1128,34 @@
                     <span
                         class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                 </summary>
+                <div class="p-5 space-y-6">
+                    <p class="text-gray-400 text-lg leading-relaxed mb-4">
+                        The diagram below shows the overall power distribution architecture of the robot. The
+                        <span class="text-gray-300 font-semibold">battery</span> is the main power source, supplying
+                        <span class="text-gray-300">24 V</span> directly to the high-power loads such as the feeder motor,
+                        launcher motor, yaw motor, pitch motor, and the
+                        <span class="text-gray-300 font-semibold">Dev A microcontroller</span>.
+                    </p>
 
-                <div class="flex justify-center p-4">
-                    <img src="assets/Barry/PowerDiagram.png" alt="Power Distribution Diagram"
-                        class="max-w-full h-auto" />
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Lower-voltage devices are powered through dedicated supply lines to match their operating
+                        requirements.
+                        A <span class="text-gray-300 font-semibold">buck converter</span> steps the battery voltage down to
+                        <span class="text-gray-300">5 V</span> for components such as the feeder servos, launcher servo,
+                        touchscreen, and optical endstops, while
+                        <span class="text-gray-300">3 V</span> is used for low-power devices including the DR16 D-Bus
+                        receiver
+                        and lock interface. This arrangement separates high-power and low-power loads, making the electrical
+                        layout clearer and easier to manage during integration.
+                    </p>
+                    <div class="flex justify-center p-4">
+                        <img src="assets/Barry/PowerDiagram.png" alt="Power Distribution Diagram"
+                            class="max-w-full h-auto" />
+                    </div>
                 </div>
             </details>
+
+            <!--Signal Distribution Diagram-->
             <details
                 class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
                 <summary
@@ -1066,12 +1166,226 @@
                     <span
                         class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                 </summary>
+                <div class="p-5 space-y-6">
+                <p class="text-gray-400 text-lg leading-relaxed mb-4">
+                    The diagram below shows the overall control and communication architecture of the robot. The
+                    <span class="text-gray-300 font-semibold">Dev A microcontroller</span> acts as the central
+                    controller,
+                    linking the feeder, launcher, yaw, and pitch subsystems with the operator interfaces and feedback
+                    devices.
+                </p>
 
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Different communication methods are used based on the requirement of each device, including
+                    <span class="text-gray-300">CAN</span> for motor communication,
+                    <span class="text-gray-300">UART</span> for the DR16 receiver,
+                    <span class="text-gray-300">SPI</span> and <span class="text-gray-300">I2C</span> for the
+                    touchscreen,
+                    <span class="text-gray-300">GPIO</span> for endstops and lock detection, and
+                    <span class="text-gray-300">PWM</span> for servo actuation. This gives a clear view of how sensing,
+                    actuation, and operator input are integrated into one control system.
+                </p>
                 <div class="flex justify-center p-4">
                     <img src="assets/Barry/Signal_fyp.drawio.png" alt="Signal Distribution Diagram"
                         class="max-w-full h-auto" />
                 </div>
+                </div>
             </details>
+        </div>
+        <div class="space-y-8">
+            <h2 class="text-4xl font-bold text-white mb-6">Electronics System Functionality Test</h2>
+            <details
+                class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                <summary
+                    class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg tracking-tight">GUI Testing</h4>
+                    </div>
+                    <span
+                        class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                </summary>
+                <div class="p-5 space-y-6">
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        GUI testing was conducted to verify the functionality of the GUI and its interaction with the
+                        hardware. The GUI was checked for its ability to display the correct information, receive
+                        commands from the user, and exchange feedback with the hardware.
+                    </p>
+                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                        <video class="w-full h-auto rounded-md" preload="metadata" playsinline controls muted>
+                            <source src="assets/Barry/Screen_Integration.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                            GUI Interaction — <span class="text-gray-400">Screen_Integration.mp4</span>.
+                        </figcaption>
+                    </figure>
+
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        A separate test was conducted to evaluate how an operator would use the GUI to control the
+                        launcher and receive feedback from it. The test was carried out using two setups: the first
+                        used the GUI Testing Rig (46&nbsp;MHz), and the second used the screen attached to the Dart
+                        Launcher (1&nbsp;MHz).
+                    </p>
+                    <!--put two images side by side-->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex justify-center p-4">
+                            <img src="assets/Barry/operator_test_0_image.jpg" alt="Software Architecture Diagram"
+                                class="max-w-full h-auto" />
+                        </div>
+                        <div class="flex justify-center p-4">
+                            <img src="assets/Barry/operator_test_1_image.jpg" alt="Software Architecture Diagram"
+                                class="max-w-full h-auto" />
+                        </div>
+                    </div>
+                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                        <video class="w-full h-auto rounded-md" preload="metadata" playsinline controls muted>
+                            <source src="assets/Barry/operator_test_0.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                            GUI Interaction — <span class="text-gray-400">operator_test_0.mp4</span>.
+                        </figcaption>
+                    </figure>
+                    <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                        <video class="w-full h-auto rounded-md" preload="metadata" playsinline controls muted>
+                            <source src="assets/Barry/operator_test_1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                            GUI Interaction — <span class="text-gray-400">operator_test_1.mp4</span>.
+                        </figcaption>
+                    </figure>
+
+                    <div class="space-y-6 pt-2">
+                        <h4 class="text-white font-semibold text-lg tracking-tight">Results from the test</h4>
+
+                        <!-- Finding 1 -->
+                        <div class="rounded-xl border border-zinc-700 bg-zinc-900/60 overflow-hidden">
+                            <div class="flex items-center gap-3 px-5 py-3 border-b border-zinc-700 bg-zinc-800/60">
+                                <span
+                                    class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-700 text-white text-xs font-bold shrink-0">1</span>
+                                <span class="text-white font-semibold text-base tracking-tight">Touch Target Size —
+                                    Finger Size Mismatch</span>
+                            </div>
+                            <div
+                                class="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-zinc-700">
+                                <div class="p-5">
+                                    <p class="text-gray-400 text-base leading-relaxed">
+                                        During operator testing, the number pad buttons were found to be too small for
+                                        comfortable use.
+                                        The screen was originally configured and tuned by the implementer, whose fingers
+                                        are smaller than
+                                        average. As a result, touch targets that felt adequate during development were
+                                        consistently
+                                        missed or required multiple attempts by the test operator.
+                                    </p>
+                                    <p class="text-gray-400 text-base leading-relaxed mt-3">
+                                        The number pad size must be revised to accommodate an average finger width,
+                                        ensuring reliable
+                                        single-tap registration for all operators regardless of hand size.
+                                    </p>
+                                </div>
+                                <figure class="p-4 bg-black/30 flex flex-col items-center justify-center">
+                                    <img src="assets/Barry/Screen_test_fault_1.png"
+                                        alt="Operator struggling to hit small touch targets on the GUI number pad"
+                                        class="w-full h-auto rounded-md object-contain max-h-[280px]">
+                                    <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed text-center">
+                                        <span class="text-gray-400">Screen_test_fault_1.png</span> — Touch target too
+                                        small for operator's finger size.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <!-- Finding 2 -->
+                        <div class="rounded-xl border border-zinc-700 bg-zinc-900/60 overflow-hidden">
+                            <div class="flex items-center gap-3 px-5 py-3 border-b border-zinc-700 bg-zinc-800/60">
+                                <span
+                                    class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-red-700 text-white text-xs font-bold shrink-0">2</span>
+                                <span class="text-white font-semibold text-base tracking-tight">Refresh Rate Reduction —
+                                    Severe GUI Latency</span>
+                            </div>
+                            <div
+                                class="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-zinc-700">
+                                <div class="p-5">
+                                    <p class="text-gray-400 text-base leading-relaxed">
+                                        Integrating the screen with the robot required reducing the SPI clock frequency
+                                        from
+                                        <span class="text-gray-300 font-semibold">46&nbsp;MHz</span> (bench rig) to
+                                        <span class="text-gray-300 font-semibold">1&nbsp;MHz</span> to maintain signal
+                                        integrity over
+                                        the longer cable run. This 46× reduction in communication bandwidth caused a
+                                        significant
+                                        drop in display refresh rate, making the GUI noticeably sluggish and
+                                        unresponsive.
+                                    </p>
+                                    <p class="text-gray-400 text-base leading-relaxed mt-3">
+                                        The resulting latency severely undermined the original intent of the screen as a
+                                        fast,
+                                        real-time feedback interface. While the screen still conveys launcher status, a
+                                        hardware
+                                        solution to maintain a higher SPI frequency over the cable distance must be
+                                        found — for
+                                        example, using a dedicated SPI buffer IC, shorter shielded cable routing, or an
+                                        alternative
+                                        display interface.
+                                    </p>
+                                </div>
+                                <figure class="p-4 bg-black/30 flex flex-col items-center justify-center">
+                                    <img src="assets/Barry/Screen_test_fault_2.png"
+                                        alt="GUI appearing laggy and unresponsive at 1 MHz SPI clock on robot"
+                                        class="w-full h-auto rounded-md object-contain max-h-[280px]">
+                                    <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed text-center">
+                                        <span class="text-gray-400">Screen_test_fault_2.png</span> — GUI latency visible
+                                        at reduced 1&nbsp;MHz refresh rate.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+            </details>
+        </div>
+
+        <div class="space-y-8">
+            <h2 class="text-4xl font-bold text-white mb-6">Future Work</h2>
+
+            <div>
+                <h3 class="text-white font-semibold text-xl mb-3">Limitations</h3>
+                <div class="space-y-4">
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        The touchscreen currently shows noticeable latency. As a result, it is not practical for
+                        real-time launcher operation, where quick response is needed. The same issue also limits its
+                        usefulness during testing, since delayed feedback makes interaction less efficient.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Human testing was also limited. Due to time constraints, only one test subject was involved,
+                        so the evaluation does not yet capture a wider range of user interaction patterns or usability
+                        issues.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-white font-semibold text-xl mb-3">Recommendations</h3>
+                <div class="space-y-4">
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Place the screen closer to the microcontroller to reduce cable length. A shorter connection
+                        may help reduce signal issues and improve overall responsiveness.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        Alternative communication interfaces should also be explored. Protocols such as
+                        <span class="text-gray-300 font-semibold">CAN</span>,
+                        <span class="text-gray-300 font-semibold">USB</span>, or
+                        <span class="text-gray-300 font-semibold">HDMI</span>
+                        may provide lower latency and better performance than the current setup.
+                    </p>
+                    <p class="text-gray-400 text-lg leading-relaxed">
+                        The user interface should also be improved through further human testing with a larger sample
+                        of users. In addition, larger on-screen buttons should be considered to make interaction easier,
+                        faster, and more reliable during operation and testing.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
