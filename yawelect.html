@@ -342,8 +342,7 @@
                 <span class="text-gray-300">UART</span> interface at <span class="text-gray-300">921600&nbsp;bps</span>.
 
                 For operator safety, software clamps of <span class="text-gray-300">+/- 10°</span> are
-                implemented to restrict motion
-                within the defined allowable range.
+                implemented to restrict motion.
             </p>
         </div>
 
@@ -355,6 +354,21 @@
             </p>
         </div>
 
+        <div>
+            <h2 class="text-4xl font-bold text-white mb-6">Future Works</h2>
+            <p class="text-gray-400 text-xl leading-relaxed mb-3">
+                From the testing of yaw electronics, we found that the PID tuning for the Damiao motor can be done to
+                achieve better acuracy and response <time datetime=""></time>
+            </p>
+            <div class="space-y-8">
+                <h3 class="text-2xl font-bold text-white mb-3">Tuning PID for Damiao Motor</h3>
+                <p>The turning process can be very tedious and time consuming hence it might be better to use AI based
+                    tuning to tune the
+                    PID for the Damiao motor. With the microntroller acting as a middle man between the AI (computer
+                    based) and the motor,
+                    it can be used to tune the motor to meet the accruracy and precision we need. </p>
+            </div>
+        </div>
         <!-- === ALL SUBSYSTEM ELECTRONICS === -->
         <div>
             <h2 id="all-subsystem-electronics" class="text-4xl font-bold text-white mb-6">All Subsystem Electronics</h2>
@@ -392,7 +406,7 @@
         </div>
 
         <div>
-            <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Components and selection</h2>
+            <h2 class="text-4xl font-bold text-white mb-6">Supporting Electronics Components and selection</h2>
             <div class="space-y-8">
 
                 <!-- Microcontroller -->
@@ -666,15 +680,87 @@
                                 manage than capacitive moisture edge cases.
                             </p>
                         </div>
+
+                        <div>
+                            <h3 class="text-white font-semibold text-xl mb-3">
+                                Moving from Touchscreen selection to GUI Testing Rig
+                            </h3>
+
+                            <div class="w-96 mx-auto overflow-hidden">
+                                <img src="assets/Barry/GUI_V1.jpg" alt="Testing Rig to test GUI without robot"
+                                    class="w-full h-auto object-contain" />
+                            </div>
+
+                            <p class="text-gray-400 text-lg leading-relaxed mt-4">
+                                The GUI Testing Rig was created to test the GUI without the need for the robot to be
+                                present. It consists of a breadboard with the STM32F407VGT6 microcontroller, a 4.0"
+                                capacitive SPI touchscreen, and a power supply. The GUI is displayed on the touchscreen
+                                and the user can interact with it to test the functionality of the GUI.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-white font-semibold text-xl mb-3">
+                                Moving from GUI Testing Rig to Robot Integration
+                            </h3>
+
+                            <div class="w-96 mx-auto overflow-hidden">
+                                <img src="assets/Barry/GUI_V2.jpg" alt="Testing Rig to test GUI without robot"
+                                    class="w-full h-auto object-contain" />
+                            </div>
+
+                            <p class="text-gray-400 text-lg leading-relaxed mt-4">
+                                The image above shows the cables made to connect to the Wire Managment PCB with the some
+                                sleeve for wire protection and management. The cables are made using 22 AWG wires and
+                                connectors.
+                            </p>
+
+                            <p class="text-gray-400 text-lg leading-relaxed mt-4">
+                                The increase in cable required the decrease in communication frequency from 48MHz to
+                                1MHz
+                                to prevent signal loss and ensure reliable communication for the spi and I2C
+                                communication
+                            </p>
+
+                            <p class="text-gray-400 text-lg leading-relaxed mt-4">
+                                However, testing the screen off the robot and on the the robot, the screen was not
+                                working as
+                                expected, the screen was not displaying the GUI and the touch was not working. From some
+                                testing, it was deemed that the electrical noise from the other systems were affecting
+                                it.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-white font-semibold text-xl mb-3">
+                                Adding electrical shielding to the cables
+                            </h3>
+
+                            <div class="w-96 mx-auto overflow-hidden">
+                                <img src="assets/Barry/GUI_V3.jpg" alt="Testing Rig to test GUI without robot"
+                                    class="w-full h-auto object-contain" />
+                            </div>
+
+                            <p class="text-gray-400 text-lg leading-relaxed mt-4">
+                                The image above shows the screen being shielded with aluminuim foil to reduce the
+                                electrical noise from the other systems. The cables used were also shielded.
+                            </p>
+                        </div>
                     </div>
                 </details>
 
 
                 <!-- Dart Launcher Robot PCB -->
-                <details class="group overflow-hidden rounded-[2rem] border border-red-900/30 bg-zinc-950">
+                <details
+                    class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
                     <summary
-                        class="list-none cursor-pointer px-6 py-4 flex items-center justify-between transition-colors hover:bg-zinc-900/80 group-open:border-b group-open:border-zinc-900">
-                        <p class="text-white font-semibold text-lg tracking-tight">Dart Launcher Robot PCB</p>
+                        class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                        <div>
+                            <h4 class="text-white font-semibold text-lg tracking-tight">Wire Management PCB</h4>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">Custom PCB · 100 × 100 mm · FR-4 ·
+                                two-layer
+                                · field-serviceable</p>
+                        </div>
                         <span
                             class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                     </summary>
@@ -682,31 +768,95 @@
                         <iframe src="pcb_viewer.html" style="width:100%;height:100%;border:none;"
                             loading="lazy"></iframe>
                     </div>
+                    <div>
+                        <h3 class="text-white font-semibold text-xl mb-3">
+                            Dart Launcher Robot PCB Description
+                        </h3>
+                        <img src="assets/Barry/PCB_description.png" alt="Dart Launcher Robot PCB"
+                            class="w-full h-auto object-contain" />
+                    </div>
 
 
+                </details>
+                <details
+                    class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                    <summary
+                        class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                        <div>
+                            <h4 class="text-white font-semibold text-lg tracking-tight">Brush DC Motor driver</h4>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">some driver</p>
+                        </div>
+                        <span
+                            class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                    </summary>
+
+                    <div> placeholder</div>
+                </details>
+                <details
+                    class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                    <summary
+                        class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                        <div>
+                            <h4 class="text-white font-semibold text-lg tracking-tight">Battery</h4>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">4000Mah 24V LiPo</p>
+                        </div>
+                        <span
+                            class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                    </summary>
+
+                    <div> placeholder</div>
                 </details>
             </div>
         </div>
 
-        <div>
+        <div class="space-y-8">
             <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Implementation</h2>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact,
-                single-sided board that mounts directly to the launcher
-                frame, with all connectors facing outward for harness access. The board is intended to be fabricated
-                using the standard RoboMaster PCB process, which uses a FR-4 substrate with solder mask and silkscreen
-                but omits the conformal coating used on the main controller. This keeps the board suitable for
-                field assembly and repair without requiring specialized coating equipment.</p>
             <!-- TODO: Add annotated system-level wiring diagram showing CAN topology, power branch, and connector mapping (B1/B2). -->
-        </div>
+            <details
+                class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                <summary
+                    class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg tracking-tight">Software Architecture Diagram</h4>
+                    </div>
+                    <span
+                        class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                </summary>
 
-        <div>
-            <h2 class="text-4xl font-bold text-white mb-6">All Subsystem Electronics Testing</h2>
-            <p class="text-gray-400 text-xl leading-relaxed mb-3">The launcher PCB is designed as a compact,
-                single-sided board that mounts directly to the launcher
-                frame, with all connectors facing outward for harness access. The board is intended to be fabricated
-                using the standard RoboMaster PCB process, which uses a FR-4 substrate with solder mask and silkscreen
-                but omits the conformal coating used on the main controller. This keeps the board suitable for
-                field assembly and repair without requiring specialized coating equipment.</p>
+                <div> placeholder</div>
+            </details>
+            <details
+                class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                <summary
+                    class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg tracking-tight">Power Distribution diagram</h4>
+                    </div>
+                    <span
+                        class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                </summary>
+
+                <div class="flex justify-center p-4">
+                    <img src="assets/Barry/PowerDiagram.png" alt="Power Distribution Diagram"
+                        class="max-w-full h-auto" />
+                </div>
+            </details>
+            <details
+                class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
+                <summary
+                    class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
+                    <div>
+                        <h4 class="text-white font-semibold text-lg tracking-tight">Signal Distribution diagram</h4>
+                    </div>
+                    <span
+                        class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
+                </summary>
+
+                <div class="flex justify-center p-4">
+                    <img src="assets/Barry/Signal_fyp.drawio.png" alt="Signal Distribution Diagram"
+                        class="max-w-full h-auto" />
+                </div>
+            </details>
         </div>
     </div>
 </section>
