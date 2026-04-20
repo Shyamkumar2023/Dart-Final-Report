@@ -778,33 +778,223 @@
 
 
                 </details>
+
+                <!-- Brush DC Motor driver -->
                 <details
                     class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
                     <summary
                         class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
                         <div>
                             <h4 class="text-white font-semibold text-lg tracking-tight">Brush DC Motor driver</h4>
-                            <p class="text-gray-500 text-sm mt-1 font-mono">some driver</p>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">Isolated Dual-Channel H-Bridge Driver</p>
                         </div>
                         <span
                             class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                     </summary>
 
-                    <div> placeholder</div>
+                    <div class="p-5 space-y-6">
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The selected motor driver is a compact dual-channel brushed DC motor driver built around an
+                            isolated H-bridge architecture. It accepts 3.3&nbsp;V to 5&nbsp;V logic inputs and drives
+                            two DC motors from an external motor supply, with built-in overvoltage, undervoltage, and
+                            overtemperature protection for safer operation.
+                        </p>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                            <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                <img src="assets/Barry/dc_motor_driver.jpg"
+                                    alt="Dual-channel brushed DC motor driver module"
+                                    class="w-full h-auto rounded-md object-contain">
+                                <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                    Figure: <span class="text-gray-400">dc_motor_driver.jpg</span> — Dual-channel
+                                    high-current motor driver with isolation.
+                                </figcaption>
+                            </figure>
+
+                            <div class="rounded-lg border border-zinc-800 overflow-hidden">
+                                <div class="px-4 py-3 bg-zinc-900/60 border-b border-zinc-800">
+                                    <span class="text-gray-300 text-sm font-semibold tracking-wide">Motor driver
+                                        datasheet details</span>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm text-gray-400">
+                                        <thead>
+                                            <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
+                                                <th scope="col"
+                                                    class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
+                                                    Parameter</th>
+                                                <th scope="col"
+                                                    class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
+                                                    Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-zinc-800/80">
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Supply voltage range</th>
+                                                <td class="px-3 py-2">6.5–29&nbsp;V (V2.0) · 5.6–33&nbsp;V (V3.0)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Continuous current</th>
+                                                <td class="px-3 py-2">12&nbsp;A (V2.0) · 12.8&nbsp;A (V3.0) per channel
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Power rating</th>
+                                                <td class="px-3 py-2">280&nbsp;W (V2.0) · 380&nbsp;W (V3.0) per channel
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    PWM frequency</th>
+                                                <td class="px-3 py-2">Up to 60&nbsp;kHz</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Min PWM pulse width</th>
+                                                <td class="px-3 py-2">2&nbsp;μs (V2.0) · 0.5&nbsp;μs (V3.0)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Logic inputs</th>
+                                                <td class="px-3 py-2">3.3&nbsp;V – 5&nbsp;V (High speed isolated)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Control signals</th>
+                                                <td class="px-3 py-2">1× PWM, 2× Logic (INA/INB) per channel</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Dimensions</th>
+                                                <td class="px-3 py-2">50&nbsp;mm × 50&nbsp;mm × 12.5&nbsp;mm</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Protection</th>
+                                                <td class="px-3 py-2">Overvoltage, undervoltage, overtemperature</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The control side is electrically isolated from the power stage, which helps reduce noise
+                            coupling from the motors to the microcontroller. This allows for forward rotation, reverse
+                            rotation, braking, and coasting depending on the input combination. The driver can also work
+                            with external switches or limit switches without full MCU involvement, which makes it useful
+                            for simple standalone motion control or hardware interlocks. Overall, the driver provides a
+                            compact and practical solution for embedded motor control where high current output, simple
+                            direction logic, and electrical isolation are required.
+                        </p>
+                    </div>
                 </details>
+
+                <!-- Battery -->
                 <details
                     class="group rounded-xl border border-zinc-800 bg-zinc-950/40 overflow-hidden shadow-lg shadow-red-900/5">
                     <summary
                         class="border-b border-zinc-800 bg-zinc-900/50 px-5 py-4 cursor-pointer list-none flex items-center justify-between hover:bg-zinc-900/80 transition-colors">
                         <div>
                             <h4 class="text-white font-semibold text-lg tracking-tight">Battery</h4>
-                            <p class="text-gray-500 text-sm mt-1 font-mono">4000Mah 24V LiPo</p>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">5700mAh 22.8V LiPo (DJI TB48S)</p>
                         </div>
                         <span
                             class="text-red-600 transform transition-transform duration-300 group-open:rotate-180">&#8964;</span>
                     </summary>
 
-                    <div> placeholder</div>
+                    <div class="p-5 space-y-6">
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The DJI TB48S is a high-capacity Intelligent Flight Battery featuring integrated charge and
+                            discharge management. Originally designed for the Matrice 600, it provides a stable and
+                            reliable power source with built-in safety monitoring for high-draw robotic applications.
+                        </p>
+
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                            <figure class="rounded-lg border border-zinc-800 bg-black/40 p-3">
+                                <img src="assets/Barry/Battery.png" alt="DJI TB48S Intelligent Flight Battery"
+                                    class="w-full h-auto rounded-md object-contain">
+                                <figcaption class="text-gray-500 text-xs mt-3 leading-relaxed">
+                                    Figure: <span class="text-gray-400">Battery.png</span> — DJI TB48S 6S LiPo with
+                                    integrated management circuitry.
+                                </figcaption>
+                            </figure>
+
+                            <div class="rounded-lg border border-zinc-800 overflow-hidden">
+                                <div class="px-4 py-3 bg-zinc-900/60 border-b border-zinc-800">
+                                    <span class="text-gray-300 text-sm font-semibold tracking-wide">TB48S
+                                        datasheet details</span>
+                                </div>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm text-gray-400">
+                                        <thead>
+                                            <tr class="border-b border-zinc-800 bg-zinc-900/80 text-left">
+                                                <th scope="col"
+                                                    class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
+                                                    Parameter</th>
+                                                <th scope="col"
+                                                    class="px-3 py-2 text-[11px] font-bold uppercase tracking-wider text-red-primary">
+                                                    Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-zinc-800/80">
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Capacity</th>
+                                                <td class="px-3 py-2">5700&nbsp;mAh</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Voltage</th>
+                                                <td class="px-3 py-2">22.8 - 26.1&nbsp;V</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Type</th>
+                                                <td class="px-3 py-2">LiPo 6S</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Energy</th>
+                                                <td class="px-3 py-2">129.96&nbsp;Wh</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Net Weight</th>
+                                                <td class="px-3 py-2">680&nbsp;g</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Max Charging Power</th>
+                                                <td class="px-3 py-2">180&nbsp;W</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Operating Temp</th>
+                                                <td class="px-3 py-2">-10° to 40° C (14° to 104° F)</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" class="px-3 py-2 text-left font-medium text-gray-300">
+                                                    Charge Temp</th>
+                                                <td class="px-3 py-2">5° to 40° C (41° to 104° F)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            The battery's internal management system ensures cells are balanced during charging and
+                            protected during discharge, which is critical for maintaining safety and longevity. It
+                            supports charging via standard DJI chargers or charging hubs, providing a practical and
+                            field-ready power solution.
+                        </p>
+                    </div>
                 </details>
             </div>
         </div>
